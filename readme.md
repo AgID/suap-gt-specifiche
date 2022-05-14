@@ -41,7 +41,7 @@ Per la gestione del presente repo si utilizza **Artifact Branch Workflow* che pr
 2. definire il proprio contributo nel repo locale e committare il contributo prevedendo per ogni commit un messaggio per descrivere la natura del contributo (<commit_description>)
 
 ```
-    commint -am "<commit_description>"
+    commit -am "<commit_description>"
 ```
 
 3. effettuare il push del proprio contributo sul repo
