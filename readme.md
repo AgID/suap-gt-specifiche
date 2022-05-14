@@ -5,7 +5,7 @@ Repo degli artifact prodotti da:
 - tavolo operativo moduli, a cui è dedicato il folder to_moduli
 - tavolo operativo interoperabilità, a cui è dedicato il folder to_interoperabilita
 - tavolo operativo enti terzi, a cui è dedicato il folder to_enti_terzi
-- tavolo operativo catalogo, a cui è dedicato il folder to_catalogo
+- tavolo operativo catalogo, a cui è dedicato il folder [to_catalogo](https://github.com/AgID/suap-gt-specifiche/tree/main/to_moduli)
 
 
 ##  Workflow applicato per la gestione del repo
