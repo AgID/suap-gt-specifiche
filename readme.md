@@ -10,17 +10,11 @@ Repo degli artifact prodotti da:
 
 ##  Workflow applicato per la gestione del repo
 
-> **IN EVALUTATION**
-
 Per la gestione del presente repo si utilizza **Artifact Branch Workflow* che prevede:
 
-- **[SETTING LOCAL REPO]** i soggetti che partecipano alla definizione degli artifact DEVONO clonare localmente il repo
+- **[FORK DEL REPO]** i soggetti che partecipano alla definizione degli artifact DEVONO effettuare il fork del repo utilizzado l'intefaccia web di git hub
 
-```
-    git clone https://github.com/AgID/suap-gt-specifiche.git
-```
-
-- **[START EDITING ARTIFACT]** uno dei partecipanti che partecipano alla definizione degli artifact DEVONO crea un branch per artifact prevista dal piano di attività dei tavoli operativi applicando la seguente regola di naming <tavolo_operativo>#<feature_name> dove:
+- **[START EDITING ARTIFACT]** un utente Admin DEVE crea un branch per artifact prevista dal piano di attività dei tavoli operativi applicando la seguente regola di naming <tavolo_operativo>#<feature_name> dove:
 
     - <tavolo_operativo> = to_moduli | to_interoperabilita | to_enti_terzi |  to_catalogo
     - <feature_name> è il nome della feature
@@ -32,27 +26,19 @@ Per la gestione del presente repo si utilizza **Artifact Branch Workflow* che pr
 
 - **[EDITING ARTIFACT]** i soggetti che partecipano alla definizione degli artifact DEVONO 
 
-1. selezionare il branche dell'artifact a cui contribuiscono
+1. effetuare una sync fork utilizzado l'intefaccia web di git hub
 
-```
-    git checkout -b <tavolo_operativo>#<feature_name>
-```
-
-2. definire il proprio contributo nel repo locale e committare il contributo prevedendo per ogni commit un messaggio per descrivere la natura del contributo (<commit_description>)
+2. definire il proprio contributo nel proprio fork lavorando sullo specifico branch dell'artifact a cui contribuisce e prevedere per ogni commit un messaggio per descrivere la natura dello (<commit_description>)
 
 ```
     commit -am "<commit_description>"
 ```
 
-3. effettuare il push del proprio contributo sul repo
+3. effettuare pull request dal proprio fork verso il repo utilizzando l'intefaccia web di git hub 
 
-```
-    git push origin <tavolo_operativo>#<feature_name>
-```
+-  **[MERGE ARTIFACT]** l'Admin del repo effettua valutazione delle pull request e provvede a:
 
--  **[END EDITING ARTIFACT]** uno dei partecipanti che partecipano alla definizione degli artifact DEVE effettuare pull request al branch main
+    - in caso di valutazione positiva effettua il merge dello specifico branch
+    - altrimenti segnala al soggetto che hanno contribuuto alla definizione dell'artifact i dubbi in merito allo stesso
 
--  **[MERGE ARTIFACT]** l'admin del repo effettua valutazione delle pull request e provvede a:
-
-    - in caso di valutazione positiva effettua il merge
-    - altrimenti segnala ai soggetti che hanno partecipato alla definizione dell'artifact i dubbi in merito allo stesso
+-  **[MERGE MAIN]** conclusa l'attività di editing si un singolo artifact l'Admin del repo effettua valutazione il merge del relativo branche sul main
