@@ -14,14 +14,14 @@ Per la gestione del presente repo si utilizza **Artifact Branch Workflow* che pr
 
 - **[FORK DEL REPO]** i soggetti che partecipano alla definizione degli artifact DEVONO effettuare il fork del repo utilizzado l'intefaccia web di git hub
 
-- **[START EDITING ARTIFACT]** un utente Admin DEVE crea un branch per artifact prevista dal piano di attività dei tavoli operativi applicando la seguente regola di naming <tavolo_operativo>#<feature_name> dove:
+- **[START EDITING ARTIFACT]** un utente Admin DEVE crea un branch per artifact prevista dal piano di attività dei tavoli operativi applicando la seguente regola di naming <tavolo_operativo>-<feature_name> dove:
 
     - <tavolo_operativo> = to_moduli | to_interoperabilita | to_enti_terzi |  to_catalogo
     - <feature_name> è il nome della feature
 ```
     git pull
-    git checkout -b <tavolo_operativo>#<feature_name>
-    git push origin <tavolo_operativo>#<feature_name>
+    git checkout -b <tavolo_operativo>-<feature_name>
+    git push origin <tavolo_operativo>-<feature_name>
 ```
 
 - **[EDITING ARTIFACT]** i soggetti che partecipano alla definizione degli artifact DEVONO 
