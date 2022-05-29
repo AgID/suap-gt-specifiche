@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:sp="http://sezione/presentatore"
+    
+    xmlns:m01="http://moduli/01"
+    
+    targetNamespace="http://moduli/01"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://sezione/presentatore" schemaLocation="../04_sezioni/sez_presentatore.xsd"/>
+    
+    <xs:element name="moduli_01" type="m01:moduli_01_type"/>
+    
+    <xs:complexType name="moduli_01_type">
+        <xs:sequence>
+            <xs:element ref="sp:presentatore"/>
+        </xs:sequence>        
+    </xs:complexType>
+    
+</xs:schema>

@@ -1,0 +1,13 @@
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="carnilaty_check">  
+    <sch:rule context="sp:presentatore">
+        <sch:assert test="count(ep:sesso) = 0"> 
+            l'attributo persona.sesso non deve essere presente
+        </sch:assert>
+        
+        <sch:assert test="count(ed:data_rilascio) = 1">
+            l'attributo documento.data_rilascio deve essere presente
+        </sch:assert>
+                
+    </sch:rule>
+    
+</sch:pattern>

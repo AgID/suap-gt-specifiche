@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"         
+    xmlns:ep="http://entita/persona"
+    xmlns:ed="http://entita/documento"
+    
+    xmlns:sp="http://sezione/presentatore"
+    
+    targetNamespace="http://sezione/presentatore"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/persona" schemaLocation="../03_entita/ent_persona.xsd"/>
+    <xs:import namespace="http://entita/documento" schemaLocation="../03_entita/ent_documento.xsd"/>
+    
+    <xs:element name="presentatore" type="sp:presentatore_type"/>
+    
+    <xs:complexType name="presentatore_type">
+        <xs:sequence>
+            <xs:group ref="ep:persona_group"/>
+            <xs:group ref="ed:documento_group"/>
+        </xs:sequence>        
+    </xs:complexType>      
+    
+</xs:schema>

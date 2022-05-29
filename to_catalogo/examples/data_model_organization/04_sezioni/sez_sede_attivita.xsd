@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"         
+    xmlns:ei="http://entita/indirizzo"
+    
+    xmlns:ssa="http://sezione/sede_attivita"
+    
+    targetNamespace="http://sezione/sede_attivita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/indirizzo" schemaLocation="../03_entita/ent_indirizzo.xsd"/>
+    
+    <xs:element name="sede_attivita" type="ssa:sede_attivita_type"/>
+    
+    <xs:complexType name="sede_attivita_type">
+        <xs:sequence>
+            <xs:group ref="ei:indirizzo_group"></xs:group>
+            
+        </xs:sequence>        
+    </xs:complexType>      
+    
+</xs:schema>
