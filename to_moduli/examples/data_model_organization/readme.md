@@ -31,7 +31,7 @@ I requirement che DEVONO essere soddisfatti sono:
 
 Si assume l'utilizzo dello stack XML-* nel rispetto delle tecnologie selezionate dal Gruppo Tecnico di cui all'articolo 5 dell'Allegato al DPR 160/2010.
  
-## Ipotesi di soluzione
+## Soluzione
 
 ### Organizzazione degli XML Schema e Schematron
 
@@ -48,7 +48,6 @@ Per sodisfare i requisiti indicati il **modello dati** prevede i seguenti oggett
 Un **vocabolario** è definito tramite uno XML Schema che può contenere differenti forme dello stesso **vocabolario**.
 
 Una specifica forma di un **vocabolario** è definito come *simpleType* che estendono il tipo di base *string* limitando i valori ammissibili tramite *enumeration*.
-
 
 #### Attributi
 
@@ -74,8 +73,57 @@ Le **sezioni** sono definite tramite XML Schema e snipped Schematron conenente i
 
 Un XML Schema contiene la definizione di una singola **sezione**.
 
-Una **sezione** è definita come *complexType* per aggregare le **entita** definite e, ove necessario, contestuallizzando le stesse alla specfica sezioni.
+Una **sezione** è definita come *complexType* per aggregare le **entita** definite e, ove necessario, contestuallizzando le stesse alla **sezione**.
 
 Uno snipped Schematron contiene la definizione dei pattern di una singola **sezione**.
 
 I pattern inclusi nello snipped Schematron specializzando le cardinalità delle **entità** incluse nella singola **sezione*.
+
+#### Moduli
+
+I **moduli** sono definite tramite XML Schema e Schematron.
+
+Un XML Schema contiene la definizione di un singolo **modulo**.
+
+Un **modulo** è definita come *complexType* per aggregare le **sezioni** definite e, ove necessario, contestuallizzando le stesse al **modulo**.
+
+Uno Schematron contiene la definizione dei pattern di una singola **sezione**.
+
+I pattern inclusi nello Schematron definisco le dipendenze incrociate caratterizzandi il **modulo**.
+
+
+### Ciclo di vita degli XML Schema e Schematron
+
+Tutti le rappresentazioni degli oggetti, XML Schema e Schematron, indicati in precedenza sono versionate.
+
+La seguente sigura riassume le dipendenze tra gli oggetti che definiscono il data model.
+
+```mermaid
+    flowchart  LR
+        vocabolario -- tipizza un --> attributo
+        attributo -- composto in --> entita 
+        entita -- raccolto in --> sezione
+        sezione -- associato in --> modulo
+```
+
+#### Inserimento di un oggetto
+
+L'inserimento di un nuovo oggetto richiede che tutti gli oggetti di livello inferiore siano definiti. Ad esempio l'inserimento di una **entita** richiede che tutti gli **attributi** da essa composto siano definiti.
+
+#### Modifica di un oggetto
+
+La modifica di un oggetto determina l'aggiornamento della propria versione e di tutte gli oggetti di livello superiore che la contengono. Ad esempio l'aggiornamento di una **entita** determina il cambio della propria versione e delle **sezioni** che la raccolgono.
+
+Nel dettaglio per un corretto aggiornamento delle versioni delle rappresentazioni degli oggetti è necessario assicurare che:
+
+1. se si aggiorna un **modulo** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema
+2. se si aggiorna un **modulo** modificando il relativo Schematron DEVE aggiornarsi la versione dello stesso Schematron
+3. se si aggiorna una **sezione** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e dei **moduli** in cui la **sezione** è associtata (si applica per tutti i **moduli** interessati il precedent punto 1)
+3. se si aggiorna una **sezione** modificando il relativo snipped Schematron DEVE aggiornarsi la versione dello snipped Schematron e gli Schematron dei **moduli** in cui la **sezione** è associtata (si applica per tutti i **moduli** interessati il precedent punto 2)
+4. se si aggiorna una **enita** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e delle **sezioni** in cui la **enita** è raccolta (si applica per tutti le **sezioni** interessati il precedent punto 3)
+5. se si aggiorna un **attributo** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e delle **entita** in cui lo **attributo** è composto (si applica per tutte le **entita** interessate il precedent punto 4)
+6. se si aggiorna un **vocabolario** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e degli **attributi** tipizzati dal  **vocabolario** (si applica per tutti gli **attributi** interessati il precedent punto 5)
+
+
+#### Cancellazione di un oggetto
+La cancellazione di un oggetto è possibile solo se non esistono oggetti di livello superiori che lo utilizzano. Ad esempio la cancellazione di una **entita** richiede che non vi siano **sezioni** che la utilizzano.
