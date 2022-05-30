@@ -7,18 +7,21 @@
     version="1.0.0" xml:lang="it">
     
     
-    <xs:simpleType name="estremi">
+    <xs:simpleType name="estremi_stype">
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
         </xs:restriction>        
     </xs:simpleType>
     
-    <xs:simpleType name="rilasciato_da">
+    <xs:simpleType name="rilasciato_da_stype">
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
         </xs:restriction>
     </xs:simpleType>
     
+    <xs:simpleType name="data_rilascio_stype_stype">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
     
     
 </xs:schema>

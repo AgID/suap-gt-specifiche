@@ -5,7 +5,7 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xs:simpleType name="sesso_enum">
+    <xs:simpleType name="sesso_vocabulary">
         <xs:restriction base="xs:string">
             <xs:enumeration value="maschio"/>
             <xs:enumeration value="femmina"/>
@@ -13,7 +13,7 @@
     </xs:simpleType>
     
     
-    <xs:simpleType name="sesso_breve_enum">
+    <xs:simpleType name="sesso_short_vocabulary">
         <xs:restriction base="xs:string">
             <xs:enumeration value="m"/>
             <xs:enumeration value="f"/>

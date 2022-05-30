@@ -15,7 +15,7 @@
             <xs:element name="nome" type="ap:nome_stype" minOccurs="1" maxOccurs="3"/>
             <xs:element name="cognome" type="ap:cognome_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="sesso" type="ap:sesso_stype" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="data_nascita" type="xs:date" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="data_nascita" type="ap:data_nascita_stype" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>        
     </xs:group>      
     

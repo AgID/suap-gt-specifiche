@@ -28,7 +28,11 @@
     </xs:simpleType>
     
     <xs:simpleType name="sesso_stype">
-        <xs:restriction base="vpc:sesso_enum"/>
+        <xs:restriction base="vpc:sesso_vocabulary"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="data_nascita_stype">
+        <xs:restriction base="xs:date"/>
     </xs:simpleType>
     
 </xs:schema>

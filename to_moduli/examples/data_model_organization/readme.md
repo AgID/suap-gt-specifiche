@@ -1,10 +1,6 @@
-# Esempio di organizzazione del data model 
+# Organizzazione del data model per la gestione dei moduli SUAP
 
-Si riporta un esempio di organizzazione del data model per la digitalizzaione dei 
-moduli unificati e standardizzati.
-
-
-Valgono le seguenti definizioni:
+In quanto segue valgono le seguenti definizioni:
 
 - **regole condivise** sono la rappresentazione digitale dei moduli unificati e standardizzati 
 - **modulo digitale** è una specifica istanza di un modulo unificato e standardizzato 
@@ -12,7 +8,44 @@ Valgono le seguenti definizioni:
 - **modulo digitale** è *completo* se i dati in esso presenti sono almeno tutti quelli definiti obbligatori nelle **regole condivise** 
 
 
-## Requsiti
+Nel presente folder è riportato un esempio di applicazione del organizzazione del data model per la digitalizzaione dei 
+moduli unificati e standardizzati, nello specifico l'esempio prevede:
+
+- 1 vocabolario
+- 13 attributi organizzati in 3 XML Schema
+- 3 entità
+- 2 sezioni
+- 2 moduli
+
+La seguente figura sintetizza le relazione tra gli oggetti inclusi nell'esempio riportato.
+
+```mermaid
+    flowchart  LR
+        att_documento.estremi_stype -- composto in --> ent_documento
+        att_documento.rilasciato_da_stype -- composto in --> ent_documento
+        att_documento.data_rilascio_stype_stype -- composto in --> ent_documento
+    
+        att_indirizzo.via_stype -- composto in --> ent_indirizzo
+        att_indirizzo.numero_civico_stype -- composto in --> ent_indirizzo
+        att_indirizzo.comune_stype -- composto in --> ent_indirizzo
+        
+        att_persona.nome_stype -- composto in --> ent_persona
+        att_persona.cognome_stype -- composto in --> ent_persona
+        att_persona.codice_fiscale_stype -- composto in --> ent_persona
+        voc_persona_genere -- tipizza --> att_persona.sesso_stype
+        att_persona.sesso_stype -- composto in --> ent_persona
+        att_persona.data_nascita_stype -- composto in --> ent_persona
+    
+        ent_documento -- raccolto in --> sez_presentatore    
+        ent_persona -- raccolto in --> sez_presentatore
+        ent_indirizzo -- raccolto in --> sez_sede_attivita
+        
+        sez_presentatore -- associato in --> mod_01
+        sez_presentatore -- associato in --> mod_02
+        sez_sede_attivita -- associato in --> mod_02
+```
+
+## Requisiti
 
 I requirement che DEVONO essere soddisfatti sono:
 
@@ -77,7 +110,7 @@ Una **sezione** è definita come *complexType* per aggregare le **entita** defin
 
 Uno snipped Schematron contiene la definizione dei pattern di una singola **sezione**.
 
-I pattern inclusi nello snipped Schematron specializzano le cardinalità delle **entità** incluse nella singola **sezione*.
+I pattern inclusi nello snipped Schematron specializzano le cardinalità delle **entità** incluse nella singola **sezione**.
 
 #### Moduli
 
