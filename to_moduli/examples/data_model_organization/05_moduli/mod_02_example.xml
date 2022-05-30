@@ -15,9 +15,11 @@
         <ep:codice_fiscale>AAAAAA00A00A000A</ep:codice_fiscale>
         <ep:nome>nome</ep:nome>        
         <ep:cognome>cognome</ep:cognome>
-        <ed:estremi>estremi</ed:estremi>
-        <ed:rilasciato_da>rilasciato_da</ed:rilasciato_da>
-        <ed:data_rilascio>2002-09-24</ed:data_rilascio>
+        <sp:documento_riconoscimento>
+            <ed:estremi>estremi</ed:estremi>
+            <ed:rilasciato_da>rilasciato_da</ed:rilasciato_da>
+            <ed:data_rilascio>2002-09-24</ed:data_rilascio>    
+        </sp:documento_riconoscimento>
     </sp:presentatore>
     <ssa:sede_attivita>
         <ei:via>nome_via</ei:via>
