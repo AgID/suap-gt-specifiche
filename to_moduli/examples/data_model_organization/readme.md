@@ -77,7 +77,7 @@ Una **sezione** è definita come *complexType* per aggregare le **entita** defin
 
 Uno snipped Schematron contiene la definizione dei pattern di una singola **sezione**.
 
-I pattern inclusi nello snipped Schematron specializzando le cardinalità delle **entità** incluse nella singola **sezione*.
+I pattern inclusi nello snipped Schematron specializzano le cardinalità delle **entità** incluse nella singola **sezione*.
 
 #### Moduli
 
