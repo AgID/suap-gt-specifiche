@@ -63,7 +63,7 @@ Un **attributo** è definito come *simpleType* utilizzando la capacità dichiara
 
 Le **entità** sono definite tramite XML Schema.
 
-Un XML Schema contiene la definizione di una singola **entita**.
+Un XML Schema contiene la definizione di una singola **entità**.
 
 Una **entità** è definita come *group* per aggregare gli **attributi** definiti, e per ognuno le cardinalità ammissibili (*minOccurs* e *maxOccurs*), che la compongono.
 
