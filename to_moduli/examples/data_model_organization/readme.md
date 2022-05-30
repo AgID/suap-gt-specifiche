@@ -12,7 +12,7 @@ Valgono le seguenti definizioni:
 - **modulo digitale** è *completo* se i dati in esso presenti sono almeno tutti i quelli obbligatori indicati nelle **regole condivise** 
 
 
-##Requsiti
+## Requsiti
 I requirement considerati sono:
 
 - REQ_01: le **regole condivise** DEVONO esprimere la seguente tipologia di vincoli:
@@ -24,4 +24,4 @@ I requirement considerati sono:
 - REQ_02: i **moduli digitali** scambiati tra le componenti DEVONO essere *corretti* e *completi*
 - REQ_03: dati due **moduli digitali** si DEVONO poter individuare i dati presenti contemporaneamente su essi
  
-##Soluzione
+## Soluzione
