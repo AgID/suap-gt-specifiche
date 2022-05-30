@@ -81,7 +81,7 @@ I pattern inclusi nello snipped Schematron specializzano le cardinalità delle *
 
 #### Moduli
 
-I **moduli** sono definite tramite XML Schema e Schematron.
+I **moduli** sono definiti tramite XML Schema e Schematron.
 
 Un XML Schema contiene la definizione di un singolo **modulo**.
 
