@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    xmlns:ai="http://attributi/indirizzo"
+    
+    xmlns:ei="http://entita/indirizzo"
+    targetNamespace="http://entita/indirizzo"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://attributi/indirizzo" schemaLocation="../02_attributi/att_indirizzo.xsd"/>
+    
+    <xs:group name="indirizzo_group">
+        <xs:sequence>
+            <xs:element name="via" type="ai:via_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_civico" type="ai:numero_civico_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="comune" type="ai:comune_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:group>      
+    
+</xs:schema>
