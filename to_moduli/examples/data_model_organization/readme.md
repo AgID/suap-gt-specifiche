@@ -150,11 +150,17 @@ La modifica di un oggetto determina l'aggiornamento della propria versione e di 
 Per un corretto aggiornamento delle versioni delle rappresentazioni degli oggetti è necessario assicurare che:
 
 1. se si aggiorna un **modulo** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema
+
 2. se si aggiorna un **modulo** modificando il relativo Schematron DEVE aggiornarsi la versione dello stesso Schematron
-3. se si aggiorna una **sezione** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e dei **moduli** in cui la **sezione** è associata (si applica per tutti i **moduli** interessati il precedente punto 1)
+
+3. se si aggiorna una **sezione** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e dei **moduli** in cui la **sezione** è associata (si applica per tutti i **moduli** interessati il precedente punto 1 e si verfica la coerenza dei pattern presenti nei relativi Schematron)
+
 4. se si aggiorna una **sezione** modificando il relativo snipped Schematron DEVE aggiornarsi la versione dello snipped Schematron e gli Schematron dei **moduli** in cui la **sezione** è associata (si applica per tutti i **moduli** interessati il precedente punto 2)
-5. se si aggiorna una **entità** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e delle **sezioni** in cui l'**entità** è raccolta (si applica per tutte le **sezioni** interessate il precedente punto 3)
+
+5. se si aggiorna una **entità** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e delle **sezioni** in cui l'**entità** è raccolta (si applica per tutte le **sezioni** interessate il precedente punto 3 e si verifica la coerenza dei pattern presenti nei relativi snipped Schematron)
+
 6. se si aggiorna un **attributo** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e delle **entità** in cui l'**attributo** è composto (si applica per tutte le **entità** interessate il precedente punto 5)
+
 7. se si aggiorna un **vocabolario** modificando il relativo XML Schema DEVE aggiornarsi la versione dello stesso XML Schema e degli **attributi** tipizzati dal  **vocabolario** (si applica per tutti gli **attributi** interessati il precedent punto 6)
 
 
