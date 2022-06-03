@@ -7,6 +7,8 @@
     <sch:ns prefix="sp" uri="http://sezione/presentatore"/>
 
 
-    <sch:include href="../04_sezioni/sez_presentatore.patterns"/>    
+    <sch:include href="../04_sezioni/sez_presentatore_v1.0.0.patterns"/>    
     
 </sch:schema>
+
+<!-- version: 1.0.0 -->

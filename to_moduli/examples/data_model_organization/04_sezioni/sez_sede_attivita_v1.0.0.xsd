@@ -8,7 +8,7 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xs:import namespace="http://entita/indirizzo" schemaLocation="../03_entita/ent_indirizzo.xsd"/>
+    <xs:import namespace="http://entita/indirizzo" schemaLocation="../03_entita/ent_indirizzo_v1.0.0.xsd"/>
     
     <xs:element name="sede_attivita" type="ssa:sede_attivita_type"/>
     
