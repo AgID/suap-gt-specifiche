@@ -19,7 +19,7 @@
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="data_rilascio_stype_stype">
+    <xs:simpleType name="data_rilascio_stype">
         <xs:restriction base="xs:date"/>
     </xs:simpleType>
     
