@@ -14,8 +14,8 @@
     </xs:simpleType>    
     
     <xs:simpleType name="numero_civico_stype">
-        <xs:restriction base="xs:integer">
-            <xs:minExclusive value="0"/>
+       <xs:restriction base="xs:string">
+            <xs:minExclusive value="1"/>
         </xs:restriction>
     </xs:simpleType>
     
