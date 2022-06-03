@@ -9,8 +9,8 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xs:import namespace="http://entita/persona" schemaLocation="../03_entita/ent_persona.xsd"/>
-    <xs:import namespace="http://entita/documento" schemaLocation="../03_entita/ent_documento.xsd"/>
+    <xs:import namespace="http://entita/persona" schemaLocation="../03_entita/ent_persona_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/documento" schemaLocation="../03_entita/ent_documento_v1.0.0.xsd"/>
     
     <xs:element name="presentatore" type="sp:presentatore_type"/>
     

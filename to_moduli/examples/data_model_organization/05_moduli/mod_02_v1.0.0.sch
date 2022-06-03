@@ -10,8 +10,8 @@
     <sch:ns prefix="ssa" uri="http://sezione/sede_attivita"/>
     <sch:ns prefix="m02" uri="http://moduli/02"/>
     
-    <sch:include href="../04_sezioni/sez_presentatore.patterns"/>
-    <sch:include href="../04_sezioni/sez_sede_attivita.patterns"/>     
+    <sch:include href="../04_sezioni/sez_presentatore_v1.0.0.patterns"/>
+    <sch:include href="../04_sezioni/sez_sede_attivita_v1.0.0.patterns"/>     
     
     <sch:pattern  id="crossed_check">  
         <sch:rule context="m02:moduli_02">
@@ -26,3 +26,5 @@
     </sch:phase>
     
 </sch:schema>
+
+<!-- version: 1.0.0 -->
