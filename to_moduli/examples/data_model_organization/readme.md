@@ -41,4 +41,4 @@ La seguente figura sintetizza le relazione tra gli oggetti inclusi nell'esempio 
         sez_presentatore -- associato in --> mod_01
 ```
 
-Il Modello dati dei Moduli digitali è riportato al seguente URL https://docs.google.com/document/d/1H8MWx76QyqMuJAURM8acNDRmHfcWhF42ZzdXU3NjSRI/edit#
+L'organizzazione dei Moduli digitali è riportato al seguente URL https://docs.google.com/document/d/1H8MWx76QyqMuJAURM8acNDRmHfcWhF42ZzdXU3NjSRI/edit#
