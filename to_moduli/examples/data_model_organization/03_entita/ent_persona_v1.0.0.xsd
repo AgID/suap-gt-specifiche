@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"        
     xmlns:ap="http://attributi/persona"
+    xmlns:al="http://attributi/luogo"
     
     xmlns:ep="http://entita/persona"
     targetNamespace="http://entita/persona"
@@ -8,14 +9,16 @@
     version="1.0.0" xml:lang="it">
     
     <xs:import namespace="http://attributi/persona" schemaLocation="../02_attributi/att_persona_v1.0.0.xsd"/>
+    <xs:import namespace="http://attributi/luogo" schemaLocation="../02_attributi/att_luogo_v1.0.0.xsd"/>
        
     <xs:group name="persona_group">
         <xs:sequence>
             <xs:element name="codice_fiscale" type="ap:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="nome" type="ap:nome_stype" minOccurs="1" maxOccurs="3"/>
             <xs:element name="cognome" type="ap:cognome_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="sesso" type="ap:sesso_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="sesso" type="ap:sesso_stype" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="data_nascita" type="ap:data_nascita_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="luogo_nascita" type="al:comune_stype" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>        
     </xs:group>      
     
