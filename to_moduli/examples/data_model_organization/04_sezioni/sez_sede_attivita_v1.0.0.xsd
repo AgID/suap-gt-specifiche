@@ -10,13 +10,19 @@
     
     <xs:import namespace="http://entita/indirizzo" schemaLocation="../03_entita/ent_indirizzo_v1.0.0.xsd"/>
     
-    <xs:element name="sede_attivita" type="ssa:sede_attivita_type"/>
+    <xs:element name="sede_attivita" type="ssa:sede_attivita_atype"/>
+    
+    <xs:complexType name="sede_attivita_atype" abstract="true">        
+    </xs:complexType>      
     
     <xs:complexType name="sede_attivita_type">
-        <xs:sequence>
-            <xs:group ref="ei:indirizzo_group"></xs:group>
-            
-        </xs:sequence>        
+        <xs:complexContent>
+            <xs:extension base="ssa:sede_attivita_atype">
+                <xs:sequence>
+                    <xs:group ref="ei:indirizzo_group"></xs:group>            
+                </xs:sequence>                
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>      
     
 </xs:schema>

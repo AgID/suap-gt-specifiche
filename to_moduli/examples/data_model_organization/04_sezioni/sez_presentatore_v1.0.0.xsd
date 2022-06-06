@@ -26,6 +26,6 @@
             </xs:element>
             
         </xs:sequence>        
-    </xs:complexType>      
+    </xs:complexType> 
     
 </xs:schema>
