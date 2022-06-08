@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:el="http://entita/luogo"
+    
+    xmlns:ei="http://entita/indirizzo"
+    targetNamespace="http://entita/indirizzo"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/luogo" schemaLocation="../02_entita/ent_luogo_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="via_stype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>    
+    
+    <xs:simpleType name="numero_civico_stype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:group name="indirizzo_group">
+        <xs:sequence>
+            <xs:element name="via" type="ei:via_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_civico" type="ei:numero_civico_stype" minOccurs="0" maxOccurs="1"/>  
+            
+            <xs:element name="luogo_indirizzo" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="el:luogo_group"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+        </xs:sequence>        
+    </xs:group>      
+    
+</xs:schema>
