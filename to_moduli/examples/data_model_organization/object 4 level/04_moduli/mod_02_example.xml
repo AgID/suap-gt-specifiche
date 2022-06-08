@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<m02:moduli_02 xmlns:ap="http://attributi/persona"
- xmlns:ep="http://entita/persona"
- xmlns:vpc="http://vocabolari/persona_genere"
- xmlns:ai="http://attributi/indirizzo"
- xmlns:ei="http://entita/indirizzo"
- xmlns:sp="http://sezione/presentatore"
- xmlns:ssa="http://sezione/sede_attivita"
- xmlns:m02="http://moduli/02"
- xmlns:ad="http://attributi/documento"
- xmlns:ed="http://entita/documento"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<m02:moduli_02 
+    xmlns:ep="http://entita/persona"
+    xmlns:ei="http://entita/indirizzo"
+    xmlns:el="http://entita/luogo"
+    xmlns:ed="http://entita/documento"
+    
+    xmlns:sp="http://sezione/presentatore"
+    xmlns:ssa="http://sezione/sede_attivita"
+    
+    xmlns:m02="http://moduli/02"   
+    
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
     <sp:presentatore>
         <ep:codice_fiscale>AAAAAA00A00A000A</ep:codice_fiscale>
         <ep:nome>nome</ep:nome>        
@@ -22,6 +24,8 @@
     </sp:presentatore>
     <ssa:sede_attivita xsi:type="ssa:sede_attivita_type">
         <ei:via>nome_via</ei:via>        
-        <ei:comune>comune</ei:comune>
+        <ei:luogo_indirizzo>
+          <el:comune>comune</el:comune>
+        </ei:luogo_indirizzo>
     </ssa:sede_attivita>
 </m02:moduli_02>

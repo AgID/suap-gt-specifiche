@@ -1,0 +1,9 @@
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_sede_attivita">
+    <sch:rule context="ssa:sede_attivita">
+        <sch:assert test="count(ei:numero_civico) = 0"> 
+            l'attributo sede_attivita.numero_civico non deve essere presente
+        </sch:assert>
+    </sch:rule>
+</sch:pattern>
+
+<!-- version: 1.0.0 -->

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    
+    xmlns:ed="http://entita/documento"
+    targetNamespace="http://entita/documento"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+   
+   
+    <xs:simpleType name="estremi_stype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>        
+    </xs:simpleType>
+    
+    <xs:simpleType name="rilasciato_da_stype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>          
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="data_rilascio_stype">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    
+    
+    <xs:group name="documento_group">
+        <xs:sequence>
+            <xs:element name="estremi" type="ed:estremi_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="rilasciato_da" type="ed:rilasciato_da_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="data_rilascio" type="ed:data_rilascio_stype" minOccurs="0" maxOccurs="1"/>                      
+        </xs:sequence>        
+    </xs:group>      
+    
+</xs:schema>
