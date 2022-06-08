@@ -4,7 +4,7 @@ Nel presente folder è riportato un esempio di applicazione del organizzazione d
 moduli unificati e standardizzati, nello specifico l'esempio prevede:
 
 - 1 vocabolario rappresetato in 1 XML Schema
-- 14 attributi rappresetat1 in 4 XML Schema
+- 12 attributi rappresetat1 in 4 XML Schema
 - 3 entità rappresetat1 in 3 XML Schema
 - 2 sezioni rappresetat1 in 2 XML Schema e snipped Schematron
 - 2 moduli rappresetat1 in 2 XML Schema e Schematron
