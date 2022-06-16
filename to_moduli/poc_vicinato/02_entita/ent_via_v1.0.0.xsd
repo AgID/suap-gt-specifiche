@@ -7,6 +7,8 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
+    <xs:import namespace="http://vocabolari/dug" schemaLocation="../01_vocabolari/voc_dug_v1.0.0.xsd"/>
+    
     <xs:simpleType name="dug_stype">
         <xs:restriction base="base="vd:dug_vocabulary""/>
     </xs:simpleType>
