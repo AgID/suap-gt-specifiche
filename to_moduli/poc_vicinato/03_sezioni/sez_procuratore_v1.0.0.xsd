@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"         
     xmlns:econ="http://entita/contatti"
-    xmlns:ed="http://entita/documento"
     
     xmlns:sp="http://sezione/procuratore"
     targetNamespace="http://sezione/procuratore"
@@ -15,16 +14,9 @@
     
     <xs:complexType name="procuratore_type">
         <xs:sequence>
-            <xs:group ref="ep:persona_group"/>
-            <xs:element name="documento_riconoscimento">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="ed:documento_group"/>
-                    </xs:sequence>
-                </xs:complexType>    
-            </xs:element>
-            
-        </xs:sequence>        
+            <xs:element name="contatti" type="econ:contatti_ctype"/>
+        </xs:sequence>           
     </xs:complexType> 
+
     
 </xs:schema>
