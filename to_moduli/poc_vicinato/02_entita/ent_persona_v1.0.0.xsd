@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:vpc="http://vocabolari/persona_genere"
-    xmlns:el="http://entita/luogo"
     
     xmlns:ep="http://entita/persona"
     targetNamespace="http://entita/persona"
@@ -10,7 +9,6 @@
     
     
     <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
-    <xs:import namespace="http://entita/luogo" schemaLocation="../02_entita/ent_luogo_v1.0.0.xsd"/>
     
     <xs:simpleType name="nome_stype">
         <xs:restriction base="xs:string">
@@ -45,8 +43,7 @@
             <xs:element name="nome" type="ep:nome_stype" minOccurs="1" maxOccurs="3"/>
             <xs:element name="cognome" type="ep:cognome_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="sesso" type="ep:sesso_stype" minOccurs="0" maxOccurs="1"/>            
-            <xs:element name="data_nascita" type="ep:data_nascita_stype" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="luogo_nascita" minOccurs="0" maxOccurs="1" type="el:luogo_ctype"/>                
+            <xs:element name="data_nascita" type="ep:data_nascita_stype" minOccurs="0" maxOccurs="1"/>              
         </xs:sequence>        
     </xs:complexType>
   
