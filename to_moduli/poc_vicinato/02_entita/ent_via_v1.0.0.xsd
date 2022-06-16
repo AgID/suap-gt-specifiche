@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    xmlns:vd="http://vocabolari/dug"
+           
+    xmlns:ev="http://entita/via"
+    targetNamespace="http://entita/via"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="dug_stype">
+        <xs:restriction base="base="vd:dug_vocabulary""/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="denominazione_stradale_stype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    <xs:simpleType name="numero_civico_stype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="via_ctype">
+        <xs:sequence>
+            <xs:element name="dug" type="ev:dug_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="denominazione_stradale" type="ev:denominazione_stradale_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_civico" type="ev:numero_civico_styper" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:complexType>
+    
+</xs:schema>
