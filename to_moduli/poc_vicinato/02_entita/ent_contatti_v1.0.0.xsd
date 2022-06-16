@@ -28,7 +28,7 @@
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:complexType name="comune_ctype">
+    <xs:complexType name="contatti_ctype">
         <xs:sequence>
             <xs:element name="telefono" type="econ:telefono_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="email" type="econ:email_stype" minOccurs="1" maxOccurs="1"/>
