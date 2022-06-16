@@ -24,7 +24,6 @@
         <xs:sequence>
             <xs:element name="comune" type="ec:comune_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="provincia" type="ec:provincia_stype" minOccurs="1" maxOccurs="1"/>    
-            <xs:element name="cap" type="ec:cap_stype" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>        
     </xs:complexType>
     
