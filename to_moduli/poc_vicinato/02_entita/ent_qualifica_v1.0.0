@@ -7,6 +7,8 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
+    <xs:import namespace="http://vocabolari/qualifica" schemaLocation="../01_vocabolari/voc_qualifica_v1.0.0.xsd"/>
+    
     <xs:simpleType name="qualifica_stype">
         <xs:restriction base="vqual:qualifica_vocabulary">
     </xs:simpleType>
