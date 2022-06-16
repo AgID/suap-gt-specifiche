@@ -8,7 +8,7 @@
     <!-- Si potrebbe collegare ad un vocabolario  -->
     <xs:simpleType name="stato_stype">
         <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
+            <xs:minLength value="3"/>
         </xs:restriction>
     </xs:simpleType>
     
