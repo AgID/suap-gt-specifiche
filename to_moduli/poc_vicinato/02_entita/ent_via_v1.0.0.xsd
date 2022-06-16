@@ -23,11 +23,18 @@
         </xs:restriction>
     </xs:simpleType>
     
+        <xs:simpleType name="cap_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
     <xs:complexType name="via_ctype">
         <xs:sequence>
             <xs:element name="dug" type="ev:dug_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="denominazione_stradale" type="ev:denominazione_stradale_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="numero_civico" type="ev:numero_civico_styper" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="cap" type="ev:cap_stype" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>        
     </xs:complexType>
     
