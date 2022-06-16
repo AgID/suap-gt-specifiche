@@ -18,12 +18,6 @@
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="cap_stype">
-        <xs:restriction base="xs:integer">
-            <xs:length value="5"/>
-        </xs:restriction>
-    </xs:simpleType>
-    
     <!-- eventuale codice catastale -->
     
     <xs:complexType name="comune_ctype">
