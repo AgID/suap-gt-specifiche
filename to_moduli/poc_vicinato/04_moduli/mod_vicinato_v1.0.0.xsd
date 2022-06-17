@@ -6,7 +6,6 @@
     xmlns:smvv="http://sezione/modalita_vendita_vicinato"
     xmlns:sse="http://sezione/stagionalita_esercizio"
     xmlns:stav="http://sezione/tipologia_attivita_vicinato"
-    xmlns:sdc="http://sezione/dati_catastali"
       
     xmlns:mvicinato="http://moduli/vicinato"
     targetNamespace="http://moduli/vicinato"
@@ -30,7 +29,6 @@
             <xs:element ref="smvv:modalita_vendita_vicinato"/>
             <xs:element ref="sse:stagionalita_esercizio"/>
             <xs:element ref="stav:tipologia_attivita_vicinato"/>
-            <xs:element ref="sdc:dati_catastali"/>
         </xs:sequence>        
     </xs:complexType>
     
