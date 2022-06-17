@@ -2,6 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:sdc="http://sezione/dati_catastali"
     xmlns:si="http://sezione/impresa"
+    xmlns:stans="http://sezione/tipologia_attivita_notifica_sanitaria"
       
     xmlns:mnotifica_sanitaria="http://moduli/notifica_sanitaria"
     targetNamespace="http://moduli/mnotifica_sanitaria"
@@ -10,6 +11,7 @@
     
   <xs:import namespace="http://sezione/dati_catastali" schemaLocation="../03_sezioni/sez_dati_catastali_v1.0.0.xsd"/>
   <xs:import namespace="http://sezione/impresa" schemaLocation="../03_sezioni/sez_impresa_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/tipologia_attivita_notifica_sanitaria" schemaLocation="../03_sezioni/sez_tipologia_attivita_notifica_sanitaria_v1.0.0.xsd"/>
     
     <xs:element name="notifica_sanitaria" type="mnotifica_sanitaria:notifica_sanitaria_type"/>
     
@@ -17,7 +19,7 @@
         <xs:sequence>
             <xs:element ref="sdc:dati_catastali"/>
             <xs:element ref="si:impresa"/>
-
+            <xs:element ref="stans:tipologia_attivita_notifica_sanitaria"/>
 
         </xs:sequence>        
     </xs:complexType>
