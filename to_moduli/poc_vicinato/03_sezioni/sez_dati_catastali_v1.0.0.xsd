@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           
+    xmlns:sdc="http://sezione/dati_catastali"
+    targetNamespace="http://sezione/dati_catastali"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+  
+    <xs:simpleType name="foglio_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+     <xs:simpleType name="particella_mapppale_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    <xs:simpleType name="subalterno_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    <xs:simpleType name="sezione_censuaria_terreni_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    <xs:simpleType name="sezione_amministrativa_fabbricati_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+      <xs:simpleType name="sezione_urbana_fabbricati_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    <xs:simpleType name="classe_stype">
+        <xs:restriction base="xs:string">
+            <xs:length value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+      <xs:simpleType name="categoria_stype">
+        <xs:restriction base="xs:string">
+            <xs:length value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="dati_catastali" type="sp:dati_catastali_type"/>
+    
+    <xs:complexType name="dati_catastali_type">
+        <xs:sequence>
+            <xs:element name="contatti" type="econ:contatti_ctype"/>
+            <xs:element name="indirizzo" type="ei:indirizzo_ctype"/>
+            <xs:element name="persona" type="ep:persona_ctype"/>
+        </xs:sequence>           
+    </xs:complexType> 
+
+    
+</xs:schema>
