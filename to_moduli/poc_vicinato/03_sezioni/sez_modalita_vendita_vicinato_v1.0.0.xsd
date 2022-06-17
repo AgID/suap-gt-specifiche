@@ -13,14 +13,17 @@
 
     
     <xs:complexType name="modalita_vendita_vicinato_type">
-           <xs:complexType>
-                    <xs:choice>
+          <xs:complexContent>
+            <xs:extension base="smvv:modalita_vendita_vicinato_atype">
+                 <xs:choice>
                         <xs:element name="vendita_dettaglio" type="xs:decimal">
                         </xs:element>
                         <xs:element name="vendita_congiunta_dettaglio_ingrosso" type="xs:decimal">
                         </xs:element>
-                    </xs:choice>
-                </xs:complexType>      
+                  </xs:choice>               
+            </xs:extension>
+        </xs:complexContent>
+                   
     </xs:complexType> 
 
 </xs:schema>
