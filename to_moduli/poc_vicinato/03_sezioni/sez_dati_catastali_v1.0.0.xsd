@@ -11,7 +11,7 @@
     <xs:import namespace="http://entita/dati_catastali_fabbricati" schemaLocation="../02_entita/ent_dati_catastali_fabbricati_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/dati_catastali_terreni" schemaLocation="../02_entita/ent_dati_catastali_terreni_v1.0.0.xsd"/>
     
-    <xs:element name="dati_catastali" type="sp:dati_catastali_type"/>
+    <xs:element name="dati_catastali" type="sdc:dati_catastali_type"/>
     
     <xs:complexType name="dati_catastali_type">
         <xs:sequence>
