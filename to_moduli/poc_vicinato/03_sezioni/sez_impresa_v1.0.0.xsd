@@ -21,7 +21,7 @@
         <xs:sequence>
             <xs:element name="contatti" type="econ:contatti_ctype"/>
             <xs:element name="indirizzo" type="ei:indirizzo_ctype"/>
-            <xs:element name="persona" type="ep:persona_ctype"/>
+            <xs:element name="titolare" type="ep:persona_ctype"/>
             <xs:element name="impresa" type="eimp:impresa_ctype"/>
         </xs:sequence>           
     </xs:complexType> 
