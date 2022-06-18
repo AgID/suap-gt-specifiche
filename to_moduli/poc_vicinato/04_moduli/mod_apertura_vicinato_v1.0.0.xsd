@@ -6,6 +6,7 @@
     xmlns:smvv="http://sezione/modalita_vendita_vicinato"
     xmlns:sse="http://sezione/stagionalita_esercizio"
     xmlns:stav="http://sezione/tipologia_attivita_vicinato"
+    xmlns:ssms="http://sezione/settore_merceologico_superfice"
       
     xmlns:mvicinato="http://moduli/apertura_vicinato"
     targetNamespace="http://moduli/apertura_vicinato"
@@ -18,6 +19,7 @@
   <xs:import namespace="http://sezione/modalita_vendita_vicinato" schemaLocation="../03_sezioni/sez_modalita_vendita_vicinato_v1.0.0.xsd"/>
   <xs:import namespace="http://sezione/stagionalita_esercizio" schemaLocation="../03_sezioni/sez_stagionalita_esercizio_v1.0.0.xsd"/>
   <xs:import namespace="http://sezione/tipologia_attivita_vicinato" schemaLocation="../03_sezioni/sez_tipologia_attivita_vicinato_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/settore_merceologico_superfice" schemaLocation="../03_sezioni/sez_settore_merceologico_superfice_v1.0.0.xsd"/>
     
     <xs:element name="apertura_vicinato" type="mvicinato:apertura_vicinato_type"/>
     
@@ -29,6 +31,7 @@
             <xs:element ref="smvv:modalita_vendita_vicinato"/>
             <xs:element ref="sse:stagionalita_esercizio"/>
             <xs:element ref="stav:tipologia_attivita_vicinato"/>
+            <xs:element ref="ssms:settore_merceologico_superfice"/>
         </xs:sequence>        
     </xs:complexType>
     
