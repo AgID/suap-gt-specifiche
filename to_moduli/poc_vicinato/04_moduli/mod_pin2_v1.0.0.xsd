@@ -3,6 +3,7 @@
     xmlns:srpvvf="http://sezione/rif_pratica_vvf"
     xmlns:sdc="http://sezione/dati_catastali"
     xmlns:si="http://sezione/impresa"
+    xmlns:scnsa="http://sezione/cat_num_sottoclasse_attivita"
       
     xmlns:mpin2="http://moduli/pin2"
     targetNamespace="http://moduli/pin2"
@@ -12,6 +13,7 @@
   <xs:import namespace="http://sezione/rif_pratica_vvf" schemaLocation="../03_sezioni/sez_dati_rif_pratica_vvf_v1.0.0.xsd"/>
   <xs:import namespace="http://sezione/impresa" schemaLocation="../03_sezioni/sez_impresa_v1.0.0.xsd"/>
   <xs:import namespace="http://sezione/dati_catastali" schemaLocation="../03_sezioni/sez_dati_catastali_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/cat_num_sottoclasse_attivita" schemaLocation="../03_sezioni/sez_cat_num_sottoclasse_attivita_v1.0.0.xsd"/>
     
     <xs:element name="pin2" type="mpin2:pin2_type"/>
     
@@ -20,6 +22,7 @@
             <xs:element ref="sdc:dati_catastali"/>
             <xs:element ref="si:impresa"/>
             <xs:element ref="srpvvf:rif_pratica_vvf"/>
+            <xs:element ref="scnsa:cat_num_sottoclasse_attivita"/>
         </xs:sequence>        
     </xs:complexType>
     
