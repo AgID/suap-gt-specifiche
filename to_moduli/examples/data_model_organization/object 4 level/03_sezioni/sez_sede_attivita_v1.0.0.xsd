@@ -17,9 +17,9 @@
     
     <xs:complexType name="sede_attivita_type">
         <xs:complexContent>
-            <xs:extension base="ssa:sede_attivita_atype">
+            <xs:extension base="ssa:sede_attivita_atype">               
                 <xs:sequence>
-                    <xs:group ref="ei:indirizzo_group"></xs:group>            
+                    <xs:element name="indirizzo" type="ei:indirizzo_ctype"/>                      
                 </xs:sequence>                
             </xs:extension>
         </xs:complexContent>

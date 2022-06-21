@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:ealdi="http://entita/altre_dichiarazioni"
+    
+    xmlns:saldi="http://sezione/altre_dichiarazioni"
+    targetNamespace="http://sezione/altre_dichiarazioni"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/altre_dichiarazioni" schemaLocation="../02_entita/ent_altre_dichiarazioni_v1.0.0.xsd"/>
+   
+    
+    <xs:complexType name="altre_dichiazioni">
+        <xs:complexContent>
+            <xs:extension base="ealdi:altre_dichiarazioni_ctype_italia"/>
+        </xs:complexContent>
+    </xs:complexType>
+    
+</xs:schema>

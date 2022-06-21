@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:edaca="http://entita/dati_catastali"
+    
+    xmlns:sdaca="http://sezione/dati_catastali"
+    targetNamespace="http://sezione/dati_catastali"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">    
+    
+    <xs:import namespace="http://entita/dati_catastali" schemaLocation="../02_entita/ent_dati_catastali_v1.0.0.xsd"/>
+
+    <xs:complexType name="dati_catastali_type" abstract="true">
+    </xs:complexType>
+
+    <xs:complexType name="dati_catastali_type_italia">
+        <xs:complexContent>
+            <xs:extension base="edaca:dati_catastali_ctype"/>
+        </xs:complexContent>
+    </xs:complexType>    
+</xs:schema>

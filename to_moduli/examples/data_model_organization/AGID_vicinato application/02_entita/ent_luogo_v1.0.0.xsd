@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vcom="http://vocabolari/comuni"
+    
+    xmlns:eluo="http://entita/luogo"
+    targetNamespace="http://entita/luogo"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://vocabolari/comuni" schemaLocation="../01_vocabolari/voc_comuni_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="via_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="civico_stype">
+        <xs:restriction base="xs:integer"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="comune_stype">
+        <xs:restriction base="vcom:comune_voc"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="luogo_ctype">
+        <xs:sequence>
+            <xs:element name="via" type="eluo:via_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="civico" type="eluo:civico_stype" minOccurs="0" maxOccurs="1"/>    
+            <xs:element name="comune" type="eluo:comune_stype" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>   
+</xs:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:eisre="http://entita/iscrizione_registro"
+    
+    xmlns:eesinpr="http://entita/esercitato_in_proprio"
+    targetNamespace="http://entita/esercitato_in_proprio"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xs:import namespace="http://entita/iscrizione_registro" schemaLocation="ent_iscrizione_registro_v1.0.0.xsd"/>
+
+
+    <xs:simpleType name="tipo_attivita_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="esercitato_in_proprio_ctype">
+        <xs:sequence>
+            <xs:element name="periodo_esercizio" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tipo_attivita" type="eesinpr:tipo_attivita_stype" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="da" type="xs:date" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="a" type="xs:date" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="iscrizione_registro" type="eisre:iscrizione_registro_ctype"/>
+        </xs:sequence>             
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:ereon="http://entita/requisiti_onorabilita"
+    xmlns:erepr="http://entita/requisiti_professionali"
+
+    xmlns:sreonpr="http://sezione/requisiti_onorabilita_professionali"
+    targetNamespace="http://sezione/requisiti_onorabilita_professionali"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/requisiti_onorabilita" schemaLocation="../02_entita/ent_requisiti_onorabilita_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/requisiti_professionali" schemaLocation="../02_entita/ent_requisiti_professionali.xsd"/>
+    
+    <xs:complexType name="requisiti_onorabilita_professionali_type">
+        <xs:sequence>
+            <xs:element name="requisiti_onorabilita" type="ereon:requisiti_onorabilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="requisiti_professionali" type="erepr:requisiti_professionali_ctype" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:complexType>    
+</xs:schema>

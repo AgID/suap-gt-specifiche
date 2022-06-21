@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:edip="http://entita/diploma"
+    targetNamespace="http://entita/diploma"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="istituto_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="anno_conclusione_stype">
+        <xs:restriction base="xs:integer">
+            <xs:minExclusive value="1900"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="materie_attinenti_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="diploma_ctype">
+        <xs:sequence>
+            <xs:element name="istituto" type="edip:istituto_stype" maxOccurs="1"/>
+            <xs:element name="anno_conclusione" type="edip:anno_conclusione_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="materie_attinenti" type="edip:materie_attinenti_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>
