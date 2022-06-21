@@ -18,11 +18,11 @@
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:group name="luogo_group">
+    <xs:complexType name="luogo_ctype">
         <xs:sequence>
             <xs:element name="comune" type="el:comune_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="nazione" type="el:nazione_stype" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>        
-    </xs:group>      
+    </xs:complexType>      
     
 </xs:schema>

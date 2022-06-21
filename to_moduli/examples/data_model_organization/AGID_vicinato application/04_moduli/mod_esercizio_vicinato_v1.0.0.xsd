@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:sreat="http://sezione/riferimento_attivita"
+    xmlns:sdaca="http://sezione/dati_catastali"
+    xmlns:sapesvi="http://sezione/apertura_esercizio_vicinato"
+    xmlns:stresvi="http://sezione/trasferimento_esercizio_vicinato"
+    xmlns:sreonpr="http://sezione/requisiti_onorabilita_professionali"
+    xmlns:saldi="http://sezione/altre_dichiarazioni"
+        
+    xmlns:mesvi="http://moduli/esercizio_vicinato"
+    targetNamespace="http://moduli/esercizio_vicinato"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://sezione/riferimento_attivita" schemaLocation="../03_sezioni/sez_riferimento_attivita_v1.0.0.xsd"/>
+    <xs:import namespace="http://sezione/dati_catastali" schemaLocation="../03_sezioni/sez_dati_catastali_v1.0.0.xsd"/>
+    <xs:import namespace="http://sezione/apertura_esercizio_vicinato" schemaLocation="../03_sezioni/sez_apertura_esercizio_vicinato_v1.0.0.xsd"/>
+    <xs:import namespace="http://sezione/trasferimento_esercizio_vicinato" schemaLocation="../03_sezioni/sez_trasferimento_esercizio_vicinato_v1.0.0.xsd"/>
+    <xs:import namespace="http://sezione/requisiti_onorabilita_professionali" schemaLocation="../03_sezioni/sez_requisiti_onorabilita_professionali.xsd"/>
+    <xs:import namespace="http://sezione/altre_dichiarazioni" schemaLocation="../03_sezioni/sez_altre_dichiarazioni_v1.0.0.xsd"/>
+    
+    <xs:element name="esercizio_vicinato_mod"/>
+    
+    <xs:complexType name="esercizio_vicinato_type">
+        <xs:sequence>
+            <xs:element name="indirizzo_attivita" type="sreat:riferimento_attivita_ctype"/>
+            <xs:element name="dati_catastali" type="sdaca:dati_catastali_type"/>   
+            <xs:choice>
+                <xs:element name="apertura" type="sapesvi:apertura_esercizio_vicinato_type"/>            
+                <xs:element name="trasferimento_sede" type="stresvi:trasferimento_esercizio_vicinato_ctype"/>
+            </xs:choice>
+            <xs:element name="requisiti_onorabilita_professionali" type="sreonpr:requisiti_onorabilita_professionali_type"/>
+            <xs:element name="altre_dichiarazioni" type="saldi:altre_dichiazioni"/>
+        </xs:sequence>        
+    </xs:complexType>    
+</xs:schema>

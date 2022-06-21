@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:vcom="http://vocabolari/comuni"
+    
+    xmlns:epro="http://entita/protocollo"
+    targetNamespace="http://entita/protocollo"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://vocabolari/comuni" schemaLocation="../01_vocabolari/voc_comuni_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="numero_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="data_stype">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    
+    
+    <xs:complexType name="protocollo_ctype">
+        <xs:sequence>
+            <xs:element name="numero" type="epro:numero_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="del" type="epro:data_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="comune" type="vcom:comune_voc" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

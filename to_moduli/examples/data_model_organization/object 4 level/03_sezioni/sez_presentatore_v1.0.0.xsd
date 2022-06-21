@@ -15,17 +15,13 @@
     <xs:element name="presentatore" type="sp:presentatore_type"/>
     
     <xs:complexType name="presentatore_type">
-        <xs:sequence>
-            <xs:group ref="ep:persona_group"/>
-            <xs:element name="documento_riconoscimento">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="ed:documento_group"/>
-                    </xs:sequence>
-                </xs:complexType>    
-            </xs:element>
-            
-        </xs:sequence>        
+        <xs:complexContent>
+            <xs:extension base="ep:persona_ctype">
+                <xs:sequence>
+                    <xs:element name="documento_riconoscimento" type="ed:documento_ctype"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>               
     </xs:complexType> 
     
 </xs:schema>

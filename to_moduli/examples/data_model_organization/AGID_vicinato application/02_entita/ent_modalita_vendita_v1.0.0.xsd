@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:emove="http://entita/modalita_vendita"
+    targetNamespace="http://entita/modalita_vendita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="vendita_dettaglio_stype">
+        <xs:restriction base="xs:integer"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="vendita_dettaglio_ingrosso_stype">
+        <xs:restriction base="xs:integer"/>
+    </xs:simpleType>
+
+    <xs:complexType name="modalita_vendita_ctype" abstract="true">        
+    </xs:complexType>
+    
+
+    <xs:complexType name="modalita_vendita_ctype_italia">
+        <xs:complexContent>
+            <xs:extension base="emove:modalita_vendita_ctype">
+                <xs:sequence>
+                    <xs:element name="vendita_dettaglio" type="emove:vendita_dettaglio_stype" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="vendita_dettaglio_ingrosso" type="emove:vendita_dettaglio_ingrosso_stype" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>        
+            </xs:extension>
+        </xs:complexContent>
+        
+    </xs:complexType>
+    
+</xs:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"     
+    xmlns:epean="http://entita/periodo_anno"
+    xmlns:eper="http://entita/periodo"
+    
+    xmlns:ecaes="http://entita/carattere_esercizio"
+    targetNamespace="http://entita/carattere_esercizio"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/periodo" schemaLocation="ent_periodo_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/periodo_anno" schemaLocation="ent_periodo_anno_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="permanente_stype">
+        <xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="carattere_esercizio_ctype">
+        <xs:sequence>
+            <xs:element name="permanente" type="ecaes:permanente_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="stagionale" type="epean:periodo_anno_ctype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="temporaneo" type="eper:periodo_ctype" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
