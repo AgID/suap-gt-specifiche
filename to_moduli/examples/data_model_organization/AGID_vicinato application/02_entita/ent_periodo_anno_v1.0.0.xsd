@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:epean="http://entita/periodo_anno"
+    targetNamespace="http://entita/periodo_anno"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="ggmm_stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-3][0-9][0-1][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="periodo_anno_ctype">
+        <xs:sequence>
+            <xs:element name="da" type="epean:ggmm_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="a" type="epean:ggmm_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
