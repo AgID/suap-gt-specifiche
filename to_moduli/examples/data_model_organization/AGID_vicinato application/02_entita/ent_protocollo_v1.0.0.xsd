@@ -10,7 +10,10 @@
     <xs:import namespace="http://vocabolari/comuni" schemaLocation="../01_vocabolari/voc_comuni_v1.0.0.xsd"/>
     
     <xs:simpleType name="numero_stype">
-        <xs:restriction base="xs:string"/>
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="data_stype">

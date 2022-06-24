@@ -1,0 +1,13 @@
+<!-- namespace to include 
+    
+    <sch:ns prefix="saldi" uri="http://sezione/altre_dichiarazioni"/>
+
+-->
+
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_altre_dichiarazioni">  
+    <sch:rule context="saldi:altre_dichiazioni">
+            
+    </sch:rule>
+</sch:pattern>
+    
+

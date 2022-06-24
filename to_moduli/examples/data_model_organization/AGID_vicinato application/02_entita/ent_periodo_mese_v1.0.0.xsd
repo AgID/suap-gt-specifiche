@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     
-    xmlns:epean="http://entita/periodo_anno"
-    targetNamespace="http://entita/periodo_anno"
+    xmlns:epeme="http://entita/periodo_mese"
+    targetNamespace="http://entita/periodo_mese"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
@@ -14,8 +14,8 @@
     
     <xs:complexType name="periodo_anno_ctype">
         <xs:sequence>
-            <xs:element name="da" type="epean:ggmm_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="a" type="epean:ggmm_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="da" type="epeme:ggmm_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="a" type="epeme:ggmm_stype" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

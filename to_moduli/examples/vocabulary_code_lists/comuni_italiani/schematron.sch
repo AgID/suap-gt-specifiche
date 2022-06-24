@@ -21,7 +21,7 @@
             <sch:let name="matchedKeys" value="$keys[contains($text, normalize-space(.))]"/>
             -->
             <sch:let name="matchedKeys" value="$keysStati//SimpleValue/text()[normalize-space(.)=$text]"/>
-            <sch:report id="now001" test="count($matchedKeys) = 0" role="error">
+            <sch:report id="now002" test="count($matchedKeys) = 0" role="error">
                 Codice non trovato nella code list degli stati: <sch:value-of select="$text"/>
             </sch:report>
         </sch:rule>

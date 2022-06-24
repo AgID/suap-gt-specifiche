@@ -13,12 +13,16 @@
     
     <xs:simpleType name="nome_stype">
         <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
             <xs:maxLength value="255"/>
         </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="cognome_stype">
         <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
             <xs:maxLength value="255"/>
         </xs:restriction>
     </xs:simpleType>
