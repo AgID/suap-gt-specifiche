@@ -15,7 +15,9 @@
     <xs:import namespace="http://entita/in_centro_commerciale" schemaLocation="../02_entita/ent_in_centro_commerciale_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/settori_merceologici" schemaLocation="../02_entita/ent_settori_merceologici_v1.0.0.xsd"/>
     
-    <xs:complexType name="trasferimento_esercizio_vicinato_ctype">
+    <xs:element name="trasferimento_esercizio_vicinato" type="stresvi:trasferimento_esercizio_vicinato_type"/>
+    
+    <xs:complexType name="trasferimento_esercizio_vicinato_type">
         <xs:sequence>
             <xs:element name="protocollo_avvio" type="epro:protocollo_ctype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="sede" minOccurs="1" maxOccurs="1">
@@ -25,15 +27,15 @@
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:element name="indirizzo" type="eluo:luogo_ctype" minOccurs="1" maxOccurs="1"/> 
-                                    <xs:element name="in_centro_commerciale" type="einceco:in_centro_commerciale_ctype" minOccurs="1" maxOccurs="1"/>
+                                    <xs:element name="in_centro_commerciale" type="einceco:in_centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element name="a" minOccurs="1" maxOccurs="1">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element name="indirizzo" type="eluo:luogo_ctype" minOccurs="1" maxOccurs="1"/> 
-                                    <xs:element name="in_centro_commerciale" type="einceco:in_centro_commerciale_ctype" minOccurs="1" maxOccurs="1"/>
+                                    <!-- eliminati indirizzo e contatti in quanto dati ridondanti con i contenuti presenti nella sezione sez_riferimento_attivita-->
+                                    <xs:element name="in_centro_commerciale" type="einceco:in_centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>

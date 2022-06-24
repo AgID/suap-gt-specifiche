@@ -8,7 +8,10 @@
     
     
     <xs:simpleType name="numero_stype">
-        <xs:restriction base="xs:string"/>
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="data_stype">

@@ -11,6 +11,8 @@
     <xs:import namespace="http://entita/requisiti_onorabilita" schemaLocation="../02_entita/ent_requisiti_onorabilita_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/requisiti_professionali" schemaLocation="../02_entita/ent_requisiti_professionali.xsd"/>
     
+    <xs:element name="requisiti_onorabilita_professionali" type="sreonpr:requisiti_onorabilita_professionali_type"/>
+    
     <xs:complexType name="requisiti_onorabilita_professionali_type">
         <xs:sequence>
             <xs:element name="requisiti_onorabilita" type="ereon:requisiti_onorabilita_ctype" minOccurs="1" maxOccurs="1"/>

@@ -7,23 +7,35 @@
     version="1.0.0" xml:lang="it">
     
     <xs:simpleType name="rispetto_regolamenti_locali_stype">
-        <xs:restriction base="xs:boolean"/>
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="true"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="impegno_comunicazioni_stype">
-        <xs:restriction base="xs:boolean"/>
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="true"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="altro_stype">
+        <xs:restriction base="xs:string"/>
     </xs:simpleType>
     
     <xs:complexType name="altre_dichiarazioni_ctype" abstract="true">
         <xs:sequence>
-            <xs:element name="rispetto_regolamenti_locali" type="ealdi:rispetto_regolamenti_locali_stype" minOccurs="1" maxOccurs="1"/>            
-            <xs:element name="impegno_comunicazioni" type="ealdi:impegno_comunicazioni_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="rispetto_regolamenti_locali" type="ealdi:rispetto_regolamenti_locali_stype" minOccurs="1" maxOccurs="1"/>                        
         </xs:sequence>
     </xs:complexType>
     
     <xs:complexType name="altre_dichiarazioni_ctype_italia">
         <xs:complexContent>
-            <xs:extension base="ealdi:altre_dichiarazioni_ctype"/>
+            <xs:extension base="ealdi:altre_dichiarazioni_ctype">
+                <xs:sequence>
+                    <xs:element name="altro" type="ealdi:altro_stype" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="impegno_comunicazioni" type="ealdi:impegno_comunicazioni_stype" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
         </xs:complexContent>
     </xs:complexType>
     

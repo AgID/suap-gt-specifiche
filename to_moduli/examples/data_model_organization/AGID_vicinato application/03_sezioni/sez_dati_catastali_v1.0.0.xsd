@@ -9,12 +9,5 @@
     
     <xs:import namespace="http://entita/dati_catastali" schemaLocation="../02_entita/ent_dati_catastali_v1.0.0.xsd"/>
 
-    <xs:complexType name="dati_catastali_type" abstract="true">
-    </xs:complexType>
-
-    <xs:complexType name="dati_catastali_type_italia">
-        <xs:complexContent>
-            <xs:extension base="edaca:dati_catastali_ctype"/>
-        </xs:complexContent>
-    </xs:complexType>    
+    <xs:element name="dati_catastali" type="edaca:dati_catastali_ctype"/> 
 </xs:schema>

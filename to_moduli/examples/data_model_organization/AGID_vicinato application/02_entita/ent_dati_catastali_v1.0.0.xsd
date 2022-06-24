@@ -7,26 +7,26 @@
     version="1.0.0" xml:lang="it">
     
     <xs:simpleType name="foglio_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
     
     <xs:simpleType name="mappa_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
         
     <xs:simpleType name="subalterno_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
     
     <xs:simpleType name="sezione_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
     
     <xs:simpleType name="fabbricati_stype">
         <xs:restriction base="xs:boolean"/>
     </xs:simpleType>
     
-    <xs:complexType name="dati_catastali_ctype">
+    <xs:complexType name="dati_catastali_ctype" abstract="true">
         <xs:sequence>
             <xs:element name="sezione" type="edaca:sezione_stype" minOccurs="0" maxOccurs="1"/>
             <xs:element name="foglio" type="edaca:foglio_stype" minOccurs="1" maxOccurs="1"/>
@@ -35,4 +35,11 @@
             <xs:element name="fabbricati" type="edaca:fabbricati_stype" default="false" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
+    
+    <xs:complexType name="dati_catastali_ctype_italia">
+        <xs:complexContent>
+            <xs:extension base="edaca:dati_catastali_ctype"/>
+        </xs:complexContent>        
+    </xs:complexType>
+    
 </xs:schema>

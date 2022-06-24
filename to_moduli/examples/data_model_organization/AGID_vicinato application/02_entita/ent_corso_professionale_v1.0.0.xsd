@@ -19,8 +19,7 @@
     
     <xs:simpleType name="anno_corso_stype">
         <xs:restriction base="xs:integer">
-            <xs:minInclusive value="1900"/>
-            <xs:maxInclusive value="2200"/>
+            <xs:minInclusive value="1900"/>           
         </xs:restriction>        
     </xs:simpleType>
     

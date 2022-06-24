@@ -22,19 +22,14 @@
     </xs:simpleType>
     
     <xs:complexType name="indirizzo_ctype">
-        <xs:sequence>
-            <xs:element name="via" type="ei:via_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="numero_civico" type="ei:numero_civico_stype" minOccurs="0" maxOccurs="1"/>  
-            
-            <xs:element name="luogo_indirizzo" minOccurs="0" maxOccurs="1">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="el:luogo_group"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            
-        </xs:sequence>        
+        <xs:complexContent>
+            <xs:extension base="el:luogo_ctype">
+                <xs:sequence>
+                    <xs:element name="via" type="ei:via_stype" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="numero_civico" type="ei:numero_civico_stype" minOccurs="0" maxOccurs="1"/>                                  
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>        
     </xs:complexType>      
     
 </xs:schema>

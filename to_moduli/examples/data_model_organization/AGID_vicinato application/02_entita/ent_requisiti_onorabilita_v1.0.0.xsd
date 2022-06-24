@@ -7,11 +7,15 @@
     version="1.0.0" xml:lang="it">
     
     <xs:simpleType name="possesso_requisiti_onorabilita_stype">
-        <xs:restriction base="xs:boolean"/>
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="true"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="no_cause_divieto_stype">
-        <xs:restriction base="xs:boolean"/>
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="true"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:complexType name="requisiti_onorabilita_ctype">

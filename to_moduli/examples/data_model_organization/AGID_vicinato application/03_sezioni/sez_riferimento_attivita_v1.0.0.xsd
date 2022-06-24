@@ -11,10 +11,12 @@
     <xs:import namespace="http://entita/luogo" schemaLocation="../02_entita/ent_luogo_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/contatti" schemaLocation="../02_entita/ent_contatti_v1.0.0.xsd"/>
     
-    <xs:complexType name="riferimento_attivita_ctype">
+    <xs:element name="riferimento_attivita" type="sreat:riferimento_attivita_type"/>
+    
+    <xs:complexType name="riferimento_attivita_type">
         <xs:sequence>
             <xs:element name="indirizzo" type="eluo:luogo_ctype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="contatti" type="econ:contatti_ctype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="contatti" type="econ:contatti_ctype" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
