@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    xmlns:edc="http://entita/dati_catastali"
+           
+    xmlns:edcf="http://entita/dati_catastali_fabbricati"
+    targetNamespace="http://entita/dati_catastali_fabbricati"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/dati_catastali" schemaLocation="../02_entita/ent_dati_catastali_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="sezione_amministrativa_fabbricati_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+      <xs:simpleType name="sezione_urbana_fabbricati_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    <xs:simpleType name="classe_stype">
+        <xs:restriction base="xs:string">
+            <xs:length value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+      <xs:simpleType name="categoria_stype">
+        <xs:restriction base="xs:string">
+            <xs:length value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="dati_catastali_fabbricati_ctype">
+        <xs:sequence>
+            <xs:element name="dati_catastali" type="edc:dati_catastali_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="sezione_amministrativa_fabbricati" type="edct:sezione_amministrativa_fabbricati_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="sezione_urbana_fabbricati" type="edct:sezione_urbana_fabbricati_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="classe" type="edct:classe_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="categoria" type="edct:categoria_stype" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:complexType>
+    
+</xs:schema>
