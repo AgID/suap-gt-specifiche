@@ -10,9 +10,7 @@
     <xs:import namespace="http://entita/di_cui_settori_merceologici" schemaLocation="ent_di_cui_settori_merceologici_v1.0.0.xsd"/>
     
     <xs:simpleType name="superficie_vendita_stype">
-        <xs:restriction base="xs:integer">
-            <xs:minExclusive value="0"/>
-        </xs:restriction>
+        <xs:restriction base="xs:positiveInteger"/>            
     </xs:simpleType>
     
     <xs:complexType name="supercie_settori_merceologici_ctype" abstract="true">

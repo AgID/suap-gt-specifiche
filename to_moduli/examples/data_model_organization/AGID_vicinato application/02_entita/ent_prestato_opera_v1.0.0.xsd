@@ -12,17 +12,21 @@
     <xs:import namespace="http://entita/iscrizione_INPS" schemaLocation="ent_iscrizione_INPS_v1.0.0.xsd"/>
     
     <xs:simpleType name="denominazione_impresa_stype">
-        <xs:restriction base="xs:string"/>
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="posizione_equivalente_stype">
-        <xs:restriction base="xs:string"/>
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="numero_mesi_stype">
-        <xs:restriction base="xs:integer">
-            <xs:minExclusive value="0"/>
-        </xs:restriction>
+        <xs:restriction base="xs:positiveInteger"/>
     </xs:simpleType>
     
     <xs:complexType name="prestato_opera_ctype">

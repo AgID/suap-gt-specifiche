@@ -35,7 +35,7 @@
  xmlns:sapesvi="http://sezione/apertura_esercizio_vicinato"
  xmlns:sreonpr="http://sezione/requisiti_onorabilita_professionali"
  xmlns:mesvi="http://moduli/esercizio_vicinato"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">     
     <sreat:riferimento_attivita>
         <sreat:indirizzo>
             <eluo:via>via roma</eluo:via>
