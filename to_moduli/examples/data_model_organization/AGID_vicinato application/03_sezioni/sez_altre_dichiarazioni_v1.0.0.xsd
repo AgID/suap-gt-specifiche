@@ -9,11 +9,6 @@
     
     <xs:import namespace="http://entita/altre_dichiarazioni" schemaLocation="../02_entita/ent_altre_dichiarazioni_v1.0.0.xsd"/>
    
-    
-    <xs:complexType name="altre_dichiazioni">
-        <xs:complexContent>
-            <xs:extension base="ealdi:altre_dichiarazioni_ctype_italia"/>
-        </xs:complexContent>
-    </xs:complexType>
+    <xs:element name="altre_dichiazioni" type="ealdi:altre_dichiarazioni_ctype"/>
     
 </xs:schema>

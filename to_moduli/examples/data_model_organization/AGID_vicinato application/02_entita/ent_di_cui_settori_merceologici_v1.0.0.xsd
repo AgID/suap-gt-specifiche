@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:edcseme="http://entita/di_cui_settori_merceologici"
+    targetNamespace="http://entita/di_cui_settori_merceologici"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="superficie_vendita_stype">
+        <xs:restriction base="xs:integer"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="di_cui_settori_merceologici_ctype" abstract="true">
+        <xs:sequence>            
+            <xs:element name="generi_monopolio" type="edcseme:superficie_vendita_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="farmacie" type="edcseme:superficie_vendita_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="carburanti" type="edcseme:superficie_vendita_stype" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="di_cui_settori_merceologici_ctype_italia">
+        <xs:complexContent>
+            <xs:extension base="edcseme:di_cui_settori_merceologici_ctype">
+                <xs:sequence>
+                    <xs:element name="merci_ingobranti" type="edcseme:superficie_vendita_stype" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+</xs:schema>

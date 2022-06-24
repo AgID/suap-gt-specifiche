@@ -1,0 +1,33 @@
+<!-- namespace to include
+    
+    <sch:ns prefix="sapesvi" uri="http://sezione/apertura_esercizio_vicinato"/>
+    <sch:ns prefix="eseav" uri="http://entita/segnalazione_avvio"/>
+    <sch:ns prefix="emove" uri="http://entita/modalita_vendita"/>
+    <sch:ns prefix="ecaes" uri="http://entita/carattere_esercizio"/>
+    <sch:ns prefix="eseme" uri="http://entita/settori_merceologici"/>
+
+-->
+
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_apertura_esercizio_vicinato">  
+    <sch:rule context="sapesvi:apertura_esercizio_vicinato">
+        
+        <sch:assert test="sapesvi:segnalazione_avvio/eseav:esercizio_vicinato = 'true' or  sapesvi:segnalazione_avvio/eseav:esclusiva_apparecchi_automatici = 'true'"> 
+            almeno uno tra gli attributi segnalazione_avvio/esercizio_vicinato o segnalazione_avvio/esclusiva_apparecchi_automatici deve essere valorizzato a true
+        </sch:assert>
+        
+        <sch:assert test="count(sapesvi:modalita_vendita/emove:vendita_dettaglio) + count(sapesvi:modalita_vendita/emove:vendita_dettaglio_ingrosso) > 0"> 
+            almeno uno tra gli attributi modalita_vendita/vendita_dettaglio o modalita_vendita/vendita_dettaglio_ingrosso deve essere presente 
+        </sch:assert>
+        
+        <sch:assert test="sapesvi:carattere_esercizio/ecaes:permanente = 'true' or sapesvi:carattere_esercizio/ecaes:stagionale = 'true' or sapesvi:carattere_esercizio/ecaes:temporaneo= 'true'"> 
+            almeno uno tra gli attributi carattere_esercizio/permanente o carattere_esercizio/stagionale o carattere_esercizio/temporaneo deve essere valorizzato a true 
+        </sch:assert>
+        
+        <sch:assert test="count(sapesvi:settori_merceologici/eseme:alimentare) + count(sapesvi:settori_merceologici/eseme:non_alimentare) > 0"> 
+            almeno uno tra gli attributi settori_merceologici/alimentare o settori_merceologici/non_alimentare deve essere presente 
+        </sch:assert>
+        
+    </sch:rule>
+</sch:pattern>
+
+

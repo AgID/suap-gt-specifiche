@@ -29,7 +29,7 @@ in modo da avere piu valori da verificare tra codici istat del comune e codice i
     </d2:Indirizzo>
     <d2:Indirizzo>
         <d3:Via>QuintiVia 5</d3:Via>
-        <d3:Comune codiceIstatComune="032006"/>
+        <d3:Comune codiceIstatComune="132006"/>
         <d3:Stato codiceIstatStato="WRONGVALUE"></d3:Stato>
     </d2:Indirizzo>
 
