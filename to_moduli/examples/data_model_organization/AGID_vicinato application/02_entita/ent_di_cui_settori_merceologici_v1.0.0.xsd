@@ -7,7 +7,7 @@
     version="1.0.0" xml:lang="it">
     
     <xs:simpleType name="superficie_vendita_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:positiveInteger"/>
     </xs:simpleType>
     
     <xs:complexType name="di_cui_settori_merceologici_ctype" abstract="true">

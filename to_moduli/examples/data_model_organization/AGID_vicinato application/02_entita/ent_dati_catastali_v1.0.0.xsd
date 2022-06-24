@@ -7,19 +7,19 @@
     version="1.0.0" xml:lang="it">
     
     <xs:simpleType name="foglio_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
     
     <xs:simpleType name="mappa_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
         
     <xs:simpleType name="subalterno_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
     
     <xs:simpleType name="sezione_stype">
-        <xs:restriction base="xs:integer"/>
+        <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
     
     <xs:simpleType name="fabbricati_stype">
