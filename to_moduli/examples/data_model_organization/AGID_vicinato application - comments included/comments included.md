@@ -1,6 +1,6 @@
 # Osservazioni incluse nell'esempio
 
-##Centro commerciale
+## Centro commerciale
 
 - renaming entità a centro_commerciale
 - aggiunto identificativo centro commerciale (partiia_iva + codice_fiscale)
