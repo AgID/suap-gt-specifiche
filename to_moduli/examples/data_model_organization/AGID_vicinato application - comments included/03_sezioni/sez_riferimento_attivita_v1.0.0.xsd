@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:eind="http://entita/indirizzo"
+    xmlns:econ="http://entita/contatti"
+    
+    xmlns:sreat="http://sezione/riferimento_attivita"
+    targetNamespace="http://sezione/riferimento_attivita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/indirizzo" schemaLocation="../02_entita/ent_indirizzo_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/contatti" schemaLocation="../02_entita/ent_contatti_v1.0.0.xsd"/>
+    
+    <xs:element name="riferimento_attivita" type="sreat:riferimento_attivita_type"/>
+    
+    <xs:complexType name="riferimento_attivita_type">
+        <xs:sequence>
+            <xs:element name="indirizzo" type="eind:indirizzo_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="contatti" type="econ:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

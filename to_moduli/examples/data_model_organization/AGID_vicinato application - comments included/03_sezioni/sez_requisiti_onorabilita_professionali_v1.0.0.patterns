@@ -1,0 +1,48 @@
+<!-- namespace to include 
+    
+    <sch:ns prefix="sreonpr" uri="http://sezione/requisiti_onorabilita_professionali"/>
+
+-->
+
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_requisiti_onorabilita_professionali">  
+    
+    <sch:rule context="sreonpr:requisiti_professionali">
+        <sch:assert test="count(child::*) &gt; 0"> 
+            almeno un titolo professionale deve essere indicato oppure deve essere indicato il preposto con titolo professionale           
+        </sch:assert> 
+        
+        <sch:assert test="count(erepr:requisiti_professionali_preposto) = 0 or count(erepr:requisiti_professionali_preposto/epersona/codice_fiscale) = 1">
+            
+        </sch:assert>
+    </sch:rule>
+    
+    <sch:rule context="sreonpr:requisiti_onorabilita">
+        <!-- dichiarazioni onorabilità obbligatorie -->
+        
+        <sch:assert test="count(ereon:dichiarazione_obbligatoria)=2">
+            2 dichiarazioni obbligatorie attese    
+        </sch:assert>
+        
+        <sch:assert test="count(distinct-values(ereon:dichiarazione_obbligatoria)=count(ereon:dichiarazione_obbligatoria)">
+            dichiarazione obbligatorie duplicate    
+        </sch:assert>
+        
+        <sch:assert test="count(ereon:dichiarazione_obbligatoria/ereon:dichiarazione[normalize-space(text())=('possesso_requisiti_onorabilita','no_cause_divieto')])=count($resultset_prodotti_tabelle_speciali)">
+            dichiarazione obbligatorie ammesse: possesso_requisiti_onorabilita, no_cause_divieto
+        </sch:assert>
+        
+        <!-- dichiarazioni onorabilità scelta -->
+        
+        <sch:assert test="count(ereon:dichiarazione_scelta)=0">
+            dichiarazioni scelta non previste    
+        </sch:assert>
+        
+        <!-- dichiarazioni onorabilità testo libero -->
+        
+        <sch:assert test="count(ereon:dichiarazione_testo_libero)=0">
+            dichiarazioni testo libero non previste    
+        </sch:assert>
+    </sch:rule>
+</sch:pattern>
+    
+
