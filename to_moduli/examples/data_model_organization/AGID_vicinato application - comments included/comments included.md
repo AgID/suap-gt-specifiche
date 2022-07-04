@@ -38,7 +38,7 @@ La proposta richiede una variazione del modello di organizzazione proposto che u
 
 # Organizzazione dei moduli
 
-Si conferma l'utilizzo delle choice nella definizione dello schema del modulo evidenzianodo che attraverso le phase dei relativi schematron, pilotate dal catalogo SSU, si provvede a determinare la scela dello specifico element presente nella stessa choice.
+Da valutare l'utilizzo delle choice nella definizione dello schema del modulo evidenzianodo che attraverso le phase dei relativi schematron, pilotate dal catalogo SSU, si provvede a determinare la scela dello specifico element presente nella stessa choice.
 
 ### Valutazione
 

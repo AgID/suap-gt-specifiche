@@ -30,7 +30,7 @@
                 <xs:element ref="stresvi:trasferimento_esercizio_vicinato"/>
             </xs:choice>
             <xs:element ref="sreonpr:requisiti_onorabilita_professionali"/>
-            <xs:element ref="saldi:altre_dichiazioni"/>
+            <xs:element ref="saldi:altre_dichiazioni"/>            
         </xs:sequence>        
     </xs:complexType>    
 </xs:schema>
