@@ -13,8 +13,6 @@ La proposta non determina variazione al modello di organizzazione proposto in qu
 
 - renaming entità in indirizzo
 
-TOBE: aggiurnare attributi prevedendo dub, toponimo, numero civico, CAP, località
-
 ### Valutazione
 
 La proposta non determina variazione al modello di organizzazione proposto in quanto richiede unmaggior dettaglio degli attributi dell'entità
