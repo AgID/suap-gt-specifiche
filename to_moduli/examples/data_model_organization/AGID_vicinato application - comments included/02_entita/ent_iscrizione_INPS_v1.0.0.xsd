@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:eisinps="http://entita/iscrizione_INPS"
+    targetNamespace="http://entita/iscrizione_INPS"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="data_stype">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="iscrizione_INPS_ctype">
+        <xs:sequence>
+            <xs:element name="da" type="eisinps:data_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="a" type="eisinps:data_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+</xs:schema>

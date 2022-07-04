@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:edaca="http://entita/dati_catastali"
+    
+    xmlns:sdaca="http://sezione/dati_catastali"
+    targetNamespace="http://sezione/dati_catastali"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">    
+    
+    <xs:import namespace="http://entita/dati_catastali" schemaLocation="../02_entita/ent_dati_catastali_v1.0.0.xsd"/>
+
+    <xs:element name="dati_catastali" type="edaca:dati_catastali_ctype"/> 
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:eind="http://entita/indirizzo"
+    xmlns:eisinps="http://entita/iscrizione_INPS"
+    
+    xmlns:eprop="http://entita/prestato_opera"
+    targetNamespace="http://entita/prestato_opera"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/indirizzo" schemaLocation="ent_indirizzo_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/iscrizione_INPS" schemaLocation="ent_iscrizione_INPS_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="denominazione_impresa_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="posizione_equivalente_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="numero_mesi_stype">
+        <xs:restriction base="xs:positiveInteger"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="prestato_opera_ctype">
+        <xs:sequence>
+            <xs:element name="denominazione_impresa" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="sede_impresa" type="eind:indirizzo_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dipendente_qualificato" type="eprop:numero_mesi_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="coadiutore_familiare" type="eprop:numero_mesi_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="socio_lavoratore" type="eprop:numero_mesi_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element name="posizione_equivalente" type="eprop:posizione_equivalente_stype" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="iscrizione_INPS" type="eisinps:iscrizione_INPS_ctype" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:sequence>
+        
+    </xs:complexType>   
+    
+    
+</xs:schema>
