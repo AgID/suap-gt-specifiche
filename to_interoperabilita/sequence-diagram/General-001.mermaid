@@ -1,0 +1,57 @@
+sequenceDiagram
+    autonumber
+
+    actor P as Presentatore    
+    participant F as FrontOffice SUAP
+    participant C as Catalogo SSU    
+    participant B as BackOffice SUAP    
+    actor O as Operatore SUAP    
+    participant E as Enti Terzi    
+ 
+    F ->> B: send_instance(CUI)
+    B -->> F: ack
+    B ->> C: request_instance_descriptor(CUI)
+    C -->> B: instanceDescriptor
+    B ->> F: request_instance(CUI)
+    F -->> B: instance
+
+    O -) B: request_instance(CUI)
+    B -->> O: instance
+    Note over B,O: entro tempo controllo formale
+    O -) B: formalControlOK OR formalControlKO
+
+    alt formal control KO
+        B ->> F: formalControlKO
+        F -) P: request_correction(CUI)
+        B ->> C: audit(CUI,request_correction)
+        C -->> B: ack
+        P --) F: instanceCorrect
+        F ->> B: send_instance(CUI)
+        B -->> F: ack
+        B ->> F: request_instance(CUI)
+        F -->> B: instance
+        B ->> C: audit(CUI,request_instance_correct)
+        C -->> B: ack            
+    end
+
+    B -) O: check_admissibility(CUI)
+    O --) B: admissibilityOK OR admissibilityKO
+    
+    alt admissibility KO
+        B ->> F: instance_refused(CUI)
+        F -->> B: ack
+        F -) P: instanceRefused            
+        B ->> C: audit(CUI,instance_refused)
+        C -->> B: ack                        
+    else admissibility OK
+        B -->> C: request_instance_descriptor(CUI)
+        C ->> B: instanceDescriptor
+        Note over C,B: ET endpoint may be changed
+        par per ogni ente terzo interessato        
+            B ->> E: send_instance(CUI)
+            E --> B: ack
+        end
+
+        
+
+end
