@@ -1,0 +1,27 @@
+sequenceDiagram
+    autonumber
+
+    actor P as Presentatore    
+    participant F as FrontOffice SUAP
+    participant C as Catalogo SSU    
+    participant B as BackOffice SUAP    
+    actor O as Operatore SUAP    
+    participant E as Enti Terzi    
+ 
+    Note over F,B: istanza procedibile
+    B ->> C: request_instance_descriptor(CUI)
+    C -->> B: instanceDescriptor
+    Note over C,B: ET endpoint may be changed
+
+            
+    B ->> F: ending_instance(CUI,CdSS_convocation)
+    F --> B: ack    
+
+    par per ogni ente terzo interessato
+        B ->> E: ending_instance(CUI,CdSS_convocation)
+        E --> B: ack
+    end
+    B ->> C: audit(CUI,CdSS_convocation)
+    C -->> B: ack
+        
+   
