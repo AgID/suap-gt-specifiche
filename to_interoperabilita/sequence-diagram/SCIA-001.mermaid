@@ -1,0 +1,41 @@
+sequenceDiagram
+    autonumber
+
+    actor P as Presentatore    
+    participant F as FrontOffice SUAP
+    participant B as BackOffice SUAP   
+    participant C as Catalogo SSU 
+    actor O as Operatore SUAP    
+    participant E as Enti Terzi    
+
+    Note over F,B: istanza procedibile
+    B ->> C: request_instance_descriptor(CUI)
+    C -->> B: instanceDescriptor
+    Note over C,B: ET endpoint may be changed
+    
+    par per ogni ente terzo interessato        
+        B ->> E: send_instance(CUI)
+        E -->> B: ack
+        E ->> C: request_instance_descriptor(CUI)
+        C -->> E: instanceDescriptor
+        E ->> B: request_instance(CUI)
+        B -->> E: instance
+    end
+
+    Note over B: concluso il tempo per richiesta integrazione
+    B ->> E: ending_integration(CUI)
+    E -->> B: ack
+    B ->> C: audit(CUI,ending_integration)
+    C -->> B: ack
+    
+    Note over B: concluso il tempo dell'istanza 
+    B ->> F: ending_instance(CUI,procidemental_times_concluded)
+    F -->> B: ack            
+    par per ogni ente terzo interessato
+        B ->> E: ending_instance(CUI,procidemental_times_concluded)
+        E -->> B: ack
+    end
+    B ->> C: audit(CUI,procidemental_times_concluded)
+    C -->> B: ack
+        
+    
