@@ -1,0 +1,64 @@
+{
+	"versionNumber":2,
+	"cui":{
+		"data":"2018-11-13",
+		"progressive":10
+	},
+	"controlblock":{
+		"instance_hash":"00579d46830ee4810c587b3d32b02e9473f67179231110fa6c3c77fe3a00f30c"
+	},
+
+	
+	"municipality":"063049",
+	"proceedings":[
+		{
+			"proceeding_name": "apertura_vicinato_superficie_superiore_400mq",	
+            "form":{
+                
+				"structured":{
+				    
+					"xsd":"mod_esercizio_vicinato_v1.0.0.xsd",
+					"schematron":{
+						"schematron_name":"mod_esercizio_vicinato_v1.0.0.sch",
+						"phase":[
+							"superficie_superiore_400mq"
+						]
+					}
+				}
+			},
+			"competent_administration":{
+			    "administration":"COM_063049",
+			    "endpoint":"www.comune.napoli.it/REST/ufficio_tecnico_SUAP"
+			}
+		},
+		{
+			"proceeding_name": "prevenzione incendi",
+          	"form":{
+				"structured":{
+				    
+					"xsd":"mod_pin_v1.0.0.xsd",
+					"schematron":{
+						"schematron_name":"mod_pin_v1.0.0.sch",
+						"phase":[
+							"all"
+						]
+					}
+				}
+			},
+			"competent_administration":{
+			    "administration":"VVF_nazionale",
+			    "endpoint":"www.vigilfuoco.it/REST/PIN_SUAP"
+			}
+		}
+	],
+	"instance_status":[
+		{
+			"state":"presentation",
+			"timestamp":"2018-11-13T20:20:39+00:00"
+		},
+		{
+			"state":"receipt",
+			"timestamp":"2018-11-13T20:20:45+00:00"
+		}
+	]
+}
