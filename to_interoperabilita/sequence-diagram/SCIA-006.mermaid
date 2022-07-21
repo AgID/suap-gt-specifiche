@@ -53,18 +53,18 @@ sequenceDiagram
         C -->> B: ack 
 
         par almeno un ente terzo
-            E ->> B: send_conclusions(CUI,reasoned_suspension)
+            E ->> B: send_conclusions(CUI,conformation_required)
             B -->> E: ack            
         end
 
         Note over B: concluso il tempo dell'istanza o tutti gli enti terzi hanno inoltrato conclusione
-        B ->> F: ending_instance(CUI,reasoned_suspension)
+        B ->> F: ending_instance(CUI,conformation_required)
         F -->> B: ack            
         par per ogni ente terzo interessato
-            B ->> E: ending_instance(CUI,reasoned_suspension)
+            B ->> E: ending_instance(CUI,conformation_required)
             E -->> B: ack
         end
-        B ->> C: audit(CUI,reasoned_suspension)
+        B ->> C: audit(CUI,conformation_required)
         C -->> B: ack
     else oltre i tempo di integrazione
         B ->> F: ending_instance(CUI,integration_times_ending)
