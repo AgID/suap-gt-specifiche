@@ -31,11 +31,10 @@ sequenceDiagram
     Note over B: concluso il tempo di richiesta integrazione OR tutti gli enti terzi hanno richiesto integrazione
     B ->> F: integration_request(CUI,integration_request_all)
     F -->> B: ack
-    B ->> C: audit(CUI,integration_request)
+    B ->> C: audit(CUI,integration_request_all)
     C -->> B: ack
     F -) P: integration_request(CUI)
-    B ->> C: audit(CUI,integration_request)
-    C -->> B: ack
+
 
     alt entro i tempi di integrazione
         P --) F: instanceIntegrated
@@ -44,7 +43,7 @@ sequenceDiagram
         B ->> F: request_instance(CUI)
         F -->> B: instance
         par per ogni ente terzo interessato                
-            B ->> E: send_istance(CUI)
+            B ->> E: send_instance(CUI)
             E -->> B: ack
             E ->> F: request_instance(CUI)
             F -->> E: instance
