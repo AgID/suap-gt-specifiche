@@ -11,9 +11,9 @@
     <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
     
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
-    
+    <!--
     <xs:element name="personaFisica" type="ep:persona_ctype"/>
-    
+    -->
     <xs:simpleType name="nome_stype">
         <xs:restriction base="xs:string">
             <xs:maxLength value="255"/>
@@ -55,7 +55,14 @@
                 <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="0" maxOccurs="1" />
                 <xs:sequence>
                     <xs:element name="luogo_nascita_estero" type="ep:luogo_nascita_estero_stype" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="stato_estero"  type="cl:CodeType" minOccurs="0" maxOccurs="1" />                    
+                    
+                    <xs:element name="stato_estero"  type="cl:CodeType" minOccurs="0" maxOccurs="1" >
+                        <xs:annotation>
+                            <xs:documentation>
+                                 TODO: inserire come metadato strutturato il nome della code list di riferimento e lo stesso per le dichiazioni che verranno inserite in una sezione..                                               
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>                    
                 </xs:sequence>
             </xs:choice>
        </xs:sequence>        
