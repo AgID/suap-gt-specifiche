@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:vpg="http://vocabolari/persona_genere"
-    xmlns:ep="http://entita/persona"
+    xmlns:ep="http://entita/personafisica"
     xmlns:cl=""
-    targetNamespace="http://entita/persona"
+    targetNamespace="http://entita/personafisica"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
