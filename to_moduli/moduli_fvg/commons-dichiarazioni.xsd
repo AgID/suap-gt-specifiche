@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    xmlns="http://agid.it/suap/commons/dichiarazioni"
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    targetNamespace="http://agid.it/suap/commons/dichiarazioni"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="./commons-codelist.xsd"/>
+    
+    <xsd:element name="lidichiarazione" type="lista_dichiarazioni_type" /> 
+    
+   <xsd:complexType name="lista_dichiarazioni_type">
+   		<xsd:sequence>
+   			<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			   <xsd:element name="dichiarazione_freetext" type="dichiarazione_freetext_type" /> 
+			   <xsd:element name="dichiarazione_boolean" type="dichiarazione_boolean_type"/> 
+			   <xsd:element name="dichiarazione_mandatory_choice" type="dichiarazione_mandatory_choice_type"/> 
+   			</xsd:choice>
+   		</xsd:sequence>
+    </xsd:complexType>    
+    
+   <xsd:complexType name="dichiarazione_mandatory_choice_type">
+	      <xs:attributeGroup ref="cl:all_cl_attrsGrop"/>
+    </xsd:complexType>    
+    
+   <xsd:complexType name="dichiarazione_freetext_type">
+	  <xsd:simpleContent>
+	    <xsd:extension base="xs:string">
+	        <xs:attributeGroup ref="cl:all_cl_attrsGrop"/>
+	    </xsd:extension>
+	  </xsd:simpleContent>
+    </xsd:complexType>
+    
+	<xsd:complexType name="dichiarazione_boolean_type">
+	  <xsd:simpleContent>
+	    <xsd:extension base="xs:boolean">
+        <xs:attributeGroup ref="cl:all_cl_attrsGrop"/>
+	    </xsd:extension>
+	  </xsd:simpleContent>
+	</xsd:complexType>  
+    
+</xsd:schema>

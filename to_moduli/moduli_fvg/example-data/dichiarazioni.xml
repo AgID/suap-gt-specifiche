@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<di:lidichiarazione xmlns:cl="http://agid.it/suap/commons/codelist"
+  xmlns:di="http://agid.it/suap/commons/dichiarazioni"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://agid.it/suap/commons/dichiarazioni ../commons-dichiarazioni.xsd">
+
+  <di:dichiarazione_boolean cl:code_cl="DL-112" cl:codeListID_cl="IT-Acca-Dl" cl:name_cl="Cento112" cl:versionID_cl="1.0">false</di:dichiarazione_boolean>
+
+  <di:dichiarazione_boolean cl:code_cl="DL-112">false</di:dichiarazione_boolean>
+
+  <di:dichiarazione_mandatory_choice cl:code_cl="DL-113"/>
+
+  <di:dichiarazione_freetext cl:code_cl="DL-114">Testo libero</di:dichiarazione_freetext>
+
+</di:lidichiarazione>
+

@@ -2,13 +2,17 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:vpg="http://vocabolari/persona_genere"
     xmlns:ep="http://entita/personafisica"
-    xmlns:cl=""
+    xmlns:cl="http://agid.it/suap/commons/codelist"
     targetNamespace="http://entita/personafisica"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     
     <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
+    
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    
+    <xs:element name="personaFisica" type="ep:persona_ctype"/>
     
     <xs:simpleType name="nome_stype">
         <xs:restriction base="xs:string">
@@ -37,7 +41,7 @@
     </xs:simpleType>
       
     <xs:simpleType name="luogo_nascita_estero_stype">
-        <xs:restriction base="xs:string">        
+        <xs:restriction base="xs:string"/>        
     </xs:simpleType>   
     
     <xs:complexType name="persona_ctype">
@@ -48,11 +52,11 @@
             <xs:element name="sesso" type="ep:sesso_stype" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="data_nascita" type="ep:data_nascita_stype" minOccurs="0" maxOccurs="1"/>
             <xs:choice>
-                <xs:element name="luogo_nascita_italiano" ref="cl:ComuniItaliani_cl" minOccurs="0" maxOccurs="1" />
+                <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="0" maxOccurs="1" />
                 <xs:sequence>
                     <xs:element name="luogo_nascita_estero" type="ep:luogo_nascita_estero_stype" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="stato_estero" ref="cl:StatiEsteri_cl" minOccurs="0" maxOccurs="1" />                    
-                <xs:sequence>
+                    <xs:element name="stato_estero"  type="cl:CodeType" minOccurs="0" maxOccurs="1" />                    
+                </xs:sequence>
             </xs:choice>
        </xs:sequence>        
     </xs:complexType>      
