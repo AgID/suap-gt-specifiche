@@ -43,7 +43,7 @@
     <xs:complexType name="persona_ctype">
         <xs:sequence>
             <xs:element name="codice_fiscale" type="ep:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="nome" type="ep:nome_stype" minOccurs="1" maxOccurs="3"/>
+            <xs:element name="nome" type="ep:nome_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="cognome" type="ep:cognome_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="sesso" type="ep:sesso_stype" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="data_nascita" type="ep:data_nascita_stype" minOccurs="0" maxOccurs="1"/>

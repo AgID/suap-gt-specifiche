@@ -1,0 +1,13 @@
+personafisica
+- codice fiscale o identificativo? se può essere anche estero il controllo del formato del codice fiscale va fatto con schematron se italiano
+
+personafisica
+- su BC mancano informazioni presenti nel modulo per la cittadinanza non ue (es. doc di soggiorno, rilasciato da, etc)
+- come distinguo gli stati non UE. Bisognerebbe aggiungere un campo in piu sulla code list StatiEsteri
+- nel caso di cittadinanza italiana non va indicata la nazione estera di cittadinanza. Altrimenti bisogna mettere anche Italia nella code list
+
+
+
+
+
+Nella definizione di entità nettiamo solo attributi semplici o complessi. Le relazioni fra le entità non sono definite e si evincono nella sezione quando si aggregano più entità.
