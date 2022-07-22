@@ -1,22 +1,18 @@
 {
-	"versionNumber":2,
+	"version":0,
 	"cui":{
 		"data":"2018-11-13",
-		"progressive":10
+		"progressive":0
 	},
 	"controlblock":{
 		"instance_hash":"00579d46830ee4810c587b3d32b02e9473f67179231110fa6c3c77fe3a00f30c"
 	},
-
-	
 	"municipality":"063049",
 	"proceedings":[
 		{
-			"proceeding_name": "apertura_vicinato_superficie_superiore_400mq",	
-            "form":{
-                
-				"structured":{
-				    
+        	"proceeding_name": "apertura_vicinato_superficie_superiore_400mq",
+			"form":{
+				"structured":{				    
 					"xsd":"mod_esercizio_vicinato_v1.0.0.xsd",
 					"schematron":{
 						"schematron_name":"mod_esercizio_vicinato_v1.0.0.sch",
@@ -32,10 +28,9 @@
 			}
 		},
 		{
-			"proceeding_name": "prevenzione incendi",
-          	"form":{
-				"structured":{
-				    
+        	"proceeding_name": "prevenzione incendi",
+			"form":{
+				"structured":{				    
 					"xsd":"mod_pin_v1.0.0.xsd",
 					"schematron":{
 						"schematron_name":"mod_pin_v1.0.0.sch",
