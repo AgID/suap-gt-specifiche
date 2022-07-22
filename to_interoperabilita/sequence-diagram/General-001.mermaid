@@ -1,47 +1,65 @@
 sequenceDiagram
-actor P as Presentatore
-participant F as FrontOffice SUAP
-participant C as Catalogo SSU   
-
-    loop for every case
-     
-        P -) F: selection_case()     
-        F ->> C: find_case()
-        alt if case not exists
-            C -->> F: errorCaseNotExists
-            F --) P: errorCaseNotExists
-        else if case exists
-            C -->> F: caseRef
-            
-                         
-        end
-    end
-    F ->> C: request_instance_descriptor(caseRef1,...,caseRefN) 
-    C -->> F: instanceDescriptor
-    F --) P: instanceDataRequired
-  
-    loop  until completeness OK
-        P -) F:  fill_instance()
-
-        F ->> F: check_completeness()
-        alt completeness KO
-            F --) P: completenessCheckFailed
-        else completeness OK
-            F --) P: completenessCheckDone
-        end
-    end
-    P -) F:  submit_instance()
-    F -->> P: instanceToSign
-    loop  until sign OK
-         P -) F:  sign_instance()
-         alt sign KO
-            F --) P: signFailed
-        else sign OK
-            F --) P: signDone
-        end
-    end
+    autonumber
     
+    participant CU as ComUnica
+    actor P as Presentatore    
+    participant F as FrontOffice SUAP
+    participant C as Catalogo SSU    
+    participant B as BackOffice SUAP    
+    actor O as Operatore SUAP    
+   
+    note over P,C: procedimenti individuati
+    note over F,C: Metadati procedimenti recuperati
+    note over P,F: Istanza complilata e firmata
+
     F ->> C: request_CUI(instanceDescriptor)
     C -->> F: instanceDescriptor
-    note over F,C: with CUI and instance hash
+
+    F ->> B: send_instance(CUI)
+    B -->> F: ack
+    alt via ComUnica
+        F -->> CU: ack
+        CU -->> P: receipt
+    else not via ComUnica
+        F -->> P: receipt
+    end
+    B ->> C: request_instance_descriptor(CUI)
+    C -->> B: instanceDescriptor
+    B ->> F: request_instance(CUI)
+    F -->> B: instance
+
+    O -) B: request_instance(CUI)
+    B -->> O: instance
+    Note over B,O: entro tempo controllo formale
     
+    opt
+        O -) B: formalControlOK OR formalControlKO
+        alt formal control KO
+            B ->> F: formalControlKO
+            F -) P: request_correction(CUI)
+            B ->> C: audit(CUI,request_correction)
+            C -->> B: ack
+            P --) F: instanceCorrect
+            F ->> B: send_instance(CUI)
+            B -->> F: ack
+            B ->> F: request_instance(CUI)
+            F -->> B: instance
+            B ->> C: audit(CUI,request_instance_correct)
+            C -->> B: ack            
+        end
+    end
+
+    B -) O: check_admissibility(CUI)
+    O --) B: admissibilityOK OR admissibilityKO
+    
+    alt admissibility KO
+        B ->> F: instance_refused(CUI)
+        F -->> B: ack
+        F -) P: instanceRefused            
+        B ->> C: audit(CUI,instance_refused)
+        C -->> B: ack                        
+    else admissibility OK
+        
+        Note over B,F: istanza procedibile
+       
+end
