@@ -4,7 +4,7 @@
     "$id": "https://agid.gov.it/descrittore_istanza.json",
     "title": "descrittore istanza",
     "type": "object",
-    "required": ["versionNumber"],
+    "required": ["version"],
     "properties": {
         "version":{
             "$id": "#root/version",
@@ -81,6 +81,12 @@
                         "$id": "#root/proceedings/form",
                         "title": "modulo associato al procedimento",
                         "type": "object",
+                        "oneOf" : [{
+                                "required" : ["structured"]
+                            }, {
+                                "required" : ["unstructured"]
+                            }
+                        ],
                         "properties": {
                             "structured": {
                                 "$id": "#root/proceedings/form/structured",
