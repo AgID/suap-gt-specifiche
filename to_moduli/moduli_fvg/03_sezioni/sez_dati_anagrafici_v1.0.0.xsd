@@ -2,63 +2,103 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"         
     xmlns:epf="http://entita/persona"
     xmlns:eci="http://entita/cittadinanza"
-    xmlns:edr="http://entita/documento_riconoscimento"
+    xmlns:edr="http://entita/documento_rilasciato"
     xmlns:eii="http://entita/indirizzo_italiano"
     xmlns:eie="http://entita/indirizzo_estero"
-    xmlns:eco="http://entita/contatti"    
+    xmlns:eco="http://entita/contatti"
+    xmlns:era="http://entita/rappresentanza" 
+    xmlns:efg="http://entita/figura_giuridica" 
     
-    xmlns:sp="http://sezione/dati_anagrafici"
+    xmlns:sa="http://sezione/scheda_anagrafica"
     
-    targetNamespace="http://sezione/dati_anagrafici"
+    targetNamespace="http://sezione/scheda_anagrafica"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     <xs:import namespace="http://entita/persona" schemaLocation="../02_entita/ent_persona_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/cittadinanza" schemaLocation="../02_entita/ent_cittadinanza_v1.0.0.xsd"/>
-    <xs:import namespace="http://entita/documento_riconoscimento" schemaLocation="../02_entita/ent_documento_riconoscimento_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/documento_rilasciato" schemaLocation="../02_entita/ent_documento_rilasciato_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/indirizzo_italiano" schemaLocation="../02_entita/ent_indirizzo_italiano_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/indirizzo_estero" schemaLocation="../02_entita/ent_indirizzo_estero_v1.0.0.xsd"/>
-    <xs:import namespace="http://entita/contatti" schemaLocation="../02_entita/ent_contatti_v1.0.0.xsd"/>    
-    
-    <xs:element name="datianagrafici" type="sp:datianagrafici_type"/>
-    
-    <xs:complexType name="datianagrafici_type">
+    <xs:import namespace="http://entita/contatti" schemaLocation="../02_entita/ent_contatti_v1.0.0.xsd"/>   
+    <xs:import namespace="http://entita/rappresentanza" schemaLocation="../02_entita/ent_rappresentanza_v1.0.0.xsd"/>  
+    <xs:import namespace="http://entita/figura_giuridica" schemaLocation="../02_entita/ent_figura_giuridica_v1.0.0.xsd"/>   
+ 
+    <xs:element name="scheda_anagrafica" type="sa:scheda_anagrafica_type"/>
+  
+    <xs:complexType name="scheda_anagrafica_type">
         <xs:sequence>
+
+            <!-- diversamentre dal sus non è chi presenta la domanda ma il beneficiario dell'autorizzazione ? -->    
             <xs:element name="dichiarante" minOccurs="1" maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="datiPersona" type="epf:persona_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="persona" type="epf:persona_ctype"  minOccurs="1" maxOccurs="1"/>
                         <xs:element name="cittadinanza" type="eci:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
-                        <xs:element name="documento_riconoscimento" type="edr:documento_riconoscimento_ctype" minOccurs="0" maxOccurs="1"/>
-                        <xs:choice>
-                            <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
-                            <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
-                        </xs:choice>    
+                        <xs:element name="documento_rilasciato" type="edr:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="residenza" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>                             
+                                    <xs:choice>
+                                       <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
+                                       <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
+                                    </xs:choice>  
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
                         <xs:element name="contatti" type="eco:contatti_ctype" minOccurs="1" maxOccurs="1"/>
                     </xs:sequence>
                 </xs:complexType>                
             </xs:element>
-        </xs:sequence>   
-            <!-- 
-                Attenzione che nel modulo si dice che i dati della attivita si differenzia a seconda del tipo di procedimento..
-            -->
-            <!-- 
-            <xs:element name="datiAttivita" type="ss:attivita_produttiva_type" minOccurs="1" maxOccurs="1">
-            <xs:element name="datiProcura" minOccurs="0" maxOccurs="1">
+            
+            <xs:element name="opera_con" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
+                        <xs:element name="rappresentanza" type="era:rappresentanza_ctype"  minOccurs="1" maxOccurs="1"/>
                     </xs:sequence>
                 </xs:complexType>                
-            </xs:element>
-        </xs:sequence>
-        -->
-        <!--
-            <xs:extension base="ep:persona_ctype">
-                <xs:sequence>
-                    <xs:element name="documento_riconoscimento" type="ed:documento_ctype"/>
-                </xs:sequence>
-            </xs:extension>
-            -->  
+            </xs:element>            
+            
+            <xs:element name="impresa" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="figura_giuridica" type="efg:figura_giuridica_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="sede_legale" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>                             
+                                    <xs:choice>
+                                        <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
+                                        <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
+                                    </xs:choice>  
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="contatti" type="eco:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>                
+            </xs:element>    
+            
+            <xs:element name="procuratore" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="datiPersona" type="epf:persona_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="cittadinanza" type="eci:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="documento_rilasciato" type="edr:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="residenza" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>                             
+                                    <xs:choice>
+                                        <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
+                                        <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
+                                    </xs:choice>  
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="contatti" type="eco:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>                
+            </xs:element>            
+        </xs:sequence>   
     </xs:complexType> 
     
 </xs:schema>

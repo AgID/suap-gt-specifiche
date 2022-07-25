@@ -3,60 +3,43 @@
     xmlns:vpg="http://vocabolari/persona_genere"
     xmlns:ep="http://entita/persona"
     xmlns:cl="http://agid.it/suap/commons/codelist"
+    xmlns:ct="http://agid.it/suap/commons/tipi"  
     targetNamespace="http://entita/persona"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
-    
-    
-    <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
-    
+      
+    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
+
     <!--
     <xs:element name="persona" type="ep:persona_ctype"/>
     -->
-    <xs:simpleType name="nome_stype">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="255"/>
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="cognome_stype">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="255"/>
-        </xs:restriction>
-    </xs:simpleType>
-    
+   
     <xs:simpleType name="codice_fiscale_stype">
         <xs:restriction base="xs:string">
             <xs:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
         </xs:restriction>
     </xs:simpleType>
-    
+    <!--
+    Verificare che il dichiarante abbia sempre il codice fiscale italiano. "/>
+    -->    
+  
     <xs:simpleType name="sesso_stype">
         <xs:restriction base="vpg:sesso_voc"/>
     </xs:simpleType>
     
-    <xs:simpleType name="data_nascita_stype">
-        <xs:restriction base="xs:date"/>
-    </xs:simpleType>
-      
-    <xs:simpleType name="luogo_nascita_estero_stype">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="255"/>
-        </xs:restriction>    
-    </xs:simpleType>   
-    
     <xs:complexType name="persona_ctype">
         <xs:sequence>
             <xs:element name="codice_fiscale" type="ep:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="nome" type="ep:nome_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="cognome" type="ep:cognome_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="nome" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="cognome" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="sesso" type="ep:sesso_stype" minOccurs="0" maxOccurs="1"/>            
-            <xs:element name="data_nascita" type="ep:data_nascita_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="data_nascita" type="xs:date" minOccurs="0" maxOccurs="1"/>
             <xs:choice>
                 <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="0" maxOccurs="1" />
                 <xs:sequence>
-                    <xs:element name="luogo_nascita_estero" type="ep:luogo_nascita_estero_stype" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="luogo_nascita_estero" type="ct:stringa_standard_stype" minOccurs="0" maxOccurs="1" />
                     
                     <xs:element name="stato_estero" type="cl:CodeType" minOccurs="0" maxOccurs="1" >
                         <xs:annotation>
