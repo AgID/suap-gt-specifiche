@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:edr="http://entita/documento_riconoscimento"
+    targetNamespace="http://entita/documento_riconoscimento"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+  
+    <xs:simpleType name="estremi_documento_soggiorno_stype">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="ente_rilascio_stype">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="data_rilascio_stype">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="data_scadenza_stype">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="documento_riconoscimento_ctype">
+        <xs:sequence>
+            <xs:element name="estremi_documento_soggiorno" type="edr:estremi_documento_soggiorno_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="ente_rilascio" type="edr:ente_rilascio_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="data_rilascio" type="edr:data_rilascio_stype" minOccurs="0" maxOccurs="1"/>            
+            <xs:element name="data_scadenza" type="edr:data_scadenza_stype" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:complexType>      
+    
+</xs:schema>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:vpg="http://vocabolari/persona_genere"
-    xmlns:ep="http://entita/personafisica"
+    xmlns:ep="http://entita/persona"
     xmlns:cl="http://agid.it/suap/commons/codelist"
-    targetNamespace="http://entita/personafisica"
+    targetNamespace="http://entita/persona"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
@@ -12,7 +12,7 @@
     
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <!--
-    <xs:element name="personaFisica" type="ep:persona_ctype"/>
+    <xs:element name="persona" type="ep:persona_ctype"/>
     -->
     <xs:simpleType name="nome_stype">
         <xs:restriction base="xs:string">
@@ -41,7 +41,9 @@
     </xs:simpleType>
       
     <xs:simpleType name="luogo_nascita_estero_stype">
-        <xs:restriction base="xs:string"/>        
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+        </xs:restriction>    
     </xs:simpleType>   
     
     <xs:complexType name="persona_ctype">
@@ -56,7 +58,7 @@
                 <xs:sequence>
                     <xs:element name="luogo_nascita_estero" type="ep:luogo_nascita_estero_stype" minOccurs="0" maxOccurs="1" />
                     
-                    <xs:element name="stato_estero"  type="cl:CodeType" minOccurs="0" maxOccurs="1" >
+                    <xs:element name="stato_estero" type="cl:CodeType" minOccurs="0" maxOccurs="1" >
                         <xs:annotation>
                             <xs:documentation>
                                  TODO: inserire come metadato strutturato il nome della code list di riferimento e lo stesso per le dichiazioni che verranno inserite in una sezione..                                               

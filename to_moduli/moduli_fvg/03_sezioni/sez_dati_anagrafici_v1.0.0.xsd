@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"         
-    xmlns:ep="http://entita/personafisica"
-    xmlns:ed="http://entita/documento"
+    xmlns:epf="http://entita/persona"
+    xmlns:eci="http://entita/cittadinanza"
+    xmlns:edr="http://entita/documento_riconoscimento"
+    xmlns:eii="http://entita/indirizzo_italiano"
+    xmlns:eie="http://entita/indirizzo_estero"
+    xmlns:eco="http://entita/contatti"    
     
-    xmlns:sp="http://sezione/datianagrafici"
+    xmlns:sp="http://sezione/dati_anagrafici"
     
-    targetNamespace="http://sezione/datianagrafici"
+    targetNamespace="http://sezione/dati_anagrafici"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xs:import namespace="http://entita/personafisica" schemaLocation="../02_entita/ent_personafisica_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/persona" schemaLocation="../02_entita/ent_persona_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/cittadinanza" schemaLocation="../02_entita/ent_cittadinanza_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/documento_riconoscimento" schemaLocation="../02_entita/ent_documento_riconoscimento_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/indirizzo_italiano" schemaLocation="../02_entita/ent_indirizzo_italiano_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/indirizzo_estero" schemaLocation="../02_entita/ent_indirizzo_estero_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/contatti" schemaLocation="../02_entita/ent_contatti_v1.0.0.xsd"/>    
     
     <xs:element name="datianagrafici" type="sp:datianagrafici_type"/>
     
@@ -19,28 +27,31 @@
             <xs:element name="dichiarante" minOccurs="1" maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="datiPersona" type="ep:persona_ctype"/>
-                        <xs:element name="cittadinanza" type="ep:persona_ctype" minOccurs="1" maxOccurs="unbounded"/>
-                        <!--
-                        <xs:element name="contatti" ..></xs:element>
-                        -->
+                        <xs:element name="datiPersona" type="epf:persona_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="cittadinanza" type="eci:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="documento_riconoscimento" type="edr:documento_riconoscimento_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xs:choice>
+                            <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
+                        </xs:choice>    
+                        <xs:element name="contatti" type="eco:contatti_ctype" minOccurs="1" maxOccurs="1"/>
                     </xs:sequence>
                 </xs:complexType>                
             </xs:element>
+        </xs:sequence>   
             <!-- 
                 Attenzione che nel modulo si dice che i dati della attivita si differenzia a seconda del tipo di procedimento..
             -->
+            <!-- 
             <xs:element name="datiAttivita" type="ss:attivita_produttiva_type" minOccurs="1" maxOccurs="1">
             <xs:element name="datiProcura" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <!--
-                            TODO
-                         -->   
                     </xs:sequence>
                 </xs:complexType>                
             </xs:element>
         </xs:sequence>
+        -->
         <!--
             <xs:extension base="ep:persona_ctype">
                 <xs:sequence>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:eii="http://entita/indirizzo_italiano"
+    xmlns:cl="http://agid.it/suap/commons/codelist"  
+    targetNamespace="http://entita/indirizzo_italiano"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+
+    <xs:simpleType name="toponimo_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="numero_civico_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="barrato_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cap_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="localita_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="indirizzo_italiano_ctype">
+        <xs:sequence>
+            <xs:element name="dug" type="cl:CodeType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="toponimo" type="eii:toponimo_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_civico" type="eii:numero_civico_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="barrato" type="eii:barrato_stype" minOccurs="0" maxOccurs="1"/> 
+            <xs:element name="cap" type="eii:cap_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="localita" type="eii:localita_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="comune" type="cl:CodeType" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>      
+    
+</xs:schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:ec="http://entita/contatti"
+    xmlns:cl="http://agid.it/suap/commons/codelist"    
+    targetNamespace="http://entita/contatti"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xs:simpleType name="email_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+            <xs:pattern value="[^@]+@[^\.]+\..+|"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="pec_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+            <xs:pattern value="[^@]+@[^\.]+\..+|"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cellulare_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>    
+    
+    <xs:simpleType name="telefono_fisso_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>    
+    
+    <xs:simpleType name="fax_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>    
+    
+
+    <xs:complexType name="contatti_ctype">
+        <xs:sequence>
+            <xs:element name="email" type="ec:email_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="pec" type="ec:pec_stype" minOccurs="0" maxOccurs="1"/>            
+            <xs:element name="cellulare" type="ec:cellulare_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="telefono_fisso" type="ec:telefono_fisso_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="fax" type="ec:fax_stype" minOccurs="0" maxOccurs="1"/>            
+        </xs:sequence>        
+    </xs:complexType>      
+    
+</xs:schema>
