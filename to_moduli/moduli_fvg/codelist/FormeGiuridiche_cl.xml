@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:html="http://www.w3.org/1999/xhtml/">
+  <Identification>
+    <ShortName>FormeGiuridiche</ShortName>
+    <LongName>Forme Giuridiche</LongName>
+    <Version>1</Version>
+    <CanonicalUri/>
+    <CanonicalVersionUri/>
+    <Agency>
+      <ShortName>VC-RAFVG.IT</ShortName>
+      <LongName xml:lang="it">Vocabolari Controllati della Regione Autonoma Friuli-Venezia Giulia</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="id" Use="required">
+      <ShortName>Id</ShortName>
+      <Data Type="xsd:int"/>
+    </Column>
+    <Column Id="parentid" Use="optional">
+      <ShortName>ParentId</ShortName>
+      <Data Type="xsd:int"/>
+    </Column>
+    <Column Id="code" Use="optional">
+      <ShortName>Code</ShortName>
+      <Data Type="xsd:normalizedString"/>
+    </Column>
+    <Column Id="description" Use="required">
+      <ShortName>Description</ShortName>
+      <Data Type="xsd:string"/>
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="id"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18073</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ALTRE FORME</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18074</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.1</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>IMPRENDITORE INDIVIDUALE, LIBERO PROFESSIONISTA E LAVORATORE AUTONOMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18075</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18074</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.1.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>IMPRENDITORE INDIVIDUALE AGRICOLO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18076</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18074</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.1.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>IMPRENDITORE INDIVIDUALE NON AGRICOLO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18077</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18074</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.1.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>LIBERO PROFESSIONISTA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18078</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18074</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.1.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>LAVORATORE AUTONOMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18079</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.2</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; DI PERSONE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18080</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18079</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.2.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; SEMPLICE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18081</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18079</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.2.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; IN NOME COLLETTIVO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18082</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18079</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.2.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; IN ACCOMANDITA SEMPLICE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18083</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18079</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.2.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>STUDIO ASSOCIATO E SOCIETA&apos; PROFESSIONISTI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18084</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18079</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.2.50</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; DI FATTO O IRREGOLARE, COMUNIONE EREDITARIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18085</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.3</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; DI CAPITALI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18086</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18085</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.3.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; PER AZIONI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18087</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18085</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.3.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; A RESPONSABILITA&apos; LIMITATA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18088</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18085</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.3.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; A RESPONSABILITA&apos; LIMITATA CON UNICO SOCIO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18089</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18085</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.3.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; IN ACCOMANDITA PER AZIONI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18090</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.4</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; COOPERATIVA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18091</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18090</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.4.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; COOPERATIVA A MUTUALITA&apos; PREVALENTE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18092</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18090</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.4.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; COOPERATIVA DIVERSA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18093</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18090</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.4.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; COOPERATIVA SOCIALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18094</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18090</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.4.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; DI MUTUA ASSICURAZIONE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18095</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.5</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>CONSORZIO DI DIRITTO PRIVATO ED ALTRE FORME DI COOPERAZIONE FRA IMPRESE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18096</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18095</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.5.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>CONSORZIO DI DIRITTO PRIVATO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18097</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18095</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.5.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; CONSORTILE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18098</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18095</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.5.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ASSOCIAZIONE O RAGGRUPPAMENTO TEMPORANEO DI IMPRESE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18099</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18095</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.5.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>GRUPPO EUROPEO DI INTERESSE ECONOMICO (GEIE)</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18100</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.6</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PUBBLICO ECONOMICO, AZIENDA SPECIALE E AZIENDA PUBBLICA DI SERVIZI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18101</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18100</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.6.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PUBBLICO ECONOMICO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18102</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18100</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.6.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>AZIENDA SPECIALE AI SENSI DEL T.U. 267/2000</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18103</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18100</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.6.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>AZIENDA PUBBLICA DI SERVIZI ALLE PERSONE AI SENSI DEL D.LGS. N. 207/2001</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18104</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.7</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PRIVATO CON PERSONALITA&apos; GIURIDICA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18105</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18104</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.7.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ASSOCIAZIONE RICONOSCIUTA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18106</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18104</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.7.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>FONDAZIONE (ESCLUSA FONDAZIONE BANCARIA)</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18107</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18104</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.7.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>FONDAZIONE BANCARIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18108</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18104</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.7.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE ECCLESIASTICO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18109</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18104</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.7.50</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>SOCIETA&apos; DI MUTUO SOCCORSO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18110</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.8</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PRIVATO SENZA PERSONALITA&apos; GIURIDICA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18111</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18110</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.8.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ASSOCIAZIONE NON RICONOSCIUTA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18112</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18110</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.8.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>COMITATO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18113</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18110</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.8.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>CONDOMINIO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18114</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>1.9</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>IMPRESA O ENTE PRIVATO COSTITUITA ALL&apos;ESTERO NON ALTRIMENTI CLASSIFICABILE CHE SVOLGE ATTIVITA&apos; ECONOMICA IN ITALIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18115</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.1</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ORGANO COSTITUZIONALE O A RILEVANZA COSTITUZIONALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18116</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.2</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>AMMINISTRAZIONE DELLO STATO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18117</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18116</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.2.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>PRESIDENZA DEL CONSIGLIO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18118</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18116</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.2.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>MINISTERO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18119</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18116</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.2.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>AGENZIA DELLO STATO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18120</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18116</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.2.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ARCHIVIO NOTARILE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18121</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.3</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>AUTORITA&apos; INDIPENDENTE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18122</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.4</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>REGIONE E AUTONOMIA LOCALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18123</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18122</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.4.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>REGIONE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18124</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18122</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.4.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>PROVINCIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18125</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18122</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.4.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>COMUNE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18126</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18122</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.4.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>COMUNITA&apos; MONTANA O ISOLANA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18127</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18122</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.4.50</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>UNIONE DI COMUNI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18128</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18122</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.4.60</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>CITTA&apos; METROPOLITANA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18129</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.5</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>AZIENDA O ENTE DEL SERVIZIO SANITARIO NAZIONALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18130</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.6</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ISTITUTO, SCUOLA E UNIVERSITA&apos; PUBBLICA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18131</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18130</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.6.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ISTITUTO E SCUOLA PUBBLICA DI OGNI ORDINE E GRADO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18132</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18130</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.6.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>UNIVERSITA&apos; PUBBLICA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue/>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PUBBLICO NON ECONOMICO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18134</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.10</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ISTITUTO O ENTE PUBBLICO DI RICERCA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18135</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.12</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ISTITUTO PUBBLICO DI ASSISTENZA E BENEFICENZA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18136</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.20</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>CAMERA DI COMMERCIO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18137</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.30</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ORDINE E COLLEGIO PROFESSIONALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18138</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.40</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>CONSORZIO DI DIRITTO PUBBLICO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18139</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.51</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PARCO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18140</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.52</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE O AUTORITA&apos; PORTUALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18141</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.53</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE DI SVILUPPO AGRICOLO REGIONALE O DI ALTRO ENTE LOCALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18142</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.54</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PER IL TURISMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18143</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.55</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE AMBIENTALE REGIONALE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18144</SimpleValue>
+      </Value>
+      <Value ColumnRef="parentid">
+        <SimpleValue>18133</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>2.7.56</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>ENTE PER LA RICERCA E PER L&apos;AGGIORNAMENTO EDUCATIVO</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</gc:CodeList>

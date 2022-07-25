@@ -3,13 +3,15 @@
     xmlns:vpg="http://vocabolari/persona_genere"
     xmlns:ep="http://entita/persona"
     xmlns:cl="http://agid.it/suap/commons/codelist"
-    xmlns:ct="http://agid.it/suap/commons/tipi"  
+    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ct="http://agid.it/suap/commons/tipi"    
     targetNamespace="http://entita/persona"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
       
-    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>    
+    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
     <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
 
     <!--
@@ -37,14 +39,19 @@
             <xs:element name="sesso" type="ep:sesso_stype" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="data_nascita" type="xs:date" minOccurs="0" maxOccurs="1"/>
             <xs:choice>
-                <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="0" maxOccurs="1" />
+                <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="0" maxOccurs="1" >
+                    <xs:annotation>
+                        <xs:documentation>
+                            <ca:codeListID_cl>IT:SUAP:CL:StoricoComuniItaliani</ca:codeListID_cl>
+                        </xs:documentation>
+                    </xs:annotation>                    
+                </xs:element>
                 <xs:sequence>
                     <xs:element name="luogo_nascita_estero" type="ct:stringa_standard_stype" minOccurs="0" maxOccurs="1" />
-                    
                     <xs:element name="stato_estero" type="cl:CodeType" minOccurs="0" maxOccurs="1" >
                         <xs:annotation>
                             <xs:documentation>
-                                 TODO: inserire come metadato strutturato il nome della code list di riferimento e lo stesso per le dichiazioni che verranno inserite in una sezione..                                               
+                                <ca:codeListID_cl>IT:SUAP:CL:StatiEsteri</ca:codeListID_cl>
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>                    

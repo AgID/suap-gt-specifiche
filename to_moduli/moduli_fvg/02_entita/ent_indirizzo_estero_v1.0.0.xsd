@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:eie="http://entita/indirizzo_estero"
-    xmlns:cl="http://agid.it/suap/commons/codelist"  
-    xmlns:ct="http://agid.it/suap/commons/tipi"  
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ct="http://agid.it/suap/commons/tipi"
     targetNamespace="http://entita/indirizzo_estero"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
 
-    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>  
+    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
 
     <xs:complexType name="indirizzo_estero_ctype">
         <xs:sequence>
             <xs:element name="descrizione" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="codice_postale" type="xs:string" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="comune_estero" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>    
-            <xs:element name="stato_estero" type="cl:CodeType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="stato_estero" type="cl:CodeType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <ca:codeListID_cl>IT:SUAP:CL:StatiEsteri</ca:codeListID_cl>
+                    </xs:documentation>
+                </xs:annotation>                
+            </xs:element>
         </xs:sequence>
     </xs:complexType>      
     
