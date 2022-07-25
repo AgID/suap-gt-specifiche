@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"         
+    
+    targetNamespace="http://examples/xsdAnnotations"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    xmlns:cl="http://agid.it/suap/commons/codelist" 
+    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>  
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    
+    <xs:complexType name="Negozio">
+        <xs:sequence>
+            <xs:element name="nome" type="xs:string"/>
+            <xs:element name="categoria_merceologica" type="cl:CodeType">
+                <xs:annotation>
+                    <xs:documentation>
+                        <ca:codeListID_cl>IT::SUAP::CL::CAT_MERCI</ca:codeListID_cl>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
