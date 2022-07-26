@@ -14,6 +14,7 @@
         <xs:sequence>
             <xs:element name="stato_estero_cittadinanza" type="cl:CodeType" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
+                    <!-- FIXME: da valutare passaggio a lista di tutti gli stati compresa italia e non solo esteri -->
                     <xs:documentation>
                         <ca:codeListID_cl>IT:SUAP:CL:StatiEsteri</ca:codeListID_cl>
                     </xs:documentation>

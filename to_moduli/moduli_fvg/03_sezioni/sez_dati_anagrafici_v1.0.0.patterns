@@ -1,4 +1,5 @@
 <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_presentatore">  
+    
     <sch:rule context="sp:presentatore">
         <sch:assert test="count(ep:sesso) = 0"> 
             l'attributo persona.sesso non deve essere presente
