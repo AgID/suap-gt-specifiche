@@ -18,6 +18,8 @@
         </xs:restriction>
     </xs:simpleType>
     
+    <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype"/>
+    
     <xs:complexType name="indirizzo_italiano_ctype">
         <xs:sequence>
             <xs:element name="dug" type="cl:CodeType" minOccurs="0" maxOccurs="1"/>

@@ -32,4 +32,5 @@ Framework sviluppo:
 - proposta test case con schematron su moduli/sezioni.		
 - provare import di frammenti schematron per operazioni ricorrenti (ex. validare la lista dei comuni/stati): potrebbe
   essere uno schematron a livello di entità: per code list sarebbe analogo agli enum.
+- dichiarazioni: modellarle nel caso del modulo vicinato apparecchi automatici
 	
