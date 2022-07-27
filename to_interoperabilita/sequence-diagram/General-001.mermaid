@@ -17,40 +17,55 @@ sequenceDiagram
 
     F ->> B: send_instance(CUI)
     B -->> F: ack
+    F ->> C: audit(CUI,instance_to_BO_sended)
+    C -->> F: ack
+
     alt via ComUnica
         F -->> CU: ack
         CU -->> P: receipt
+        CU -->> F: notify_sending_receipt
     else not via ComUnica
         F -->> P: receipt
     end
+
+    F ->> C: audit(CUI,receipt_sended)
+    C -->> F: ack
+
+
     B ->> C: request_instance_descriptor(CUI)
     C -->> B: instanceDescriptor
     B ->> F: request_instance(CUI)
     F -->> B: instance
 
-    O -) B: request_instance(CUI)
-    B -->> O: instance
-    Note over B,O: entro tempo controllo formale
+    B ->> C: audit(CUI,instance_retrived)
+    C -->> B: ack
     
-    opt
+
+    O -) B: lookup_instance(CUI)
+    B -->> O: instance
+        
+    opt entro tempo controllo formale
         O -) B: formalControlOK OR formalControlKO
         alt formal control KO
             B ->> F: formalControlKO
             F -) P: request_correction(CUI)
-            B ->> C: audit(CUI,request_correction)
+            B ->> C: audit(CUI,correction_requested)
             C -->> B: ack
             P --) F: instanceCorrect
             F ->> B: send_instance(CUI)
             B -->> F: ack
+            F ->> C: audit(CUI,corrected_instance_to_BO_sended)
+            C -->> F: ack
             B ->> F: request_instance(CUI)
             F -->> B: instance
-            B ->> C: audit(CUI,request_instance_correct)
-            C -->> B: ack            
+            B ->> C: audit(CUI,corrected_instance_retrived)
+            C -->> B: ack           
         end
     end
 
-    B -) O: check_admissibility(CUI)
-    O --) B: admissibilityOK OR admissibilityKO
+    O -) B: lookup_instance(CUI)
+    B -->> O: instance
+    O -) B: admissibilityOK OR admissibilityKO
     
     alt admissibility KO
         B ->> F: instance_refused(CUI)
