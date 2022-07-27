@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+        
+    TODO Update @schematron attribute which should point to the Schematron file being tested.
+    
+-->
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="demo.sch">
+    <x:scenario label="demo-01">
+        <!--
+                TODO Pass an XML fragment as context for the Schematron rules.
+                
+            -->
+        <x:context> </x:context>
+
+        <x:scenario label="Scenario for testing a rule">
+            <!--
+                
+                TODO Some samples on how to make assertions. Change them to match your own schematron asserts.
+            
+            -->
+            <x:expect-not-assert
+                label="An assert that shouldn't be triggered on a speciffic location" id="a001"
+                location="/article[1]/section[1]"/>
+            <x:expect-assert label="An assert that should be triggered on a specific location"
+                id="a001" location="/article[1]/section[2]"/>
+        </x:scenario>
+    </x:scenario>
+</x:description>

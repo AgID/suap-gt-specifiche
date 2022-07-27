@@ -1,24 +1,55 @@
-<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_presentatore">  
+<!-- 
+    @data_creazione: 27 Luglio 2022    
+    @version: 1.0.0 
+-->
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_anagrafici" >
     
-    <sch:rule context="sp:presentatore">
-        <sch:assert test="count(ep:sesso) = 0"> 
-            l'attributo persona.sesso non deve essere presente
+    <!-- ##################### CODE LIST ######################### -->
+    
+    <sch:let name="keysComuni" value="document('../01_vocabolari/voc_ComuniItaliani_cl.xml')//Row/Value[@ColumnRef='code']"/>
+    <sch:let name="keysStati" value="document('../01_vocabolari/voc_StatiEsteri_cl.xml')//Row/Value[@ColumnRef='code']"/>
+    
+    <!-- ##################### DICHIARANTE ######################### -->
+    
+    <!-- ###### DICHIARANTE/PERSONA ########## -->
+    
+    <sch:rule context="dichiarante/persona">
+        <!-- 
+            alcuni constraint sono anche nello schema xml ma per maggior resilienza a potenziali future
+            modifiche e disaccoppiarmi da quello preferisco ripeterli direttamente.
+            Se voglio migliorare performance posso mettere in testa quelli che lato xsd non sono vincolati.
+        -->   
+        <sch:assert test="count(nome) = 1 and  count(cognome) = 1 and count(codice_fiscale) = 1 count(sesso) = 1 and count(ep:luogo_nascita) = 1 "> 
+            Attributo mancante tra quelli obbligatori: nome, cognome, codice fiscale, sesso e luogo di nascita
         </sch:assert>
         
-        <sch:assert test="count(ep:luogo_nascita) = 0"> 
-            l'attributo persona.luogo_nascita non deve essere presente
+        <sch:assert test="count(data_nascita) = 0 "> 
+            La data di nascita non è ammessa come informazione della persona
         </sch:assert>
-        
-        <sch:assert test="count(ep:data_nascita) = 0"> 
-            l'attributo persona.data_nascita non deve essere presente
-        </sch:assert>
-        
-        <sch:assert test="count(sp:documento_riconoscimento/ed:data_rilascio) = 1">
-             l'attributo documento.data_rilascio deve essere presente
-        </sch:assert>
-        
     </sch:rule>
     
+    <!-- ###### DICHIARANTE/RESIDENZA ########## -->
+    <sch:rule context="dichiarante/residenza/indirizzo_italiano/comune">
+        <sch:let name="text" value="/text()"/>
+        <sch:let name="matchedKeys" value="$keysComuni//SimpleValue/text()[normalize-space(.)=$text]"/>
+        <sch:report id="now001" test="count($matchedKeys) = 0" role="error">
+            Codice non trovato nella code list dei comuni: <sch:value-of select="$text"/>
+        </sch:report>
+    </sch:rule>
+    <sch:rule context="dichiarante/residenza/indirizzo_estero/stato_estero">
+        <sch:let name="text" value="/text()"/>
+        <sch:let name="matchedKeys" value="$keysStati//SimpleValue/text()[normalize-space(.)=$text]"/>
+        <sch:report id="now002" test="count($matchedKeys) = 0" role="error">
+            Codice non trovato nella code list degli stati: <sch:value-of select="$text"/>
+        </sch:report>
+    </sch:rule>
+    
+    <!-- ##################### REGOLE GENERALI ######################### -->
+
+    <sch:rule context="scheda_anagrafica/cittadinanza/stato_estero_cittadinanza/text() != 'IT' and ">
+        <sch:report test="count(scheda_anagrafica/documento_rilasciato) = 0">
+            Se la cittadinanza è in uno stato non membro EU allora serve permesso di soggiorno          
+        </sch:report>    
+    </sch:rule>
 </sch:pattern>
 
-<!-- version: 1.0.0 -->

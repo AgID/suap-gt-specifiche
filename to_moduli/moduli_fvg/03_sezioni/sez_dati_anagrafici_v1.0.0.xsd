@@ -40,8 +40,8 @@
                             <xs:complexType>
                                 <xs:sequence>                             
                                     <xs:choice>
-                                       <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
-                                       <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
+                                       <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                                       <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
                                     </xs:choice>  
                                 </xs:sequence>
                             </xs:complexType>

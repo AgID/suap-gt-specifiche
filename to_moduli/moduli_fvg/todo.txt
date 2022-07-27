@@ -1,0 +1,35 @@
+- vocabolari: 
+	* trasformare CL RuoloRichiedente in enum (Sergio)
+	
+- sezioni/schematron:
+
+	* dichiarante:
+		- cittadinanza: controllo con code list  presenza permesso soggiorno per caso non EU
+		- cittadinanza: controllo con code list dello stato indicato in cittadinanza
+		- documento rilasciato: controllo con code list del tipo
+		- residenza: controllo con code list del comune per indirizzo italiano e dello stato per comune estero
+		- contatti: esplicitare quelli obbligatori o logiche custom (ex. se pec non serve la mail).
+		
+	* opera con:
+		- rappresentanza:  per content_type del file di assegnazione verticalizzare sui codici dei mime type ammessi: 
+			esempio solo pdf, p7m e file di scansione.. 
+		
+	* impresa:
+		- figura_giuridica: controllo da code list
+		- sede_legale: validare indirizzo (comune/stato da code list) e provare riuso di schematron esistente
+		- contatti: esplicitare quelli obbligatori o logiche custom (ex. se pec non serve la mail).
+		
+	* dichiarante:
+		- cittadinanza: controllo con code list  presenza permesso soggiorno per caso non EU
+		- cittadinanza: controllo con code list dello stato indicato in cittadinanza
+		- documento rilasciato: controllo con code list del tipo
+		- residenza: controllo con code list del comune per indirizzo italiano e dello stato per comune estero
+		- contatti: esplicitare quelli obbligatori o logiche custom (ex. se pec non serve la mail).
+		
+		
+Framework sviluppo: 
+
+- proposta test case con schematron su moduli/sezioni.		
+- provare import di frammenti schematron per operazioni ricorrenti (ex. validare la lista dei comuni/stati): potrebbe
+  essere uno schematron a livello di entità: per code list sarebbe analogo agli enum.
+	
