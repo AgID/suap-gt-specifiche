@@ -16,14 +16,36 @@
             <xs:pattern value="([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})?"/>
         </xs:restriction>
     </xs:simpleType>       
+    
+    <xs:simpleType name="telefono_fisso_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="26"/>
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="telefono_mobile_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="26"/>
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="fax_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="26"/>
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
 
     <xs:complexType name="contatti_ctype">
         <xs:sequence>
             <xs:element name="email" type="ec:email_stype" minOccurs="0" maxOccurs="1"/>
             <xs:element name="pec" type="ec:email_stype" minOccurs="0" maxOccurs="1"/>            
-            <xs:element name="cellulare" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="telefono_fisso" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="fax" type="xs:string" minOccurs="0" maxOccurs="1"/>            
+            <xs:element name="cellulare" type="ec:telefono_mobile_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="telefono_fisso" type="ec:telefono_fisso_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="fax" type="ec:fax_stype" minOccurs="0" maxOccurs="1"/>            
         </xs:sequence>        
     </xs:complexType>      
     

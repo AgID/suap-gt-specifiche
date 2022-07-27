@@ -8,6 +8,7 @@
     <xs:simpleType name="stringa_standard_stype">
         <xs:restriction base="xs:string">
             <xs:maxLength value="255"/>
+            <xs:whiteSpace value="collapse"/>
         </xs:restriction>
     </xs:simpleType>
  

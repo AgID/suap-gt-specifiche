@@ -3,21 +3,23 @@
     xmlns:er="http://entita/rappresentanza"
     xmlns:cl="http://agid.it/suap/commons/codelist"
     xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
-    xmlns:ct="http://agid.it/suap/commons/tipi"        
+    xmlns:ct="http://agid.it/suap/commons/tipi"
+    xmlns:cf="http://agid.it/suap/commons/allegati"   
     targetNamespace="http://entita/rappresentanza"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
-    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>    
+    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>  
+    <xs:import namespace="http://agid.it/suap/commons/allegati" schemaLocation="../commons-files.xsd"/>   
 
     <xs:complexType name="rappresentanza_ctype">
         <xs:sequence>
             <xs:element name="data_inizio" type="xs:date" minOccurs="0" maxOccurs="1"/>
             <xs:element name="data_fine" type="xs:date" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="estremi_atto" type="xs:string" minOccurs="0" maxOccurs="1"/>
-     <!--       <xs:element name="atto_assegnazione_accettazione" type="xs:string" minOccurs="0" maxOccurs="1"/>   -->
+            <xs:element name="atto_assegnazione_accettazione" type="cf:file_ctype" minOccurs="0" maxOccurs="1"/>
             <xs:element name="ruolo" type="cl:CodeType" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
