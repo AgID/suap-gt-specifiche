@@ -66,7 +66,7 @@
                 <cf:hash>hash0</cf:hash>
                 <cf:hash-alg>SHA-256</cf:hash-alg>
             </er:atto_assegnazione_accettazione>
-            <er:ruolo cl:codeListID_cl="codeListID_cl6" cl:name_cl="name_cl6" cl:versionID_cl="versionID_cl6">ruolo0</er:ruolo>
+            <er:ruolo>Legale rappresentante di Organizzazione</er:ruolo>
         </sa:rappresentanza>
     </sa:opera_con>
     <sa:impresa>

@@ -3,11 +3,11 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../sez_dati_anagrafici_v1.0.0.patterns">
     <x:scenario label="Test sezione anagrafica">
 
-        <x:scenario label="Sezione corretta">
-            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ok.xml"/>
+        <x:scenario label="Sezione NON corretta">
+            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ko.coderesidenza.xml"/>
             
-            <!-- Non mi aspetto alcun errore di validazione -->
-            <x:expect-not-assert label="" />
+            <x:expect-assert count="3" label=""
+                id="ass_comune_cl_check" />
         </x:scenario>
 
     </x:scenario>

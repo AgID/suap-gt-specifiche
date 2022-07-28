@@ -15,18 +15,18 @@
         <sch:let name="keysComuni" value="document('../01_vocabolari/voc_ComuniItaliani_cl.xml')//Row"/> 
         
         <sch:rule context="$indirizzo_italiano">
+            
             <sch:p>
                 Verifico nel comune il fatto che il codice del comune derivi dalla code list di riferimento                
             </sch:p>
             
-            <sch:let name="comune" value="normalize-space($indirizzo_italiano/comune)"/>
+            <sch:let name="ilcomune" value="normalize-space(//comune)"/>
             
             <sch:assert id="ass_comune_cl_check" test="count($keysComuni[
-                normalize-space(Value[@ColumnRef='code' ]/SimpleValue) = $comune
+                normalize-space(Value[@ColumnRef='code' ]/SimpleValue) = $ilcomune
                 ]) = 1">
                 
-                Comune non esiste
-                <sch:value-of select="$comune"/> 
+                Comune non esiste <sch:value-of select="$ilcomune"/> <sch:value-of select="$indirizzo_italiano"/> 
             </sch:assert>
             
         </sch:rule>

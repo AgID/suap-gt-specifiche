@@ -5,53 +5,32 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
     <sch:ns uri="http://entita/persona" prefix="pf"/>
+    <sch:ns uri="http://entita/indirizzo_italiano" prefix="eii"/>
+    <sch:ns uri="http://sezione/scheda_anagrafica" prefix="sez"/>
+    
     <sch:include href="../02_entita/ent_indirizzo_italiano_v1.0.0.sch#indirizzo_italiano_ab"/>
     
-    <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_anagrafici_dich_persona" >
-    
-    <!-- ##################### CODE LIST ######################### -->
-    
-    <!-- ##################### DICHIARANTE ######################### -->
     
     <!-- ###### DICHIARANTE/PERSONA ########## -->
-    
-    <sch:rule context="dichiarante/persona">
-        <!-- 
-            alcuni constraint sono anche nello schema xml ma per maggior resilienza a potenziali future
-            modifiche e disaccoppiarmi da quello preferisco ripeterli direttamente.
-            Se voglio migliorare performance posso mettere in testa quelli che lato xsd non sono vincolati.
-        -->   
-        <sch:assert test="(count(pf:sesso) = 1) and (count(pf:luogo_nascita) = 1) "> 
-            Attributo mancante tra quelli obbligatori: nome, cognome, codice fiscale, sesso e luogo di nascita
-        </sch:assert>
+
+        <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_residenza_indirizzo_italiano" is-a="indirizzo_italiano_ab" >
+            <sch:param name="indirizzo_italiano" value="//sez:indirizzo_italiano"/>
+        </sch:pattern>
         
-        <sch:assert test="count(pf:data_nascita) = 0 "> 
-            La data di nascita non è ammessa come informazione della persona
-        </sch:assert>
-    </sch:rule>
-    
-    <!-- ###### DICHIARANTE/RESIDENZA ########## -->
-        <!--
-    <sch:rule context="dichiarante/residenza/indirizzo_italiano/comune">
-        <sch:let name="text" value="/text()"/>
-        <sch:let name="matchedKeys" value="$keysComuni//SimpleValue/text()[normalize-space(.)=$text]"/>
-        <sch:report id="now001" test="count($matchedKeys) = 0" role="error">
-            Codice non trovato nella code list dei comuni: <sch:value-of select="$text"/>
-        </sch:report>
-    </sch:rule>
-    <sch:rule context="dichiarante/residenza/indirizzo_estero/stato_estero">
-        <sch:let name="text" value="/text()"/>
-        <sch:let name="matchedKeys" value="$keysStati//SimpleValue/text()[normalize-space(.)=$text]"/>
-        <sch:report id="now002" test="count($matchedKeys) = 0" role="error">
-            Codice non trovato nella code list degli stati: <sch:value-of select="$text"/>
-        </sch:report>
-    </sch:rule>
-        -->
+<!--
+
+    <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_anagrafici_dich_persona" >
+        <sch:rule context="dichiarante/persona">
+            <sch:assert test="(count(pf:sesso) = 1) and (count(pf:luogo_nascita) = 1) "> 
+                Attributo mancante tra quelli obbligatori: nome, cognome, codice fiscale, sesso e luogo di nascita
+            </sch:assert>
+            
+            <sch:assert test="count(pf:data_nascita) = 0 "> 
+                La data di nascita non è ammessa come informazione della persona
+            </sch:assert>
+        </sch:rule>
     </sch:pattern>        
-    
-    <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_residenza_indirizzo_italiano" is-a="indirizzo_italiano_ab" >
-        <sch:param name="indirizzo_italiano" value="dichiarante/residenza/indirizzo_italiano"/>
-    </sch:pattern>      
+-->    
     
     <!-- ##################### REGOLE GENERALI ######################### -->
 
