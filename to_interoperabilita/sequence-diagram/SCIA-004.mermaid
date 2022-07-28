@@ -84,5 +84,7 @@ sequenceDiagram
         end
         B ->> C: audit(CUI,integration_times_ending)
         C -->> B: ack
+
+        F -) P: notification(CUI,integration_times_ending)
     end
        
