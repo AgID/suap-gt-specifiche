@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Test Report for F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_indirizzo_italiano_v1.0.0.sch (passed: 2 / pending: 0 / failed: 0 / total: 2)</title>
+      <title>Test Report for F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_documento_rilasciato_v1.0.0.sch (passed: 3 / pending: 0 / failed: 0 / total: 3)</title>
       <style type="text/css">/****************************************************************************/
 /*  File:       test-report.css                                             */
 /*  Author:     Jeni Tennison                                               */
@@ -590,9 +590,9 @@ span.scenario-totals {
    </head>
    <body>
       <h1>Test Report</h1>
-      <p>Schematron: <a href="file:/F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_indirizzo_italiano_v1.0.0.sch">F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_indirizzo_italiano_v1.0.0.sch</a></p>
-      <p>XSpec: <a href="file:/F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_indirizzo_italiano_v1.0.0.test.xspec">F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_indirizzo_italiano_v1.0.0.test.xspec</a></p>
-      <p>Tested: 28 luglio 2022 at 08:19</p>
+      <p>Schematron: <a href="file:/F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_documento_rilasciato_v1.0.0.sch">F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_documento_rilasciato_v1.0.0.sch</a></p>
+      <p>XSpec: <a href="file:/F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/test_cases/ent_documento_rilasciato_v1.0.0.xspec">F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/test_cases/ent_documento_rilasciato_v1.0.0.xspec</a></p>
+      <p>Tested: 28 luglio 2022 at 10:16</p>
       <h2>Contents</h2>
       <table class="xspec">
          <colgroup>
@@ -605,24 +605,24 @@ span.scenario-totals {
          <thead>
             <tr>
                <th></th>
-               <th class="totals">passed: 2</th>
+               <th class="totals">passed: 3</th>
                <th class="totals">pending: 0</th>
                <th class="totals">failed: 0</th>
-               <th class="totals">total: 2</th>
+               <th class="totals">total: 3</th>
             </tr>
          </thead>
          <tbody>
             <tr class="successful">
-               <th><a href="#top_scenario1">Test sul comune</a></th>
-               <th class="totals">2</th>
+               <th><a href="#top_scenario1">Test documento rilasciato</a></th>
+               <th class="totals">3</th>
                <th class="totals">0</th>
                <th class="totals">0</th>
-               <th class="totals">2</th>
+               <th class="totals">3</th>
             </tr>
          </tbody>
       </table>
       <div id="top_scenario1">
-         <h2 class="successful">Test sul comune<span class="scenario-totals">passed: 2 / pending: 0 / failed: 0 / total: 2</span></h2>
+         <h2 class="successful">Test documento rilasciato<span class="scenario-totals">passed: 3 / pending: 0 / failed: 0 / total: 3</span></h2>
          <table class="xspec" id="table_scenario1">
             <colgroup>
                <col style="width:75%" />
@@ -630,24 +630,31 @@ span.scenario-totals {
             </colgroup>
             <tbody>
                <tr class="successful">
-                  <th>Test sul comune</th>
-                  <th>passed: 2 / pending: 0 / failed: 0 / total: 2</th>
+                  <th>Test documento rilasciato</th>
+                  <th>passed: 3 / pending: 0 / failed: 0 / total: 3</th>
                </tr>
                <tr class="successful">
-                  <th>Codice del comune corretto</th>
+                  <th>Documento con date di rilascio e scadenza coerenti</th>
                   <th>passed: 1 / pending: 0 / failed: 0 / total: 1</th>
                </tr>
                <tr class="successful">
-                  <td> not assert ass_comune_cl_check /*:indirizzo_italiano[namespace-uri()='http://entita/indirizzo_italiano'][1]</td>
+                  <td> not assert ass_comune_cl_check /*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]</td>
                   <td>Success</td>
                </tr>
                <tr class="successful">
-                  <th>Codice del comune non esistente</th>
+                  <th>Documento con sola data di rilascio</th>
                   <th>passed: 1 / pending: 0 / failed: 0 / total: 1</th>
                </tr>
                <tr class="successful">
-                  <td> assert ass_comune_cl_check /*:indirizzo_italiano[namespace-uri()='http://entita/indirizzo_italiano'][1]
-                     count: 1</td>
+                  <td> not assert ass_comune_cl_check /*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]</td>
+                  <td>Success</td>
+               </tr>
+               <tr class="successful">
+                  <th>Documento con date di rilascio e scadenza NON coerenti</th>
+                  <th>passed: 1 / pending: 0 / failed: 0 / total: 1</th>
+               </tr>
+               <tr class="successful">
+                  <td> assert ass_dr_check_date /*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]</td>
                   <td>Success</td>
                </tr>
             </tbody>

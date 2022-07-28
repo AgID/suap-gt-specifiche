@@ -14,6 +14,8 @@
 <!--  rimappa sull'entità documentoRiconoscimento del bc 
        per la necessità del moduilo non è stato ritenuto necessario specializzare in permesso di soggiorno (non c'erano attributi specifici)-->
   
+    <xs:element name="documento_rilasciato" type="edr:documento_rilasciato_ctype"/>
+    
     <xs:complexType name="documento_rilasciato_ctype">
         <xs:sequence>
             <xs:element name="tipo" type="cl:CodeType" minOccurs="1" maxOccurs="1"/>

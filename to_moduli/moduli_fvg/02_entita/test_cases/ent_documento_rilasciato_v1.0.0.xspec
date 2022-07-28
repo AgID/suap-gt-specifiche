@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../ent_documento_rilasciato_v1.0.0.sch">
+    <x:scenario label="Test documento rilasciato">
+
+        <x:scenario label="Documento con date di rilascio e scadenza coerenti">
+            <x:context href="ent_documento_rilasciato_v1.0.0.tc.ok.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_comune_cl_check" location="/*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]"/>
+        </x:scenario>
+
+        <x:scenario label="Documento con sola data di rilascio">
+            <x:context href="ent_documento_rilasciato_v1.0.0.tc.ok.one_date_r.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_comune_cl_check" location="/*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]"/>
+        </x:scenario>
+        
+        <x:scenario label="Documento con date di rilascio e scadenza NON coerenti">
+            <x:context href="ent_documento_rilasciato_v1.0.0.tc.ko.both_dates.xml"/>
+            
+            <x:expect-assert label=""
+                id="ass_dr_check_date" location="/*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]"/>
+            
+            <!-- location="/*:indirizzo_italiano[namespace-uri()='http://entita/indirizzo_italiano'][1]" -->
+        </x:scenario>
+        
+    </x:scenario>
+</x:description>
