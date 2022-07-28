@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:ep="http://entita/figura_giuridica"
+    xmlns:efg="http://entita/figura_giuridica"
     xmlns:cl="http://agid.it/suap/commons/codelist"
     xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
     xmlns:ct="http://agid.it/suap/commons/tipi"  
@@ -11,6 +11,8 @@
     <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
+
+    <xs:element name="figura_giuridica" type="efg:figura_giuridica_ctype"/>
 
     <xs:complexType name="figura_giuridica_ctype">
         <xs:sequence>

@@ -9,7 +9,11 @@
     
     <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/> 
-   
+ 
+ 
+    <xs:element name="cittadinanza" type="ec:cittadinanza_ctype"/>
+    
+ 
     <xs:complexType name="cittadinanza_ctype">
         <xs:sequence>
             <xs:element name="stato_estero_cittadinanza" type="cl:CodeType" minOccurs="0" maxOccurs="1">

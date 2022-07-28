@@ -14,9 +14,9 @@
     <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
     <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
 
-    <!--
+
     <xs:element name="persona" type="ep:persona_ctype"/>
-    -->
+
    
     <xs:simpleType name="codice_fiscale_stype">
         <xs:restriction base="xs:string">

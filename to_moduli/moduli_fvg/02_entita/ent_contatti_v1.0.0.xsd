@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:ec="http://entita/contatti"
-    xmlns:cl="http://agid.it/suap/commons/codelist"    
     xmlns:ct="http://agid.it/suap/commons/tipi"       
     targetNamespace="http://entita/contatti"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    
+    <xs:element name="contatti" type="ec:contatti_ctype"/>
     
     <xs:simpleType name="email_stype">
         <xs:restriction base="xs:string">

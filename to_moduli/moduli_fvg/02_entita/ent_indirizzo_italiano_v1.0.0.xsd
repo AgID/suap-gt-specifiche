@@ -12,13 +12,13 @@
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
 
+    <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype"/>
+
     <xs:simpleType name="cap_stype">
         <xs:restriction base="xs:string">
             <xs:pattern value="([0-9]{5})?"/>
         </xs:restriction>
     </xs:simpleType>
-    
-    <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype"/>
     
     <xs:complexType name="indirizzo_italiano_ctype">
         <xs:sequence>
