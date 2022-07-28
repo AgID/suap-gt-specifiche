@@ -2,12 +2,14 @@
     @data_creazione: 27 Luglio 2022    
     @version: 1.0.0 
 -->
-<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_anagrafici" >
+<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
+    
+    <sch:ns uri="http://entita/persona" prefix="pf"/>
+    <sch:include href="../02_entita/ent_indirizzo_italiano_v1.0.0.sch#indirizzo_italiano_ab"/>
+    
+    <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_anagrafici_dich_persona" >
     
     <!-- ##################### CODE LIST ######################### -->
-    
-    <sch:let name="keysComuni" value="document('../01_vocabolari/voc_ComuniItaliani_cl.xml')//Row/Value[@ColumnRef='code']"/>
-    <sch:let name="keysStati" value="document('../01_vocabolari/voc_StatiEsteri_cl.xml')//Row/Value[@ColumnRef='code']"/>
     
     <!-- ##################### DICHIARANTE ######################### -->
     
@@ -19,16 +21,17 @@
             modifiche e disaccoppiarmi da quello preferisco ripeterli direttamente.
             Se voglio migliorare performance posso mettere in testa quelli che lato xsd non sono vincolati.
         -->   
-        <sch:assert test="count(nome) = 1 and  count(cognome) = 1 and count(codice_fiscale) = 1 count(sesso) = 1 and count(ep:luogo_nascita) = 1 "> 
+        <sch:assert test="(count(pf:sesso) = 1) and (count(pf:luogo_nascita) = 1) "> 
             Attributo mancante tra quelli obbligatori: nome, cognome, codice fiscale, sesso e luogo di nascita
         </sch:assert>
         
-        <sch:assert test="count(data_nascita) = 0 "> 
+        <sch:assert test="count(pf:data_nascita) = 0 "> 
             La data di nascita non è ammessa come informazione della persona
         </sch:assert>
     </sch:rule>
     
     <!-- ###### DICHIARANTE/RESIDENZA ########## -->
+        <!--
     <sch:rule context="dichiarante/residenza/indirizzo_italiano/comune">
         <sch:let name="text" value="/text()"/>
         <sch:let name="matchedKeys" value="$keysComuni//SimpleValue/text()[normalize-space(.)=$text]"/>
@@ -43,13 +46,21 @@
             Codice non trovato nella code list degli stati: <sch:value-of select="$text"/>
         </sch:report>
     </sch:rule>
+        -->
+    </sch:pattern>        
+    
+    <sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_dati_residenza_indirizzo_italiano" is-a="indirizzo_italiano_ab" >
+        <sch:param name="indirizzo_italiano" value="dichiarante/residenza/indirizzo_italiano"/>
+    </sch:pattern>      
     
     <!-- ##################### REGOLE GENERALI ######################### -->
 
-    <sch:rule context="scheda_anagrafica/cittadinanza/stato_estero_cittadinanza/text() != 'IT' and ">
+<!--
+    <sch:rule context="scheda_anagrafica/cittadinanza/stato_estero_cittadinanza/text() != 'IT'">
         <sch:report test="count(scheda_anagrafica/documento_rilasciato) = 0">
             Se la cittadinanza è in uno stato non membro EU allora serve permesso di soggiorno          
         </sch:report>    
     </sch:rule>
-</sch:pattern>
+-->
 
+</sch:schema>
