@@ -16,22 +16,30 @@ sequenceDiagram
     par per ogni ente terzo interessato        
         B ->> E: send_instance(CUI)
         E -->> B: ack
+        B ->> C: audit(CUI,instance_to_ET_sended)
+        C -->> B: ack
         E ->> C: request_instance_descriptor(CUI)
         C -->> E: instanceDescriptor
         E ->> B: request_instance(CUI)
         B -->> E: instance
+        E ->> C: audit(CUI,instance_retrived)
+        C -->> E: ack
     end
    
 
     Note over B: concluso il tempo per richiesta integrazione
-    B ->> E: ending_integration(CUI)
-    E -->> B: ack
-    B ->> C: audit(CUI,ending_integration)
-    C -->> B: ack
+    par per ogni ente terzo interessato 
+        B ->> E: ending_integration(CUI)
+        E -->> B: ack
+    end
+        B ->> C: audit(CUI,ending_integration)
+        C -->> B: ack
 
     par almeno un ente terzo 
         E ->> B: send_conclusions(CUI,conformation_required)
-        B -->> E: ack            
+        B -->> E: ack 
+         E ->> C: audit(CUI,conformation_required)
+        C -->> E: ack            
     end
 
     Note over B: concluso il tempo dell'istanza o tutti gli enti terzi hanno inoltrato conclusione e nessun ente terzo richiede sospensione motivata
@@ -43,4 +51,6 @@ sequenceDiagram
     end
     B ->> C: audit(CUI,conformation_required)
     C -->> B: ack
+
+    F -) P: notification(CUI,conformation_required)
         
