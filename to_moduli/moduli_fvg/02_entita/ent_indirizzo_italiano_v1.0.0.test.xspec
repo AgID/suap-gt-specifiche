@@ -25,8 +25,8 @@
                 label="An assert that shouldn't be triggered on a speciffic location" id="a001"
                 location="/article[1]/section[1]"/>
             -->    
-            <x:expect-assert label="Mi aspettavo un errore sul codice del comune italiano e invece niente"
-                id="now001" location="/indirizzo_italiano/comune"/>
+            <x:expect-assert count="1" label="Mi aspettavo un errore sul codice del comune italiano e invece niente"
+                id="ass_comune_cl_check" location="/*:indirizzo_italiano[namespace-uri()='http://entita/indirizzo_italiano'][1]"/>
         </x:scenario>
     </x:scenario>
 </x:description>

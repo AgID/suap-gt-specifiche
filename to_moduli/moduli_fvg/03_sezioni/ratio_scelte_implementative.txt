@@ -16,5 +16,7 @@ Schematron:
     3) Le obbligatorietà definite a livello di xsd della sezione ovviamente non vanno riverificate visto che xsd di sezione e schematron vanno a braccietto
     (diversamente da xsd delle entità che magari vengono modificate da altre persone) 
     
+    4) ha senso usare le fasi di schematron per aggregare i pattern dei vari blocchi dati: valida dichiarante, poi valida impresa etc..Solo per leggibilità
+    
     
         
