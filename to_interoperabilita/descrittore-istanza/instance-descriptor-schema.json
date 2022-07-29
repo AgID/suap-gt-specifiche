@@ -4,7 +4,11 @@
     "$id": "https://agid.gov.it/descrittore_istanza.json",
     "title": "descrittore istanza",
     "type": "object",
-    "required": ["version"],
+    "required": [
+        "version",
+        "municipality",
+        "proceedings"
+    ],
     "properties": {
         "version":{
             "$id": "#root/version",
@@ -24,10 +28,7 @@
                 "context":{
                     "$id": "#root/context",
                     "title": "contesto dell'istanza",
-                    "type": "string",
-                    "enum": [
-                        "SUAP"
-                    ]
+                    "type": "string"
                 },
                 "data": {
                     "$id": "#root/cui/data",
@@ -50,148 +51,9 @@
         },
         "legal_person":{
             "$id": "#root/concerned/legal_person",
-            "title": "persona giuridica",
+            "title": "codice fiscale persona giuridica",
             "type":"string",
-            "pattern": ""
-        },
-        "proceedings": {
-            "$id": "#root/proceedings",
-            "title": "procedimenti avviati",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "required": [
-                    "code",
-                    "version",
-                    "instance_ref",                    
-                    "competent_administration"
-                ],
-                "oneOf" : [{
-                    "required" : ["form"]
-                }, {
-                    "required" : ["document"]
-                }
-                ],
-                "properties": {
-                    "properties":{
-                        "code": {
-                            "$id": "#root/proceedings/code",
-                            "title": "codice della fattispecie presente nel Catalogo",
-                             "type": "string",
-                             "minLength": 1
-                        },
-                        "version": {
-                            "$id": "#root/proceedings/version",
-                            "title": "versione della fattispecie presente nel Catalogo",
-                             "type": "string",
-                             "minLength": 1
-                        },
-                        "instance_ref": {
-                            "$id": "#root/proceedings/instance_ref",
-                            "title": "riferimento all'elemento dell'istanza relativo al procedimento",
-                             "type": "string",
-                             "minLength": 1
-                        },
-                        "instance_ref_hash":{
-                            "$id": "#root/proceedings/instance_ref_hash",
-                            "type": "string"
-                        },
-                        "form": {
-                            "$id": "#root/proceedings/form",
-                            "title": "riferimeo agli oggetti per la validazione",
-                            "type": "object",
-                            "required": [
-                                "xsd",
-                                "schematron"
-                            ],
-                            "properties": {
-                                "xsd": {
-                                    "$id": "#root/proceedings/form/xsd",
-                                    "title": "xsd per la validazione",
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "$id": "#root/proceedings/form/xsd/code",
-                                            "title": "codice dell'XSD per la validazione",
-                                            "type": "string",
-                                            "minLength": 1
-                                        },
-                                        "version": {
-                                            "$id": "#root/proceedings/version",
-                                            "title": "versione dell'XSD per la validazione",
-                                             "type": "string",
-                                             "minLength": 1
-                                        }
-
-                                    }
-                                },
-                                "schematron": {
-                                    "$id": "#root/proceedings/form/xsd",
-                                    "title": "xsd per la validazione",
-                                    "type": "object",
-                                    "properties": {
-                                        "code": {
-                                            "$id": "#root/proceedings/form/schematron/code",
-                                            "title": "codice dello schematron per la validazione",
-                                            "type": "string",
-                                            "minLength": 1
-                                        },
-                                        "version": {
-                                            "$id": "#root/proceedings/form/schematron/version",
-                                            "title": "versione dello schematron per la validazione",
-                                            "type": "string",
-                                            "minLength": 1
-                                        },
-                                        "phase": {
-                                            "$id": "#root/proceedings/form/schematron/phase",
-                                            "title": "fasi dello schematron per la validazione",
-                                            "type": "array",
-                                            "items": {"type": "string"}
-                                        }
-                                    }
-                            }
-                        },
-                        "document": {
-                            "$id": "#root/proceedings/form/unstructured",
-                            "title": "file naming",
-                            "type": "string",
-                            "minLength": 1
-                        }
-                    }
-                    },                    
-                    "form": {
-                        "$id": "#root/proceedings/form",
-                        "title": "modulo associato al procedimento",
-                        "type": "object",
-                        
-                        "properties": {                        
-                            
-                    },
-                    "competent_administration": {
-                        "$id": "#root/proceedings/competent_administration",
-                        "title": "amministrazione compoetente del procedimento",
-                        "type": "object",
-                        "required": [
-                            "administration",                            
-                            "endpoint"
-                        ],
-                        "properties": {
-                            "administration": {
-                                "$id": "#root/proceedings/competent_administration/administration",
-                                "title": "riferimento all'amministrazione",
-                                "type": "string",
-                                "minLength": 1
-                            },                            
-                            "endpoint": {
-                                "$id": "#root/proceedings/competent_administration/endpoint",
-                                "title": "endpoint degli e-service",
-                                "type": "string",
-                                "minLength": 1
-                            }
-                        }
-                    }
-                }
-            }
+            "pattern": "^[0-9]{9}$"
         },
         "instance_status": {
             "$id": "#root/instance_status",
@@ -219,6 +81,164 @@
                         "title": "timestamp del cambiamento di stato",
                         "type": "string",
                         "format": "date-time"
+                    }
+                }
+            }
+        },
+        "proceedings": {
+            "$id": "#root/proceedings",
+            "title": "procedimenti avviati",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "code",
+                    "version",                    
+                    "competent_administration"
+                ],
+                "oneOf" : [
+                    {"required" : ["form"]}, 
+                    {"required" : ["document"]}
+                ],
+                "properties":{
+                    "code": {
+                        "$id": "#root/proceedings/code",
+                        "title": "codice della fattispecie presente nel Catalogo",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "version": {
+                        "$id": "#root/proceedings/version",
+                        "title": "versione della fattispecie presente nel Catalogo",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "competent_administration": {
+                        "$id": "#root/proceedings/competent_administration",
+                        "title": "amministrazione compoetente del procedimento",
+                        "type": "object",
+                        "required": [
+                            "administration",                            
+                            "endpoint"
+                        ],
+                        "properties": {
+                            "administration": {
+                                "$id": "#root/proceedings/competent_administration/administration",
+                                "title": "riferimento all'amministrazione",
+                                "type": "string",
+                                "minLength": 1
+                            },                            
+                            "endpoint": {
+                                "$id": "#root/proceedings/competent_administration/endpoint",
+                                "title": "endpoint degli e-service",
+                                "type": "string",
+                                "minLength": 1
+                            }
+                        }
+                    },
+                    "form": {
+                        "$id": "#root/proceedings/form",
+                        "title": "riferimeo agli oggetti per la validazione",
+                        "type": "object",
+                        "required": [
+                            "xsd",
+                            "schematron"
+                        ],
+                        "properties": {
+                            "xsd": {
+                                "$id": "#root/proceedings/form/xsd",
+                                "title": "xsd per la validazione",
+                                "type": "object",
+                                "required": [
+                                    "code",
+                                    "version"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "$id": "#root/proceedings/form/xsd/code",
+                                        "title": "codice dell'XSD per la validazione",
+                                        "type": "string",
+                                        "minLength": 1
+                                    },
+                                    "version": {
+                                        "$id": "#root/proceedings/version",
+                                        "title": "versione dell'XSD per la validazione",
+                                        "type": "string",
+                                        "minLength": 1
+                                    }
+                                }
+                            },
+                            "schematron": {
+                                "$id": "#root/proceedings/form/xsd",
+                                "title": "xsd per la validazione",
+                                "type": "object",
+                                "required": [
+                                    "code",
+                                    "version",
+                                    "phase"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "$id": "#root/proceedings/form/schematron/code",
+                                        "title": "codice dello schematron per la validazione",
+                                        "type": "string",
+                                        "minLength": 1
+                                    },
+                                    "version": {
+                                        "$id": "#root/proceedings/form/schematron/version",
+                                        "title": "versione dello schematron per la validazione",
+                                        "type": "string",
+                                        "minLength": 1
+                                    },
+                                    "phase": {
+                                        "$id": "#root/proceedings/form/schematron/phase",
+                                        "title": "fasi dello schematron per la validazione",
+                                        "type": "array",
+                                        "items": {"type": "string"}
+                                    }
+                                }
+                            }
+                        }
+                    },                    
+                    "document": {
+                        "$id": "#root/proceedings/form/unstructured",
+                        "title": "file naming",
+                        "type": "string",
+                        "minLength": 1
+                    },                     
+                    "instance":{
+                        "$id": "#root/proceedings/instance",
+                        "title": "istanza relativo al procedimento",
+                        "type": "object",                            
+                        "required": [
+                            "ref",
+                            "hash",
+                            "alg_hash"
+                        ],                        
+                        "properties":{
+                            "ref": {
+                                "$id": "#root/proceedings/instance/ref",
+                                "title": "riferimento all'elemento dell'istanza relativo al procedimento",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "hash":{
+                                "$id": "#root/proceedings/instance/hash",
+                                "title": "hash dell'istanza relativo al procedimento",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "alg_hash":{
+                                "$id": "#root/proceedings/instance/alg_hash",
+                                "title": "algoritmo hash dell'istanza relativo al procedimento",
+                                "type": "string",
+                                "enum":[
+                                    "S256",
+                                    "S384",
+                                    "S512"
+                                ]
+                            }
+                        }
                     }
                 }
             }
