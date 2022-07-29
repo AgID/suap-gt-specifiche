@@ -19,18 +19,28 @@ sequenceDiagram
     par per ogni ente terzo interessato        
         B ->> E: send_instance(CUI)
         E -->> B: ack
+        B ->> C: audit(CUI,instance_to_ET_sended)
+        C -->> B: ack
         E ->> C: request_instance_descriptor(CUI)
         C -->> E: instanceDescriptor
         E ->> B: request_instance(CUI)
         B -->> E: instance
+        E ->> C: audit(CUI,instance_retrived)
+        C -->> E: ack
     end
         
     par almeno un ente terzo
         E ->> B: integration_request(CUI,CdSS_convocation)
-        B -->> E: ack            
+        B -->> E: ack   
+        E ->> C: audit(CUI,integration_requested)
+        C -->> E: ack    		
     end
 
+    
     Note over B: concluso il tempo di richiesta integrazione OR tutti gli enti terzi hanno richiesto integrazione
+    B ->> C: audit(CUI,ending_integration)
+    C -->> B: ack
+ 
     B ->> F: ending_instance(CUI,CdSS_convocation)
     F -->> B: ack            
     par per ogni ente terzo interessato

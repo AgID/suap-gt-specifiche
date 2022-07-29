@@ -54,17 +54,16 @@ sequenceDiagram
         B ->> C: audit(CUI,instance_integrated_retrived)
         C -->> B: ack
         par per ogni ente terzo interessato                
-            B ->> E: send_istance(CUI)
+            B ->> E: send_instance(CUI)
             E -->> B: ack
             B ->> C: audit(CUI,instance_integrated_to_ET_sended)
             C -->> B: ack
-            E ->> F: request_instance(CUI)
-            F -->> E: instance
+            E ->> B: request_instance(CUI)
+            B -->> E: instance
             E ->> C: audit(CUI,instance_integrated_retrived)
             C -->> E: ack
         end
-        B ->> C: audit(CUI,request_instance_integrated)
-        C -->> B: ack                
+            
 
         Note over B: concluso il tempo dell'istanza o tutti gli enti terzi hanno inoltrato conclusione e nessun ente terzo richiede sospensione motivata
         B ->> F: ending_instance(CUI,conformation_required)
