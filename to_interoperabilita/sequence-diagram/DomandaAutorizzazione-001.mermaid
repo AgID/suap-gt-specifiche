@@ -13,11 +13,11 @@ sequenceDiagram
 
             
     B ->> F: ending_instance(CUI,CdSS_convened)
-    F --> B: ack    
+    F -->> B: ack    
 
     par per ogni ente terzo interessato
         B ->> E: ending_instance(CUI,CdSS_convened)
-        E --> B: ack
+        E -->> B: ack
     end
     
     B ->> C: audit(CUI,CdSS_convened)

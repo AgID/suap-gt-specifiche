@@ -21,39 +21,54 @@ sequenceDiagram
     par per ogni ente terzo interessato        
         B ->> E: send_instance(CUI)
         E -->> B: ack
+        B ->> C: audit(CUI,instance_to_ET_sended)
+        C -->> B: ack
         E ->> C: request_instance_descriptor(CUI)
         C -->> E: instanceDescriptor
         E ->> B: request_instance(CUI)
         B -->> E: instance
+        E ->> C: audit(CUI,instance_retrived)
+        C -->> E: ack
     end
         
     par almeno un ente terzo
         E ->> B: integration_request(CUI,integration_request_ente_terzo)
-        B -->> E: ack            
+        B -->> E: ack    
+		E ->> C: audit(CUI,integration_requested)
+        C -->> E: ack          
     end
 
     Note over B: concluso il tempo di richiesta integrazione OR tutti gli enti terzi hanno richiesto integrazione
-    B ->> F: integration_request(CUI,integration_request_all)
+    B ->> F: integration_request(CUI,integration_requested)
     F -->> B: ack
-    B ->> C: audit(CUI,integration_request_all)
+    B ->> C: audit(CUI,integration_requested)
     C -->> B: ack
-    F -) P: integration_request(CUI)
+    F -) P: notification(CUI,integration_requested)    
+    F ->> C: audit(CUI,integration_requested)
+    C -->> F: ack
 
 
     alt entro i tempi di integrazione
         P --) F: instanceIntegrated
         F ->> B: send_instance(CUI)
         B -->> F: ack
+		F ->> C: audit(CUI,instance_integrated_to_BO_sended)
+        C -->> F: ack																 
         B ->> F: request_instance(CUI)
         F -->> B: instance
+		B ->> C: audit(CUI,instance_integrated_retrived)
+        C -->> B: ack															 
         par per ogni ente terzo interessato                
             B ->> E: send_instance(CUI)
             E -->> B: ack
-            E ->> F: request_instance(CUI)
-            F -->> E: instance
+            B ->> C: audit(CUI,instance_integrated_to_ET_sended)
+            C -->> B: ack
+            E ->> B: request_instance(CUI)
+            B -->> E: instance
+            E ->> C: audit(CUI,instance_integrated_retrived)
+            C -->> E: ack
         end
-        B ->> C: audit(CUI,request_instance_integrated)
-        C -->> B: ack 
+
 
         par almeno un ente terzo
             E ->> B: send_conclusions(CUI,conformation_required)
