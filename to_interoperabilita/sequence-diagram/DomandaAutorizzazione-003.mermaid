@@ -1,12 +1,13 @@
 sequenceDiagram
     autonumber
-    
+
+    actor P as Presentatore    
     participant F as FrontOffice SUAP
-    participant C as Catalogo SSU    
-    participant B as BackOffice SUAP    
+    participant B as BackOffice SUAP   
+    participant C as Catalogo SSU 
     actor O as Operatore SUAP    
     participant E as Enti Terzi    
- 
+
     Note over F,B: istanza procedibile
     B ->> C: request_instance_descriptor(CUI)
     C -->> B: instanceDescriptor
@@ -15,26 +16,30 @@ sequenceDiagram
     par per ogni ente terzo interessato        
         B ->> E: send_instance(CUI)
         E -->> B: ack
+        B ->> C: audit(CUI,instance_to_ET_sended)
+        C -->> B: ack
         E ->> C: request_instance_descriptor(CUI)
         C -->> E: instanceDescriptor
-        E ->> B: get_instance(CUI)
+        E ->> B: request_instance(CUI)
         B -->> E: instance
+        E ->> C: audit(CUI,instance_retrived)
+        C -->> E: ack
     end
-    
 
     Note over B: concluso il tempo per richiesta integrazione
-    B ->> E: ending_integration(CUI)
-    E -->> B: ack
-    B ->> C: audit(CUI,ending_integration)
-    C -->> B: ack
-    
+    par per ogni ente terzo interessato 
+        B ->> E: ending_integration(CUI)
+        E -->> B: ack
+    end
+        B ->> C: audit(CUI,ending_integration)
+        C -->> B: ack
+        
     Note over B: concluso il tempo dell'istanza 
     B ->> F: ending_instance(CUI,procidemental_times_concluded)
-    F --> B: ack            
+    F -->> B: ack            
     par per ogni ente terzo interessato
         B ->> E: ending_instance(CUI,procidemental_times_concluded)
-        E --> B: ack
+        E -->> B: ack
     end
     B ->> C: audit(CUI,procidemental_times_concluded)
     C -->> B: ack
-        
