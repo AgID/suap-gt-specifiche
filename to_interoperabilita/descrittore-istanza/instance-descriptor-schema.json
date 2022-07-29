@@ -96,10 +96,6 @@
                     "version",                    
                     "competent_administration"
                 ],
-                "oneOf" : [
-                    {"required" : ["form"]}, 
-                    {"required" : ["document"]}
-                ],
                 "properties":{
                     "code": {
                         "$id": "#root/proceedings/code",
@@ -122,15 +118,21 @@
                             "endpoint"
                         ],
                         "properties": {
-                            "administration": {
-                                "$id": "#root/proceedings/competent_administration/administration",
-                                "title": "riferimento all'amministrazione",
+                            "ipa": {
+                                "$id": "#root/proceedings/competent_administration/cod_IPA",
+                                "title": "codice IPA dell'amministrazione",
                                 "type": "string",
                                 "minLength": 1
-                            },                            
-                            "endpoint": {
-                                "$id": "#root/proceedings/competent_administration/endpoint",
-                                "title": "endpoint degli e-service",
+                            }, 
+                            "code": {
+                                "$id": "#root/proceedings/competent_administration/code",
+                                "title": "codice dell'ufficio dell'amministrazione",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "version": {
+                                "$id": "#root/proceedings/competent_administration/version",
+                                "title": "versione dell'ufficio dell'amministrazione",
                                 "type": "string",
                                 "minLength": 1
                             }
@@ -199,12 +201,6 @@
                                 }
                             }
                         }
-                    },                    
-                    "document": {
-                        "$id": "#root/proceedings/form/unstructured",
-                        "title": "file naming",
-                        "type": "string",
-                        "minLength": 1
                     },                     
                     "instance":{
                         "$id": "#root/proceedings/instance",
