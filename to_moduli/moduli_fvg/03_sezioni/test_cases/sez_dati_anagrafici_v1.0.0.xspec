@@ -10,5 +10,12 @@
                 id="ass_comune_cl_check" />
         </x:scenario>
 
+        <x:scenario label="Sezione corretta">
+            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ok.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_comune_cl_check" />
+        </x:scenario>
+        
     </x:scenario>
 </x:description>

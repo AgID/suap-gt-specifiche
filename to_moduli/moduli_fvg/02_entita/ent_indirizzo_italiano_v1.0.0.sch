@@ -25,7 +25,6 @@
             <sch:assert id="ass_comune_cl_check" test="count($keysComuni[
                 normalize-space(Value[@ColumnRef='code' ]/SimpleValue) = $comune
                 ]) = 1">
-                
                 Comune non esiste (<sch:value-of select="$comune"/>) 
             </sch:assert>
             

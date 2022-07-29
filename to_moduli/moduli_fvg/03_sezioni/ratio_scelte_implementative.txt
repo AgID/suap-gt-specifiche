@@ -6,8 +6,12 @@ Schematron:
         - contro: dichiarando tutti gli elementi obbligatori dello schema xsd implica dover per forza aggiornare gli schematron in caso di rinomina
         anche su campi di cui si vuole solo verificare la presenza (senza controlli più spinti).
         
-    soluzione preferita: non dichiariamo in schematron gli elementi obbligatori già definiti nello schema ma dobbiamo mitigare con dei test case
+    soluzione preferita (FIXME): non dichiariamo in schematron gli elementi obbligatori già definiti nello schema ma solo il "delta". Dobbiamo però mitigare con dei test case
     il rischio che in futuro alcuni elementi che presupponiamo a livello sezione siano obbligatori non lo siano piu in futuro a livello xsd.
+    L'abbiamo parzialmente risolto in questo modo: per lo schematron abbiamo i test case XSpech che importano i file di test come xml esterni
+    e quindi soggetti a validazione xsd già rispetto ad un IDE come Oxygen/Eclipse/Intellj etc.. In questo modo chi definisce sezioni e moduli ha davanti agli occhi
+    gli esempi di dati attesi e li valida sia rispetto a schematron che xsd anche in successivi campi di versione degli elementi.
+    Per coprire però il caso in cui ho un elemento (ex. luogo di nascita) che diventa 
         
     2) Destinatario dei messaggi di errore/warning: devono essere leggibili per l'utente finale? Immaginiamo di no ma saranno perlomento tracciati
     dal sistema chiamante. Da valutare se possibile/utile restituire delle codifiche di situazioni errore in modo da consentire al sistema che effettua 
