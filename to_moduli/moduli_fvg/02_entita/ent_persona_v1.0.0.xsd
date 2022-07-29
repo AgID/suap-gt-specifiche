@@ -38,17 +38,17 @@
             <xs:element name="cognome" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="sesso" type="ep:sesso_stype" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="data_nascita" type="xs:date" minOccurs="0" maxOccurs="1"/>
-            <xs:choice>
-                <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="0" maxOccurs="1" >
+            <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="1" maxOccurs="1" >
                     <xs:annotation>
                         <xs:documentation>
                             <ca:codeListID_cl>IT:SUAP:CL:StoricoComuniItaliani</ca:codeListID_cl>
                         </xs:documentation>
                     </xs:annotation>                    
                 </xs:element>
-                <xs:sequence>
-                    <xs:element name="luogo_nascita_estero" type="ct:stringa_standard_stype" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="stato_estero" type="cl:CodeType" minOccurs="0" maxOccurs="1" >
+                <xs:sequence minOccurs="1" maxOccurs="1">
+                    <xs:element name="luogo_nascita_estero" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="stato_estero" type="cl:CodeType" minOccurs="1" maxOccurs="1" >
                         <xs:annotation>
                             <xs:documentation>
                                 <ca:codeListID_cl>IT:SUAP:CL:StatiEsteri</ca:codeListID_cl>

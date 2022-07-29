@@ -10,13 +10,6 @@
                 id="ass_comune_cl_check" location="/*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]"/>
         </x:scenario>
 
-        <x:scenario label="Documento con sola data di rilascio">
-            <x:context href="ent_documento_rilasciato_v1.0.0.tc.ok.one_date_r.xml"/>
-            
-            <x:expect-not-assert label=""
-                id="ass_comune_cl_check" location="/*:documento_rilasciato[namespace-uri()='http://entita/documento_rilasciato'][1]"/>
-        </x:scenario>
-        
         <x:scenario label="Documento con date di rilascio e scadenza NON coerenti">
             <x:context href="ent_documento_rilasciato_v1.0.0.tc.ko.both_dates.xml"/>
             
