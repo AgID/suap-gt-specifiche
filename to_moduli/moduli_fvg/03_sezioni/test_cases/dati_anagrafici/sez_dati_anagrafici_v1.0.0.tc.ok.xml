@@ -15,7 +15,7 @@
  xmlns:vpege="http://vocabolari/persona_genere"
  xmlns:fhg="http://vocabolari/files_hashalg"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://sezione/scheda_anagrafica ../sez_dati_anagrafici_v1.0.0.xsd">
+ xsi:schemaLocation="http://sezione/scheda_anagrafica ../../sez_dati_anagrafici_v1.0.0.xsd">
     <sa:dichiarante>
         <sa:persona>
             <epf:codice_fiscale>AAAAAA00A00A000A</epf:codice_fiscale>
@@ -26,7 +26,7 @@
             <epf:luogo_nascita_italiano cl:codeListID_cl="codeListID_cl0" cl:name_cl="name_cl0" cl:versionID_cl="versionID_cl0">luogo_nascita_italiano0</epf:luogo_nascita_italiano>
         </sa:persona>
         <sa:cittadinanza>
-            <ec:stato_estero_cittadinanza cl:codeListID_cl="codeListID_cl1" cl:name_cl="name_cl1" cl:versionID_cl="versionID_cl1">stato_estero_cittadinanza0</ec:stato_estero_cittadinanza>
+            <ec:stato_cittadinanza cl:codeListID_cl="codeListID_cl1" cl:name_cl="name_cl1" cl:versionID_cl="versionID_cl1">stato_estero_cittadinanza0</ec:stato_cittadinanza>
         </sa:cittadinanza>
         <sa:documento_rilasciato>
             <edr:tipo cl:codeListID_cl="codeListID_cl2" cl:name_cl="name_cl2" cl:versionID_cl="versionID_cl2">tipo0</edr:tipo>
@@ -105,7 +105,7 @@
             <epf:stato_estero cl:codeListID_cl="codeListID_cl10" cl:name_cl="name_cl10" cl:versionID_cl="versionID_cl10">stato_estero0</epf:stato_estero>
         </sa:datiPersona>
         <sa:cittadinanza>
-            <ec:stato_estero_cittadinanza cl:codeListID_cl="codeListID_cl11" cl:name_cl="name_cl11" cl:versionID_cl="versionID_cl11">stato_estero_cittadinanza1</ec:stato_estero_cittadinanza>
+            <ec:stato_cittadinanza cl:codeListID_cl="codeListID_cl11" cl:name_cl="name_cl11" cl:versionID_cl="versionID_cl11">stato_estero_cittadinanza1</ec:stato_cittadinanza>
         </sa:cittadinanza>
         <sa:documento_rilasciato>
             <edr:tipo cl:codeListID_cl="codeListID_cl12" cl:name_cl="name_cl12" cl:versionID_cl="versionID_cl12">tipo1</edr:tipo>

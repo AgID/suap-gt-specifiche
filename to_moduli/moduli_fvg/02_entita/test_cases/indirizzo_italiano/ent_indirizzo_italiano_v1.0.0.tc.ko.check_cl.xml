@@ -4,7 +4,7 @@
   xmlns:ca="http://agid.it/suap/commons/xsdAnnotations"
   xmlns:ct="http://agid.it/suap/commons/tipi"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://entita/indirizzo_italiano ../ent_indirizzo_italiano_v1.0.0.xsd">
+  xsi:schemaLocation="http://entita/indirizzo_italiano ../../ent_indirizzo_italiano_v1.0.0.xsd">
   
   <eii:dug cl:codeListID_cl="codeListID_cl0" cl:name_cl="name_cl0" cl:versionID_cl="versionID_cl0">dug0</eii:dug>
   <eii:toponimo>toponimo0</eii:toponimo>

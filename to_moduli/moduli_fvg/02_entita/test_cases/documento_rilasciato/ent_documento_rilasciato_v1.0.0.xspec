@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../ent_documento_rilasciato_v1.0.0.sch">
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_documento_rilasciato_v1.0.0.sch">
     <x:scenario label="Test documento rilasciato">
 
         <x:scenario label="Documento con date di rilascio e scadenza coerenti">

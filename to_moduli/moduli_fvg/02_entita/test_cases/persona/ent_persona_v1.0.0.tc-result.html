@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Test Report for D:/Insiel/git repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_cittadinanza_v1.0.0.sch (passed: 2 / pending: 0 / failed: 0 / total: 2)</title>
+      <title>Test Report for F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_persona_v1.0.0.sch (passed: 4 / pending: 0 / failed: 0 / total: 4)</title>
       <style type="text/css">/****************************************************************************/
 /*  File:       test-report.css                                             */
 /*  Author:     Jeni Tennison                                               */
@@ -590,9 +590,9 @@ span.scenario-totals {
    </head>
    <body>
       <h1>Test Report</h1>
-      <p>Schematron: <a href="file:/D:/Insiel/git%20repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_cittadinanza_v1.0.0.sch">D:/Insiel/git repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_cittadinanza_v1.0.0.sch</a></p>
-      <p>XSpec: <a href="file:/D:/Insiel/git%20repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/test_cases/ent_cittadinanza_v1.0.0.tc.xspec">D:/Insiel/git repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/test_cases/ent_cittadinanza_v1.0.0.tc.xspec</a></p>
-      <p>Tested: 1 agosto 2022 at 11:34</p>
+      <p>Schematron: <a href="file:/F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_persona_v1.0.0.sch">F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/ent_persona_v1.0.0.sch</a></p>
+      <p>XSpec: <a href="file:/F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/test_cases/persona/ent_persona_v1.0.0.tc.xspec">F:/softwareDEV/GIT/repos/suap-gt-specifiche/to_moduli/moduli_fvg/02_entita/test_cases/persona/ent_persona_v1.0.0.tc.xspec</a></p>
+      <p>Tested: 1 agosto 2022 at 12:48</p>
       <h2>Contents</h2>
       <table class="xspec">
          <colgroup>
@@ -605,24 +605,24 @@ span.scenario-totals {
          <thead>
             <tr>
                <th></th>
-               <th class="totals">passed: 2</th>
+               <th class="totals">passed: 4</th>
                <th class="totals">pending: 0</th>
                <th class="totals">failed: 0</th>
-               <th class="totals">total: 2</th>
+               <th class="totals">total: 4</th>
             </tr>
          </thead>
          <tbody>
             <tr class="successful">
-               <th><a href="#top_scenario1">Test sulla cittadinanza</a></th>
-               <th class="totals">2</th>
+               <th><a href="#top_scenario1">Test sulla persona fisica</a></th>
+               <th class="totals">4</th>
                <th class="totals">0</th>
                <th class="totals">0</th>
-               <th class="totals">2</th>
+               <th class="totals">4</th>
             </tr>
          </tbody>
       </table>
       <div id="top_scenario1">
-         <h2 class="successful">Test sulla cittadinanza<span class="scenario-totals">passed: 2 / pending: 0 / failed: 0 / total: 2</span></h2>
+         <h2 class="successful">Test sulla persona fisica<span class="scenario-totals">passed: 4 / pending: 0 / failed: 0 / total: 4</span></h2>
          <table class="xspec" id="table_scenario1">
             <colgroup>
                <col style="width:75%" />
@@ -630,24 +630,39 @@ span.scenario-totals {
             </colgroup>
             <tbody>
                <tr class="successful">
-                  <th>Test sulla cittadinanza</th>
-                  <th>passed: 2 / pending: 0 / failed: 0 / total: 2</th>
+                  <th>Test sulla persona fisica</th>
+                  <th>passed: 4 / pending: 0 / failed: 0 / total: 4</th>
                </tr>
                <tr class="successful">
-                  <th>Codice stato cittadinanza corretto</th>
+                  <th>Luogo di nascita italiano CORRETTO</th>
                   <th>passed: 1 / pending: 0 / failed: 0 / total: 1</th>
                </tr>
                <tr class="successful">
-                  <td> not assert ass_stato_cl_check /*:cittadinanza[namespace-uri()='http://entita/cittadinanza'][1]</td>
+                  <td> not assert ass_comune_cl_check /*:persona[namespace-uri()='http://entita/persona'][1]</td>
                   <td>Success</td>
                </tr>
                <tr class="successful">
-                  <th>Codice stato cittadinanza non esistente</th>
+                  <th>Luogo di nascita stato estero CORRETTO</th>
                   <th>passed: 1 / pending: 0 / failed: 0 / total: 1</th>
                </tr>
                <tr class="successful">
-                  <td> assert ass_stato_cl_check /*:cittadinanza[namespace-uri()='http://entita/cittadinanza'][1]
-                     count: 1</td>
+                  <td> not assert ass_stato_cl_check /*:persona[namespace-uri()='http://entita/persona'][1]</td>
+                  <td>Success</td>
+               </tr>
+               <tr class="successful">
+                  <th>Luogo di nascita italiano NON CORRETTO</th>
+                  <th>passed: 1 / pending: 0 / failed: 0 / total: 1</th>
+               </tr>
+               <tr class="successful">
+                  <td> not assert ass_comune_cl_check /*:persona[namespace-uri()='http://entita/persona'][1]</td>
+                  <td>Success</td>
+               </tr>
+               <tr class="successful">
+                  <th>Luogo di nascita stato estero NON CORRETTO</th>
+                  <th>passed: 1 / pending: 0 / failed: 0 / total: 1</th>
+               </tr>
+               <tr class="successful">
+                  <td> not assert ass_stato_cl_check /*:persona[namespace-uri()='http://entita/persona'][1]</td>
                   <td>Success</td>
                </tr>
             </tbody>

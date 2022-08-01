@@ -1,28 +1,21 @@
 Schematron:
 
-    1) Resilienza al cambio negli schema xsd (pro e contro): dichiarare anche i campi che a livello xsd sono obbligatori
-        - pro: schematron piu esplicito (leggibilità di quanto atteso dal modulo simile a config II livello SUS) e
-        resiliente ad eventuali future rimozioni di obbligatorietà degli elementi dello schema.
-        - contro: dichiarando tutti gli elementi obbligatori dello schema xsd implica dover per forza aggiornare gli schematron in caso di rinomina
+    1) Resilienza al cambio negli schema xsd: pro e contro del dichiarare o meno anche i campi che a livello xsd sono obbligatori.
+        - pro: schematron piu esplicito (leggibilità di quanto atteso dal modulo/sezione indipendentemente ma coerente con obbligatorieta su xsd) e
+        resiliente ad eventuali future rimozioni di obbligatorietà degli elementi nello schema.
+        - contro: dichiarando tutti gli elementi obbligatori dello schema xsd nello schematron questo implica dover per forza aggiornare gli schematron in caso di rinomina
         anche su campi di cui si vuole solo verificare la presenza (senza controlli più spinti).
         
-    soluzione preferita (FIXME): non dichiariamo in schematron gli elementi obbligatori già definiti nello schema ma solo il "delta". Dobbiamo però mitigare con dei test case
-    il rischio che in futuro alcuni elementi che presupponiamo a livello sezione siano obbligatori non lo siano piu in futuro a livello xsd.
-    L'abbiamo parzialmente risolto in questo modo: per lo schematron abbiamo i test case XSpech che importano i file di test come xml esterni
-    e quindi soggetti a validazione xsd già rispetto ad un IDE come Oxygen/Eclipse/Intellj etc.. In questo modo chi definisce sezioni e moduli ha davanti agli occhi
-    gli esempi di dati attesi e li valida sia rispetto a schematron che xsd anche in successivi campi di versione degli elementi.
-    Rimane però aperto il caso in cui anche se avevo degli xml di esempio con un campo che era obbligatorio e questo diventa facoltativo, allora l'xml continua ad essere valido 
+    In attesa di scelta al momento non dichiariamo in schematron gli elementi obbligatori già definiti nello schema ma solo il "delta". 
+    Essendoci una validazione doppia da fare a runtime abbiamo bisogno comunque a livello di IDE (Ex. Oxygen) di verificare con dei file xml di esempio il corretto comportamento delle validazioni rispetto a xsd + schematron.
+    Al momento l'abbiamo risolto delegando a Oxygen:
+    - controllo compliance xml a xsd applicando la funzione di validate sull'intero folder dei moduli i test case definiti
+    - controllo compliance xml agli schematron applicando ai test case XSpech sull'intero folder di moduli con la funzione "Apply Transformation Scenario"    
+    
+    Rimane però aperto il caso in cui anche se avevo nei test case degli xml di esempio con un campo che era obbligatorio e questo diventa facoltativo, allora l'xml continua ad essere valido 
     e non posso accorgermi automaticamente che dovrei mettere mano allo schematron per aggiungere come "delta" il nuovo controllo.
         
-    2) Dubbio/Conferma necessaria: Chi è il destinatario dei messaggi di errore/warning di schematron? L'utente finale o come pensiamo un sistema?  Se confermao il sistema allora questo potrebbe limitarsi
-    a tracciare da qualche parte (ex. log formale) la mancata validazione e i messaggi di errore oppure voler reagire applciativamente per certe macro casistiche di errore: quest'ultimo 
-    caso richiederebbe di ricevere dei codici di errore strutturati più che dei semplici messaggi di errore. Non crediamo si voglia andare a coprire questa necessità ma solo la tracciatura
-    nel log dell'errore di validazione.
-    
-    3) Le obbligatorietà definite a livello di xsd della sezione ovviamente non sono rischiose come quelle indicate al punto #1 in quanto la persona che edita le sezioni è la stessa o lavora
-    direttamente con chi definisce lo schematron della sezione (Diversamente dal caso degli xsd delle entità che magari vengono modificate da altre persone) 
-    
-    4) ha senso usare le fasi di schematron per aggregare i pattern dei vari blocchi dati? valida dichiarante, poi valida impresa etc..Solo per leggibilità.. Adottiamo senno un minimo pattern grafico.
-    
+    2) Il destinatario dei messaggi di errore/warning è il sistema che fa validazione che traccia l'errore in qualche log formale. Se un domani qualche sistema dovesse aver bisogno di
+    discriminare lo specifico errore potrebbe dall'Output di Schematron recuperare l'identificativo della regola violata.    
     
         

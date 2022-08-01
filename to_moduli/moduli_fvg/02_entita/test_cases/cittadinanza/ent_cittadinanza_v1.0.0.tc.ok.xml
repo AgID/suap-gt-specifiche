@@ -3,6 +3,6 @@
   xmlns:cl="http://agid.it/suap/commons/codelist"
   xmlns:ca="http://agid.it/suap/commons/xsdAnnotations"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://entita/cittadinanza ../ent_cittadinanza_v1.0.0.xsd">
+  xsi:schemaLocation="http://entita/cittadinanza ../../ent_cittadinanza_v1.0.0.xsd">
   <ec:stato_cittadinanza>SI</ec:stato_cittadinanza>
 </ec:cittadinanza>
