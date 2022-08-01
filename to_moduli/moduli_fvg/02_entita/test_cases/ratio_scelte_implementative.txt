@@ -1,3 +1,3 @@
 Siccome gli schematron includono solo il delta di validazioni che non sono previste nell'xsd delle entità già importate allora andiamo a mitigare il rischio che
 assunti di obbligatorietà su alcuni campi al tempo t_0 vengano violati al tempo t_1 spostando i context dei test case definiti in XSpec in file XML esterni
-che un IDE come Oxygen può validare direttamente rispetto allo schema e segnalare quindi a che predisponde le sezioni di eventuali violazioni..
+che un IDE come Oxygen può validare direttamente rispetto allo schema e segnalare quindi a che predisponde le sezioni di eventuali violazioni.. 

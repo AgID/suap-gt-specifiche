@@ -11,16 +11,18 @@ Schematron:
     L'abbiamo parzialmente risolto in questo modo: per lo schematron abbiamo i test case XSpech che importano i file di test come xml esterni
     e quindi soggetti a validazione xsd già rispetto ad un IDE come Oxygen/Eclipse/Intellj etc.. In questo modo chi definisce sezioni e moduli ha davanti agli occhi
     gli esempi di dati attesi e li valida sia rispetto a schematron che xsd anche in successivi campi di versione degli elementi.
-    Per coprire però il caso in cui ho un elemento (ex. luogo di nascita) che diventa 
+    Rimane però aperto il caso in cui anche se avevo degli xml di esempio con un campo che era obbligatorio e questo diventa facoltativo, allora l'xml continua ad essere valido 
+    e non posso accorgermi automaticamente che dovrei mettere mano allo schematron per aggiungere come "delta" il nuovo controllo.
         
-    2) Destinatario dei messaggi di errore/warning: devono essere leggibili per l'utente finale? Immaginiamo di no ma saranno perlomento tracciati
-    dal sistema chiamante. Da valutare se possibile/utile restituire delle codifiche di situazioni errore in modo da consentire al sistema che effettua 
-    la validazione di reagire applicativamente in caso di errore con certo codice.
+    2) Dubbio/Conferma necessaria: Chi è il destinatario dei messaggi di errore/warning di schematron? L'utente finale o come pensiamo un sistema?  Se confermao il sistema allora questo potrebbe limitarsi
+    a tracciare da qualche parte (ex. log formale) la mancata validazione e i messaggi di errore oppure voler reagire applciativamente per certe macro casistiche di errore: quest'ultimo 
+    caso richiederebbe di ricevere dei codici di errore strutturati più che dei semplici messaggi di errore. Non crediamo si voglia andare a coprire questa necessità ma solo la tracciatura
+    nel log dell'errore di validazione.
     
-    3) Le obbligatorietà definite a livello di xsd della sezione ovviamente non vanno riverificate visto che xsd di sezione e schematron vanno a braccietto
-    (diversamente da xsd delle entità che magari vengono modificate da altre persone) 
+    3) Le obbligatorietà definite a livello di xsd della sezione ovviamente non sono rischiose come quelle indicate al punto #1 in quanto la persona che edita le sezioni è la stessa o lavora
+    direttamente con chi definisce lo schematron della sezione (Diversamente dal caso degli xsd delle entità che magari vengono modificate da altre persone) 
     
-    4) ha senso usare le fasi di schematron per aggregare i pattern dei vari blocchi dati: valida dichiarante, poi valida impresa etc..Solo per leggibilità
+    4) ha senso usare le fasi di schematron per aggregare i pattern dei vari blocchi dati? valida dichiarante, poi valida impresa etc..Solo per leggibilità.. Adottiamo senno un minimo pattern grafico.
     
     
         
