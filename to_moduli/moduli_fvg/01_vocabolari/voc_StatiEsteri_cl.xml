@@ -512,7 +512,7 @@
         <SimpleValue>19931</SimpleValue>
       </Value>
       <Value ColumnRef="code">
-        <SimpleValue>n.d.</SimpleValue>
+        <SimpleValue>XK</SimpleValue>
       </Value>
       <Value ColumnRef="description">
         <SimpleValue>Kosovo</SimpleValue>
@@ -2353,17 +2353,6 @@
       </Value>
       <Value ColumnRef="description">
         <SimpleValue>Groenlandia</SimpleValue>
-      </Value>
-    <Value ColumnRef="isEu"><SimpleValue>false</SimpleValue></Value></Row>
-    <Row>
-      <Value ColumnRef="id">
-        <SimpleValue>20099</SimpleValue>
-      </Value>
-      <Value ColumnRef="code">
-        <SimpleValue>n.d.</SimpleValue>
-      </Value>
-      <Value ColumnRef="description">
-        <SimpleValue>Sark</SimpleValue>
       </Value>
     <Value ColumnRef="isEu"><SimpleValue>false</SimpleValue></Value></Row>
     <Row>

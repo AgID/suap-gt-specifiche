@@ -11,5 +11,5 @@
    <eii:numero_civico>100</eii:numero_civico>
    <eii:cap>34100</eii:cap>
    <eii:localita>TriesteXX</eii:localita>
-  <eii:comune cl:name_cl="TriesteXXX" >032006</eii:comune>
+   <eii:comune cl:name_cl="TriesteXXX" >032006</eii:comune>
 </eii:indirizzo_italiano>
