@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:eii="http://entita/indirizzo_italiano"
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ct="http://agid.it/suap/commons/tipi"
+    targetNamespace="http://entita/indirizzo_italiano"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
+
+    <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype"/>
+
+    <xs:simpleType name="cap_stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]{5})?"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="indirizzo_italiano_ctype">
+        <xs:sequence>
+            <xs:element name="dug" type="cl:CodeType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="toponimo" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_civico" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="barrato" type="xs:string" minOccurs="0" maxOccurs="1"/> 
+            <xs:element name="cap" type="eii:cap_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="localita" type="ct:stringa_standard_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="comune" type="cl:CodeType" minOccurs="1" maxOccurs="1" >
+                <xs:annotation>
+                    <xs:documentation>
+                        <ca:codeListID_cl>IT:SUAP:CL:ComuniItaliani</ca:codeListID_cl>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>      
+    
+</xs:schema>

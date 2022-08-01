@@ -1,0 +1,9 @@
+I VC vanno implementati come:
+    - cl se soggetti a cambiamento dei valori da parte di authority esterne che non possiamo condizionare nei tempi di 
+    "go live obbligato" del dato(ex. lista comuni, categorie merceologiche). 
+    - cl se non sono monoattributo: codice, descrizione, data inizio/fine validita, 
+    - enum: se valori sono praticamente immutabili o mutabili nei tempi di rilascio di uno schema xml.Anche la numerosità di termini è un limite
+    delle enumeration
+
+Omettiamo nel nome delle code list la versione (inclusa internamente nei metadati della CL) per consentire di importarli negli schematron senza
+impatto su questi ultimi al cambio di versione della code list.

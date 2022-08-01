@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    xmlns="http://agid.it/suap/commons/allegati"
+    targetNamespace="http://agid.it/suap/commons/allegati"
+    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    xmlns:fhg="http://vocabolari/files_hashalg"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="./commons-codelist.xsd"/>
+    <xs:import namespace="http://vocabolari/files_hashalg" schemaLocation="./01_vocabolari/voc_files_hashalg_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="nome_file_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+            <xs:whiteSpace value="collapse"/>
+            <!-- FIXME: regular expressioni copiata da altro contesto DA VERIFICARE E PROVARE -->
+            <xs:pattern value="^[a-zA-Z0-9_\.\- ]+\.[A-Za-z0-9]{3,4}$"/>
+        </xs:restriction>
+    </xs:simpleType>       
+    
+    <xs:complexType name="file_ctype">
+        <xs:annotation>
+            <xs:documentation>Metadati di un file. Usabile ad esempio per un allegato.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!--
+            <xs:element name="codiceDaVocabolarioControllato" type="bt:notemptystring" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>La semantica è standardizzata in un vocabolario controllato in modo che sia indipendentemente dal frontend che lo produce e dal sistema di backoffice che lo interpreterà</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            -->
+            <xs:element name="nome_file" type="nome_file_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="content_type" type="cl:CodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <ca:codeListID_cl>IT:SUAP:CL:MimeTypes</ca:codeListID_cl>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="descrizione" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="hash" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="hash-alg" type="fhg:hash_alg_voc" minOccurs="0" maxOccurs="1"/>
+<!--        <xs:element name="identificativo" type="xs:int" minOccurs="1" maxOccurs="1"/> -->
+<!--        <xs:element name="nota" type="bt:notemptystring" minOccurs="0" maxOccurs="1"/> -->
+<!--        <xs:element name="size_in_bytes" type="xs:long" minOccurs="0" maxOccurs="1"/>-->
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+</xsd:schema>
