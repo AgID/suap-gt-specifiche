@@ -25,11 +25,11 @@ sequenceDiagram
 		CU -->> F: ack
 		CU ->> C: request_instance_descriptor(CUI)
 		C -->> CU: instanceDescriptor
-        F -->> CU: ack
 		CU ->> F: request_instance(CUI)
 		F -->> CU: instance
         CU -) P: receipt
-        CU -->> F: notify_sending_receipt
+        CU ->> F: notify_sending_receipt
+        F -->> CU: ack
     else not via ComUnica
         F -) P: receipt
     end
