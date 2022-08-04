@@ -25,10 +25,14 @@ sequenceDiagram
 		CU -->> F: ack
 		CU ->> C: request_instance_descriptor(CUI)
 		C -->> CU: instanceDescriptor
-		CU ->> F: request_instance(CUI)
-		F -->> CU: instance
+		
+        loop per ogni procedimento parte dell'istanza
+        CU ->> F:  request_instance_part(CUI, code_proc)
+        F -->> CU:: instancePart
+        end
+        
         CU -) P: receipt
-        CU ->> F: notify_sending_receipt
+        CU ->> F: notify_receipt_sended(CUI)
         F -->> CU: ack
     else not via ComUnica
         F -) P: receipt
@@ -37,12 +41,13 @@ sequenceDiagram
     F ->> C: audit(CUI,receipt_sended)
     C -->> F: ack
 
-
+    
     B ->> C: request_instance_descriptor(CUI)
     C -->> B: instanceDescriptor
-    B ->> F: request_instance(CUI)
-    F -->> B: instance
-
+    loop per ogni procedimento parte dell'istanza 
+    B ->> F: request_instance_part(CUI, code_proc)
+    F -->> B: instancePart
+    end
     B ->> C: audit(CUI,instance_retrived)
     C -->> B: ack
     
@@ -53,8 +58,9 @@ sequenceDiagram
     opt entro tempo controllo formale
         O -) B: formalControlOK OR formalControlKO
         alt formal control KO
-            B ->> F: formalControlKO
-            F -) P: request_correction(CUI)
+            B ->> F: request_correction(CUI,correction_list)
+            F -->> B: ack
+            F -) P: request_correction(CUI,correction_list)
             B ->> C: audit(CUI,correction_requested)
             C -->> B: ack
             P --) F: instanceCorrect
@@ -62,8 +68,10 @@ sequenceDiagram
             B -->> F: ack
             F ->> C: audit(CUI,corrected_instance_to_BO_sended)
             C -->> F: ack
-            B ->> F: request_instance(CUI)
-            F -->> B: instance
+            loop per ogni procedimento parte dell'istanza 
+            B ->> F: request_instance_part(CUI, code_proc)
+            F -->> B: instancePart
+            end
             B ->> C: audit(CUI,corrected_instance_retrived)
             C -->> B: ack           
         end

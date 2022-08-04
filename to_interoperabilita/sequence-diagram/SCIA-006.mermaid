@@ -9,9 +9,7 @@ sequenceDiagram
     participant E as Enti Terzi    
  
     Note over F,B: istanza procedibile
-    B ->> C: request_instance_descriptor(CUI)
-    C -->> B: instanceDescriptor
-    Note over C,B: ET endpoint may be changed
+
     
     par per ogni ente terzo interessato        
         B ->> E: send_instance(CUI)
