@@ -21,11 +21,17 @@ sequenceDiagram
     C -->> F: ack
 
     alt via ComUnica
+	    F ->> CU: send_instance(CUI)
+		CU -->> F: ack
+		CU ->> C: request_instance_descriptor(CUI)
+		C -->> CU: instanceDescriptor
         F -->> CU: ack
-        CU -->> P: receipt
+		CU ->> F: request_instance(CUI)
+		F -->> CU: instance
+        CU -) P: receipt
         CU -->> F: notify_sending_receipt
     else not via ComUnica
-        F -->> P: receipt
+        F -) P: receipt
     end
 
     F ->> C: audit(CUI,receipt_sended)
