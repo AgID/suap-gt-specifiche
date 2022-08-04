@@ -32,7 +32,7 @@ sequenceDiagram
         end
         
         CU -) P: receipt
-        CU ->> F: notify_sending_receipt
+        CU ->> F: notify_receipt_sended(CUI)
         F -->> CU: ack
     else not via ComUnica
         F -) P: receipt
@@ -58,8 +58,9 @@ sequenceDiagram
     opt entro tempo controllo formale
         O -) B: formalControlOK OR formalControlKO
         alt formal control KO
-            B ->> F: formalControlKO
-            F -) P: request_correction(CUI)
+            B ->> F: request_correction(CUI,correction_list)
+            F -->> B: ack
+            F -) P: request_correction(CUI,correction_list)
             B ->> C: audit(CUI,correction_requested)
             C -->> B: ack
             P --) F: instanceCorrect
