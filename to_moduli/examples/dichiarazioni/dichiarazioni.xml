@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<p:lidichiarazione xmlns:p="http://ssu/dichiarazioni" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ssu/dichiarazioni dichiarazioni.xsd ">
-
-  <p:dichiarazione_freetext p:codeDichiarazione="DZ-127">p:dichiarazione_freetext</p:dichiarazione_freetext>
-  <p:dichiarazione_boolean p:codeDichiarazione="DZ-131">true</p:dichiarazione_boolean>
-  <p:dichiarazione_mandatory_choice p:codeDichiarazione="DZ-133"/>
-
-</p:lidichiarazione>
