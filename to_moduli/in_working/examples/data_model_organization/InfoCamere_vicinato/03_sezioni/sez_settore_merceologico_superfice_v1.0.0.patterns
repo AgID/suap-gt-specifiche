@@ -1,0 +1,11 @@
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_settore_merceologico_superfice">  
+    <sch:rule context="ssms:settore_merceologico_superfice">
+        <sch:assert test="sum(alimentare) = complessiva"> 
+            la somma delle superfici  deve essere uguale alla superfice complessiva
+        </sch:assert>
+        
+    </sch:rule>
+    
+</sch:pattern>
+
+<!-- version: 1.0.0 -->

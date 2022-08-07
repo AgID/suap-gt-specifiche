@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:ec="http://entita/cittadinanza"
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
+    targetNamespace="http://entita/cittadinanza"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/> 
+ 
+ 
+    <xs:element name="cittadinanza" type="ec:cittadinanza_ctype"/>
+    
+ 
+    <xs:complexType name="cittadinanza_ctype">
+        <xs:sequence>
+            <xs:element name="stato_cittadinanza" type="cl:CodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <ca:codeListID_cl>IT:SUAP:CL:Stati</ca:codeListID_cl>
+                    </xs:documentation>
+                </xs:annotation>                  
+            </xs:element>
+        </xs:sequence>        
+    </xs:complexType>      
+    
+</xs:schema>

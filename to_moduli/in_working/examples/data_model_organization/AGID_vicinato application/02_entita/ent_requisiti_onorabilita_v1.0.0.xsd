@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:ereon="http://entita/requisiti_onorabilita"
+    targetNamespace="http://entita/requisiti_onorabilita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="possesso_requisiti_onorabilita_stype">
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="true"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="no_cause_divieto_stype">
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="true"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="requisiti_onorabilita_ctype">
+        <xs:sequence>
+            <xs:element name="possesso_requisiti_onorabilita" type="ereon:possesso_requisiti_onorabilita_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="no_cause_divieto" type="ereon:no_cause_divieto_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

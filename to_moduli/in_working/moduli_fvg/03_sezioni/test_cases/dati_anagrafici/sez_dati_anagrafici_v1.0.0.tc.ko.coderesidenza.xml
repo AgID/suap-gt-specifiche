@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sa:scheda_anagrafica xmlns:ep="http://entita/figura_giuridica"
+ xmlns:cl="http://agid.it/suap/commons/codelist"
+ xmlns:ca="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ct="http://agid.it/suap/commons/tipi"
+ xmlns:er="http://entita/rappresentanza"
+ xmlns:cf="http://agid.it/suap/commons/allegati"
+ xmlns:ec="http://entita/cittadinanza"
+ xmlns:epf="http://entita/persona"
+ xmlns:edr="http://entita/documento_rilasciato"
+ xmlns:eii="http://entita/indirizzo_italiano"
+ xmlns:eie="http://entita/indirizzo_estero"
+ xmlns:eco="http://entita/contatti"
+ xmlns:sa="http://sezione/scheda_anagrafica"
+ xmlns:vpege="http://vocabolari/persona_genere"
+ xmlns:fhg="http://vocabolari/files_hashalg"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://sezione/scheda_anagrafica ../../sez_dati_anagrafici_v1.0.0.xsd">
+    <sa:dichiarante>
+        <sa:persona>
+            <epf:codice_fiscale>AAAAAA00A00A000A</epf:codice_fiscale>
+            <epf:nome>nome0</epf:nome>
+            <epf:cognome>cognome0</epf:cognome>
+            <epf:sesso>maschio</epf:sesso>
+            <epf:data_nascita>2006-05-04</epf:data_nascita>
+            <epf:luogo_nascita_italiano cl:codeListID_cl="codeListID_cl0" cl:name_cl="name_cl0" cl:versionID_cl="versionID_cl0">luogo_nascita_italiano0</epf:luogo_nascita_italiano>
+        </sa:persona>
+        <sa:cittadinanza>
+            <ec:stato_cittadinanza cl:codeListID_cl="codeListID_cl1" cl:name_cl="name_cl1" cl:versionID_cl="versionID_cl1">stato_estero_cittadinanza0</ec:stato_cittadinanza>
+        </sa:cittadinanza>
+        <sa:documento_rilasciato>
+            <edr:tipo cl:codeListID_cl="codeListID_cl2" cl:name_cl="name_cl2" cl:versionID_cl="versionID_cl2">tipo0</edr:tipo>
+            <edr:numero>numero0</edr:numero>
+            <edr:ente_rilascio>ente_rilascio0</edr:ente_rilascio>
+            <edr:data_rilascio>2006-05-04</edr:data_rilascio>
+            <edr:data_scadenza>2006-05-04</edr:data_scadenza>
+        </sa:documento_rilasciato>
+        <sa:residenza>
+            <sa:indirizzo_italiano>
+                <eii:dug cl:codeListID_cl="codeListID_cl3" cl:name_cl="name_cl3" cl:versionID_cl="versionID_cl3">dug0</eii:dug>
+                <eii:toponimo>toponimo0</eii:toponimo>
+                <eii:numero_civico>numero_civico0</eii:numero_civico>
+                <eii:barrato>barrato0</eii:barrato>
+                <eii:cap></eii:cap>
+                <eii:localita>localita0</eii:localita>
+                <eii:comune cl:codeListID_cl="codeListID_cl4" cl:name_cl="name_cl4" cl:versionID_cl="versionID_cl4">comune0</eii:comune>
+            </sa:indirizzo_italiano>
+        </sa:residenza>
+        <sa:contatti>
+            <eco:email></eco:email>
+            <eco:pec></eco:pec>
+            <eco:cellulare>cellulare0</eco:cellulare>
+            <eco:telefono_fisso>telefono_fisso0</eco:telefono_fisso>
+            <eco:fax>fax0</eco:fax>
+        </sa:contatti>
+    </sa:dichiarante>
+    <sa:opera_con>
+        <sa:rappresentanza>
+            <er:data_inizio>2006-05-04</er:data_inizio>
+            <er:data_fine>2006-05-04</er:data_fine>
+            <er:estremi_atto>estremi_atto0</er:estremi_atto>
+            <er:atto_assegnazione_accettazione>
+                <cf:nome_file>^ .000$</cf:nome_file>
+                <cf:content_type cl:codeListID_cl="codeListID_cl5" cl:name_cl="name_cl5" cl:versionID_cl="versionID_cl5">content_type0</cf:content_type>
+                <cf:descrizione>descrizione0</cf:descrizione>
+                <cf:hash>hash0</cf:hash>
+                <cf:hash-alg>SHA-256</cf:hash-alg>
+            </er:atto_assegnazione_accettazione>
+            <er:ruolo>Legale rappresentante di Organizzazione</er:ruolo>
+        </sa:rappresentanza>
+    </sa:opera_con>
+    <sa:impresa>
+        <sa:figura_giuridica>
+            <ep:codice_identificativo>codice_identificativo0</ep:codice_identificativo>
+            <ep:forma_giuridica cl:codeListID_cl="codeListID_cl7" cl:name_cl="name_cl7" cl:versionID_cl="versionID_cl7">forma_giuridica0</ep:forma_giuridica>
+            <ep:denominazione>denominazione0</ep:denominazione>
+        </sa:figura_giuridica>
+        <sa:sede_legale>
+            <sa:indirizzo_italiano>
+                <eii:dug cl:codeListID_cl="codeListID_cl8" cl:name_cl="name_cl8" cl:versionID_cl="versionID_cl8">dug1</eii:dug>
+                <eii:toponimo>toponimo1</eii:toponimo>
+                <eii:numero_civico>numero_civico1</eii:numero_civico>
+                <eii:barrato>barrato1</eii:barrato>
+                <eii:cap></eii:cap>
+                <eii:localita>localita1</eii:localita>
+                <eii:comune cl:codeListID_cl="codeListID_cl9" cl:name_cl="name_cl9" cl:versionID_cl="versionID_cl9">comune1</eii:comune>
+            </sa:indirizzo_italiano>
+        </sa:sede_legale>
+        <sa:contatti>
+            <eco:email></eco:email>
+            <eco:pec></eco:pec>
+            <eco:cellulare>cellulare1</eco:cellulare>
+            <eco:telefono_fisso>telefono_fisso1</eco:telefono_fisso>
+            <eco:fax>fax1</eco:fax>
+        </sa:contatti>
+    </sa:impresa>
+    <sa:procuratore>
+        <sa:datiPersona>
+            <epf:codice_fiscale>AAAAAA00A00A000A</epf:codice_fiscale>
+            <epf:nome>nome1</epf:nome>
+            <epf:cognome>cognome1</epf:cognome>
+            <epf:sesso>maschio</epf:sesso>
+            <epf:data_nascita>2006-05-04</epf:data_nascita>
+            <epf:luogo_nascita_estero>luogo_nascita_estero0</epf:luogo_nascita_estero>
+            <epf:stato_estero cl:codeListID_cl="codeListID_cl10" cl:name_cl="name_cl10" cl:versionID_cl="versionID_cl10">stato_estero0</epf:stato_estero>
+        </sa:datiPersona>
+        <sa:cittadinanza>
+            <ec:stato_cittadinanza cl:codeListID_cl="codeListID_cl11" cl:name_cl="name_cl11" cl:versionID_cl="versionID_cl11">stato_estero_cittadinanza1</ec:stato_cittadinanza>
+        </sa:cittadinanza>
+        <sa:documento_rilasciato>
+            <edr:tipo cl:codeListID_cl="codeListID_cl12" cl:name_cl="name_cl12" cl:versionID_cl="versionID_cl12">tipo1</edr:tipo>
+            <edr:numero>numero1</edr:numero>
+            <edr:ente_rilascio>ente_rilascio1</edr:ente_rilascio>
+            <edr:data_rilascio>2006-05-04</edr:data_rilascio>
+            <edr:data_scadenza>2006-05-04</edr:data_scadenza>
+        </sa:documento_rilasciato>
+        <sa:residenza>
+            <sa:indirizzo_italiano 
+                xmlns:cl="http://agid.it/suap/commons/codelist"
+                xmlns:ca="http://agid.it/suap/commons/xsdAnnotations"
+                xmlns:ct="http://agid.it/suap/commons/tipi"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation=" http://entita/indirizzo_italiano ../ent_indirizzo_italiano_v1.0.0.xsd">
+                
+                <eii:dug cl:codeListID_cl="codeListID_cl0" cl:name_cl="name_cl0" cl:versionID_cl="versionID_cl0">dug0</eii:dug>
+                <eii:toponimo>toponimo0</eii:toponimo>
+                <eii:numero_civico>100</eii:numero_civico>
+                <eii:cap>34100</eii:cap>
+                <eii:localita>TriesteXX</eii:localita>
+                <!-- ERROR: CODICE DEL COMUNE NON CORRETTO -->
+                <eii:comune cl:name_cl="TriesteXXX" >SBAGLIATO</eii:comune>
+            </sa:indirizzo_italiano>       
+        </sa:residenza>
+        <sa:contatti>
+            <eco:email></eco:email>
+            <eco:pec></eco:pec>
+            <eco:cellulare>cellulare2</eco:cellulare>
+            <eco:telefono_fisso>telefono_fisso2</eco:telefono_fisso>
+            <eco:fax>fax2</eco:fax>
+        </sa:contatti>
+    </sa:procuratore>
+</sa:scheda_anagrafica>

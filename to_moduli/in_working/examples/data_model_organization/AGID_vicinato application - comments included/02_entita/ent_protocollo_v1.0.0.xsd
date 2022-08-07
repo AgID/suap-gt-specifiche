@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:vcom="http://vocabolari/comuni"
+    
+    xmlns:epro="http://entita/protocollo"
+    targetNamespace="http://entita/protocollo"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://vocabolari/comuni" schemaLocation="../01_vocabolari/voc_comuni_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="codice_amministrazione_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="codice_aoo_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="codice_registro_stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9_\.\-]{1,16}"/>            
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="numero_registrazione_stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{7,}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="data_registrazione_stype">
+        <xs:restriction base="xs:date"/>            
+    </xs:simpleType>
+    
+    <xs:simpleType name="ora_registrazione_stype">
+        <xs:restriction base="xs:time"/>            
+    </xs:simpleType>
+    
+    <xs:complexType name="protocollo_ctype">
+        <xs:sequence>
+            <xs:element name="codice_amministrazione" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="codice_aoo" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="codice_registro" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_registrazione" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="data_registrazione" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ora_registrazione" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

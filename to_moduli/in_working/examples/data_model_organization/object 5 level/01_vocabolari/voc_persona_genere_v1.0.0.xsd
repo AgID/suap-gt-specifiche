@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vpc="http://vocabolari/persona_genere"
+    targetNamespace="http://vocabolari/persona_genere"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="sesso_vocabulary">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="maschio"/>
+            <xs:enumeration value="femmina"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    <xs:simpleType name="sesso_short_vocabulary">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="m"/>
+            <xs:enumeration value="f"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>

@@ -1,0 +1,36 @@
+<!-- namespace to include 
+    
+    <sch:ns prefix="sreat" uri="http://sezione/riferimento_attivita"/>
+    <sch:ns prefix="eluo" uri="http://entita/luogo"/>
+    <sch:ns prefix="econ" uri="http://entita/contatti"/>
+    
+-->
+
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_riferimento_attivita">  
+    <sch:rule context="sreat:riferimento_attivita/sreat:indirizzo">
+                
+        <sch:assert test="count(eluo:via) = 1"> 
+            l'attributo indirizzo/via è obbligatorio
+        </sch:assert>
+        
+        <sch:assert test="count(eluo:civico) = 1"> 
+            l'attributo indirizzo/civico è obbligatorio
+        </sch:assert>
+        
+        <sch:assert test="count(eluo:comune) = 1"> 
+            l'attributo indirizzo/comune è obbligatorio
+        </sch:assert>
+       
+    </sch:rule>
+    
+    <sch:rule context="sreat:riferimento_attivita/sreat:contatti">
+        
+        <sch:assert test="count(econ:telefono_fisso) + count(econ:telefono_mobile) > 0"> 
+            almeno uno tra gli attributi contatti/telefono_fisso e contatti/telefono_mobile deve essere popolato
+        </sch:assert>
+                
+    </sch:rule>
+</sch:pattern>
+
+    
+

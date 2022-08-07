@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+20/02/2022 - l'esempio non è significativo come glossario per il business ma solo tecnicamente
+in modo da avere piu valori da verificare tra codici istat del comune e codice istat dello stato estero.
+-->
+<ListaRecapiti xmlns="agid:ssu:Examples.DomainOne"
+                 xmlns:d2="agid:ssu:Examples.DomainTwo"
+                 xmlns:d3="agid:ssu:Examples.DomainThree">
+
+    <d2:Indirizzo>
+        <d3:Via>PrimaVia 1</d3:Via>
+        <d3:Comune codiceIstatComune="006178"/>
+        <d3:Stato codiceIstatStato="FR"></d3:Stato>
+    </d2:Indirizzo>
+    <d2:Indirizzo>
+        <d3:Via>SecondaVia 2</d3:Via>
+        <d3:Comune codiceIstatComune="032006"/>
+        <d3:Stato codiceIstatStato="DE"></d3:Stato>
+    </d2:Indirizzo>
+    <d2:Indirizzo>
+        <d3:Via>TerzaVia 3</d3:Via>
+        <d3:Comune codiceIstatComune="032006"/>
+        <d3:Stato codiceIstatStato="LI"></d3:Stato>
+    </d2:Indirizzo>
+    <d2:Indirizzo>
+        <d3:Via>QuartaVia 4</d3:Via>
+        <d3:Comune codiceIstatComune="032006"/>
+        <d3:Stato codiceIstatStato="FR"></d3:Stato>
+    </d2:Indirizzo>
+    <d2:Indirizzo>
+        <d3:Via>QuintiVia 5</d3:Via>
+        <d3:Comune codiceIstatComune="132006"/>
+        <d3:Stato codiceIstatStato="WRONGVALUE"></d3:Stato>
+    </d2:Indirizzo>
+
+</ListaRecapiti>

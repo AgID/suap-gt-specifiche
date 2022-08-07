@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:econ="http://entita/contatti"
+    targetNamespace="http://entita/contatti"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="telefono_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="contatti_ctype">
+        <xs:sequence>
+            <xs:element name="telefono_fisso" type="econ:telefono_stype" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="telefono_mobile" type="econ:telefono_stype" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="fax" type="econ:telefono_stype" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType> 
+</xs:schema>

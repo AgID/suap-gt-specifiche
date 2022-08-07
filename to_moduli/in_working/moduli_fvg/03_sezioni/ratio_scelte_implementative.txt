@@ -1,0 +1,21 @@
+Schematron:
+
+    1) Resilienza al cambio negli schema xsd: pro e contro del dichiarare o meno anche i campi che a livello xsd sono obbligatori.
+        - pro: schematron piu esplicito (leggibilità di quanto atteso dal modulo/sezione indipendentemente ma coerente con obbligatorieta su xsd) e
+        resiliente ad eventuali future rimozioni di obbligatorietà degli elementi nello schema.
+        - contro: dichiarando tutti gli elementi obbligatori dello schema xsd nello schematron questo implica dover per forza aggiornare gli schematron in caso di rinomina
+        anche su campi di cui si vuole solo verificare la presenza (senza controlli più spinti).
+        
+    In attesa di scelta al momento non dichiariamo in schematron gli elementi obbligatori già definiti nello schema ma solo il "delta". 
+    Essendoci una validazione doppia da fare a runtime abbiamo bisogno comunque a livello di IDE (Ex. Oxygen) di verificare con dei file xml di esempio il corretto comportamento delle validazioni rispetto a xsd + schematron.
+    Al momento l'abbiamo risolto delegando a Oxygen:
+    - controllo compliance xml a xsd applicando la funzione di validate sull'intero folder dei moduli i test case definiti
+    - controllo compliance xml agli schematron applicando ai test case XSpech sull'intero folder di moduli con la funzione "Apply Transformation Scenario"    
+    
+    Rimane però aperto il caso in cui anche se avevo nei test case degli xml di esempio con un campo che era obbligatorio e questo diventa facoltativo, allora l'xml continua ad essere valido 
+    e non posso accorgermi automaticamente che dovrei mettere mano allo schematron per aggiungere come "delta" il nuovo controllo.
+        
+    2) Il destinatario dei messaggi di errore/warning è il sistema che fa validazione che traccia l'errore in qualche log formale. Se un domani qualche sistema dovesse aver bisogno di
+    discriminare lo specifico errore potrebbe dall'Output di Schematron recuperare l'identificativo della regola violata.    
+    
+        

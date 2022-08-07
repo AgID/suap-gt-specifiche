@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    xmlns:ec="http://entita/comune"
+    xmlns:ev="http://entita/via"
+    xmlns:es="http://entita/stato"
+           
+    xmlns:ei="http://entita/indirizzo"
+    targetNamespace="http://entita/indirizzo"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/comune" schemaLocation="../02_entita/ent_comune_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/via" schemaLocation="../02_entita/ent_via_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/stato" schemaLocation="../02_entita/ent_stato_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="cap_stype">
+        <xs:restriction base="xs:integer">
+            <xs:length value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="indirizzo_ctype">
+        <xs:sequence>
+            <xs:element name="comune" type="ec:comune_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="stato" type="es:stato_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="via" type="ev:via_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="cap" type="ei:cap_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:complexType>
+    
+</xs:schema>

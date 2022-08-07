@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:eimp="http://entita/impresa"
+    targetNamespace="http://entita/impresa"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="denominazione_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="forma_giuridica_stype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="codice_fiscale_stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="PIVA_stype">
+        <xs:restriction base="xs:integer">
+                <xs:pattern value="[0-9]{11}"/>
+        </xs:restriction>
+    </xs:complexType>
+    
+    
+    <xs:complexType name="impresa_ctype">
+        <xs:sequence>
+            <xs:element name="denominazione" type="eimp:denominazione_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="forma_giuridica" type="eimp:forma_giuridica_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="codice_fiscale" type="eimp:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="PIVA" type="eimp:PIVA_stype" minOccurs="1" maxOccurs="1"/>                  
+        </xs:sequence>        
+    </xs:complexType>
+  
+    
+</xs:schema>

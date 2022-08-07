@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:sdc="http://sezione/dati_catastali"
+    xmlns:sicm="http://sezione/in_centro_commerciale_vicinato"
+    xmlns:si="http://sezione/impresa"
+    xmlns:smvv="http://sezione/modalita_vendita_vicinato"
+    xmlns:sse="http://sezione/stagionalita_esercizio"
+    xmlns:stav="http://sezione/tipologia_attivita_vicinato"
+    xmlns:ssms="http://sezione/settore_merceologico_superfice"
+      
+    xmlns:mvicinato="http://moduli/apertura_vicinato"
+    targetNamespace="http://moduli/apertura_vicinato"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+  <xs:import namespace="http://sezione/dati_catastali" schemaLocation="../03_sezioni/sez_dati_catastali_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/in_centro_commerciale_vicinato" schemaLocation="../03_sezioni/in_centro_commerciale_vicinato_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/impresa" schemaLocation="../03_sezioni/sez_impresa_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/modalita_vendita_vicinato" schemaLocation="../03_sezioni/sez_modalita_vendita_vicinato_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/stagionalita_esercizio" schemaLocation="../03_sezioni/sez_stagionalita_esercizio_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/tipologia_attivita_vicinato" schemaLocation="../03_sezioni/sez_tipologia_attivita_vicinato_v1.0.0.xsd"/>
+  <xs:import namespace="http://sezione/settore_merceologico_superfice" schemaLocation="../03_sezioni/sez_settore_merceologico_superfice_v1.0.0.xsd"/>
+    
+    <xs:element name="apertura_vicinato" type="mvicinato:apertura_vicinato_type"/>
+    
+    <xs:complexType name="apertura_vicinato_type">
+        <xs:sequence>
+            <xs:element ref="sdc:dati_catastali"/>
+            <xs:element ref="sicm:in_centro_commerciale_vicinato"/>
+            <xs:element ref="si:impresa"/>
+            <xs:element ref="smvv:modalita_vendita_vicinato"/>
+            <xs:element ref="sse:stagionalita_esercizio"/>
+            <xs:element ref="stav:tipologia_attivita_vicinato"/>
+            <xs:element ref="ssms:settore_merceologico_superfice"/>
+        </xs:sequence>        
+    </xs:complexType>
+    
+</xs:schema>

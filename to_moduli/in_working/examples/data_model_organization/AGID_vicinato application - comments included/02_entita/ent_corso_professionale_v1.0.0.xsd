@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:eind="http://entita/indirizzo"
+    
+    xmlns:ecopr="http://entita/corso_professionale"
+    targetNamespace="http://entita/corso_professionale"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://entita/indirizzo" schemaLocation="ent_indirizzo_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="istituto_corso_stype">
+        <xs:restriction base="xs:string"/>        
+    </xs:simpleType>
+    
+    <xs:simpleType name="oggetto_corso_stype">
+        <xs:restriction base="xs:string"/>        
+    </xs:simpleType>
+    
+    <xs:simpleType name="anno_corso_stype">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1900"/>           
+        </xs:restriction>        
+    </xs:simpleType>
+    
+    <xs:complexType name="corso_professionale_ctype">
+        <xs:sequence>
+            <xs:element name="istituto_corso" type="ecopr:istituto_corso_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="luogo_corso" type="eind:indirizzo_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="oggetto_corso" type="ecopr:oggetto_corso_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="anno_corso" type="ecopr:anno_corso_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:complexType>
+</xs:schema>

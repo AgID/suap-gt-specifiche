@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:es="http://entita/stato"
+    targetNamespace="http://entita/stato"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <!-- Si potrebbe collegare ad un vocabolario  -->
+    <xs:simpleType name="stato_stype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="stato_ctype">
+        <xs:sequence>
+            <xs:element name="stato" type="es:stato_stype" minOccurs="1" maxOccurs="1"/>             
+        </xs:sequence>        
+    </xs:complexType>  
+     
+    
+</xs:schema>

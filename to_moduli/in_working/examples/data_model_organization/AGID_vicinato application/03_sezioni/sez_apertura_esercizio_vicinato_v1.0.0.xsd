@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:eseav="http://entita/segnalazione_avvio"
+    xmlns:emove="http://entita/modalita_vendita"
+    xmlns:ecaes="http://entita/carattere_esercizio"
+    xmlns:einceco="http://entita/in_centro_commerciale"
+    xmlns:eseme="http://entita/settori_merceologici"
+    
+    xmlns:sapesvi="http://sezione/apertura_esercizio_vicinato"
+    targetNamespace="http://sezione/apertura_esercizio_vicinato"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">    
+    
+    <xs:import namespace="http://entita/segnalazione_avvio" schemaLocation="../02_entita/ent_segnalazione_avvio_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/modalita_vendita" schemaLocation="../02_entita/ent_modalita_vendita_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/carattere_esercizio" schemaLocation="../02_entita/ent_carattere_esercizio_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/in_centro_commerciale" schemaLocation="../02_entita/ent_in_centro_commerciale_v1.0.0.xsd"/>
+    <xs:import namespace="http://entita/settori_merceologici" schemaLocation="../02_entita/ent_settori_merceologici_v1.0.0.xsd"/>
+    
+    <xs:element name="apertura_esercizio_vicinato" type="sapesvi:apertura_esercizio_vicinato_type"/>
+    
+    <xs:complexType name="apertura_esercizio_vicinato_type">
+        <xs:sequence>
+            <xs:element name="segnalazione_avvio" type="eseav:segnalazione_avvio_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="modalita_vendita" type="emove:modalita_vendita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="carattere_esercizio" type="ecaes:carattere_esercizio_ctype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="in_centro_commerciale" type="einceco:in_centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="settori_merceologici" type="eseme:supercie_settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
+        </xs:sequence>        
+    </xs:complexType>    
+</xs:schema>

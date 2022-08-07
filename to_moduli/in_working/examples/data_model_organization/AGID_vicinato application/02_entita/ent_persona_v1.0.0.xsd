@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vpege="http://vocabolari/persona_genere"
+    xmlns:vcom="http://vocabolari/comuni"
+    
+    xmlns:epersona="http://entita/persona"
+    targetNamespace="http://entita/persona"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://vocabolari/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
+    <xs:import namespace="http://vocabolari/comuni" schemaLocation="../01_vocabolari/voc_comuni_v1.0.0.xsd"/>
+    
+    <xs:simpleType name="nome_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cognome_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="codice_fiscale_stype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+        
+    <xs:simpleType name="data_nascita_stype">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+        
+    <xs:complexType name="persona_ctype">
+        <xs:sequence>
+            <xs:element name="codice_fiscale" type="epersona:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="nome" type="epersona:nome_stype" minOccurs="0" maxOccurs="3"/>
+            <xs:element name="cognome" type="epersona:cognome_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="sesso" type="vpege:sesso_voc" minOccurs="0" maxOccurs="1"/>            
+            <xs:element name="data_nascita" type="epersona:data_nascita_stype" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="luogo_nascita" minOccurs="0" maxOccurs="1" type="vcom:comune_voc"/>                
+        </xs:sequence>        
+    </xs:complexType> 
+    
+</xs:schema>

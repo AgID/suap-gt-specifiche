@@ -1,0 +1,79 @@
+<!-- namespace to include
+    
+    <sch:ns prefix="sapesvi" uri="http://sezione/apertura_esercizio_vicinato"/>
+    <sch:ns prefix="eseav" uri="http://entita/segnalazione_avvio"/>
+    <sch:ns prefix="emove" uri="http://entita/modalita_vendita"/>
+    <sch:ns prefix="ecaes" uri="http://entita/carattere_esercizio"/>
+    <sch:ns prefix="eseme" uri="http://entita/settori_merceologici"/>
+
+-->
+
+<sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="sez_apertura_esercizio_vicinato">    
+    
+    <sch:let name="resultset_settore_merceologico" value="sapesvi:settori_merceologici/eseme:settore_merceologico/earve:tipo"/>
+    
+    <sch:let name="resultset_prodotti_tabelle_speciali" value="sapesvi:settori_merceologici/eseme:di_cui/edcseme:prodotti_tabelle_speciali/earve:tipo"/>
+    
+    <sch:let name="resultset_merci_ingombranti" value="sapesvi:settori_merceologici/eseme:di_cui/edcseme:merci_ingombranti/earve:tipo"/>
+    
+    
+    
+    <sch:rule context="sapesvi:apertura_esercizio_vicinato">        
+        <sch:assert test="sapesvi:segnalazione_avvio/eseav:esercizio_vicinato = 'true' or  sapesvi:segnalazione_avvio/eseav:esclusiva_apparecchi_automatici = 'true'"> 
+            almeno uno tra gli attributi segnalazione_avvio/esercizio_vicinato o segnalazione_avvio/esclusiva_apparecchi_automatici deve essere valorizzato a true
+        </sch:assert>
+        
+        <sch:assert test="count(sapesvi:modalita_vendita/emove:vendita_dettaglio) + count(sapesvi:modalita_vendita/emove:vendita_dettaglio_ingrosso) > 0"> 
+            almeno uno tra gli attributi modalita_vendita/vendita_dettaglio o modalita_vendita/vendita_dettaglio_ingrosso deve essere presente 
+        </sch:assert>
+        
+        <sch:assert test="sapesvi:carattere_esercizio/ecaes:permanente = 'true' or sapesvi:carattere_esercizio/ecaes:stagionale = 'true' or sapesvi:carattere_esercizio/ecaes:temporaneo= 'true'"> 
+            almeno uno tra gli attributi carattere_esercizio/permanente o carattere_esercizio/stagionale o carattere_esercizio/temporaneo deve essere valorizzato a true 
+        </sch:assert>
+        
+        <!-- settori merceologici -->
+        
+        <sch:assert test="count($resultset_settore_merceologico)&gt;=1 and $resultset_settore_merceologico)&lt;=2">
+            settori merceologici almeno 1 e al più 2    
+        </sch:assert>
+                        
+        <sch:assert test="count(distinct-values($resultset_settore_merceologico)=count($resultset_settore_merceologico)">
+            dichiarazione settori merceologici duplicata    
+        </sch:assert>
+        
+        <sch:assert test="count($resultset_settore_merceologico[normalize-space(text())=('alimentare','non_alimentare')])=count($resultset_settore_merceologico)">
+            settori merceologici ammessi: alimentare, non_alimentare
+        </sch:assert>
+        
+        <!-- prodotti tabelle speciali -->
+        
+        <sch:assert test="count($resultset_prodotti_tabelle_speciali)&lt;=3">
+            prodotti tabelle speciali al più 3    
+        </sch:assert>
+        
+        <sch:assert test="count(distinct-values($resultset_prodotti_tabelle_speciali)=count($resultset_prodotti_tabelle_speciali)">
+            dichiarazione prodotti tabelle speciali duplicata    
+        </sch:assert>
+        
+        <sch:assert test="count($resultset_prodotti_tabelle_speciali[normalize-space(text())=('generi_di_monopolio','farmacie','carburanti')])=count($resultset_prodotti_tabelle_speciali)">
+            prodotti tabelle speciali ammessi: generi_di_monopolio, farmacie, carburanti
+        </sch:assert>
+        
+        <!-- merci_ingombranti -->
+        
+        <sch:assert test="count($resultset_merci_ingombranti)&lt;=1">
+            merci_ingombranti al più 1    
+        </sch:assert>
+        
+        <sch:assert test="count(distinct-values($resultset_merci_ingombranti)=count($resultset_merci_ingombranti)">
+            dichiarazione merci_ingombranti duplicata    
+        </sch:assert>
+        
+        <sch:assert test="count($resultset_merci_ingombranti[normalize-space(text())=('merci_ingombranti')])=count($resultset_merci_ingombranti)">
+            merci_ingombranti ammessi: merci_ingombranti
+        </sch:assert>
+        
+    </sch:rule>
+</sch:pattern>
+
+

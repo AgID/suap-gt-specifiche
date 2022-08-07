@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:einceco="http://entita/in_centro_commerciale"
+    targetNamespace="http://entita/in_centro_commerciale"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="denominazione_stype">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>            
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="in_centro_commerciale_ctype" abstract="true">
+    </xs:complexType>
+    
+    <xs:complexType name="in_centro_commerciale_ctype_italia">
+        <xs:complexContent>
+            <xs:extension base="einceco:in_centro_commerciale_ctype">
+                <xs:sequence>
+                    <xs:element name="denominazione_centro_commerciale" type="einceco:denominazione_stype" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>        
+            </xs:extension>
+        </xs:complexContent>        
+    </xs:complexType>
+    
+</xs:schema>
