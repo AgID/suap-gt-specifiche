@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+    xmlns:vpergen="http://vocabolari/persona_genere"
+    targetNamespace="http://vocabolari/persona_genere"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:simpleType name="sesso_voc">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="maschio"/>
+            <xs:enumeration value="femmina"/>
+            <xs:enumeration value="neutro"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
