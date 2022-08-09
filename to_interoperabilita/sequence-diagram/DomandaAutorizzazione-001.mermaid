@@ -1,24 +1,194 @@
 sequenceDiagram
     autonumber
-  
+
+    actor P as Presentatore    
     participant F as FrontOffice SUAP
-    participant C as Catalogo SSU    
-    participant B as BackOffice SUAP    
+    participant B as BackOffice SUAP   
+    participant C as Catalogo SSU 
+    actor O as Operatore SUAP    
     participant E as Enti Terzi    
- 
+
     Note over F,B: istanza procedibile
 
+    alt CdSS by SUAP
+        B ->> F: ending_instance(CUI,CdSS_convened)
+        F -->> B: ack    
 
-            
-    B ->> F: ending_instance(CUI,CdSS_convened)
-    F -->> B: ack    
-
-    par per ogni ente terzo interessato
-        B ->> E: ending_instance(CUI,CdSS_convened)
-        E -->> B: ack
-    end
-    
-    B ->> C: audit(CUI,CdSS_convened)
-    C -->> B: ack
+        par per ogni ente terzo interessato
+            B ->> E: ending_instance(CUI,CdSS_convened)
+            E -->> B: ack
+        end
         
-   
+        B ->> C: audit(CUI,CdSS_convened)
+        C -->> B: ack
+    else No CdSS by SUAP
+
+        opt CdSA by SUAP
+            B ->> C: setting_time_CdSA(CUI)
+            C -->> B: ack
+        end
+
+
+        par per ogni ente terzo interessato        
+            B ->> E: send_instance(CUI)
+            E -->> B: ack
+            B ->> C: audit(CUI,instance_to_ET_sended)
+            C -->> B: ack
+            E ->> C: request_instance_descriptor(CUI)
+            C -->> E: instanceDescriptor
+            E ->> B: request_instance(CUI)
+            B -->> E: instance
+            E ->> C: audit(CUI,instance_retrived)
+            C -->> E: ack
+        end
+
+        alt almeno un ET richiede CdSS entro i tempi
+            par almeno un ente terzo
+                E ->> B: cdss_request(CUI)
+                B -->> E: ack 
+                E ->> C: audit(CUI,CdSS_requested)
+                C -->> E: ack           
+            end
+
+            B ->> F: ending_instance(CUI,CdSS_convened)
+            F -->> B: ack    
+
+            par per ogni ente terzo interessato
+                B ->> E: ending_instance(CUI,CdSS_convened)
+                E -->> B: ack
+            end
+            
+            B ->> C: audit(CUI,CdSS_convened)
+            C -->> B: ack
+
+        else CdSS no richiesta da ET
+
+
+            opt almeno una richiesta integrazione
+                par almeno un ente terzo
+                    E ->> B: integration_request(CUI,integration_requested)
+                    B -->> E: ack 
+                    E ->> C: audit(CUI,integration_requested)
+                    C -->> E: ack           
+                end
+
+                Note over B: concluso il tempo di richiesta integrazione OR tutti gli enti terzi hanno richiesto integrazione
+                B ->> F: integration_request(CUI,integration_requested)
+                F -->> B: ack
+                B ->> C: audit(CUI,integration_requested)
+                C -->> B: ack
+                F -) P: notification(CUI,integration_requested)    
+                F ->> C: audit(CUI,integration_requested)
+                C -->> F: ack
+
+                alt oltre il tempo di integrazione del presentatore
+                    B ->> F: ending_instance(CUI,integration_times_ending)
+                    F -->> B: ack
+                    par per ogni ente terzo interessato
+                        B ->> E: ending_instance(CUI,integration_times_ending)
+                        E -->> B: ack
+                    end
+                    B ->> C: audit(CUI,integration_times_ending)
+                    C -->> B: ack
+
+                    F -) P: notification(CUI,integration_times_ending)
+                else entro il tempo di integrazione del presentatore 
+                    P --) F: instanceIntegrated
+                    F ->> B: send_instance(CUI)
+                    B -->> F: ack
+                    F ->> C: audit(CUI,instance_integrated_to_BO_sended)
+                    C -->> F: ack
+                    B ->> F: request_instance(CUI)
+                    F -->> B: instance
+                    B ->> C: audit(CUI,instance_integrated_retrived)
+                    C -->> B: ack
+                    par per ogni ente terzo interessato                
+                        B ->> E: send_instance(CUI)
+                        E -->> B: ack
+                        B ->> C: audit(CUI,instance_integrated_to_ET_sended)
+                        C -->> B: ack
+                        E ->> B: request_instance(CUI)
+                        B -->> E: instance
+                        E ->> C: audit(CUI,instance_integrated_retrived)
+                        C -->> E: ack
+                    end
+
+                end
+
+            end
+            
+            alt integrazione non richiesta, oppure richiesta e istanza integrata nei tempi dal presentatore
+
+                par
+                    alt 
+                        E ->> B: send_conclusions(CUI,suspend_required)
+                        B -->> E: ack 
+                        E ->> C: audit(CUI,suspend_required)
+                        C -->> E: ack  
+                    else
+                        E ->> B: send_conclusions(CUI,conformation_required)
+                        B -->> E: ack 
+                        E ->> C: audit(CUI,conformation_required)
+                        C -->> E: ack 
+                    else
+                        opt parere esplicito, in alternativa al silezio assenso
+                            E ->> B: send_conclusions(CUI,positive_outcome_sended)
+                            B -->> E: ack 
+                            E ->> C: audit(CUI,positive_outcome_sended)
+                            C -->> E: ack 
+                        end
+                    end       
+                end
+ 
+                Note over B,E: concluso tempo ricezione pareri, o tutti gli ET hanno inviato  parere
+
+                alt CdSS by SUAP
+                    B ->> F: ending_instance(CUI,CdSS_convened)
+                    F -->> B: ack    
+
+                    par per ogni ente terzo interessato
+                        B ->> E: ending_instance(CUI,CdSS_convened)
+                        E -->> B: ack
+                    end
+                    
+                    B ->> C: audit(CUI,CdSS_convened)
+                    C -->> B: ack
+                else NO CdSS by SUAP
+                
+                    alt concluso tempo istanza, senza richieste sospensione/conformazione 
+                        B ->> F: ending_instance(CUI,proceding_positive_concluded)
+                        F -->> B: ack            
+                        par per ogni ente terzo interessato
+                            B ->> E: ending_instance(CUI,proceding_positive_concluded)
+                            E -->> B: ack
+                        end
+                        B ->> C: audit(CUI,proceding_positive_concluded)
+                        C -->> B: ack
+                    else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, almeno una richiesta sospensione
+                        B ->> F: ending_instance(CUI,suspend_required)
+                        F -->> B: ack  
+                        F -) P: notification(CUI,suspend_required)          
+                        par per ogni ente terzo interessato
+                            B ->> E: ending_instance(CUI,suspend_required)
+                            E -->> B: ack
+                        end
+                        B ->> C: audit(CUI,suspend_required)
+                        C -->> B: ack
+                    else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, nessuna richiesta sospezione,almeno una richiesta conformazione
+                        B ->> F: ending_instance(CUI,conformation_required)
+                        F -->> B: ack
+                        F -) P: notification(CUI,conformation_required)               
+                        par per ogni ente terzo interessato
+                            B ->> E: ending_instance(CUI,conformation_required)
+                            E -->> B: ack
+                        end
+                        B ->> C: audit(CUI,conformation_required)
+                        C -->> B: ack
+                    end
+                end
+
+            end
+
+        end
+
+   end
