@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" 
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
   xmlns:html="http://www.w3.org/1999/xhtml/">
   <Identification>
     <ShortName>FormeGiuridiche</ShortName>
@@ -10,12 +10,13 @@
     <CanonicalVersionUri/>
     <Agency>
       <ShortName>VC-RAFVG.IT</ShortName>
-      <LongName xml:lang="it">Vocabolari Controllati della Regione Autonoma Friuli-Venezia Giulia</LongName>
+      <LongName xml:lang="it">Vocabolari Controllati della Regione Autonoma Friuli-Venezia
+        Giulia</LongName>
     </Agency>
   </Identification>
   <ColumnSet>
     <Column Id="id" Use="required">
-      <ShortName>Id</ShortName>
+      <ShortName>id</ShortName>
       <Data Type="xsd:int"/>
     </Column>
     <Column Id="parentid" Use="optional">
@@ -61,7 +62,8 @@
         <SimpleValue>1.1</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>IMPRENDITORE INDIVIDUALE, LIBERO PROFESSIONISTA E LAVORATORE AUTONOMO</SimpleValue>
+        <SimpleValue>IMPRENDITORE INDIVIDUALE, LIBERO PROFESSIONISTA E LAVORATORE
+          AUTONOMO</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -355,7 +357,8 @@
         <SimpleValue>1.5</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>CONSORZIO DI DIRITTO PRIVATO ED ALTRE FORME DI COOPERAZIONE FRA IMPRESE</SimpleValue>
+        <SimpleValue>CONSORZIO DI DIRITTO PRIVATO ED ALTRE FORME DI COOPERAZIONE FRA
+          IMPRESE</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -425,7 +428,8 @@
         <SimpleValue>1.6</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>ENTE PUBBLICO ECONOMICO, AZIENDA SPECIALE E AZIENDA PUBBLICA DI SERVIZI</SimpleValue>
+        <SimpleValue>ENTE PUBBLICO ECONOMICO, AZIENDA SPECIALE E AZIENDA PUBBLICA DI
+          SERVIZI</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -467,7 +471,8 @@
         <SimpleValue>1.6.30</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>AZIENDA PUBBLICA DI SERVIZI ALLE PERSONE AI SENSI DEL D.LGS. N. 207/2001</SimpleValue>
+        <SimpleValue>AZIENDA PUBBLICA DI SERVIZI ALLE PERSONE AI SENSI DEL D.LGS. N.
+          207/2001</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -621,7 +626,8 @@
         <SimpleValue>1.9</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>IMPRESA O ENTE PRIVATO COSTITUITA ALL&apos;ESTERO NON ALTRIMENTI CLASSIFICABILE CHE SVOLGE ATTIVITA&apos; ECONOMICA IN ITALIA</SimpleValue>
+        <SimpleValue>IMPRESA O ENTE PRIVATO COSTITUITA ALL&apos;ESTERO NON ALTRIMENTI CLASSIFICABILE
+          CHE SVOLGE ATTIVITA&apos; ECONOMICA IN ITALIA</SimpleValue>
       </Value>
     </Row>
     <Row>

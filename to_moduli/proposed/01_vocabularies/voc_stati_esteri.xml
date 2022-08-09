@@ -4,7 +4,8 @@
   xmlns:html="http://www.w3.org/1999/xhtml/">
   <Identification>
     <ShortName>Stati</ShortName>
-    <LongName>Tutti gli stati del mondo compresa l&apos;Italia da ANPR</LongName>
+    <LongName>Tutti gli stati del mondo compresa l&apos;Italia da ANPR
+      (https://www.anagrafenazionale.interno.it/wp-content/uploads/2021/03/tabella_2_statiesteri.xlsx)</LongName>
     <Version>1</Version>
     <CanonicalUri/>
     <CanonicalVersionUri/>
@@ -15,7 +16,7 @@
   </Identification>
   <ColumnSet>
     <Column Id="id" Use="required">
-      <ShortName>Id</ShortName>
+      <ShortName>id</ShortName>
       <Data Type="xsd:int"/>
     </Column>
     <Column Id="denominazione" Use="optional">
@@ -6867,6 +6868,5 @@
         <SimpleValue>721</SimpleValue>
       </Value>
     </Row>
-
   </SimpleCodeList>
 </gc:CodeList>

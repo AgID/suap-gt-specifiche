@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:html="http://www.w3.org/1999/xhtml/">
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+  xmlns:html="http://www.w3.org/1999/xhtml/">
   <Identification>
     <ShortName>TipiDocumento</ShortName>
     <LongName>Tipologie di documenti di riconoscimento</LongName>
@@ -13,7 +15,7 @@
   </Identification>
   <ColumnSet>
     <Column Id="id" Use="required">
-      <ShortName>Id</ShortName>
+      <ShortName>id</ShortName>
       <Data Type="xsd:int"/>
     </Column>
     <Column Id="code" Use="optional">
@@ -40,7 +42,7 @@
       <Value ColumnRef="description">
         <SimpleValue>Carta d&apos;identità</SimpleValue>
       </Value>
-    </Row>    
+    </Row>
     <Row>
       <Value ColumnRef="id">
         <SimpleValue>18731</SimpleValue>
