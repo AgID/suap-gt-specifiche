@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist" 
+    
+    targetNamespace="http://agid.it/suap/commons/codelist"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    
+    <xsd:annotation>
+        <xsd:documentation> 
+            Lista di elementi comuni a supporto della definzione di code list da
+            riutilizzare negli schema 
+        </xsd:documentation>
+    </xsd:annotation>
+   
+    <xsd:attribute name="columnId_cl" type="xsd:normalizedString">
+        <xsd:annotation>
+            <xsd:documentation>
+                Id della colonna di una code list 
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+    
+    <xsd:attribute name="shorName_cl" type="xsd:normalizedString">
+        <xsd:annotation>
+            <xsd:documentation>
+                Identificativo di una code list
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+    
+    <xsd:attribute name="version_cl" type="xsd:normalizedString">
+        <xsd:annotation>
+            <xsd:documentation>
+                Identificativo della versione di una code list
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+    
+    <xsd:attributeGroup name="base_cl_attrsGrop">
+        <xsd:attribute ref="ccodelist:columnId_cl" use="required"/>
+        <!-- TODO: verificare la necessità di indicare la code list considerato che tale info è dichiarata a livello di XSD in appInfo 
+        <xsd:attribute ref="ccodelist:shorName_cl" use="optional"/>
+        <xsd:attribute ref="ccodelist:version_cl" use="optional"/>
+        -->
+    </xsd:attributeGroup>
+    
+    <xsd:complexType name="ColumnCodeList">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tipo riusabile per utilizzare colonna da una code list 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:normalizedString">
+                <xsd:attributeGroup ref="ccodelist:base_cl_attrsGrop"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+</xsd:schema>

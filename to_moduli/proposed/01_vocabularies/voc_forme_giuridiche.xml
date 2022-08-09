@@ -3,7 +3,7 @@
   xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
   xmlns:html="http://www.w3.org/1999/xhtml/">
   <Identification>
-    <ShortName>FormeGiuridiche</ShortName>
+    <ShortName>IT:SUAP:CL:FormeGiuridiche</ShortName>
     <LongName>Forme Giuridiche</LongName>
     <Version>1</Version>
     <CanonicalUri/>

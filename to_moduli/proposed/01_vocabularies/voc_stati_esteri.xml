@@ -3,7 +3,7 @@
   xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
   xmlns:html="http://www.w3.org/1999/xhtml/">
   <Identification>
-    <ShortName>Stati</ShortName>
+    <ShortName>IT:SUAP:CL:Stati</ShortName>
     <LongName>Tutti gli stati del mondo compresa l&apos;Italia da ANPR
       (https://www.anagrafenazionale.interno.it/wp-content/uploads/2021/03/tabella_2_statiesteri.xlsx)</LongName>
     <Version>1</Version>
