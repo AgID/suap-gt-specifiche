@@ -3,7 +3,7 @@
   xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
   xmlns:html="http://www.w3.org/1999/xhtml/">
   <Identification>
-    <ShortName>CCIAA</ShortName>
+    <ShortName>IT:SUAP:CL:CCIAA</ShortName>
     <LongName>Elenco Camera di Commercio Industria Artigianato e Agricoltura</LongName>
     <Version>1</Version>
     <CanonicalUri/>
