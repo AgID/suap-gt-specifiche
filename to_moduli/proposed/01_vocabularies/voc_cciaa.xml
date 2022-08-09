@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+  xmlns:html="http://www.w3.org/1999/xhtml/">
+  <Identification>
+    <ShortName>CCIAA</ShortName>
+    <LongName>Elenco Camera di Commercio Industria Artigianato e Agricoltura</LongName>
+    <Version>1</Version>
+    <CanonicalUri/>
+    <CanonicalVersionUri/>
+    <Agency>
+      <ShortName>VC-SUAP.IT</ShortName>
+      <LongName xml:lang="it">Vocabolari Controllati dell'ecosistema SUAP</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="id" Use="required">
+      <ShortName>id</ShortName>
+      <Data Type="xsd:nonNegativeInteger"/>
+    </Column>
+    <Key Id="denominazione">
+      <ShortName>denominazione</ShortName>
+      <Data Type="xsd:string"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>1</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>AGRIGENTO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>2</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ALESSANDRIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>3</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ANCONA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>4</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>AOSTA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>5</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>AREZZO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>6</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ASCOLI PICENO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>7</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ASTI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>8</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>AVELLINO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>9</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BARI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>10</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BELLUNO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>11</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BENEVENTO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>12</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BERGAMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>13</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BIELLA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>14</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BOLOGNA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>15</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BOLZANO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>16</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BRESCIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>17</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>BRINDISI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CAGLIARI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>19</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CALTANISETTA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>20</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CAMPOBASSO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>21</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CASERTA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>22</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CATANIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>23</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CATANZARO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>24</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CHIETI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>25</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>COMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>26</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>COSENZA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>27</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CREMONA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>28</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CROTONE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>29</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>CUNEO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>30</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ENNA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>31</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>FERMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>32</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>FERRARA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>33</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>FIRENZE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>34</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>FOGGIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>35</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>FORLI-CESENA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>36</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>FROSINONE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>37</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>GENOVA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>38</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>GORIZIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>39</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>GROSSETO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>40</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>IMPERIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>41</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ISERNIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>42</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>L'AQUILA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>43</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>LA SPEZIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>44</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>LATINA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>45</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>LECCE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>46</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>LECCO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>47</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>LIVORNO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>48</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>LODI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>49</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>LUCCA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>50</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MACERATA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>51</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MANTOVA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>52</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MASSA-CARRARA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>53</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MATERA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>54</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MESSINA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>55</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MILANO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>56</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MODENA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>57</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>MONZA E BRIANZA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>58</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>NAPOLI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>59</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>NOVARA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>60</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>NUORO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>61</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ORISTANO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>62</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PADOVA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>63</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PALERMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>64</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PARMA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>65</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PAVIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>66</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PERUGIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>67</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PESARO E URBINO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>68</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PESCARA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>69</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PIACENZA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>70</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PISA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>71</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PISTOIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>72</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PORDENONE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>73</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>POTENZA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>74</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>PRATO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>75</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>RAGUSA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>76</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>RAVENNA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>77</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>REGGIO CALABRIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>78</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>REGGIO EMILIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>79</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>RIETI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>80</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>RIMINI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>81</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ROMA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>82</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>ROVIGO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>83</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>SALERNO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>84</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>SASSARI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>85</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>SAVONA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>86</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>SIENA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>87</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>SIRACUSA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>88</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>SONDRIO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>89</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TARANTO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>90</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TERAMO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>91</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TERNI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>92</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TORINO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>93</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TRAPANI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>94</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TRENTO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>95</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TREVISO</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>96</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>TRIESTE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>97</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>UDINE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>98</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VARESE</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>99</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VENEZIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>100</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VERBANO-CUSIO-OSSOLA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>101</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VERCELLI</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>102</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VERONA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>103</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VIBO VALENTIA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>104</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VICENZA</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>105</SimpleValue>
+      </Value>
+      <Value ColumnRef="denominazione">
+        <SimpleValue>VITERBO</SimpleValue>
+      </Value>
+    </Row>
+
+
+  </SimpleCodeList>
+
+</gc:CodeList>

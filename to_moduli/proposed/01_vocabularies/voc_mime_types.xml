@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" 
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
   xmlns:html="http://www.w3.org/1999/xhtml/">
   <Identification>
     <ShortName>MimeTypes</ShortName>
@@ -10,12 +10,13 @@
     <CanonicalVersionUri/>
     <Agency>
       <ShortName>VC-RAFVG.IT</ShortName>
-      <LongName xml:lang="it">Vocabolari Controllati della Regione Autonoma Friuli-Venezia Giulia</LongName>
+      <LongName xml:lang="it">Vocabolari Controllati della Regione Autonoma Friuli-Venezia
+        Giulia</LongName>
     </Agency>
   </Identification>
   <ColumnSet>
     <Column Id="id" Use="required">
-      <ShortName>Id</ShortName>
+      <ShortName>id</ShortName>
       <Data Type="xsd:int"/>
     </Column>
     <Column Id="code" Use="optional">
@@ -3549,7 +3550,8 @@
         <SimpleValue/>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>vnd.oasis.opendocument.database (OBSOLETED in favor of application/vnd.oasis.opendocument.base)</SimpleValue>
+        <SimpleValue>vnd.oasis.opendocument.database (OBSOLETED in favor of
+          application/vnd.oasis.opendocument.base)</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -10039,7 +10041,8 @@
         <SimpleValue/>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>vnd.3gpp.mcvideo-affiliation-info+xml (OBSOLETED in favor of application/vnd.3gpp.mcvideo-info+xml)</SimpleValue>
+        <SimpleValue>vnd.3gpp.mcvideo-affiliation-info+xml (OBSOLETED in favor of
+          application/vnd.3gpp.mcvideo-info+xml)</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -10908,7 +10911,8 @@
         <SimpleValue/>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>vnd.arastra.swi (OBSOLETED in favor of application/vnd.aristanetworks.swi)</SimpleValue>
+        <SimpleValue>vnd.arastra.swi (OBSOLETED in favor of
+          application/vnd.aristanetworks.swi)</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -13471,7 +13475,8 @@
         <SimpleValue/>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>vnd.geo+json (OBSOLETED by [RFC7946] in favor of application/geo+json)</SimpleValue>
+        <SimpleValue>vnd.geo+json (OBSOLETED by [RFC7946] in favor of
+          application/geo+json)</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -14296,7 +14301,8 @@
         <SimpleValue/>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>vnd.informix-visionary (OBSOLETED in favor of application/vnd.visionary)</SimpleValue>
+        <SimpleValue>vnd.informix-visionary (OBSOLETED in favor of
+          application/vnd.visionary)</SimpleValue>
       </Value>
     </Row>
     <Row>

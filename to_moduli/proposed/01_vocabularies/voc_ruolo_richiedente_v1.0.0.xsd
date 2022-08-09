@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:vruoric="http://vocabolari/ruolo_richiedente"
-    targetNamespace="http://vocabolari/ruolo_richiedente"
-    elementFormDefault="qualified" attributeFormDefault="qualified"    
-    version="1.0.0" xml:lang="it">
-    
+    targetNamespace="http://vocabolari/ruolo_richiedente" elementFormDefault="qualified"
+    attributeFormDefault="qualified" version="1.0.0" xml:lang="it">
+
     <xs:simpleType name="ruolo_richiedente_voc">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Legale rappresentante di organizzazione"/>            
+            <xs:enumeration value="Legale rappresentante di organizzazione"/>
             <xs:enumeration value="Titolare di impresa individuale"/>
             <xs:enumeration value="Altro"/>
         </xs:restriction>
