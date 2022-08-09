@@ -6,8 +6,7 @@
     targetNamespace="http://agid.it/suap/commons/codelist"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
-    
-    
+        
     <xsd:annotation>
         <xsd:documentation> 
             Lista di elementi comuni a supporto della definzione di code list da
@@ -23,28 +22,9 @@
         </xsd:annotation>
     </xsd:attribute>
     
-    <xsd:attribute name="shorName_cl" type="xsd:normalizedString">
-        <xsd:annotation>
-            <xsd:documentation>
-                Identificativo di una code list
-            </xsd:documentation>
-        </xsd:annotation>
-    </xsd:attribute>
-    
-    <xsd:attribute name="version_cl" type="xsd:normalizedString">
-        <xsd:annotation>
-            <xsd:documentation>
-                Identificativo della versione di una code list
-            </xsd:documentation>
-        </xsd:annotation>
-    </xsd:attribute>
     
     <xsd:attributeGroup name="base_cl_attrsGrop">
         <xsd:attribute ref="ccodelist:columnId_cl" use="required"/>
-        <!-- TODO: verificare la necessità di indicare la code list considerato che tale info è dichiarata a livello di XSD in appInfo 
-        <xsd:attribute ref="ccodelist:shorName_cl" use="optional"/>
-        <xsd:attribute ref="ccodelist:version_cl" use="optional"/>
-        -->
     </xsd:attributeGroup>
     
     <xsd:complexType name="ColumnCodeList">

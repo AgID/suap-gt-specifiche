@@ -2,9 +2,10 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     
     xmlns:efile="http://agid.it/suap/entita/file"
+    
     xmlns:vhashalg="http://agid.it/suap/01_vocabularies/files_hashalg"
     xmlns:ccodelist="http://agid.it/suap/commons/codelist"
-    xmlns:cxsda="http://agid.it//suap/commons/xsdAnnotations"
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations"
     xmlns:ctipi="http://agid.it/suap/commons/tipi" 
 
     targetNamespace="http://agid.it/suap/entita/file"
@@ -13,26 +14,29 @@
     
     <xsd:import namespace="http://agid.it/suap/01_vocabularies/files_hashalg" schemaLocation="../01_vocabularies/voc_files_hashalg_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
-    <xsd:import namespace="http://agid.it//suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    
+    
+    <xsd:element name="file" type="efile:file_ctype"/>
     
     <xsd:simpleType name="nome_file_stype">
         <xsd:restriction base="ctipi:stringa_standard_stype">            
             <xsd:pattern value="[a-zA-Z0-9_\.\- ]{1,255}"/>
         </xsd:restriction>        
-    </xsd:simpleType>       
-      
+    </xsd:simpleType>   
+  
     <xsd:complexType name="file_ctype">
         <xsd:sequence>      
             <xsd:element name="nome_file" type="efile:nome_file_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="content_type" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
-                    <xsd:appinfo>
-                        <cxsda:codeListReference>
-                            <cxsda:ShortName>IT:SUAP:CL:MimeTypes</cxsda:ShortName>
-                            <cxsda:Version>1</cxsda:Version>    
-                        </cxsda:codeListReference>                                                                       
-                    </xsd:appinfo>
+                    <xsd:appinfo>                        
+                        <anncl:codeListReference>
+                            <anncl:ShortName>IT:SUAP:CL:MimeType</anncl:ShortName>
+                            <anncl:Version>1</anncl:Version>    
+                        </anncl:codeListReference>                        
+                    </xsd:appinfo>                    
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="descrizione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
@@ -40,7 +44,5 @@
             <xsd:element name="hash-alg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
-    
-    <xsd:element name="file" type="efile:file_ctype"/>
     
 </xsd:schema>
