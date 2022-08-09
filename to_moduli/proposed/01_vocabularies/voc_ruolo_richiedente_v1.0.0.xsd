@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
     xmlns:vruoric="http://agid.it/suap/01_vocabularies/ruolo_richiedente"
+    
     targetNamespace="http://agid.it/suap/01_vocabularies/ruolo_richiedente" elementFormDefault="qualified"
     attributeFormDefault="qualified" version="1.0.0" xml:lang="it">
 
