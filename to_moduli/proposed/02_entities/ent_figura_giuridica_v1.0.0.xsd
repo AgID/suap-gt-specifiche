@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:efiggiu="http://agid.it/suap/entities/figura_giuridica"
+    
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"  
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations"
+    
+    targetNamespace="http://agid.it/suap/entities/figura_giuridica"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+ 
+    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
+
+    <xsd:element name="figura_giuridica" type="efiggiu:figura_giuridica_ctype"/>
+
+    <xsd:complexType name="figura_giuridica_ctype">
+        <xsd:sequence>
+            <xsd:element name="codice_identificativo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="forma_giuridica" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>                        
+                        <anncl:codeListReference>
+                            <anncl:ShortName>IT:SUAP:CL:FormeGiuridiche</anncl:ShortName>
+                            <anncl:Version>1</anncl:Version>    
+                        </anncl:codeListReference>                        
+                    </xsd:appinfo>                    
+                </xsd:annotation>                
+            </xsd:element>
+            <xsd:element name="denominazione" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+       </xsd:sequence>        
+    </xsd:complexType>      
+    
+</xsd:schema>

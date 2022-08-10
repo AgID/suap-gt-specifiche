@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     
-    xmlns:efile="http://agid.it/suap/entita/file"
+    xmlns:efile="http://agid.it/suap/entities/file"
     
-    xmlns:vhashalg="http://agid.it/suap/01_vocabularies/files_hashalg"
+    xmlns:vhashalg="http://agid.it/suap/vocabularies/files_hashalg"
     xmlns:ccodelist="http://agid.it/suap/commons/codelist"
     xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations"
     xmlns:ctipi="http://agid.it/suap/commons/tipi" 
 
-    targetNamespace="http://agid.it/suap/entita/file"
+    targetNamespace="http://agid.it/suap/entities/file"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xsd:import namespace="http://agid.it/suap/01_vocabularies/files_hashalg" schemaLocation="../01_vocabularies/voc_files_hashalg_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/vocabularies/files_hashalg" schemaLocation="../01_vocabularies/voc_files_hashalg_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>

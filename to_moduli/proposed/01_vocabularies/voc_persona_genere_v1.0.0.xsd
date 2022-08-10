@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     
-    xmlns:vpergen="http://agid.it/suap/01_vocabularies/persona_genere"
+    xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
     
-    targetNamespace="http://agid.it/suap/01_vocabularies/persona_genere" elementFormDefault="qualified"
+    targetNamespace="http://agid.it/suap/vocabularies/persona_genere" elementFormDefault="qualified"
     attributeFormDefault="qualified" version="1.0.0" xml:lang="it">
 
     <xs:simpleType name="sesso_voc">

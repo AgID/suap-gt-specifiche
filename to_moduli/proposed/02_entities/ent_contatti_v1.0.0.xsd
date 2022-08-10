@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:econt="http://agid.it/suap/entities/contatti"
+    
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"  
+    
+    targetNamespace="http://agid.it/suap/entities/contatti"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    
+    <xsd:element name="contatti" type="econt:contatti_ctype"/>
+    
+    <xsd:simpleType name="email_stype">
+        <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="100"/>
+            <xsd:whiteSpace value="collapse"/>
+            <xsd:pattern value="([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})?"/>
+        </xsd:restriction>
+    </xsd:simpleType>       
+    
+    <xsd:simpleType name="telefono_fisso_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="26"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="telefono_mobile_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="26"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="fax_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="26"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+
+    <xsd:complexType name="contatti_ctype">
+        <xsd:sequence>
+            <xsd:element name="email" type="econt:email_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="pec" type="econt:email_stype" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="cellulare" type="econt:telefono_mobile_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="telefono_fisso" type="econt:telefono_fisso_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="fax" type="econt:fax_stype" minOccurs="0" maxOccurs="1"/>            
+        </xsd:sequence>        
+    </xsd:complexType>      
+    
+</xsd:schema>

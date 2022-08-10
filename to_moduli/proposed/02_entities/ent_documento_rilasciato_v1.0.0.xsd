@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:edocril="http://agid.it/suap/entities/documento_rilasciato"
+    
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"  
+    
+    targetNamespace="http://agid.it/suap/entities/documento_rilasciato"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    
+    <xsd:element name="documento_rilasciato" type="edocril:documento_rilasciato_ctype"/>
+    
+    <xsd:complexType name="documento_rilasciato_ctype">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="numero" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="ente_rilascio" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_rilascio" type="xsd:date" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element name="data_scadenza" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>        
+    </xsd:complexType>          
+</xsd:schema>

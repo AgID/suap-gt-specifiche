@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:epers="http://agid.it/suap/entities/persona"
+    
+    xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist"      
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"
+    
+    targetNamespace="http://agid.it/suap/entities/persona"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+     
+      
+    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
+    <xsd:import namespace="http://agid.it/suap/vocabularies/persona_genere" schemaLocation="../01_vocabularies/voc_persona_genere_v1.0.0.xsd"/>
+
+
+    <xsd:element name="persona" type="epers:persona_ctype"/>
+
+   
+    <xsd:simpleType name="codice_fiscale_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
+        </xsd:restriction>
+    </xsd:simpleType> 
+  
+    <xsd:simpleType name="sesso_stype">
+        <xsd:restriction base="vpergen:sesso_voc"/>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="persona_ctype">
+        <xsd:sequence>
+            <xsd:element name="codice_fiscale" type="epers:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="nome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="cognome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="sesso" type="epers:sesso_stype" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="data_nascita" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="luogo_nascita_italiano" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1" >
+                    <xsd:annotation>
+                        <xsd:appinfo>                        
+                            <anncl:codeListReference>
+                                <anncl:ShortName>IT:SUAP:CL:ComuniItalianiStorico</anncl:ShortName>
+                                <anncl:Version>1</anncl:Version>    
+                            </anncl:codeListReference>                        
+                        </xsd:appinfo>                    
+                    </xsd:annotation>                    
+                </xsd:element>
+                <xsd:sequence minOccurs="1" maxOccurs="1">
+                    <xsd:element name="luogo_nascita_estero" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="stato_estero" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1" >
+                        <xsd:annotation>
+                            <xsd:appinfo>                        
+                                <anncl:codeListReference>
+                                    <anncl:ShortName>IT:SUAP:CL:Stati</anncl:ShortName>
+                                    <anncl:Version>1</anncl:Version>    
+                                </anncl:codeListReference>                        
+                            </xsd:appinfo>                    
+                        </xsd:annotation>
+                    </xsd:element>                    
+                </xsd:sequence>
+            </xsd:choice>
+       </xsd:sequence>        
+    </xsd:complexType>      
+    
+</xsd:schema>
