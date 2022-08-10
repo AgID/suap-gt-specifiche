@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     
-    xmlns:ecitt="http://agid.it/suap/entita/cittadinanza"
+    xmlns:ecitt="http://agid.it/suap/entities/cittadinanza"
     
     xmlns:ccodelist="http://agid.it/suap/commons/codelist" 
     xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
     
-    targetNamespace="http://agid.it/suap/entita/cittadinanza"
+    targetNamespace="http://agid.it/suap/entities/cittadinanza"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     

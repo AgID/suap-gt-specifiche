@@ -4,7 +4,7 @@
 -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
-    <sch:ns uri="http://agid.it/suap/entita/indirizzo_italiano" prefix="eindita"/>
+    <sch:ns uri="http://agid.it/suap/entities/indirizzo_italiano" prefix="eindita"/>
     
     <sch:pattern id="indirizzo_italiano_ab" abstract="true">
         

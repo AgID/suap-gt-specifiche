@@ -4,7 +4,7 @@
 -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
-    <sch:ns uri="http://agid.it/suap/entita/documento_rilasciato" prefix="edocril"/>
+    <sch:ns uri="http://agid.it/suap/entities/documento_rilasciato" prefix="edocril"/>
     
     <sch:pattern>
         

@@ -4,7 +4,7 @@
 -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
-    <sch:ns uri="http://agid.it/suap/entita/persona" prefix="epers"/>
+    <sch:ns uri="http://agid.it/suap/entities/persona" prefix="epers"/>
     
     <sch:pattern id="persona_ab" abstract="true">
         

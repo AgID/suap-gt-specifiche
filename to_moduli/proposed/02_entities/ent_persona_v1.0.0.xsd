@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     
-    xmlns:epers="http://agid.it/suap/entita/persona"
+    xmlns:epers="http://agid.it/suap/entities/persona"
     
     xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
     xmlns:ccodelist="http://agid.it/suap/commons/codelist"      
     xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
     xmlns:ctipi="http://agid.it/suap/commons/tipi"
     
-    targetNamespace="http://agid.it/suap/entita/persona"
+    targetNamespace="http://agid.it/suap/entities/persona"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     

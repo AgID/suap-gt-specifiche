@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     
-    xmlns:econt="http://agid.it/suap/entita/contatti"
+    xmlns:econt="http://agid.it/suap/entities/contatti"
     
     xmlns:ctipi="http://agid.it/suap/commons/tipi"  
     
-    targetNamespace="http://agid.it/suap/entita/contatti"
+    targetNamespace="http://agid.it/suap/entities/contatti"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     

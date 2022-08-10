@@ -4,7 +4,7 @@
 -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
-    <sch:ns uri="http://agid.it/suap/entita/cittadinanza" prefix="ecitt"/>
+    <sch:ns uri="http://agid.it/suap/entities/cittadinanza" prefix="ecitt"/>
 
     <sch:pattern id="cittadinanza_ab" abstract="true">
         
