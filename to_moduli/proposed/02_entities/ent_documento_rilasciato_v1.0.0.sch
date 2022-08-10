@@ -6,9 +6,9 @@
     
     <sch:ns uri="http://agid.it/suap/entities/documento_rilasciato" prefix="edocril"/>
     
-    <sch:pattern>
+    <sch:pattern id="documento_rilasciato_ab" abstract="true">
         
-        <sch:rule context="edocril:documento_rilasciato">
+        <sch:rule context="$documento_rilasciato">
             <sch:p>
                 Verifico che la data di rilascio sia precedente alla data di scadenza                
             </sch:p>
@@ -22,5 +22,9 @@
             </sch:assert>
             
         </sch:rule>
+    </sch:pattern>
+    
+    <sch:pattern id="documento_rilasciato" abstract="false" is-a="documento_rilasciato_ab">
+        <sch:param name="documento_rilasciato" value="edocril:documento_rilasciato"/>        
     </sch:pattern>
 </sch:schema>

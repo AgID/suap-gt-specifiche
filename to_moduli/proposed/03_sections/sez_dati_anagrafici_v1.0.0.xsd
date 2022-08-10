@@ -73,7 +73,7 @@
             <xsd:element name="procuratore" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="datiPersona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
                         <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
                         <xsd:element name="documento_rilasciato" type="edocril:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
                         <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
