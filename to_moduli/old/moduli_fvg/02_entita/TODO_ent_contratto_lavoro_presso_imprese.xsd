@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    
+    <!-- 
+        data inizio e fine del rapporto di lavoro
+        tipo di rapporto di lavoro
+        figura giuridica
+        
+        <xs:element name="sede_legale" minOccurs="1" maxOccurs="1">
+            <xs:complexType>
+                <xs:sequence>                             
+                    <xs:choice>
+                        <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
+                    </xs:choice>  
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>  
+                       
+                       
+                       
+    
+    -->
+    
+</xs:schema>

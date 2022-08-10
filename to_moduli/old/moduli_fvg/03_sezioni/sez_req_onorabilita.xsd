@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sro="http://sezione/req_onorabilita" elementFormDefault="qualified" targetNamespace="http://sezione/req_onorabilita" xmlns:dich="http://agid.it/suap/commons/dichiarazioni">
+    
+    <xs:import namespace="http://agid.it/suap/commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    
+    <xs:element name="req_onorabilita_type" type="sro:req_onorabilita_type"/>
+    
+    <!-- Da come dice il business questi requisiti sono applicabili a qualunque modulo e quindi riusabili in generale -->
+    <xs:complexType name="req_onorabilita_type">
+        <xs:sequence>
+            <xs:element name="possesso_requisiti_onorabilita" type="dich:dichiarazione_mandatory_choice_type" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="no_cause_divieto" type="dich:dichiarazione_mandatory_choice_type" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

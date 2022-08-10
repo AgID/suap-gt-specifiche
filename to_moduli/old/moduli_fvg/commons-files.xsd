@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"        
-    xmlns="http://agid.it/suap/commons/allegati"
-    targetNamespace="http://agid.it/suap/commons/allegati"
+    xmlns="http://agid.it/suap/commons/files"
+    targetNamespace="http://agid.it/suap/commons/files"
     xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
     xmlns:cl="http://agid.it/suap/commons/codelist"
     xmlns:fhg="http://vocabolari/files_hashalg"
@@ -25,13 +25,6 @@
             <xs:documentation>Metadati di un file. Usabile ad esempio per un allegato.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <!--
-            <xs:element name="codiceDaVocabolarioControllato" type="bt:notemptystring" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>La semantica è standardizzata in un vocabolario controllato in modo che sia indipendentemente dal frontend che lo produce e dal sistema di backoffice che lo interpreterà</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            -->
             <xs:element name="nome_file" type="nome_file_stype" minOccurs="1" maxOccurs="1"/>
             <xs:element name="content_type" type="cl:CodeType" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
@@ -48,6 +41,5 @@
 <!--        <xs:element name="size_in_bytes" type="xs:long" minOccurs="0" maxOccurs="1"/>-->
         </xs:sequence>
     </xs:complexType>
-    
     
 </xsd:schema>

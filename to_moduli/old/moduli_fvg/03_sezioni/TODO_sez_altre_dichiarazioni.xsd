@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    
+    <!-- 
+        Condiviso con agid: Include sia parte generale per tutti (ex. regolamenti polizia urbana) che parti 
+        specifiche (ex. solo per commercio o per commercio alimentare => sarà lo schematron ad imporre quali 
+        devono venire valorizzate a seconda del caso
+    -->
+</xs:schema>

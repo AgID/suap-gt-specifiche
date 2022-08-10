@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:sreat="http://sezione/riferimento_attivita"
+    xmlns:sdaca="http://sezione/dati_catastali"
+    xmlns:sapesvi="http://sezione/apertura_esercizio_vicinato"
+    xmlns:stresvi="http://sezione/trasferimento_esercizio_vicinato"
+    xmlns:sreonpr="http://sezione/requisiti_onorabilita_professionali"
+    xmlns:saldi="http://sezione/altre_dichiarazioni"
+        
+    xmlns:mesvi="http://moduli/esercizio_vicinato"
+    targetNamespace="http://moduli/apparecchi_automatici_AVVIO"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xs:element name="apparecchi_automatici_mod" type="apparecchi_automatici_type"/>
+    
+    <xs:complexType name="apparecchi_automatici_type">
+        <xs:sequence>
+            <xs:element ref="sez_anagrafica"/>
+            <!-- questo modulo non prevede di indicare la "localizzazione della attivita ma piuttosto il magazzino -->
+            <xs:element name="magazzino" type="localizzazione_ctype"/>
+            <xs:element ref="sez_req_onorabilita"/>
+            <xs:element ref="sez_req_professionali"/>
+            <xs:element ref="sez_informativa_dich_specifiche"/>
+        </xs:sequence>        
+    </xs:complexType>    
+</xs:schema>

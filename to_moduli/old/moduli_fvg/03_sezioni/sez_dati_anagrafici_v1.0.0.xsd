@@ -7,7 +7,7 @@
     xmlns:eie="http://entita/indirizzo_estero"
     xmlns:eco="http://entita/contatti"
     xmlns:era="http://entita/rappresentanza" 
-    xmlns:efg="http://entita/figura_giuridica" 
+    xmlns:eimp="http://entita/impresa" 
     
     xmlns:sa="http://sezione/scheda_anagrafica"
     
@@ -22,20 +22,45 @@
     <xs:import namespace="http://entita/indirizzo_estero" schemaLocation="../02_entita/ent_indirizzo_estero_v1.0.0.xsd"/>
     <xs:import namespace="http://entita/contatti" schemaLocation="../02_entita/ent_contatti_v1.0.0.xsd"/>   
     <xs:import namespace="http://entita/rappresentanza" schemaLocation="../02_entita/ent_rappresentanza_v1.0.0.xsd"/>  
-    <xs:import namespace="http://entita/figura_giuridica" schemaLocation="../02_entita/ent_figura_giuridica_v1.0.0.xsd"/>   
+    <xs:import namespace="http://entita/impresa" schemaLocation="../02_entita/ent_impresa_v1.0.0.xsd"/>   
  
     <xs:element name="scheda_anagrafica" type="sa:scheda_anagrafica_type"/>
   
+    <xs:annotation>
+        <xs:documentation>
+            Nota su impostazione Agid/FVG, in attesa di validazione da Funzione pubblica.
+            
+            Espresso in glossario condiviso Agid/fvg: il Richiedente, ovvero chi trasmette l'istanza è una persona fisica, che può essere il  
+            rappresentante dell' impresa (titolare o rappresentante legale) o esterno all' impresa (ex. delegato con procura). 
+            Il soggetto istante è l'impresa.
+            
+            Quindi nel modulo scheda anagrafica proponiamo che:
+             - il cosiddetto dichiarante diventi il "rappresentante" dell'impresa (titolare o rapp.legale).
+            -  il cosiddetto procuratore diventa l'intermediario visto che il termine procura si usa anche per le procure interne ad un impresa
+                e non rappresenta bene il concetto di soggetto esterno.
+                
+            N.B: l'attuale blocco dichiarante (rinominato in rappresentante nella proposta) viene compilato sempre anche in caso di intermediazione
+            (ex. procura) in quanto serve ad indicare la persona fisica referente per l'impresa (persona giuridica).
+                
+        </xs:documentation>
+    </xs:annotation>
+    
+    
     <xs:complexType name="scheda_anagrafica_type">
         <xs:sequence>
 
             <!-- diversamentre dal sus non è chi presenta la domanda ma il beneficiario dell'autorizzazione ? -->    
-            <xs:element name="dichiarante" minOccurs="1" maxOccurs="1">
+            <xs:element name="rappresentante" minOccurs="1" maxOccurs="1">
+                 <xs:annotation>
+                     <xs:documentation>
+                           abbiamo proposto rinomina del dichiarante in rappresentante                           
+                     </xs:documentation>
+                 </xs:annotation>   
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="persona" type="epf:persona_ctype"  minOccurs="1" maxOccurs="1"/>
                         <xs:element name="cittadinanza" type="eci:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
-                        <xs:element name="documento_rilasciato" type="edr:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="permesso_soggiorno" type="edr:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
                         <xs:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xs:complexType>
                                 <xs:sequence>                             
@@ -47,43 +72,29 @@
                             </xs:complexType>
                         </xs:element>
                         <xs:element name="contatti" type="eco:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+                        <!-- spostato da opera con -->
+                        <xs:element name="rappresentanza" type="era:rappresentanza_ctype"  minOccurs="1" maxOccurs="1"/>
                     </xs:sequence>
                 </xs:complexType>                
             </xs:element>
             
-            <xs:element name="opera_con" minOccurs="0" maxOccurs="1">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="rappresentanza" type="era:rappresentanza_ctype"  minOccurs="1" maxOccurs="1"/>
-                    </xs:sequence>
-                </xs:complexType>                
-            </xs:element>            
+            <!-- TODO esportare definizione di impresa in entità riusabile -> esempio per collegare il fatto che una persona è stata dipendente di una certa impresa -->
+            <xs:element name="impresa" minOccurs="1" maxOccurs="1" type="eimp:impresa_ctype"/>
             
-            <xs:element name="impresa" minOccurs="1" maxOccurs="1">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="figura_giuridica" type="efg:figura_giuridica_ctype"  minOccurs="1" maxOccurs="1"/>
-                        <xs:element name="sede_legale" minOccurs="1" maxOccurs="1">
-                            <xs:complexType>
-                                <xs:sequence>                             
-                                    <xs:choice>
-                                        <xs:element name="indirizzo_italiano" type="eii:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
-                                        <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
-                                    </xs:choice>  
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                        <xs:element name="contatti" type="eco:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-                    </xs:sequence>
-                </xs:complexType>                
-            </xs:element>    
-            
-            <xs:element name="procuratore" minOccurs="0" maxOccurs="1">
+            <xs:element name="intermediario" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        è persona sempre esterna all'impresa da cui la proposta di termine intermediario (le procure si usano anche per nomine
+                        interne ad una organizzazione).                         
+                    </xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="datiPersona" type="epf:persona_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <!--
+                            FIXME: pro futuro: nel caso SGD come funzione? Anche senza cittadinanza italiana?
                         <xs:element name="cittadinanza" type="eci:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
-                        <xs:element name="documento_rilasciato" type="edr:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
+                        -->
                         <xs:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xs:complexType>
                                 <xs:sequence>                             
@@ -96,6 +107,8 @@
                         </xs:element>
                         <xs:element name="contatti" type="eco:contatti_ctype" minOccurs="1" maxOccurs="1"/>
                     </xs:sequence>
+                    <!-- TODO: valutare se il caso agenzia per le imprese e' da prevedere o meno
+                        -->
                 </xs:complexType>                
             </xs:element>            
         </xs:sequence>   

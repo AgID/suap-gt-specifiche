@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sro="http://sezione/req_onorabilita" elementFormDefault="qualified" targetNamespace="http://sezione/req_onorabilita" xmlns:dich="http://agid.it/suap/commons/dichiarazioni">
+    
+<!-- 
+        
+ NOTA IMP: per riusare questa sezione è importante che in tutti i contesti la lista di cose da chiedere sia la stessa: ex. titoli di studio, esperienze lavorative in proprio, esperienza come dipendente etc..
+ 
+ Casomai ammettiamo che sul singolo blocco (ex. titolo di studio) ci siano nello specifico contesto del modulo requisiti diversi (ex. scuola superiore o scuola media) che quindi potremmo
+ omettere come contrlli generali dallo schematro di sezione e spostarli sul modulo.
+    
+-->
+ 
+ 
+  <!--
+    corsi: TODO_ent_corso_professionale_v1.0.0.xsd  => i controlli specifici probabilmente stanno in schematron modulo piu che di sezione
+    
+    rapporto in proprio: lista delle imprese wrappate in sezione con un complex type che indica data di inizio e fine..
+    rapporto non in proprio: lista di TODO_ent_contratto_lavoro_presso_imprese
+    titoli di studio: TODO_ent_titolo_studio_v1.0.0.xsd -> schematron di entità verifica che sia un titolo della lista generale, mentre a livello di modulo indico i termini attesi per quel modulo
+    1 qualifica professionale: TODO_ent_qualifica_professionale_v1.0.0
+    
+    N.B: mancano gli ultimi 3 elementi - verificare se inglobabili in entità sopra
+   -->
+    
+</xs:schema>

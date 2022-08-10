@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dich="http://agid.it/suap/commons/dichiarazioni" elementFormDefault="qualified">
+    
+    <xs:import namespace="http://agid.it/suap/commons/dichiarazioni" schemaLocation="./commons-dichiarazioni.xsd"/>
+    
+    
+    <xs:complexType name="Cacao">
+        
+        <xs:sequence>
+            
+            <xs:element name="dichiarazioni">
+                   <xs:complexType>
+                        <xs:sequence>
+                            <xs:annotation>
+                                <xs:documentation>
+                                    <ca:codeListID_cl>IT:SUAP:CL:DichiarazioniSoggetto</ca:codeListID_cl>
+                                    <ca:codeListTermine_cl>REQONOR</ca:codeListTermine_cl>
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:element name="requisiti_onorabilita" type="dich:dichiarazione_mandatory_choice_type"/>
+                            <xs:annotation>
+                                <xs:documentation>
+                                    <ca:codeListID_cl>IT:SUAP:CL:DichiarazioniSoggetto</ca:codeListID_cl>
+                                    <ca:codeListTermine_cl>NONDEC</ca:codeListTermine_cl>
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:element name="non_decadenza" type="dich:dichiarazione_mandatory_choice_type"/>
+                            <xs:annotation>
+                                <xs:documentation>
+                                    <ca:codeListID_cl>IT:SUAP:CL:DichiarazioniSoggetto</ca:codeListID_cl>
+                                    <ca:codeListTermine_cl>REQPROF</ca:codeListTermine_cl>
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:element name="req_professionali" type="dich:dichiarazione_boolean_type"/>
+                        </xs:sequence>
+                   </xs:complexType> 
+                
+            </xs:element>
+            
+        </xs:sequence>
+        
+    </xs:complexType>
+    
+</xs:schema>
