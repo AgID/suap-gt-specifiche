@@ -20,15 +20,19 @@
             <sch:let name="comune" value="normalize-space(eindita:comune)"/>
             <sch:let name="dug" value="normalize-space(eindita:dug)"/>
             
-            <sch:assert id="ass_comune_cl_check" test="count($keysComuni[
-                normalize-space(Value[@ColumnRef='codice_istat' ]/SimpleValue) = $comune
-                ]) = 1">
+            <sch:assert id="ass_comune_cl_check" test="
+                count($keysComuni[
+                                    normalize-space(Value[@ColumnRef='codice_istat' ]/SimpleValue) = $comune
+                                  ]) = 1">
+                
                 Comune non esiste (<sch:value-of select="$comune"/>) 
             </sch:assert>
             
-            <sch:assert id="ass_dug_cl_check" test="count($keysDUG[
-                normalize-space(Value[@ColumnRef='denominazione' ]/SimpleValue) = $dug
-                ]) = 1">
+            <sch:assert id="ass_dug_cl_check" test="
+                count($keysDUG[
+                                normalize-space(Value[@ColumnRef='denominazione' ]/SimpleValue) = $dug
+                               ]) = 1">
+                
                 DUG non esiste (<sch:value-of select="$dug"/>) 
             </sch:assert>
             

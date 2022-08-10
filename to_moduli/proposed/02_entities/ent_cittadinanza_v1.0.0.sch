@@ -14,10 +14,12 @@
             
             <sch:let name="stato" value="normalize-space(ecitt:stato_cittadinanza)"/>
             
-            <sch:assert id="ass_stato_cl_check" test="count($keysStati[
-                normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato
-                ]) = 1">
-                Stato di citnza nontadina esiste (<sch:value-of select="$stato"/>) 
+            <sch:assert id="ass_stato_cl_check" test="
+                count($keysStati[
+                                    normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato
+                                ]) = 1">
+                
+                Stato di cittadinanza non esiste (<sch:value-of select="$stato"/>) 
             </sch:assert>
             
         </sch:rule>
