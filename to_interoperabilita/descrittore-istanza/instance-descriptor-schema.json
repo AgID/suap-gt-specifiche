@@ -6,7 +6,7 @@
     "type": "object",
     "required": [
         "version",
-        "municipality",
+        "municipality",        
         "proceedings"
     ],
     "properties": {
@@ -83,6 +83,65 @@
                         "format": "date-time"
                     }
                 }
+            }
+        },
+        "times":{
+            "$id": "#root/time",
+            "title": "tempi amministrativi dell'istanza",
+            "type": "object",
+            "required": [
+                "start",
+                "end"
+            ],
+            "properties": {
+                "start": {
+                    "$id": "#root/time/start",
+                    "title": "data avvio dell'istanza",
+                    "type": "string",
+                    "format": "date"
+                },
+                "end": {
+                    "$id": "#root/time/end",
+                    "title": "data avvio dell'istanza",
+                    "type": "string",
+                    "format": "date"
+                },
+                "max_admissibility": {
+                    "$id": "#root/time/t_max_admissibility",
+                    "title": "data limite verifica ammissibilità",
+                    "type": "string",
+                    "format": "date"
+                },
+                "max_integration_request": {
+                    "$id": "#root/time/max_integration_request",
+                    "title": "data limite verifica ammissibilità",
+                    "type": "string",
+                    "format": "date"
+                },
+                "max_integration_response": {
+                    "$id": "#root/time/max_integration_response",
+                    "title": "data limite verifica ammissibilità",
+                    "type": "string",
+                    "format": "date"
+                },
+                "max_conclusions_sending": {
+                    "$id": "#root/time/max_conclusions_sending",
+                    "title": "data limite verifica ammissibilità",
+                    "type": "string",
+                    "format": "date"
+                },
+                "date_cdss": {
+                    "$id": "#root/time/date_cdss",
+                    "title": "data limite verifica ammissibilità",
+                    "type": "string",
+                    "format": "date"
+                },
+                "max_cdss_request": {
+                    "$id": "#root/time/max_cdss_request",
+                    "title": "data limite verifica ammissibilità",
+                    "type": "string",
+                    "format": "date"
+                }               
             }
         },
         "proceedings": {
@@ -233,6 +292,43 @@
                                     "S384",
                                     "S512"
                                 ]
+                            }
+                        }
+                    },
+                    "attachments":{
+                        "$id": "#root/proceedings/attachments",
+                        "title": "allegati all'istanza relativo al procedimento",
+                        "type": "array",
+                        "items": {
+                            "type": "object",                            
+                            "required": [
+                                "ref",
+                                "hash",
+                                "alg_hash"
+                            ],                        
+                            "properties":{
+                                "ref": {
+                                    "$id": "#root/proceedings/attachments/ref",
+                                    "title": "riferimento all'allegato dell'istanza relativo al procedimento",
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "hash":{
+                                    "$id": "#root/proceedings/attachments/hash",
+                                    "title": "hash dell'allegato relativo al procedimento",
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "alg_hash":{
+                                    "$id": "#root/proceedings/attachments/alg_hash",
+                                    "title": "algoritmo hash dell'allegato relativo al procedimento",
+                                    "type": "string",
+                                    "enum":[
+                                        "S256",
+                                        "S384",
+                                        "S512"
+                                    ]
+                                }
                             }
                         }
                     }
