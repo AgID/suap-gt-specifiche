@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:eisre="http://agid.it/suap/entities/iscrizione_registro"
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
+    
+    targetNamespace="http://agid.it/suap/entities/iscrizione_registro"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    
+    <xs:simpleType name="numero_REA_stype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="iscrizione_registro_ctype">
+        <xs:sequence>
+            <xs:element name="CCIAA" type="cl:CodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>                        
+                        <anncl:codeListReference>
+                            <anncl:ShortName>IT:SUAP:CL:CCIAA</anncl:ShortName>
+                        </anncl:codeListReference>                        
+                    </xs:appinfo>                    
+                </xs:annotation>                 
+            </xs:element>
+            <xs:element name="numero_REA" type="eisre:numero_REA_stype" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

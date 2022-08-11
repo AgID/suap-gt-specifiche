@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../sez_dati_anagrafici_v1.0.0.sch">
+    <x:scenario label="Test sezione anagrafica">
+
+        <x:scenario label="Sezione NON corretta">
+            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ko.coderesidenza.xml"/>
+            
+            <x:expect-assert count="1" label=""
+                id="ass_comune_cl_check" />
+            <x:expect-assert count="1" label=""
+                id="ass_dug_cl_check" />
+        </x:scenario>
+
+        <x:scenario label="Sezione corretta">
+            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ok.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_comune_cl_check" />
+        </x:scenario>
+        
+    </x:scenario>
+</x:description>
