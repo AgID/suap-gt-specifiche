@@ -1,63 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:vpg="http://agid.it/suap/vocabularies/persona_genere"
-    xmlns:ep="http://agid.it/suap/entities/persona"
-    xmlns:cl="http://agid.it/suap/commons/codelist"
-    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
-    xmlns:ct="http://agid.it/suap/commons/tipi"    
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:epers="http://agid.it/suap/entities/persona"
+    
+    xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist"      
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"
+    
     targetNamespace="http://agid.it/suap/entities/persona"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
+    
+     
       
-    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
-    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
-    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
-    <xs:import namespace="http://agid.it/suap/vocabularies/persona_genere" schemaLocation="../01_vocabolari/voc_persona_genere_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
+    <xsd:import namespace="http://agid.it/suap/vocabularies/persona_genere" schemaLocation="../01_vocabularies/voc_persona_genere_v1.0.0.xsd"/>
 
 
-    <xs:element name="persona" type="ep:persona_ctype"/>
+    <xsd:element name="persona" type="epers:persona_ctype"/>
 
    
-    <xs:simpleType name="codice_fiscale_stype">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <!--
-    Verificare che il dichiarante abbia sempre il codice fiscale italiano. "/>
-    -->    
+    <xsd:simpleType name="codice_fiscale_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
+        </xsd:restriction>
+    </xsd:simpleType> 
   
-    <xs:simpleType name="sesso_stype">
-        <xs:restriction base="vpg:sesso_voc"/>
-    </xs:simpleType>
+    <xsd:simpleType name="sesso_stype">
+        <xsd:restriction base="vpergen:sesso_voc"/>
+    </xsd:simpleType>
     
-    <xs:complexType name="persona_ctype">
-        <xs:sequence>
-            <xs:element name="codice_fiscale" type="ep:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="nome" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="cognome" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="sesso" type="ep:sesso_stype" minOccurs="0" maxOccurs="1"/>            
-            <xs:element name="data_nascita" type="xs:date" minOccurs="0" maxOccurs="1"/>
-            <xs:choice minOccurs="1" maxOccurs="1">
-                <xs:element name="luogo_nascita_italiano" type="cl:CodeType" minOccurs="1" maxOccurs="1" >
-                    <xs:annotation>
-                        <xs:documentation>
-                            <ca:codeListID_cl>IT:SUAP:CL:StoricoComuniItaliani</ca:codeListID_cl>
-                        </xs:documentation>
-                    </xs:annotation>                    
-                </xs:element>
-                <xs:sequence minOccurs="1" maxOccurs="1">
-                    <xs:element name="luogo_nascita_estero" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="stato_estero" type="cl:CodeType" minOccurs="1" maxOccurs="1" >
-                        <xs:annotation>
-                            <xs:documentation>
-                                <ca:codeListID_cl>IT:SUAP:CL:StatiEsteri</ca:codeListID_cl>
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>                    
-                </xs:sequence>
-            </xs:choice>
-       </xs:sequence>        
-    </xs:complexType>      
+    <xsd:complexType name="persona_ctype">
+        <xsd:sequence>
+            <xsd:element name="codice_fiscale" type="epers:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="nome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="cognome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="sesso" type="epers:sesso_stype" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="data_nascita" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+            <xsd:choice minOccurs="1" maxOccurs="1">
+                <xsd:element name="luogo_nascita_italiano" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
+                    <xsd:annotation>
+                        <xsd:appinfo>                        
+                            <anncl:codeListReference>
+                                <anncl:ShortName>IT:SUAP:CL:ComuniItalianiStorico</anncl:ShortName>
+                            </anncl:codeListReference>                        
+                        </xsd:appinfo>                    
+                    </xsd:annotation>                    
+                </xsd:element>
+                <xsd:sequence minOccurs="1" maxOccurs="1">
+                    <xsd:element name="luogo_nascita_estero" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
+                        <xsd:annotation>
+                            <xsd:appinfo>                        
+                                <anncl:codeListReference>
+                                    <anncl:ShortName>IT:SUAP:CL:Stati</anncl:ShortName>
+                                </anncl:codeListReference>                        
+                            </xsd:appinfo>                    
+                        </xsd:annotation>
+                    </xsd:element>                    
+                </xsd:sequence>
+            </xsd:choice>
+       </xsd:sequence>        
+    </xsd:complexType>      
     
-</xs:schema>
+</xsd:schema>

@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:eie="http://agid.it/suap/entities/indirizzo_estero"
-    xmlns:cl="http://agid.it/suap/commons/codelist"
-    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+    
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist"      
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
+    
     targetNamespace="http://agid.it/suap/entities/indirizzo_estero"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
 
-    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
-    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     
-    <xs:element name="indirizzo_estero" type="eie:indirizzo_estero_ctype"/>
+    <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype"/>
 
-    <xs:simpleType name="descrizione_indirizzo_estero_stype">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="200"/>
-            <xs:whiteSpace value="collapse"/>
-        </xs:restriction>
-    </xs:simpleType>
+    <xsd:simpleType name="descrizione_indirizzo_estero_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="200"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     
-    <xs:simpleType name="codice_postale_estero_stype">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="50"/>
-            <xs:whiteSpace value="collapse"/>
-        </xs:restriction>
-    </xs:simpleType>
+    <xsd:simpleType name="codice_postale_estero_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     
-    <xs:simpleType name="comune_estero_stype">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="100"/>
-            <xs:whiteSpace value="collapse"/>
-        </xs:restriction>
-    </xs:simpleType>
+    <xsd:simpleType name="comune_estero_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="100"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
 
-    <xs:complexType name="indirizzo_estero_ctype">
-        <xs:sequence>
-            <xs:element name="descrizione" type="eie:descrizione_indirizzo_estero_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="codice_postale" type="eie:codice_postale_estero_stype" minOccurs="0" maxOccurs="1"/>            
-            <xs:element name="comune_estero" type="eie:comune_estero_stype" minOccurs="1" maxOccurs="1"/>    
-            <xs:element name="stato_estero" type="cl:CodeType" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        <ca:codeListID_cl>IT:SUAP:CL:StatiEsteri</ca:codeListID_cl>
-                    </xs:documentation>
-                </xs:annotation>                
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>      
+    <xsd:complexType name="indirizzo_estero_ctype">
+        <xsd:sequence>
+            <xsd:element name="descrizione" type="eindest:descrizione_indirizzo_estero_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="codice_postale" type="eindest:codice_postale_estero_stype" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="comune_estero" type="eindest:comune_estero_stype" minOccurs="1" maxOccurs="1"/>    
+            <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>                        
+                        <anncl:codeListReference>
+                            <anncl:ShortName>IT:SUAP:CL:Stati</anncl:ShortName>
+                        </anncl:codeListReference>                        
+                    </xsd:appinfo>                    
+                </xsd:annotation>                               
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>      
     
-</xs:schema>
+</xsd:schema>

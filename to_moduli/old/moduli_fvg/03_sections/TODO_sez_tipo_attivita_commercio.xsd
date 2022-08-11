@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://agid.it/suap/sections/tipo_attivita_commercio">
+    
+    <!-- 
+        
+        Da riusare in vicinato e media grande struttura
+    
+        Dovrebbe inglobare diverse indicazioni generali sulla attività (per quota di superficie):
+        - modalita vendita (dettaglio/ingrosso)
+        - settori merceologici 
+        - ingombranti
+        - tabelle speciali
+        
+        Nel caso di variazioni (ex. trasferimento di sede nel vicinato) gestiamo nel modulo il cambiamento nei due casi dichiarando due sezioni (prima e dopo)
+        e lasciando al frontend il compito di gestire la raccolta dati a livello UI.
+    -->
+    
+</xs:schema>

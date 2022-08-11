@@ -15,14 +15,14 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xs:import namespace="http://agid.it/suap/entities/persona" schemaLocation="../02_entita/ent_persona_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/cittadinanza" schemaLocation="../02_entita/ent_cittadinanza_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/documento_rilasciato" schemaLocation="../02_entita/ent_documento_rilasciato_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entita/ent_indirizzo_italiano_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entita/ent_indirizzo_estero_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/contatti" schemaLocation="../02_entita/ent_contatti_v1.0.0.xsd"/>   
-    <xs:import namespace="http://agid.it/suap/entities/rappresentanza" schemaLocation="../02_entita/ent_rappresentanza_v1.0.0.xsd"/>  
-    <xs:import namespace="http://agid.it/suap/entities/impresa" schemaLocation="../02_entita/ent_impresa_v1.0.0.xsd"/>   
+    <xs:import namespace="http://agid.it/suap/entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/cittadinanza" schemaLocation="../02_entities/ent_cittadinanza_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/documento_rilasciato" schemaLocation="../02_entities/ent_documento_rilasciato_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.0.xsd"/>   
+    <xs:import namespace="http://agid.it/suap/entities/rappresentanza" schemaLocation="../02_entities/ent_rappresentanza_v1.0.0.xsd"/>  
+    <xs:import namespace="http://agid.it/suap/entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.0.xsd"/>   
  
     <xs:element name="scheda_anagrafica" type="sa:scheda_anagrafica_type"/>
   

@@ -12,7 +12,7 @@
     <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>  
     <xs:import namespace="http://agid.it/suap/commons/files" schemaLocation="../commons-files.xsd"/>   
-    <xs:import namespace="http://agid.it/suap/vocabularies/ruolo_richiedente" schemaLocation="../01_vocabolari/voc_ruolo_rappresentante_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/vocabularies/ruolo_richiedente" schemaLocation="../01_vocabularies/voc_ruolo_rappresentante_v1.0.0.xsd"/>
     
     <xs:element name="rappresentanza" type="er:rappresentanza_ctype"/>
     

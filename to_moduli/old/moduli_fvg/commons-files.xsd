@@ -9,7 +9,7 @@
     version="1.0.0" xml:lang="it">
     
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="./commons-codelist.xsd"/>
-    <xs:import namespace="http://agid.it/suap/vocabularies/files_hashalg" schemaLocation="./01_vocabolari/voc_files_hashalg_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/vocabularies/files_hashalg" schemaLocation="./01_vocabularies/voc_files_hashalg_v1.0.0.xsd"/>
     
     <xs:simpleType name="nome_file_stype">
         <xs:restriction base="xs:string">

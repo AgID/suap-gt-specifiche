@@ -1,3 +1,4 @@
+-- TODO descrizione forse da aggiornare con ultimi aggiornamenti
 Schematron:
 
     1) Resilienza al cambio negli schema xsd: pro e contro del dichiarare o meno anche i campi che a livello xsd sono obbligatori.

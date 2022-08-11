@@ -7,19 +7,20 @@
     
     <sch:ns uri="http://agid.it/suap/entities/indirizzo_estero" prefix="eie"/>
     
-    <!-- Pattern riusabile per la verifica delle caratteristiche base di qualunque indirizzo italiano indipendentemente
+    <!-- 
+        Pattern riusabile per la verifica delle caratteristiche base di qualunque indirizzo estero
         dal contesto di utilizzo
     -->
     <sch:pattern id="indirizzo_estero_ab" abstract="true">
         
-        <sch:let name="keysStati" value="document('../01_vocabolari/voc_StatiEsteri_cl.xml')//Row"/> 
+        <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/> 
         
         <sch:rule context="$indirizzo_estero">
             
             <sch:let name="stato" value="normalize-space(eie:stato_estero)"/>
             
             <sch:assert id="ass_stato_cl_check" test="count($keysStati[
-                normalize-space(Value[@ColumnRef='code']/SimpleValue) = $stato
+                normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato
                 ]) = 1">
                 Stato estero non esiste (<sch:value-of select="$stato"/>) 
             </sch:assert>

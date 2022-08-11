@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://agid.it/suap/sections/attivita_artigiano_alimentare">
+    
+    <!-- Applicabile ad esempio per il panificio e per artigiano alimentare: perchè non è modulo unico? -->
+    <xs:element name="attivita_artigiano_alimentare_ctype" type="attivita_artigiano_alimentare_ctype"/>
+    
+    <!-- Da come dice il business questi requisiti sono applicabili a qualunque modulo e quindi riusabili in generale -->
+    <xs:complexType name="attivita_artigiano_alimentare_ctype">
+        <xs:sequence>
+            <xs:element name="consumoImmediatoPosto" type="boolean" minOccurs="1" maxOccurs="1"/>
+            <!-- FIXME: valutare se ha senso usare entità che trasporta dati come PIVA e CF del centro commerciale -->
+            <xs:element name="in_commerciale" type="boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="denominazione_centro_commerciale" type="string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="stagionalità" type="stagionalita_esercizio_type"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

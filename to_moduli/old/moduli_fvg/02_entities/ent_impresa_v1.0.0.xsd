@@ -14,9 +14,9 @@
     <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
-    <xs:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entita/ent_indirizzo_italiano_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entita/ent_indirizzo_estero_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/iscrizione_registro" schemaLocation="../02_entita/ent_iscrizione_registro_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/entities/iscrizione_registro" schemaLocation="../02_entities/ent_iscrizione_registro_v1.0.0.xsd"/>
     
     <xs:element name="impresa" type="efg:impresa_ctype"/>
 

@@ -9,9 +9,9 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xs:import namespace="http://agid.it/suap/vocabularies/settori_merceologici" schemaLocation="../01_vocabolari/voc_settori_merceologici_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/vocabularies/merci_ingombranti" schemaLocation="../01_vocabolari/voc_merci_ingombranti_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/vocabularies/prodotti_tabelle_speciali" schemaLocation="../01_vocabolari/voc_prodotti_tabelle_speciali_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/vocabularies/settori_merceologici" schemaLocation="../01_vocabularies//voc_settori_merceologici_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/vocabularies/merci_ingombranti" schemaLocation="../01_vocabularies//voc_merci_ingombranti_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/vocabularies/prodotti_tabelle_speciali" schemaLocation="../01_vocabularies//voc_prodotti_tabelle_speciali_v1.0.0.xsd"/>
     
     <xs:simpleType name="superficie_vendita_stype">
         <xs:restriction base="xs:positiveInteger"/>            

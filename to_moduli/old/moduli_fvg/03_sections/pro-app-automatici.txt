@@ -1,5 +1,0 @@
-1) Ha senso creare delle sezioni riusabili per requisiti onorabilità che include due dichiarazioni? Cosi poi nei moduli dichiaro le sezioni che mi interessano.
-Questo meglio dell'inserire le entità dei requisiti onorabilità in una sezione che dovrebbe diventare specifica e quindi 1-1 con il modulo?
-La soluzione ha senso se i blocchi di dichiarazioni sono riusati e ci sono pochi specifici.
-
-2) Nelle sezioni bisogna per forza riusare delle entità o si possono creare anche elementi liberi? Nel caso SUS vale la prima ma per evitare il proliferare di entità create ad hoc

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+  xmlns:html="http://www.w3.org/1999/xhtml/">
+  <Identification>
+    <ShortName>IT:SUAP:CL:TipiDocumentoIdentita</ShortName>
+    <LongName>Tipologie di documenti di riconoscimento</LongName>
+    <Version>1</Version>
+    <CanonicalUri/>
+    <CanonicalVersionUri/>
+    <Agency>
+      <ShortName>VC-SUAP.IT</ShortName>
+      <LongName xml:lang="it">Vocabolari Controllati dell'ecosistema SUAP</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="id" Use="required">
+      <ShortName>id</ShortName>
+      <Data Type="xsd:int"/>
+    </Column>
+    <Column Id="code" Use="optional">
+      <ShortName>Code</ShortName>
+      <Data Type="xsd:normalizedString"/>
+    </Column>
+    <Column Id="description" Use="required">
+      <ShortName>Description</ShortName>
+      <Data Type="xsd:string"/>
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="id"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18730</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>CI</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Carta d&apos;identità</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18731</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>PTG</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Patente di guida</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18732</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>PS</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Permesso di soggiorno</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18733</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>PSL</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Permesso di soggiorno CE per lungo soggiornanti</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18734</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>CIE</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Carta d&apos;identità elettronica</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18735</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>PAS</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Passaporto</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18736</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>PTN</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Patente nautica</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18737</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>LPE</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Libretto di pensione</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18738</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>PIT</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Patentino di abilitazione alla conduzione di impianti termici</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="id">
+        <SimpleValue>18739</SimpleValue>
+      </Value>
+      <Value ColumnRef="code">
+        <SimpleValue>PAR</SimpleValue>
+      </Value>
+      <Value ColumnRef="description">
+        <SimpleValue>Porto d&apos;armi</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</gc:CodeList>

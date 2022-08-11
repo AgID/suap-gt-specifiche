@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:edr="http://agid.it/suap/entities/documento_rilasciato"
-    xmlns:cl="http://agid.it/suap/commons/codelist"
-    xmlns:ct="http://agid.it/suap/commons/tipi" 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:edocril="http://agid.it/suap/entities/documento_rilasciato"
+    
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"  
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
+    
     targetNamespace="http://agid.it/suap/entities/documento_rilasciato"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
 
-    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
-    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
-
-<!--  levati i simpletype perche non aveva senso visto che non vanno riusati e non ci sono restrizioni -->
-<!--  rimappa sull'entità documentoRiconoscimento del bc 
-       per la necessità del moduilo non è stato ritenuto necessario specializzare in permesso di soggiorno (non c'erano attributi specifici)-->
-  
-    <xs:element name="documento_rilasciato" type="edr:documento_rilasciato_ctype"/>
+    <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     
-    <xs:complexType name="documento_rilasciato_ctype">
-        <xs:sequence>
-            <xs:element name="tipo" type="cl:CodeType" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="numero" type="xs:string" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="ente_rilascio" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="data_rilascio" type="xs:date" minOccurs="1" maxOccurs="1"/>            
-            <xs:element name="data_scadenza" type="xs:date" minOccurs="1" maxOccurs="1"/>
-        </xs:sequence>        
-    </xs:complexType>      
     
-</xs:schema>
+    <xsd:element name="documento_rilasciato" type="edocril:documento_rilasciato_ctype"/>
+    
+    <xsd:complexType name="documento_rilasciato_ctype">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>                        
+                        <anncl:codeListReference>
+                            <anncl:ShortName>IT:SUAP:CL:TipiDocumentoIdentita</anncl:ShortName>
+                        </anncl:codeListReference>                        
+                    </xsd:appinfo>
+                </xsd:annotation> 
+            </xsd:element>
+            <xsd:element name="numero" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="ente_rilascio" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_rilascio" type="xsd:date" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element name="data_scadenza" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>        
+    </xsd:complexType>          
+</xsd:schema>
