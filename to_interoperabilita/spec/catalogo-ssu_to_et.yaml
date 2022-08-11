@@ -1,12 +1,12 @@
 openapi: 3.0.3
 
 info:
-    title: SUAP_CatalogoSSU to BackOffice SUAP
+    title: SUAP_CatalogoSSU to EnteTerzo SUAP
 
     version: 1.0.0
 
     description: |- 
-      API rese disponibili da Catalogo SSU alle componenti BackOffice SUAP'
+      API rese disponibili da Catalogo SSU alle componenti EnteTerzo SUAP'
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
@@ -41,26 +41,7 @@ paths:
             security:
                 - bearerAuth: []
                   Agid-JWS-Signature: []                
-    
-    /update_times:
-        post:
-            requestBody:
-                content:
-                    application/json:
-                      schema:
-                         $ref: '#/components/schemas/UpdateTimesRequest'
-                required: true
-            responses:
-                "200": 
-                    description: 'Instance Descriptor'
-                    content:
-                        application/json: 
-                          schema: 
-                            $ref: '#/components/schemas/InstanceDescriptor'
-                          
-            security:
-                - bearerAuth: []
-                  Agid-JWS-Signature: []   
+  
     
     /audit:
         post:
@@ -80,19 +61,7 @@ paths:
 
 components:
   schemas:  
-      UpdateTimesRequest:
-          type: object
-          required:
-            - cui
-            - message
-             
-          properties:
-            cui:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA'   
-          
-            times:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/times-schema.yaml?token=GHSAT0AAAAAABW22K7F3CJ3IBUPNL3RLBFCYXVGFEQ'   
-            
+              
       AuditMessage:
           type: object
           
@@ -106,22 +75,15 @@ components:
           
             message:
               type: string
-              pattern: >- 
-                    ^instance_retrived|
-                    correction_request|
-                    corrected_instance_retrived|
-                    instance_refused|
-                    instance_to_[0-9]{5}_sended|
-                    request_integration_time_ended|
-                    integration_requested|
-                    integration_time_ended|
-                    instance_integrated_retrived|
-                    instance_integrated_to_[0-9]{5}_sended|
-                    proceeding_time_ended|
-                    suspend_required|
-                    conformation_required|
-                    cdss_convened|
-                    proceeding_positive_concluded$
+              enum:
+                - instance_retrived
+                - integration_requested
+                - instance_integrated_retrived
+                - suspend_required
+                - conformation_required
+                - cdss_requested
+                - positive_outcome_sended
+            
                
       InstanceDescriptor:
           $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/instance-descriptor-schema.yaml?token=GHSAT0AAAAAABW22K7EENJ3R7U43OVG7OZ4YXVF5VA'
