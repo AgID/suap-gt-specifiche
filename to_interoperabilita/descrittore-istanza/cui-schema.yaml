@@ -1,0 +1,22 @@
+definitions: {}
+"$id": "#root/cui"
+title: codice unico dell'istanza
+type: object
+required:
+- context
+- data
+- progressive
+properties:
+  context:
+    "$id": "#root/context"
+    title: contesto dell'istanza
+    type: string
+  data:
+    "$id": "#root/cui/data"
+    title: data emissione cui
+    type: string
+    format: date
+  progressive:
+    "$id": "#root/cui/progressive"
+    title: progressivo del cui
+    type: integer
