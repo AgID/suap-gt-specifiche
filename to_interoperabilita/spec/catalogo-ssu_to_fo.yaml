@@ -1,0 +1,111 @@
+openapi: 3.0.3
+
+info:
+    title: SUAP_CatalogoSSU to FrontOffice SUAP
+
+    version: 1.0.0
+
+    description: |- 
+      API rese disponibili da Catalogo SSU alle componenti FrontOffice SUAP'
+
+    contact:
+        name: AgID - Agenzia per l'Italia Digitale
+        url:  https://www.agid.gov.it/
+
+    license:
+        name: CC BY-NC-SA 4.0
+        url:  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+servers:
+    -
+        url: xxxxxxxx
+        description: Generated server url
+        
+paths:
+    /request_cui:
+        post:
+            requestBody:
+                content:
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/InstanceDescriptor'
+                required: true
+            responses:
+                "200": 
+                    description: 'Instance Descriptor'
+                    content:
+                        application/json: 
+                          schema: 
+                            $ref: '#/components/schemas/InstanceDescriptor'
+                          
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []                
+    
+    /audit:
+        post:
+          requestBody:
+                content:
+                    application/json: 
+                      schema:
+                        $ref: '#/components/schemas/AuditMessage'
+                required: true
+          responses:
+                "200": 
+                    description: 'ack'
+
+          security:
+            - bearerAuth: []
+              Agid-JWS-Signature: []                  
+
+components:
+  schemas:    
+      AuditMessage:
+          type: object
+          
+          required:
+            - cui
+            - message
+            
+          properties:
+            cui:
+              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7FI7TN25WVAFMZYHUGYXVEJMQ'   
+          
+            message:
+              type: string
+              enum:
+                - instance_to_bo_sended
+                - receipt_sended
+                - corrected_instance_to_bo_sended
+                - integrated_instance_to_bo_sended
+
+      InstanceDescriptor:
+          $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/instance-descriptor-schema.yaml?token=GHSAT0AAAAAABW22K7EMVT5ACLRR7GSEPBAYXVD4FA'
+
+  headers:
+      Agid-JWS-Signature:
+          schema:
+              format: JWS
+              maxLength: 4096
+              type: string
+              example: eyJzd.fafa.fafafa
+          description: |-
+              L'header Agid-JWS-Signature è un JWS (JSON Web Signature) che contiene una firma digitale
+              associata al messaggio scambiato.
+              Vedi il pattern di sicurezza [INTEGRITY_REST_01] del MoDI
+              
+  securitySchemes:
+      bearerAuth:
+          scheme: bearer
+          bearerFormat: JWT
+          type: http
+          description: Implementazione conforme ad RFC8725
+          
+      Agid-JWS-Signature:
+          type: apiKey
+          description: |-
+              Header della firma di JWS.
+              Il valore di questo header è una firma JWS.
+              Vedere Modi  [integrity_rest_01] Integrità del payload del messaggio REST
+          name: Agid-JWS-Signature
+          in: header
