@@ -41,24 +41,22 @@
             <xsd:element name="sesso" type="epers:sesso_stype" minOccurs="0" maxOccurs="1"/>            
             <xsd:element name="data_nascita" type="xsd:date" minOccurs="0" maxOccurs="1"/>
             <xsd:choice minOccurs="1" maxOccurs="1">
-                <xsd:element name="luogo_nascita_italiano" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1" >
+                <xsd:element name="luogo_nascita_italiano" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
                     <xsd:annotation>
                         <xsd:appinfo>                        
                             <anncl:codeListReference>
                                 <anncl:ShortName>IT:SUAP:CL:ComuniItalianiStorico</anncl:ShortName>
-                                <anncl:Version>1</anncl:Version>    
                             </anncl:codeListReference>                        
                         </xsd:appinfo>                    
                     </xsd:annotation>                    
                 </xsd:element>
                 <xsd:sequence minOccurs="1" maxOccurs="1">
                     <xsd:element name="luogo_nascita_estero" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1" />
-                    <xsd:element name="stato_estero" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1" >
+                    <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
                         <xsd:annotation>
                             <xsd:appinfo>                        
                                 <anncl:codeListReference>
                                     <anncl:ShortName>IT:SUAP:CL:Stati</anncl:ShortName>
-                                    <anncl:Version>1</anncl:Version>    
                                 </anncl:codeListReference>                        
                             </xsd:appinfo>                    
                         </xsd:annotation>
