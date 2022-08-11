@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://agid.it/suap/commons/xsdAnnotations" elementFormDefault="qualified"
-    targetNamespace="http://agid.it/suap/commons/xsdAnnotations" >
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations"
+    
+    targetNamespace="http://agid.it/suap/commons/xsdAnnotations" elementFormDefault="qualified"
+    attributeFormDefault="qualified" version="1.0.0" xml:lang="it">
 
     <xsd:annotation>
-        <xsd:documentation> 
-            Lista di annotazioni utili per decorare gli schema xsd definiti. 
-            Ad esempio indicando il vocabolario controllato (code list) da applicare 
-            su un certo campo.
+        <xsd:documentation> Lista di annotazioni utili per decorare gli schema xsd definiti. Ad
+            esempio indicando il vocabolario controllato (code list) da applicare su un certo campo.
         </xsd:documentation>
     </xsd:annotation>
-
-    <xsd:element name="codeListID_cl" type="xsd:normalizedString">
-        <xsd:annotation>
-            <xsd:documentation>
-                Identificativo di una code list associata ad un certo elemento
-            </xsd:documentation>
-        </xsd:annotation>
-        
-    </xsd:element>
     
+    
+    <xsd:element name="codeListReference">
+        <xsd:complexType>
+            <xsd:sequence>                
+                <xsd:element name="ShortName" type="xsd:normalizedString">
+                    <xsd:annotation>
+                        <xsd:documentation> 
+                            Identificativo di una code list associata ad un certo elemento 
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence> 
+        </xsd:complexType>
+    </xsd:element>
+  
 </xsd:schema>

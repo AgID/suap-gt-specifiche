@@ -4,12 +4,12 @@
     targetNamespace="http://agid.it/suap/commons/files"
     xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
     xmlns:cl="http://agid.it/suap/commons/codelist"
-    xmlns:fhg="http://vocabolari/files_hashalg"
+    xmlns:fhg="http://agid.it/suap/vocabularies/files_hashalg"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="./commons-codelist.xsd"/>
-    <xs:import namespace="http://vocabolari/files_hashalg" schemaLocation="./01_vocabolari/voc_files_hashalg_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/vocabularies/files_hashalg" schemaLocation="./01_vocabolari/voc_files_hashalg_v1.0.0.xsd"/>
     
     <xs:simpleType name="nome_file_stype">
         <xs:restriction base="xs:string">
