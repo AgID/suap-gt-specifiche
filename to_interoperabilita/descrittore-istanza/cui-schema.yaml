@@ -1,4 +1,5 @@
 definitions: {}
+"$schema": http://json-schema.org/draft-07/schema#
 "$id": "#root/cui"
 title: codice unico dell'istanza
 type: object
