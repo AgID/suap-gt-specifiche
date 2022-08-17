@@ -10,6 +10,8 @@
     xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
     xmlns:econt="http://agid.it/suap/entities/contatti"
     xmlns:eimpresa="http://agid.it/suap/entities/impresa"
+    xmlns:vruoric="http://agid.it/suap/vocabularies/ruolo_richiedente"
+    xmlns:vruopro="http://agid.it/suap/vocabularies/ruolo_procuratore"
     
     
     targetNamespace="http://agid.it/suap/sections/scheda_anagrafica"
@@ -23,7 +25,9 @@
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.0.xsd" />
-        
+    <xsd:import namespace="http://agid.it/suap/vocabularies/ruolo_richiedente" schemaLocation="../01_vocabularies/voc_ruolo_richiedente_v1.0.0.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/vocabularies/ruolo_procuratore" schemaLocation="../01_vocabularies/voc_ruolo_procuratore_v1.0.0.xsd"/>
+    
     <xsd:element name="scheda_anagrafica" type="sscheana:scheda_anagrafica_type"/>
   
     <xsd:complexType name="scheda_anagrafica_type">
@@ -46,6 +50,7 @@
                             </xsd:complexType>
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="ruolo" type="vruoric:ruolo_richiedente_voc" minOccurs="1" maxOccurs="1"/>
                     </xsd:sequence>
                 </xsd:complexType>                
             </xsd:element>
@@ -63,8 +68,7 @@
             <xsd:element name="procuratore" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>                        
                         <xsd:element name="documento_rilasciato" type="edocril:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
                         <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xsd:complexType>
@@ -77,6 +81,7 @@
                             </xsd:complexType>
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="ruolo" type="vruopro:ruolo_procuratore_voc" minOccurs="1" maxOccurs="1"/>
                     </xsd:sequence>
                 </xsd:complexType>                
             </xsd:element>            

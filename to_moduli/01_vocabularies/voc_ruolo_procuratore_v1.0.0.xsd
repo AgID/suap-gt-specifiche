@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    
-    xmlns:vruorap="http://agid.it/suap/vocabularies/ruolo_richiedente"
+    xmlns:vruopro="http://agid.it/suap/vocabularies/ruolo_procuratore"
     
-    targetNamespace="http://agid.it/suap/vocabularies/ruolo_richiedente"
+    targetNamespace="http://agid.it/suap/vocabularies/ruolo_procuratore"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xsd:simpleType name="ruolo_rappresentante_voc">
+    <xsd:simpleType name="ruolo_procuratore_voc">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Legale rappresentante di Organizzazione"/>
             <xsd:enumeration value="Procuratore/Delegato interno ad Organizzazione"/>
