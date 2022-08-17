@@ -1,46 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:er="http://agid.it/suap/entities/rappresentanza"
-    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
-    xmlns:ct="http://agid.it/suap/commons/tipi"
-    xmlns:cf="http://agid.it/suap/commons/files"   
-    xmlns:vrr="http://agid.it/suap/vocabularies/ruolo_richiedente"
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:erappre="http://agid.it/suap/entities/rappresentanza"
+        
+    xmlns:vruorap="http://agid.it/suap/vocabularies/ruolo_richiedente"
+    
     targetNamespace="http://agid.it/suap/entities/rappresentanza"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
+       
+    <xsd:import namespace="http://agid.it/suap/vocabularies/ruolo_richiedente" schemaLocation="../01_vocabularies/voc_ruolo_rappresentante_v1.0.0.xsd"/>
     
-    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
-    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>  
-    <xs:import namespace="http://agid.it/suap/commons/files" schemaLocation="../commons-files.xsd"/>   
-    <xs:import namespace="http://agid.it/suap/vocabularies/ruolo_richiedente" schemaLocation="../01_vocabularies/voc_ruolo_rappresentante_v1.0.0.xsd"/>
+    <xsd:element name="rappresentanza" type="erappre:rappresentanza_ctype"/>
     
-    <xs:element name="rappresentanza" type="er:rappresentanza_ctype"/>
-    
-    <xs:simpleType name="ruolo_rappresentanza_stype">
-        <xs:restriction base="vrr:ruolo_rappresentante_voc"/>
-    </xs:simpleType>
+    <xsd:simpleType name="ruolo_rappresentanza_stype">
+        <xsd:restriction base="vruorap:ruolo_rappresentante_voc"/>
+    </xsd:simpleType>
 
-    <xs:complexType name="rappresentanza_ctype">
-        <xs:annotation>
-            <xs:documentation>
+    <xsd:complexType name="rappresentanza_ctype">
+        <xsd:annotation>
+            <xsd:documentation>
                 Attribuzione ad una persona fisica della possibilità di rappresentare un altro Soggetto (persona fisica e non) 
                 per richiedere servizi, presentare istanze, ecc. alla PA                
 
                 Nel caso di titolare di impresa semplice il "ruolo" e' l'unico dato valorizzato. 
                 Negli altri casi (ex. legale rappresentante o altre procure interne ad organizzazione) ci saranno se di interesse
                 anche i dati dell'atto di nomina e il periodo di validità.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence>
-            <xs:element name="data_inizio" type="xs:date" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="data_fine" type="xs:date" minOccurs="0" maxOccurs="1"/>            
-            <xs:element name="estremi_atto" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <!-- FIXME decidere se inglobare riferimento all'allegato o meno
-                <xs:element name="atto_assegnazione_accettazione" type="cf:file_ctype" minOccurs="0" maxOccurs="1"/>
-            -->
-            <xs:element name="ruolo" type="er:ruolo_rappresentanza_stype" minOccurs="1" maxOccurs="1"/>
-            
-        </xs:sequence>        
-    </xs:complexType>      
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="data_inizio" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="data_fine" type="xsd:date" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="estremi_atto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ruolo" type="erappre:ruolo_rappresentanza_stype" minOccurs="1" maxOccurs="1"/>           
+        </xsd:sequence>        
+    </xsd:complexType>      
     
-</xs:schema>
+</xsd:schema>

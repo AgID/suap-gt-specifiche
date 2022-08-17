@@ -5,7 +5,7 @@
     
     xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
     xmlns:ccodelist="http://agid.it/suap/commons/codelist"      
-    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations" 
     xmlns:ctipi="http://agid.it/suap/commons/tipi"
     
     targetNamespace="http://agid.it/suap/entities/persona"
@@ -44,9 +44,10 @@
                 <xsd:element name="luogo_nascita_italiano" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
                     <xsd:annotation>
                         <xsd:appinfo>                        
-                            <anncl:codeListReference>
-                                <anncl:ShortName>IT:SUAP:CL:ComuniItalianiStorico</anncl:ShortName>
-                            </anncl:codeListReference>                        
+                            <canncl:codeListReference>
+                                <canncl:ShortName>IT:SUAP:CL:ComuniItalianiStorico</canncl:ShortName>
+                                <canncl:Version>1</canncl:Version>
+                            </canncl:codeListReference>                        
                         </xsd:appinfo>                    
                     </xsd:annotation>                    
                 </xsd:element>
@@ -55,9 +56,10 @@
                     <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
                         <xsd:annotation>
                             <xsd:appinfo>                        
-                                <anncl:codeListReference>
-                                    <anncl:ShortName>IT:SUAP:CL:Stati</anncl:ShortName>
-                                </anncl:codeListReference>                        
+                                <canncl:codeListReference>
+                                    <canncl:ShortName>IT:SUAP:CL:Stati</canncl:ShortName>
+                                    <canncl:Version>1</canncl:Version>
+                                </canncl:codeListReference>                        
                             </xsd:appinfo>                    
                         </xsd:annotation>
                     </xsd:element>                    

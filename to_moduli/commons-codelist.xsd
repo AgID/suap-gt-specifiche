@@ -8,35 +8,15 @@
     version="1.0.0" xml:lang="it">
         
     <xsd:annotation>
-        <xsd:documentation> 
-            Lista di elementi comuni a supporto della definzione di code list da
-            riutilizzare negli schema 
-        </xsd:documentation>
+        <xsd:documentation> Lista di elementi comuni a supporto della definzione di code list da
+            riutilizzare negli schema </xsd:documentation>
     </xsd:annotation>
-   
-    <xsd:attribute name="columnId_cl" type="xsd:normalizedString">
+    
+    <xsd:simpleType name="CodeType">
         <xsd:annotation>
-            <xsd:documentation>
-                Id della colonna di una code list 
-            </xsd:documentation>
+            <xsd:documentation xml:lang="en"> Tipo riusabile per utilizzare il codice di un termine
+                da una code list </xsd:documentation>
         </xsd:annotation>
-    </xsd:attribute>
-    
-    
-    <xsd:attributeGroup name="base_cl_attrsGrop">
-        <xsd:attribute ref="ccodelist:columnId_cl" use="required"/>
-    </xsd:attributeGroup>
-    
-    <xsd:complexType name="ColumnCodeList">
-        <xsd:annotation>
-            <xsd:documentation>
-                Tipo riusabile per utilizzare colonna da una code list 
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:simpleContent>
-            <xsd:extension base="xsd:normalizedString">
-                <xsd:attributeGroup ref="ccodelist:base_cl_attrsGrop"/>
-            </xsd:extension>
-        </xsd:simpleContent>
-    </xsd:complexType>
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
 </xsd:schema>

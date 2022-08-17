@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:efg="http://agid.it/suap/entities/impresa"
-    xmlns:cl="http://agid.it/suap/commons/codelist"
-    xmlns:ca="http://agid.it/suap/commons/xsdAnnotations" 
-    xmlns:ct="http://agid.it/suap/commons/tipi"
-    xmlns:indit="http://agid.it/suap/entities/indirizzo_italiano" 
-    xmlns:indest="http://agid.it/suap/entities/indirizzo_estero"
-    xmlns:irec="http://agid.it/suap/entities/iscrizione_registro"
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:eimpresa="http://agid.it/suap/entities/impresa"
+    
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+    xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"
+    xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano" 
+    xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_registro"
+    
     targetNamespace="http://agid.it/suap/entities/impresa"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
  
-    <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
-    <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
-    <xs:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
-    <xs:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/entities/iscrizione_registro" schemaLocation="../02_entities/ent_iscrizione_registro_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
+    <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/iscrizione_registro" schemaLocation="../02_entities/ent_iscrizione_registro_v1.0.0.xsd"/>
     
-    <xs:element name="impresa" type="efg:impresa_ctype"/>
+    <xsd:element name="impresa" type="eimpresa:impresa_ctype"/>
 
-    <xs:complexType name="impresa_ctype">
-        <xs:sequence>
-            <xs:element name="codice_identificativo" type="xs:string" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="forma_giuridica" type="cl:CodeType" minOccurs="1" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        <ca:codeListID_cl>IT:SUAP:CL:FormeGiuridiche</ca:codeListID_cl>
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="denominazione" type="ct:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="sede_legale" minOccurs="0" maxOccurs="1">
-                <xs:complexType>
-                    <xs:choice  minOccurs="1" maxOccurs="1">
-                        <xs:element name="indirizzo_italiano" type="indit:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-                        <xs:element name="indirizzo_estero" type="indest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1" />
-                    </xs:choice>
-                </xs:complexType>
-            </xs:element>
-            <!-- eventualmente aggiungere in futuro le sedi operative-->
-            <xs:element name="iscrizione_registro_cc">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="necessita_di_iscrizione" type="xs:boolean"/>
-                        <xs:element name="iscrizione_registro" type="irec:iscrizione_registro_ctype"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-       </xs:sequence>        
-    </xs:complexType>      
+    <xsd:complexType name="impresa_ctype">
+        <xsd:sequence>
+            <xsd:element name="codice_identificativo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="forma_giuridica" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>                        
+                        <canncl:codeListReference>
+                            <canncl:codeListID_cl>IT:SUAP:CL:FormeGiuridiche</canncl:codeListID_cl>
+                            <canncl:Version>1</canncl:Version>
+                        </canncl:codeListReference>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="denominazione" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="sede_legale" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                    <xsd:choice  minOccurs="1" maxOccurs="1">
+                        <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1" />
+                    </xsd:choice>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="iscrizione_registro_cc">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="necessita_di_iscrizione" type="xsd:boolean"/>
+                        <xsd:element name="iscrizione_registro" type="eiscrec:iscrizione_registro_ctype"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+       </xsd:sequence>        
+    </xsd:complexType>      
     
-</xs:schema>
+</xsd:schema>

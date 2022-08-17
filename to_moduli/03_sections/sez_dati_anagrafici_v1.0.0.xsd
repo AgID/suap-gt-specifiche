@@ -9,7 +9,7 @@
     xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
     xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
     xmlns:econt="http://agid.it/suap/entities/contatti"
-    xmlns:efiggiu="http://agid.it/suap/entities/figura_giuridica"
+    xmlns:eimpresa="http://agid.it/suap/entities/impresa"
     
     
     targetNamespace="http://agid.it/suap/sections/scheda_anagrafica"
@@ -22,7 +22,7 @@
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.0.xsd"/>
-    <xsd:import namespace="http://agid.it/suap/entities/figura_giuridica" schemaLocation="../02_entities/ent_figura_giuridica_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.0.xsd" />
         
     <xsd:element name="scheda_anagrafica" type="sscheana:scheda_anagrafica_type"/>
   
@@ -54,17 +54,7 @@
             <xsd:element name="impresa" minOccurs="1" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="figura_giuridica" type="efiggiu:figura_giuridica_ctype"  minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="sede_legale" minOccurs="1" maxOccurs="1">
-                            <xsd:complexType>
-                                <xsd:sequence>                             
-                                    <xsd:choice>
-                                        <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
-                                        <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
-                                    </xsd:choice>  
-                                </xsd:sequence>
-                            </xsd:complexType>
-                        </xsd:element>
+                        <xsd:element name="figura_giuridica" type="eimpresa:impresa_ctype"  minOccurs="1" maxOccurs="1"/>                        
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
                     </xsd:sequence>
                 </xsd:complexType>                

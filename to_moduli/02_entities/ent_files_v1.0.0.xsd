@@ -5,7 +5,7 @@
     
     xmlns:vhashalg="http://agid.it/suap/vocabularies/files_hashalg"
     xmlns:ccodelist="http://agid.it/suap/commons/codelist"
-    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations"
+    xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
     xmlns:ctipi="http://agid.it/suap/commons/tipi" 
 
     targetNamespace="http://agid.it/suap/entities/file"
@@ -29,13 +29,13 @@
     <xsd:complexType name="file_ctype">
         <xsd:sequence>      
             <xsd:element name="nome_file" type="efile:nome_file_stype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="content_type" type="ccodelist:ColumnCodeList" minOccurs="1" maxOccurs="1">
+            <xsd:element name="content_type" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:appinfo>                        
-                        <anncl:codeListReference>
-                            <anncl:ShortName>IT:SUAP:CL:MimeType</anncl:ShortName>
-                            <anncl:Version>1</anncl:Version>    
-                        </anncl:codeListReference>                        
+                        <canncl:codeListReference>
+                            <canncl:ShortName>IT:SUAP:CL:MimeType</canncl:ShortName>
+                            <canncl:Version>1</canncl:Version>    
+                        </canncl:codeListReference>                        
                     </xsd:appinfo>                    
                 </xsd:annotation>
             </xsd:element>
