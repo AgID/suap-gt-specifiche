@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:eisre="http://agid.it/suap/entities/iscrizione_registro"
-    xmlns:cl="http://agid.it/suap/commons/codelist"
-    xmlns:anncl="http://agid.it/suap/commons/xsdAnnotations" 
+    
+    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_registro"
+    
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+    xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations" 
     
     targetNamespace="http://agid.it/suap/entities/iscrizione_registro"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
@@ -11,22 +13,25 @@
     <xs:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xs:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     
+    <xs:element name="iscrizione_registro" type="eiscrec:iscrizione_registro_ctype"/>
+    
     <xs:simpleType name="numero_REA_stype">
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
     
     <xs:complexType name="iscrizione_registro_ctype">
         <xs:sequence>
-            <xs:element name="CCIAA" type="cl:CodeType" minOccurs="1" maxOccurs="1">
+            <xs:element name="CCIAA" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>                        
-                        <anncl:codeListReference>
-                            <anncl:ShortName>IT:SUAP:CL:CCIAA</anncl:ShortName>
-                        </anncl:codeListReference>                        
+                        <canncl:codeListReference>
+                            <canncl:ShortName>IT:SUAP:CL:CCIAA</canncl:ShortName>
+                            <canncl:Version>1</canncl:Version>
+                        </canncl:codeListReference>                        
                     </xs:appinfo>                    
                 </xs:annotation>                 
             </xs:element>
-            <xs:element name="numero_REA" type="eisre:numero_REA_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_REA" type="eiscrec:numero_REA_stype" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
     

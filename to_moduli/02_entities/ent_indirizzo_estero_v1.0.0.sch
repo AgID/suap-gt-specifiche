@@ -6,11 +6,7 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
     <sch:ns uri="http://agid.it/suap/entities/indirizzo_estero" prefix="eie"/>
-    
-    <!-- 
-        Pattern riusabile per la verifica delle caratteristiche base di qualunque indirizzo estero
-        dal contesto di utilizzo
-    -->
+   
     <sch:pattern id="indirizzo_estero_ab" abstract="true">
         
         <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/> 
