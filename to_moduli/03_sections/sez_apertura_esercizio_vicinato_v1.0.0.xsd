@@ -27,7 +27,7 @@
             <xsd:element name="modalita_vendita" type="emodven:modalita_vendita_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="carattere_esercizio" type="ecarese:carattere_esercizio_ctype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="in_centro_commerciale" type="ecencom:centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="settori_merceologici" type="esetmer:supercie_settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
         </xsd:sequence>        
     </xsd:complexType>    
 </xsd:schema>

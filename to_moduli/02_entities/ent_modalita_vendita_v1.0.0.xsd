@@ -7,10 +7,6 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xsd:simpleType name="superficie_vendita_stype">
-        <xsd:restriction base="xsd:positiveInteger"/>
-    </xsd:simpleType>
-    
     <xsd:complexType name="modalita_vendita_ctype" abstract="true">        
     </xsd:complexType>
     
@@ -19,12 +15,11 @@
         <xsd:complexContent>
             <xsd:extension base="emodven:modalita_vendita_ctype">
                 <xsd:sequence>
-                    <xsd:element name="vendita_dettaglio" type="emodven:superficie_vendita_stype" minOccurs="0" maxOccurs="1"/>
-                    <xsd:element name="vendita_dettaglio_ingrosso" type="emodven:superficie_vendita_stype" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="vendita_dettaglio" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="vendita_dettaglio_ingrosso" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>        
             </xsd:extension>
-        </xsd:complexContent>
-        
+        </xsd:complexContent>        
     </xsd:complexType>
     
 </xsd:schema>
