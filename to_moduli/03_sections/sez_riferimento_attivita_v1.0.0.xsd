@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
+    
+    xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+    xmlns:edaca="http://agid.it/suap/entities/dati_catastali"
+       
+       targetNamespace="http://agid.it/suap/sections/riferimento_attivita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/dati_catastali" schemaLocation="../02_entities/ent_dati_catastali_v1.0.0.xsd"/>
+    
+    <xsd:element name="riferimento_attivita" type="srifatt:riferimento_attivita_type"/>
+    
+    <xsd:complexType name="riferimento_attivita_type">
+        <xsd:sequence>
+            <xsd:element name="indirizzo" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="data_castalli" type="edaca:dati_catastali_ctype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>        
+    </xsd:complexType>
+    
+</xsd:schema>

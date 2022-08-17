@@ -28,18 +28,20 @@
     </xsd:simpleType>
     
     <xsd:complexType name="dati_catastali_ctype" abstract="true">
-        <xsd:sequence>
-            <xsd:element name="sezione" type="edaca:sezione_stype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="foglio" type="edaca:foglio_stype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="mappa" type="edaca:mappa_stype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="subalterno" type="edaca:subalterno_stype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="fabbricati" type="edaca:fabbricati_stype" default="false" minOccurs="1" maxOccurs="1"/>
-        </xsd:sequence>
+        
     </xsd:complexType>
     
     <xsd:complexType name="dati_catastali_ctype_italia">
         <xsd:complexContent>
-            <xsd:extension base="edaca:dati_catastali_ctype"/>
+            <xsd:extension base="edaca:dati_catastali_ctype">
+                <xsd:sequence>
+                    <xsd:element name="sezione" type="edaca:sezione_stype" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="foglio" type="edaca:foglio_stype" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="mappa" type="edaca:mappa_stype" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="subalterno" type="edaca:subalterno_stype" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="fabbricati" type="edaca:fabbricati_stype" default="false" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
         </xsd:complexContent>        
     </xsd:complexType>
     

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:esegavv="http://agid.it/suap/entities/segnalazione_avvio"
+    
+    targetNamespace="http://agid.it/suap/entities/segnalazione_avvio"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:simpleType name="esercizio_vicinato_stype">
+        <xsd:restriction base="xsd:boolean"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="esclusiva_apparecchi_automatici_stype">
+        <xsd:restriction base="xsd:boolean"/>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="segnalazione_avvio_ctype">
+        <xsd:sequence>
+            <xsd:element name="esercizio_vicinato" type="esegavv:esercizio_vicinato_stype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="esclusiva_apparecchi_automatici" type="esegavv:esclusiva_apparecchi_automatici_stype" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

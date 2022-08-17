@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+        
+    xmlns:eareven="http://agid.it/suap/entities/area_vendita"
+    
+    xmlns:vmering="http://agid.it/suap/vocabularies/merci_ingombranti"
+    xmlns:vprotabspe="http://agid.it/suap/vocabularies/prodotti_tabelle_speciali"
+    xmlns:vsetmer="http://agid.it/suap/vocabularies/settori_merceologici"
+    
+    targetNamespace="http://agid.it/suap/entities/area_vendita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/vocabularies/merci_ingombranti" schemaLocation="../01_vocabularies/voc_merci_ingombranti_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/vocabularies/prodotti_tabelle_speciali" schemaLocation="../01_vocabularies/voc_prodotti_tabelle_speciali_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/vocabularies/settori_merceologici" schemaLocation="../01_vocabularies/voc_settori_merceologici_v1.0.0.xsd"/>
+    
+    <xsd:simpleType name="superficie_vendita_stype">
+        <xsd:restriction base="xsd:positiveInteger"/>            
+    </xsd:simpleType>
+    
+    <xsd:complexType name="settore_merceologico_ctype">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="vsetmer:settori_merceologici_voc" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="superficie_vendita" type="eareven:superficie_vendita_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="prodotti_tabelle_speciali_ctype">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="vprotabspe:prodotti_tabelle_speciali_voc" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="superficie_vendita" type="eareven:superficie_vendita_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="merci_ingombranti_ctype">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="vmering:merci_ingombranti_voc" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="superficie_vendita" type="eareven:superficie_vendita_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

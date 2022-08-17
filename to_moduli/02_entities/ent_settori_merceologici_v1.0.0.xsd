@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+    
+    xmlns:eareven="http://agid.it/suap/entities/area_vendita"
+    xmlns:edcsetmer="http://agid.it/suap/entities/di_cui_settori_merceologici"
+    
+    targetNamespace="http://agid.it/suap/entities/settori_merceologici"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/area_vendita" schemaLocation="ent_area_vendita_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/di_cui_settori_merceologici" schemaLocation="ent_di_cui_settori_merceologici_v1.0.0.xsd"/>
+   
+    
+    <xsd:complexType name="supercie_settori_merceologici_ctype" abstract="true">
+        <xsd:sequence>
+            <xsd:element name="di_cui" type="edcsetmer:di_cui_settori_merceologici_ctype" minOccurs="0" maxOccurs="1"/>    
+        </xsd:sequence>        
+    </xsd:complexType>        
+    
+    <xsd:complexType name="supercie_settori_merceologici_ctype_nazionale">
+        <xsd:complexContent>
+            <xsd:extension base="esetmer:supercie_settori_merceologici_ctype">
+                <xsd:sequence>
+                    <xsd:element name="settore_merceologico" type="eareven:settore_merceologico_ctype" minOccurs="0" maxOccurs="unbounded"/>                                        
+                </xsd:sequence>                
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+       
+</xsd:schema>

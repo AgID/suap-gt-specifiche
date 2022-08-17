@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:ereqono="http://agid.it/suap/entities/requisiti_onorabilita"
+        
+    targetNamespace="http://agid.it/suap/entities/requisiti_onorabilita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:simpleType name="possesso_requisiti_onorabilita_stype">
+        <xsd:restriction base="xsd:boolean">
+            <xsd:pattern value="true"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="no_cause_divieto_stype">
+        <xsd:restriction base="xsd:boolean">
+            <xsd:pattern value="true"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="requisiti_onorabilita_ctype">
+        <xsd:sequence>
+            <xsd:element name="possesso_requisiti_onorabilita" type="ereqono:possesso_requisiti_onorabilita_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="no_cause_divieto" type="ereqono:no_cause_divieto_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

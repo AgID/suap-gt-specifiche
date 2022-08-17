@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+    
+    xmlns:ereqono="http://agid.it/suap/entities/requisiti_onorabilita"    
+    xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
+    
+    targetNamespace="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/requisiti_onorabilita" schemaLocation="../02_entities/ent_requisiti_onorabilita_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/requisiti_professionali" schemaLocation="../02_entities/ent_requisiti_professionali_v1.0.0.xsd"/>
+    
+    <xsd:element name="requisiti_onorabilita_professionali" type="sreonpr:requisiti_onorabilita_professionali_type"/>
+    
+    <xsd:complexType name="requisiti_onorabilita_professionali_type">
+        <xsd:sequence>
+            <xsd:element name="requisiti_onorabilita" type="ereqono:requisiti_onorabilita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="requisiti_professionali" type="ereqpro:requisiti_professionali_ctype" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>        
+    </xsd:complexType>    
+</xsd:schema>

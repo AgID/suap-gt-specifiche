@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:mesviap="http://agid.it/suap/forms/esercizio_vicinato_apertura"
+    
+    xmlns:sscheana="http://agid.it/suap/sections/scheda_anagrafica"
+    xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
+    xmlns:sapesvi="http://http://agid.it/suap/sections/apertura_esercizio_vicinato"
+    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+    
+    targetNamespace="http://agid.it/suap/forms/esercizio_vicinato_apertura"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/sections/scheda_anagrafica" schemaLocation="../03_sections/sez_dati_anagrafici_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/sections/riferimento_attivita" schemaLocation="../03_sections/sez_riferimento_attivita_v1.0.0.xsd"/>
+    <xsd:import namespace="http://http://agid.it/suap/sections/apertura_esercizio_vicinato" schemaLocation="../03_sections/sez_apertura_esercizio_vicinato_v1.0.0.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/sections/requisiti_onorabilita_professionali" schemaLocation="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.xsd"/>
+    
+    <xsd:element name="esercizio_vicinato_apertura" type="mesviap:esercizio_vicinato_apertura_type"/>
+    
+    <xsd:complexType name="esercizio_vicinato_apertura_type">
+        <xsd:sequence>
+            <xsd:element ref="sscheana:scheda_anagrafica"/>
+            <xsd:element ref="srifatt:riferimento_attivita"/>
+            <xsd:element ref="sapesvi:apertura_esercizio_vicinato"/>
+            <xsd:element ref="sreonpr:requisiti_onorabilita_professionali"/>            
+            <!-- TODO: altre dichiarazioni -->
+        </xsd:sequence>        
+    </xsd:complexType>  
+    
+</xsd:schema>
