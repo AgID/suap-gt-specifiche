@@ -15,14 +15,6 @@
     <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
 
-    <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype"/>
-
-    <xsd:simpleType name="cap_stype">
-        <xsd:restriction base="xsd:string">
-            <xsd:pattern value="([0-9]{5})?"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    
     <xsd:complexType name="indirizzo_italiano_ctype">
         <xsd:sequence>
             <xsd:element name="dug" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
@@ -38,7 +30,7 @@
             <xsd:element name="toponimo" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="numero_civico" type="xsd:string" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="barrato" type="xsd:string" minOccurs="0" maxOccurs="1"/> 
-            <xsd:element name="cap" type="eindita:cap_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="cap" type="ctipi:cap_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="localita" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="comune" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >                
                 <xsd:annotation>
@@ -52,5 +44,6 @@
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>      
-    
+
+    <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype"/>
 </xsd:schema>

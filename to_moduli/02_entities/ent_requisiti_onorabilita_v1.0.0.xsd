@@ -14,4 +14,5 @@
         </xsd:sequence>
     </xsd:complexType>
     
+    <xsd:element name="requisiti_onorabilita" type="ereqono:requisiti_onorabilita_ctype"/>
 </xsd:schema>

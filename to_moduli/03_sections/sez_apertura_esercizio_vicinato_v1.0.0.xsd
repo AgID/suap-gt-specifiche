@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
        
-    xmlns:sapesvi="http://http://agid.it/suap/sections/apertura_esercizio_vicinato"
+    xmlns:sapesvi="http://agid.it/suap/sections/apertura_esercizio_vicinato"
     
     xmlns:ecarese="http://agid.it/suap/entities/carattere_esercizio"
     xmlns:ecencom="http://agid.it/suap/entities/centro_commerciale"
@@ -9,7 +9,7 @@
     xmlns:esegavv="http://agid.it/suap/entities/segnalazione_avvio"    
     xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
         
-    targetNamespace="http://http://agid.it/suap/sections/apertura_esercizio_vicinato"
+    targetNamespace="http://agid.it/suap/sections/apertura_esercizio_vicinato"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
 

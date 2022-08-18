@@ -12,8 +12,6 @@
     
     <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
-     
-    <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype"/>
     
     <xsd:complexType name="cittadinanza_ctype">
         <xsd:sequence>
@@ -30,4 +28,5 @@
         </xsd:sequence>        
     </xsd:complexType>      
     
+    <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype"/>
 </xsd:schema>

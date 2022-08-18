@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     
-    xmlns:eisrec="http://agid.it/suap/entities/iscrizione_REC"
+    xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
     
     xmlns:ccodelist="http://agid.it/suap/commons/codelist" 
     xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi" 
     
-    targetNamespace="http://agid.it/suap/entities/iscrizione_REC"
+    targetNamespace="http://agid.it/suap/entities/iscrizione_rec"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     
-        
-    <xsd:simpleType name="anno_stype">
-        <xsd:restriction base="xsd:integer">
-            <xsd:maxExclusive value="1900"/>
-        </xsd:restriction>
-    </xsd:simpleType>
-    
-    <xsd:complexType name="iscrizione_REC_ctype">
+    <xsd:complexType name="iscrizione_rec_ctype">
         <xsd:sequence>
             <xsd:element name="CCIAA" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
@@ -32,8 +27,9 @@
                     </xsd:appinfo>
                 </xsd:annotation>                  
             </xsd:element>
-            <xsd:element name="anno" type="eisrec:anno_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="anno" type="ctipi:anno_stype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
     
+    <xsd:element name="iscrizione_rec" type="eisrec:iscrizione_rec_ctype"/>
 </xsd:schema>

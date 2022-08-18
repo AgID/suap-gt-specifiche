@@ -8,10 +8,9 @@
     version="1.0.0" xml:lang="it">
     
     <xsd:simpleType name="ruolo_procuratore_voc">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Legale rappresentante di Organizzazione"/>
-            <xsd:enumeration value="Procuratore/Delegato interno ad Organizzazione"/>
-            <xsd:enumeration value="Titolare di impresa individuale"/>
+        <xsd:restriction base="xsd:string">            
+            <xsd:enumeration value="Procuratore/Delegato"/>
+            <xsd:enumeration value="Agenzia per le imprese"/>
         </xsd:restriction>
     </xsd:simpleType>
 </xsd:schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
+    
+    xmlns:ealtdic="http://agid.it/suap/entities/altre_dichiarazioni"
+    
+    targetNamespace="http://agid.it/suap/sections/altre_dichiarazioni"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/altre_dichiarazioni" schemaLocation="../02_entities/ent_altre_dichiarazioni_v1.0.0.xsd"/>
+   
+    <xsd:element name="altre_dichiazioni" type="ealtdic:altre_dichiarazioni_ctype"/>
+    
+</xsd:schema>

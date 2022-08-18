@@ -8,8 +8,7 @@
     version="1.0.0" xml:lang="it">
     
     <xsd:complexType name="modalita_vendita_ctype" abstract="true">        
-    </xsd:complexType>
-    
+    </xsd:complexType>    
 
     <xsd:complexType name="modalita_vendita_ctype_italia">
         <xsd:complexContent>
@@ -22,4 +21,5 @@
         </xsd:complexContent>        
     </xsd:complexType>
     
+    <xsd:element name="modalita_vendita" type="emodven:modalita_vendita_ctype"/>
 </xsd:schema>

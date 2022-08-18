@@ -11,34 +11,18 @@
     targetNamespace="http://agid.it/suap/entities/persona"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
-    
-     
       
     <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
     <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
     <xsd:import namespace="http://agid.it/suap/vocabularies/persona_genere" schemaLocation="../01_vocabularies/voc_persona_genere_v1.0.0.xsd"/>
-
-
-    <xsd:element name="persona" type="epers:persona_ctype"/>
-
-   
-    <xsd:simpleType name="codice_fiscale_stype">
-        <xsd:restriction base="xsd:string">
-            <xsd:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
-        </xsd:restriction>
-    </xsd:simpleType> 
-  
-    <xsd:simpleType name="sesso_stype">
-        <xsd:restriction base="vpergen:sesso_voc"/>
-    </xsd:simpleType>
     
     <xsd:complexType name="persona_ctype">
         <xsd:sequence>
-            <xsd:element name="codice_fiscale" type="epers:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="nome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="cognome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="sesso" type="epers:sesso_stype" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="sesso" type="vpergen:sesso_voc" minOccurs="0" maxOccurs="1"/>            
             <xsd:element name="data_nascita" type="xsd:date" minOccurs="0" maxOccurs="1"/>
             <xsd:choice minOccurs="1" maxOccurs="1">
                 <xsd:element name="luogo_nascita_italiano" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
@@ -66,6 +50,7 @@
                 </xsd:sequence>
             </xsd:choice>
        </xsd:sequence>        
-    </xsd:complexType>      
+    </xsd:complexType>          
     
+    <xsd:element name="persona" type="epers:persona_ctype"/>    
 </xsd:schema>

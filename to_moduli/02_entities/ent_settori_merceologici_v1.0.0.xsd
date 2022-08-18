@@ -19,7 +19,7 @@
         <xsd:complexContent>
             <xsd:extension base="esetmer:di_cui_settori_merceologici_ctype">
                 <xsd:sequence>
-                    <xsd:element name="merci_ingombranti" type="xsd:positiveInteger" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="merci_ingombranti" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -41,5 +41,6 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-       
+    
+    <xsd:element name="settori_merceologici" type="esetmer:di_cui_settori_merceologici_ctype"/>       
 </xsd:schema>
