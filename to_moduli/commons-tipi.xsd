@@ -29,7 +29,13 @@
     
     <xsd:simpleType name="codice_fiscale_stype">
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="([0-9]{11})|([A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])"/>
+            <xsd:pattern value="([A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="codice_fiscale_persona_giuridica_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="([0-9]{11})"/>
         </xsd:restriction>
     </xsd:simpleType>
     

@@ -10,7 +10,7 @@
         
         <sch:rule context="$carattere_esercizio">
             <sch:assert test="count(child::*) &gt; 0"> 
-                Almeno uno tra "Vicinato" o "Vendita esclusivamente mediante apparecchi automatici" deve essere selezionato
+                Almeno uno tra "Permanente", "Stagionale" o "Temporaneo" deve essere selezionato
             </sch:assert>
         </sch:rule>
         

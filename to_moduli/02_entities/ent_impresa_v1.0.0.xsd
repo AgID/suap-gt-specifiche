@@ -35,7 +35,7 @@
                 </xsd:annotation>
             </xsd:element>
             <xsd:choice>
-                <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_stype"/>
+                <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_persona_giuridica_stype"/>
                 <xsd:element name="partita_iva" type="ctipi:partita_iva_stype"/>
             </xsd:choice>            
             <xsd:element name="iscrizione_registro_cc">

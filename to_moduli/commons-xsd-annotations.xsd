@@ -6,13 +6,6 @@
     targetNamespace="http://agid.it/suap/commons/xsdAnnotations" elementFormDefault="qualified"
     attributeFormDefault="qualified" version="1.0.0" xml:lang="it">
 
-    <xsd:annotation>
-        <xsd:documentation> Lista di annotazioni utili per decorare gli schema xsd definiti. Ad
-            esempio indicando il vocabolario controllato (code list) da applicare su un certo campo.
-        </xsd:documentation>
-    </xsd:annotation>
-    
-    
     <xsd:element name="codeListReference">
         <xsd:complexType>
             <xsd:sequence>                

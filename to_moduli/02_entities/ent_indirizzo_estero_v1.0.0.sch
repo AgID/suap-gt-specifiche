@@ -9,13 +9,13 @@
    
     <sch:pattern id="indirizzo_estero_ab" abstract="true">
         
-        <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/> 
-        
         <sch:rule context="$indirizzo_estero">
+            
+            <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
             
             <sch:let name="stato" value="normalize-space(eie:stato_estero)"/>
             
-            <sch:assert id="ass_stato_cl_check" test="count($keysStati[
+            <sch:assert test="count($keysStati[
                 normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato
                 ]) = 1">
                 Stato estero non esiste (<sch:value-of select="$stato"/>) 

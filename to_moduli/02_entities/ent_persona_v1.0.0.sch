@@ -18,7 +18,7 @@
             <sch:let name="stato_estero" value="normalize-space(epers:stato_estero)"/>
             
             
-            <sch:assert id="ass_comune_nascita_cl_check" test="
+            <sch:assert test="
                 $luogo_nascita_italiano='' or count(
                                                         $keysStoricoComuni[
                                                             normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $luogo_nascita_italiano
@@ -30,7 +30,7 @@
                 Comune non esiste (<sch:value-of select="$luogo_nascita_italiano"/>) alla data (<sch:value-of select="$data_nascita"/>)                 
             </sch:assert>
             
-            <sch:assert id="ass_stato_nasciata_cl_check" test="
+            <sch:assert test="
                 $stato_estero='' or count(
                                             $keysStatiEsteri[
                                                                 normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato_estero

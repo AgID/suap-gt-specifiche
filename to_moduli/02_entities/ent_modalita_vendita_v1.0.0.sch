@@ -10,7 +10,7 @@
         
         <sch:rule context="$modalita_vendita">
             <sch:assert test="count(child::*) &gt; 0"> 
-                Almeno uno tra "Vicinato" o "Vendita esclusivamente mediante apparecchi automatici" deve essere selezionato
+                Almeno uno tra "Vendita al dettaglio" o "Vendita congiunta al dettaglio e all’ingrosso" deve essere selezionato
             </sch:assert>
         </sch:rule>
         
