@@ -30,8 +30,6 @@
     <xsd:import namespace="http://agid.it/suap/vocabularies/ruolo_procuratore" schemaLocation="../01_vocabularies/voc_ruolo_procuratore_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
 
-    <xsd:element name="scheda_anagrafica" type="sscheana:scheda_anagrafica_type"/>
-  
     <xsd:complexType name="scheda_anagrafica_type">
         <xsd:sequence>
 
@@ -93,4 +91,6 @@
         </xsd:sequence>   
     </xsd:complexType> 
     
+    
+    <xsd:element name="scheda_anagrafica" type="sscheana:scheda_anagrafica_type"/>        
 </xsd:schema>

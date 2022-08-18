@@ -88,7 +88,7 @@
     
     <xsd:simpleType name="anno_stype">
         <xsd:restriction base="xsd:integer">
-            <xsd:maxExclusive value="1900"/>
+            <xsd:minInclusive value="1900"/>
         </xsd:restriction>
     </xsd:simpleType> 
 </xsd:schema>

@@ -4,7 +4,7 @@
     xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
     
     xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
-    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_rea"
+    xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
     xmlns:epers="http://agid.it/suap/entities/persona"
     xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
     xmlns:ctipi="http://agid.it/suap/commons/tipi" 
@@ -39,7 +39,7 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="iscrizione_registro" type="eiscrec:iscrizione_rea_ctype"/>
+            <xsd:element name="iscrizione_registro" type="eiscrea:iscrizione_rea_ctype"/>
         </xsd:sequence>             
     </xsd:complexType>
     

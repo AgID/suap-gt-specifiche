@@ -7,6 +7,10 @@
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
     
     <sch:ns uri="http://agid.it/suap/sections/apertura_esercizio_vicinato" prefix="sapesvi"/>
+    <sch:ns uri="http://agid.it/suap/entities/segnalazione_avvio" prefix="esegavv"/>
+    <sch:ns uri="http://agid.it/suap/entities/modalita_vendita" prefix="emodven"/>
+    <sch:ns uri="http://agid.it/suap/entities/carattere_esercizio" prefix="ecarese"/>
+    <sch:ns uri="http://agid.it/suap/entities/settori_merceologici" prefix="esetmer"/>
    
     <sch:include href="../02_entities/ent_segnalazione_avvio_v1.0.0.sch#segnalazione_avvio_ab"/>
     <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#modalita_vendita_ab"/>

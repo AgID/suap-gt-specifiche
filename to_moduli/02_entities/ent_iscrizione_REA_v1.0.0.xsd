@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     
-    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_rea"
+    xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
     
     xmlns:ccodelist="http://agid.it/suap/commons/codelist"
     xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations" 
@@ -29,9 +29,9 @@
                     </xs:appinfo>                    
                 </xs:annotation>                 
             </xs:element>
-            <xs:element name="numero_REA" type="eiscrec:numero_rea_stype" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="numero_REA" type="eiscrea:numero_rea_stype" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
     
-    <xs:element name="iscrizione_rea" type="eiscrec:iscrizione_rea_ctype"/>    
+    <xs:element name="iscrizione_rea" type="eiscrea:iscrizione_rea_ctype"/>    
 </xs:schema>
