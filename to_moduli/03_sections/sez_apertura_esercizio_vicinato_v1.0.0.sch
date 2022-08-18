@@ -6,7 +6,7 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
     
-    <sch:ns uri="http://http://agid.it/suap/sections/apertura_esercizio_vicinato" prefix="sapesvi"/>
+    <sch:ns uri="http://agid.it/suap/sections/apertura_esercizio_vicinato" prefix="sapesvi"/>
    
     <sch:include href="../02_entities/ent_segnalazione_avvio_v1.0.0.sch#segnalazione_avvio_ab"/>
     <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#modalita_vendita_ab"/>
