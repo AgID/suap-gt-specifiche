@@ -8,16 +8,15 @@
     
     <sch:pattern id="indirizzo_italiano_ab" abstract="true">
         
-        <sch:let name="keysComuni" value="document('../01_vocabularies/voc_comuni_italiani.xml')//Row"/> 
-        <sch:let name="keysDUG" value="document('../01_vocabularies/voc_dug.xml')//Row"/>
-        
         <sch:rule context="$indirizzo_italiano">
             
+            <sch:let name="keysComuni" value="document('../01_vocabularies/voc_comuni_italiani.xml')//Row"/> 
+            <sch:let name="keysDUG" value="document('../01_vocabularies/voc_dug.xml')//Row"/>
            
             <sch:let name="comune" value="normalize-space(eindita:comune)"/>
             <sch:let name="dug" value="normalize-space(eindita:dug)"/>
             
-            <sch:assert id="ass_comune_cl_check" test="
+            <sch:assert test="
                 count($keysComuni[
                                     normalize-space(Value[@ColumnRef='codice_istat' ]/SimpleValue) = $comune
                                   ]) = 1">
@@ -25,7 +24,7 @@
                 Comune non esiste (<sch:value-of select="$comune"/>) 
             </sch:assert>
             
-            <sch:assert id="ass_dug_cl_check" test="
+            <sch:assert test="
                 count($keysDUG[
                                 normalize-space(Value[@ColumnRef='denominazione' ]/SimpleValue) = $dug
                                ]) = 1">

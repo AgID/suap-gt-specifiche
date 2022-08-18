@@ -61,8 +61,7 @@
         <SimpleValue>1.1</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>IMPRENDITORE INDIVIDUALE, LIBERO PROFESSIONISTA E LAVORATORE
-          AUTONOMO</SimpleValue>
+        <SimpleValue>IMPRENDITORE INDIVIDUALE, LIBERO PROFESSIONISTA E LAVORATORE AUTONOMO</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -427,8 +426,7 @@
         <SimpleValue>1.6</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>ENTE PUBBLICO ECONOMICO, AZIENDA SPECIALE E AZIENDA PUBBLICA DI
-          SERVIZI</SimpleValue>
+        <SimpleValue>ENTE PUBBLICO ECONOMICO, AZIENDA SPECIALE E AZIENDA PUBBLICA DI SERVIZI</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -470,8 +468,7 @@
         <SimpleValue>1.6.30</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>AZIENDA PUBBLICA DI SERVIZI ALLE PERSONE AI SENSI DEL D.LGS. N.
-          207/2001</SimpleValue>
+        <SimpleValue>AZIENDA PUBBLICA DI SERVIZI ALLE PERSONE AI SENSI DEL D.LGS. N.207/2001</SimpleValue>
       </Value>
     </Row>
     <Row>
@@ -625,8 +622,7 @@
         <SimpleValue>1.9</SimpleValue>
       </Value>
       <Value ColumnRef="description">
-        <SimpleValue>IMPRESA O ENTE PRIVATO COSTITUITA ALL&apos;ESTERO NON ALTRIMENTI CLASSIFICABILE
-          CHE SVOLGE ATTIVITA&apos; ECONOMICA IN ITALIA</SimpleValue>
+        <SimpleValue>IMPRESA O ENTE PRIVATO COSTITUITA ALL&apos;ESTERO NON ALTRIMENTI CLASSIFICABILE CHE SVOLGE ATTIVITA&apos; ECONOMICA IN ITALIA</SimpleValue>
       </Value>
     </Row>
     <Row>

@@ -8,7 +8,7 @@
     xmlns:ctipi="http://agid.it/suap/commons/tipi"
     xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano" 
     xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
-    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_rea"
+    xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
     
     targetNamespace="http://agid.it/suap/entities/impresa"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
@@ -35,20 +35,20 @@
                 </xsd:annotation>
             </xsd:element>
             <xsd:choice>
-                <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_stype"/>
-                <xsd:element name="partita_iva" type="ctipi:partita_iva_stype"/>
+                <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_persona_giuridica_stype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="1" maxOccurs="1"/>
             </xsd:choice>            
-            <xsd:element name="iscrizione_registro_cc">
+            <xsd:element name="iscrizione_registro_cc" minOccurs="1" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="necessita_di_iscrizione" type="xsd:boolean"/>
-                        <xsd:element name="iscrizione_registro" type="eiscrec:iscrizione_rea_ctype"/>
+                        <xsd:element name="necessita_di_iscrizione" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="iscrizione_registro" type="eiscrea:iscrizione_rea_ctype" minOccurs="0" maxOccurs="1"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>            
             <xsd:element name="sede_legale" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
-                    <xsd:choice  minOccurs="1" maxOccurs="1">
+                    <xsd:choice>
                         <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
                         <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1" />
                     </xsd:choice>

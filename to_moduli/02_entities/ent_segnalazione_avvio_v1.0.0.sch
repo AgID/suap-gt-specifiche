@@ -17,6 +17,6 @@
     </sch:pattern>       
 
     <sch:pattern id="segnalazione_avvio" abstract="false" is-a="segnalazione_avvio_ab">
-        <sch:param name="segnalazione_avvio" value="esegavv:requisiti_professionali"/>        
+        <sch:param name="segnalazione_avvio" value="esegavv:segnalazione_avvio"/>        
     </sch:pattern>
 </sch:schema>

@@ -6,17 +6,14 @@
     targetNamespace="http://agid.it/suap/commons/codelist"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
-        
-    <xsd:annotation>
-        <xsd:documentation> Lista di elementi comuni a supporto della definzione di code list da
-            riutilizzare negli schema </xsd:documentation>
-    </xsd:annotation>
-    
+           
     <xsd:simpleType name="CodeType">
         <xsd:annotation>
             <xsd:documentation xml:lang="en"> Tipo riusabile per utilizzare il codice di un termine
                 da una code list </xsd:documentation>
         </xsd:annotation>
-        <xsd:restriction base="xsd:string"/>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
     </xsd:simpleType>
 </xsd:schema>

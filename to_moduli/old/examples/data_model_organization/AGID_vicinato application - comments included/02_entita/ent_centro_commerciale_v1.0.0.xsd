@@ -12,12 +12,7 @@
             <xs:minLength value="1"/>            
         </xs:restriction>
     </xs:simpleType>
-    
-    <xs:simpleType name="codice_fiscale_stype">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="([0-9]{11})|([A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])"/>
-        </xs:restriction>
-    </xs:simpleType>
+
     
     <xs:simpleType name="partita_iva_stype">
         <xs:restriction base="xs:string">
