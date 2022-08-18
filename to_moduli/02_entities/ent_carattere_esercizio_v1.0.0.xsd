@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"     
+    
+    xmlns:ecarese="http://agid.it/suap/entities/carattere_esercizio"
+    
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"
+    
+    targetNamespace="http://agid.it/suap/entities/carattere_esercizio"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+     
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+    
+    <xsd:complexType name="periodo_anno_ctype">
+        <xsd:sequence>
+            <xsd:element name="da" type="ctipi:ggmm_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="a" type="ctipi:ggmm_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="periodo_ctype">
+        <xsd:sequence>
+            <xsd:element name="da" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="a" type="ctipi:ggmmaaaa_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="carattere_esercizio_ctype">
+        <xsd:sequence>
+            <xsd:element name="permanente" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="stagionale" type="ecarese:periodo_anno_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="temporaneo" type="ecarese:periodo_ctype" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="carattere_esercizio" type="ecarese:carattere_esercizio_ctype"/>
+</xsd:schema>

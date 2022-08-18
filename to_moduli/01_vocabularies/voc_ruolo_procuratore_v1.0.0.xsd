@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   
+    xmlns:vruopro="http://agid.it/suap/vocabularies/ruolo_procuratore"
+    
+    targetNamespace="http://agid.it/suap/vocabularies/ruolo_procuratore"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:simpleType name="ruolo_procuratore_voc">
+        <xsd:restriction base="xsd:string">            
+            <xsd:enumeration value="Procuratore/Delegato"/>
+            <xsd:enumeration value="Agenzia per le imprese"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

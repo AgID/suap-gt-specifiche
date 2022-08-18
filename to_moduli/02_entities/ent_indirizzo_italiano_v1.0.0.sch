@@ -13,10 +13,7 @@
         
         <sch:rule context="$indirizzo_italiano">
             
-            <sch:p>
-                Verifico nel comune il fatto che il codice del comune derivi dalla code list di riferimento                
-            </sch:p>
-            
+           
             <sch:let name="comune" value="normalize-space(eindita:comune)"/>
             <sch:let name="dug" value="normalize-space(eindita:dug)"/>
             

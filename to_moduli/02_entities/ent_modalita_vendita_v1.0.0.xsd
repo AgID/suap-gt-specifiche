@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:emodven="http://agid.it/suap/entities/modalita_vendita"
+    
+    targetNamespace="http://agid.it/suap/entities/modalita_vendita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:complexType name="modalita_vendita_ctype" abstract="true">        
+    </xsd:complexType>    
+
+    <xsd:complexType name="modalita_vendita_ctype_italia">
+        <xsd:complexContent>
+            <xsd:extension base="emodven:modalita_vendita_ctype">
+                <xsd:sequence>
+                    <xsd:element name="vendita_dettaglio" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="vendita_dettaglio_ingrosso" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>        
+            </xsd:extension>
+        </xsd:complexContent>        
+    </xsd:complexType>
+    
+    <xsd:element name="modalita_vendita" type="emodven:modalita_vendita_ctype"/>
+</xsd:schema>

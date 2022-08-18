@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     
-    xmlns:ecitt="http://agid.it/suap/entities/cittadinanza"
+    xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
     
     xmlns:ccodelist="http://agid.it/suap/commons/codelist" 
     xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations" 
+    xmlns:ctipi="http://agid.it/suap/commons/tipi" 
     
-    targetNamespace="http://agid.it/suap/entities/cittadinanza"
+    targetNamespace="http://agid.it/suap/entities/iscrizione_rec"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     <xsd:import namespace="http://agid.it/suap/commons/codelist" schemaLocation="../commons-codelist.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
     
-    <xsd:complexType name="cittadinanza_ctype">
+    <xsd:complexType name="iscrizione_rec_ctype">
         <xsd:sequence>
-            <xsd:element name="stato_cittadinanza" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
+            <xsd:element name="CCIAA" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:appinfo>                        
                         <canncl:codeListReference>
-                            <canncl:ShortName>IT:SUAP:CL:Stati</canncl:ShortName>
+                            <canncl:ShortName>IT:SUAP:CL:CCIAA</canncl:ShortName>
                             <canncl:Version>1</canncl:Version>
                         </canncl:codeListReference>                        
                     </xsd:appinfo>
                 </xsd:annotation>                  
             </xsd:element>
-        </xsd:sequence>        
-    </xsd:complexType>      
+            <xsd:element name="anno" type="ctipi:anno_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
     
-    <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype"/>
+    <xsd:element name="iscrizione_rec" type="eisrec:iscrizione_rec_ctype"/>
 </xsd:schema>

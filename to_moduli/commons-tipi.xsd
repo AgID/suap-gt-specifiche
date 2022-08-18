@@ -6,14 +6,83 @@
     targetNamespace="http://agid.it/suap/commons/tipi"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
-    
-    
+        
     <xsd:simpleType name="stringa_standard_stype">
         <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
             <xsd:maxLength value="255"/>
             <xsd:whiteSpace value="collapse"/>
         </xsd:restriction>
     </xsd:simpleType>
  
+    <xsd:simpleType name="ggmm_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-3][0-9][0-1][0-9]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     
+    <xsd:simpleType name="ggmmaaaa_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-3][0-9][0-1][0-9][0-9][0-9][0-9][0-9]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="codice_fiscale_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="([0-9]{11})|([A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z])"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="partita_iva_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{11}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="email_stype">
+        <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="100"/>
+            <xsd:whiteSpace value="collapse"/>
+            <xsd:pattern value="([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})?"/>
+        </xsd:restriction>
+    </xsd:simpleType>       
+    
+    <xsd:simpleType name="telefono_fisso_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="26"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="telefono_mobile_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="26"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="fax_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="26"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="nome_file_stype">
+        <xsd:restriction base="ctipi:stringa_standard_stype">            
+            <xsd:pattern value="[a-zA-Z0-9_\.\- ]{1,255}"/>
+        </xsd:restriction>        
+    </xsd:simpleType> 
+    
+    <xsd:simpleType name="cap_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="([0-9]{5})?"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="anno_stype">
+        <xsd:restriction base="xsd:integer">
+            <xsd:maxExclusive value="1900"/>
+        </xsd:restriction>
+    </xsd:simpleType> 
 </xsd:schema>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        
+    xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
+    
+    xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_rea"
+    xmlns:epers="http://agid.it/suap/entities/persona"
+    xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
+    xmlns:ctipi="http://agid.it/suap/commons/tipi" 
+    
+    targetNamespace="http://agid.it/suap/entities/requisiti_professionali"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="ent_indirizzo_italiano_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/iscrizione_rea" schemaLocation="ent_iscrizione_rea_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/persona" schemaLocation="ent_persona_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/iscrizione_rec" schemaLocation="ent_iscrizione_REC_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
+        
+    <xsd:complexType name="corso_professionale_ctype">
+        <xsd:sequence>
+            <xsd:element name="istituto_corso" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="luogo_corso" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="oggetto_corso" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="anno_corso" type="ctipi:anno_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>        
+    </xsd:complexType>
+    
+    <xsd:complexType name="esercitato_in_proprio_ctype">
+        <xsd:sequence>
+            <xsd:element name="periodo_esercizio" minOccurs="1" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="tipo_attivita" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="da" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="a" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="iscrizione_registro" type="eiscrec:iscrizione_rea_ctype"/>
+        </xsd:sequence>             
+    </xsd:complexType>
+    
+    <xsd:complexType name="prestato_opera_ctype">
+        <xsd:sequence>
+            <xsd:element name="denominazione_impresa" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="sede_impresa" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="dipendente_qualificato" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="coadiutore_familiare" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="socio_lavoratore" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+            <xsd:sequence minOccurs="0" maxOccurs="1">
+                <xsd:element name="posizione_equivalente" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="iscrizione_INPS" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="da" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="a" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:sequence>        
+    </xsd:complexType>
+    
+    <xsd:complexType name="diploma_ctype">
+        <xsd:sequence>
+            <xsd:element name="istituto" type="ctipi:stringa_standard_stype" maxOccurs="1"/>
+            <xsd:element name="anno_conclusione" type="ctipi:anno_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="materie_attinenti" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="qualifica_professionale_ctype">
+        <xsd:sequence>
+            <xsd:element name="numero" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="del" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="idoneita_ctype">
+        <xsd:sequence>
+            <xsd:element name="presso" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="anno" type="ctipi:anno_stype" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="pratica_professionale_ctype">
+        <xsd:sequence>
+            <xsd:element name="iscrizione_REC" type="eisrec:iscrizione_rec_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="idoneita_REC" type="ereqpro:idoneita_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="idoneita_turistiche_REC" type="ereqpro:idoneita_ctype" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence> 
+    </xsd:complexType>
+    
+    <xsd:complexType name="requisiti_professionali_ctype">
+        <xsd:choice>
+            <xsd:sequence>
+                <xsd:element name="corso_professionale" type="ereqpro:corso_professionale_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="esercitato_in_proprio" type="ereqpro:esercitato_in_proprio_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="prestato_opera" type="ereqpro:prestato_opera_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="possesso_diploma" type="ereqpro:diploma_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="qualifica_professionale" type="ereqpro:qualifica_professionale_ctype" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="pratica_professionale" type="ereqpro:pratica_professionale_ctype" minOccurs="0" maxOccurs="1"/>                
+            </xsd:sequence>
+            <xsd:element name="requisiti_professionali_preposto" type="epers:persona_ctype" minOccurs="1" maxOccurs="1"/>            
+        </xsd:choice>                
+    </xsd:complexType> 
+    
+    <xsd:element name="requisiti_professionali" type="ereqpro:requisiti_professionali_ctype"/>
+</xsd:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+       
+    xmlns:sapesvi="http://agid.it/suap/sections/apertura_esercizio_vicinato"
+    
+    xmlns:ecarese="http://agid.it/suap/entities/carattere_esercizio"
+    xmlns:ecencom="http://agid.it/suap/entities/centro_commerciale"
+    xmlns:emodven="http://agid.it/suap/entities/modalita_vendita"
+    xmlns:esegavv="http://agid.it/suap/entities/segnalazione_avvio"    
+    xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+        
+    targetNamespace="http://agid.it/suap/sections/apertura_esercizio_vicinato"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xsd:import namespace="http://agid.it/suap/entities/carattere_esercizio" schemaLocation="../02_entities/ent_carattere_esercizio_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/centro_commerciale" schemaLocation="../02_entities/ent_centro_commerciale_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/modalita_vendita" schemaLocation="../02_entities/ent_modalita_vendita_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/segnalazione_avvio" schemaLocation="../02_entities/ent_segnalazione_avvio_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/settori_merceologici" schemaLocation="../02_entities/ent_settori_merceologici_v1.0.0.xsd"/>
+    
+    <xsd:element name="apertura_esercizio_vicinato" type="sapesvi:apertura_esercizio_vicinato_type"/>
+    
+    <xsd:complexType name="apertura_esercizio_vicinato_type">
+        <xsd:sequence>
+            <xsd:element name="segnalazione_avvio" type="esegavv:segnalazione_avvio_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="modalita_vendita" type="emodven:modalita_vendita_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="carattere_esercizio" type="ecarese:carattere_esercizio_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="in_centro_commerciale" type="ecencom:centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
+        </xsd:sequence>        
+    </xsd:complexType>    
+</xsd:schema>

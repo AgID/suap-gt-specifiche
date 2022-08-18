@@ -8,7 +8,7 @@
     xmlns:ctipi="http://agid.it/suap/commons/tipi"
     xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano" 
     xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
-    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_registro"
+    xmlns:eiscrec="http://agid.it/suap/entities/iscrizione_rea"
     
     targetNamespace="http://agid.it/suap/entities/impresa"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
@@ -19,13 +19,11 @@
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
-    <xsd:import namespace="http://agid.it/suap/entities/iscrizione_registro" schemaLocation="../02_entities/ent_iscrizione_registro_v1.0.0.xsd"/>
-    
-    <xsd:element name="impresa" type="eimpresa:impresa_ctype"/>
+    <xsd:import namespace="http://agid.it/suap/entities/iscrizione_rea" schemaLocation="../02_entities/ent_iscrizione_rea_v1.0.0.xsd"/>
 
     <xsd:complexType name="impresa_ctype">
         <xsd:sequence>
-            <xsd:element name="codice_identificativo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="denominazione" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="forma_giuridica" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:appinfo>                        
@@ -36,7 +34,18 @@
                     </xsd:appinfo>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="denominazione" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
+            <xsd:choice>
+                <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_stype"/>
+                <xsd:element name="partita_iva" type="ctipi:partita_iva_stype"/>
+            </xsd:choice>            
+            <xsd:element name="iscrizione_registro_cc">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="necessita_di_iscrizione" type="xsd:boolean"/>
+                        <xsd:element name="iscrizione_registro" type="eiscrec:iscrizione_rea_ctype"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>            
             <xsd:element name="sede_legale" minOccurs="0" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:choice  minOccurs="1" maxOccurs="1">
@@ -45,15 +54,8 @@
                     </xsd:choice>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="iscrizione_registro_cc">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="necessita_di_iscrizione" type="xsd:boolean"/>
-                        <xsd:element name="iscrizione_registro" type="eiscrec:iscrizione_registro_ctype"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
        </xsd:sequence>        
-    </xsd:complexType>      
-    
+    </xsd:complexType>          
+
+    <xsd:element name="impresa" type="eimpresa:impresa_ctype"/>
 </xsd:schema>
