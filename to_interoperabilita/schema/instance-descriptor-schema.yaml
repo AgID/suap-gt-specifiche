@@ -14,8 +14,7 @@ properties:
     type: integer
   cui:
     "$id": "#root/cui"
-    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA"  
-  municipality:
+    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml"
     "$id": "#root/municipality"
     title: codice istat 6 cifre del comune in cui l'istanza è stata presentata
     type: string
@@ -50,7 +49,7 @@ properties:
           format: date-time
   times:
     "$id": "#root/time"
-    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/times-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA"  
+    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/times-schema.yaml"  
     
   proceedings:
     "$id": "#root/proceedings"
