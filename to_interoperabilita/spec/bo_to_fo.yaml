@@ -1,12 +1,12 @@
 openapi: 3.0.3
 
 info:
-    title: SUAP_CatalogoSSU to ComUnica
+    title: BackOffice SUAP to FrontOffice SUAP
 
     version: 1.0.0
 
     description: |- 
-      API rese disponibili da Catalogo SSU alle componenti ComUnica'
+      API rese disponibili da BackOffice SUAP a FrontOffice SUAP'
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
@@ -22,35 +22,37 @@ servers:
         description: Generated server url
         
 paths:
-    /instance_descriptor:
+    
+    
+    
+    /send_instance:
         post:
             requestBody:
                 content:
                     application/json:
                       schema:
-                         $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                        $ref: '#/components/schemas/SendInstanceRequest'
                 required: true
             responses:
                 "200": 
-                    description: 'Instance Descriptor'
-                    content:
-                        application/json: 
-                          schema: 
-                            $ref: '#/components/schemas/InstanceDescriptor'
-                          
+                    description: 'OK'
+                    
+      
             security:
                 - bearerAuth: []
                   Agid-JWS-Signature: []                
-  
     
-   
-components:
-  schemas:  
      
-            
-               
-      InstanceDescriptor:
-          $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml'
+
+components:
+  schemas:    
+      SendInstanceRequest:
+          type: object
+          properties:
+            cui:
+              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+            instance_index:
+              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml'
 
   headers:
       Agid-JWS-Signature:
