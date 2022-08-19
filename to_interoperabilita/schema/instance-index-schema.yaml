@@ -4,45 +4,45 @@ definitions: {}
 title: indice istanza
 type: array
 items:
-    type: object
-    required:
-    - code
-    - ref
-    - url
-    - token
-    - hash
-    - alg_hash
-    properties:
-        code:
-          "$id": "#root/code"
-          title: codice della fattispecie presente nel Catalogo
-          type: string
-          minLength: 1
-        ref:
-          "$id": "#root/ref"
-          title: riferimento all'elemento dell'istanza relativo al procedimento
-          type: string
-          minLength: 1
-        url:
-          "$id": "#root/url"
-          title: url della risorsa parte dell'istanza relativa allo specifico procedimento
-          type: string
-          minLength: 1
-        token:
-          "$id": "#root/token"
-          title: token per l'accesso alla risorsa
-          type: string
-          minLength: 1
-        hash:
-          "$id": "#root/hash"
-          title: hash dell'istanza relativo al procedimento
-          type: string
-          minLength: 1
-        alg_hash:
-          "$id": "#root/alg_hash"
-          title: algoritmo hash dell'istanza relativo al procedimento
-          type: string
-          enum:
-          - S256
-          - S384
-          - S512
+  type: object
+  required:
+  - code
+  - ref
+  - url
+  - token
+  - hash
+  - alg_hash
+  properties:
+      code:
+        "$id": "#root/code"
+        title: codice della fattispecie presente nel Catalogo
+        type: string
+        minLength: 1
+      ref:
+        "$id": "#root/ref"
+        title: riferimento all'elemento dell'istanza relativo al procedimento
+        type: string
+        minLength: 1
+      url:
+        "$id": "#root/url"
+        title: url della risorsa parte dell'istanza relativa allo specifico procedimento
+        type: string
+        minLength: 1
+      token:
+        "$id": "#root/token"
+        title: token per l'accesso alla risorsa
+        type: string
+        minLength: 1
+      hash:
+        "$id": "#root/hash"
+        title: hash dell'istanza relativo al procedimento
+        type: string
+        minLength: 1
+      alg_hash:
+        "$id": "#root/alg_hash"
+        title: algoritmo hash dell'istanza relativo al procedimento
+        type: string
+        enum:
+        - S256
+        - S384
+        - S512
