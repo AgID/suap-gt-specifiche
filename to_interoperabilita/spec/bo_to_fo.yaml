@@ -46,13 +46,16 @@ paths:
 
 components:
   schemas:    
-      SendInstanceRequest:
-          type: object
-          properties:
+    SendInstanceRequest:
+        type: object
+        required:
+        - cui
+        - instance_index
+        properties:
             cui:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
             instance_index:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml'
+                $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml'
 
   headers:
       Agid-JWS-Signature:
