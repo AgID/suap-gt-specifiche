@@ -8,7 +8,7 @@ items:
   required:
   - code
   - ref
-  - url
+  - resource_id
   - token
   - hash
   - alg_hash
@@ -23,9 +23,9 @@ items:
         title: riferimento all'elemento dell'istanza relativo al procedimento
         type: string
         minLength: 1
-      url:
-        "$id": "#root/url"
-        title: url della risorsa parte dell'istanza relativa allo specifico procedimento
+      resource_id:
+        "$id": "#root/resource_id"
+        title: id della risorsa univoco per erogatore 
         type: string
         minLength: 1
       token:

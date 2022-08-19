@@ -174,6 +174,8 @@ properties:
               - S256
               - S384
               - S512
+            mime_type:
+              type: string
         attachments:
           "$id": "#root/proceedings/attachments"
           title: allegati all'istanza relativo al procedimento
@@ -184,6 +186,7 @@ properties:
             - ref
             - hash
             - alg_hash
+            - mime_type
             properties:
               ref:
                 "$id": "#root/proceedings/attachments/ref"
@@ -203,3 +206,5 @@ properties:
                 - S256
                 - S384
                 - S512
+              mime_type:
+                type: string
