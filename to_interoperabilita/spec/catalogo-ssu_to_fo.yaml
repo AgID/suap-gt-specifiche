@@ -69,7 +69,7 @@ components:
             
           properties:
             cui:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7FI7TN25WVAFMZYHUGYXVEJMQ'   
+              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
           
             message:
               type: string
@@ -80,7 +80,7 @@ components:
                 - integrated_instance_to_bo_sended
 
       InstanceDescriptor:
-          $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/instance-descriptor-schema.yaml?token=GHSAT0AAAAAABW22K7EMVT5ACLRR7GSEPBAYXVD4FA'
+          $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml'
 
   headers:
       Agid-JWS-Signature:

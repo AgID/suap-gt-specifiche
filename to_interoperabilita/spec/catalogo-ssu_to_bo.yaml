@@ -28,7 +28,7 @@ paths:
                 content:
                     application/json:
                       schema:
-                         $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA'
+                         $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 required: true
             responses:
                 "200": 
@@ -88,10 +88,10 @@ components:
              
           properties:
             cui:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA'   
+              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
           
             times:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/times-schema.yaml?token=GHSAT0AAAAAABW22K7F3CJ3IBUPNL3RLBFCYXVGFEQ'   
+              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml'   
             
       AuditMessage:
           type: object
@@ -102,7 +102,7 @@ components:
             
           properties:
             cui:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA'   
+              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
           
             message:
               type: string
@@ -124,7 +124,7 @@ components:
                     proceeding_positive_concluded$
                
       InstanceDescriptor:
-          $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/instance-descriptor-schema.yaml?token=GHSAT0AAAAAABW22K7EENJ3R7U43OVG7OZ4YXVF5VA'
+          $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml'
 
   headers:
       Agid-JWS-Signature:

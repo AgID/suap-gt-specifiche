@@ -14,26 +14,7 @@ properties:
     type: integer
   cui:
     "$id": "#root/cui"
-    title: codice unico dell'istanza
-    type: object
-    required:
-    - context
-    - data
-    - progressive
-    properties:
-      context:
-        "$id": "#root/context"
-        title: contesto dell'istanza
-        type: string
-      data:
-        "$id": "#root/cui/data"
-        title: data emissione cui
-        type: string
-        format: date
-      progressive:
-        "$id": "#root/cui/progressive"
-        title: progressivo del cui
-        type: integer
+    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/cui-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA"  
   municipality:
     "$id": "#root/municipality"
     title: codice istat 6 cifre del comune in cui l'istanza è stata presentata
@@ -69,52 +50,8 @@ properties:
           format: date-time
   times:
     "$id": "#root/time"
-    title: tempi amministrativi dell'istanza
-    type: object
-    required:
-    - start
-    - end
-    properties:
-      start:
-        "$id": "#root/time/start"
-        title: data avvio dell'istanza
-        type: string
-        format: date
-      end:
-        "$id": "#root/time/end"
-        title: data avvio dell'istanza
-        type: string
-        format: date
-      max_admissibility:
-        "$id": "#root/time/t_max_admissibility"
-        title: data limite verifica ammissibilità
-        type: string
-        format: date
-      max_integration_request:
-        "$id": "#root/time/max_integration_request"
-        title: data limite verifica ammissibilità
-        type: string
-        format: date
-      max_integration_response:
-        "$id": "#root/time/max_integration_response"
-        title: data limite verifica ammissibilità
-        type: string
-        format: date
-      max_conclusions_sending:
-        "$id": "#root/time/max_conclusions_sending"
-        title: data limite verifica ammissibilità
-        type: string
-        format: date
-      date_cdss:
-        "$id": "#root/time/date_cdss"
-        title: data limite verifica ammissibilità
-        type: string
-        format: date
-      max_cdss_request:
-        "$id": "#root/time/max_cdss_request"
-        title: data limite verifica ammissibilità
-        type: string
-        format: date
+    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/descrittore-istanza/times-schema.yaml?token=GHSAT0AAAAAABW22K7F5XG4VCUFP2Q6DP36YXVF6PA"  
+    
   proceedings:
     "$id": "#root/proceedings"
     title: procedimenti avviati
