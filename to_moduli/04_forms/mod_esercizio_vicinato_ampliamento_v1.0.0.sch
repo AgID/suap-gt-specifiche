@@ -3,10 +3,9 @@
     @version: 1.0.0 
 -->
 
-<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
-    xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
+<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
-
+    <sch:ns uri="http://agid.it/suap/forms/esercizio_vicinato_ampliamento" prefix="mapvitr"/>
     <sch:ns uri="http://agid.it/suap/sections/trasferimento_esercizio_vicinato" prefix="stresvi"/>    
     <sch:ns uri="http://agid.it/suap/sections/scheda_anagrafica" prefix="sscheana"/>
     <sch:ns uri="http://agid.it/suap/entities/persona" prefix="epers"/>
@@ -36,6 +35,31 @@
     <sch:include href="../02_entities/ent_requisiti_onorabilita_v1.0.0.sch#requisiti_onorabilita_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
+    
+    <sch:pattern id="alimentare_ab" abstract="true">       
+        <sch:rule context="$esercizio_vicinato_apertura">
+            <sch:assert test="normalize-space(//esetmer:alimentare)!='' 
+                and normalize-space(//sreonpr:requisiti_professionali)!=''"> 
+                In caso di vendita alimentari è obbligatori almeno un titolo professionale deve essere indicato oppure deve essere indicato il preposto con titolo professionale 
+            </sch:assert>
+        </sch:rule>       
+    </sch:pattern>       
+    
+    <sch:pattern id="alimentare" abstract="false" is-a="alimentare_ab">
+        <sch:param name="esercizio_vicinato_apertura" value="mapvitr:esercizio_vicinato_apertura"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="non_alimentare_ab" abstract="true">       
+        <sch:rule context="$esercizio_vicinato_apertura">
+            <sch:assert test="normalize-space(//esetmer:alimentare)=''"> 
+                Non deve essere valorizzato vendita alimentare 
+            </sch:assert>
+        </sch:rule>       
+    </sch:pattern>       
+    
+    <sch:pattern id="non_alimentare" abstract="false" is-a="non_alimentare_ab">
+        <sch:param name="esercizio_vicinato_apertura" value="mapvitr:esercizio_vicinato_apertura"/>        
+    </sch:pattern>
     
     <sch:pattern id="sez_dati_anagrafici" is-a="sez_dati_anagrafici_ab" >
         <sch:param name="procuratore" value="sscheana:procuratore"/>
@@ -104,5 +128,47 @@
     <sch:pattern id="settori_merceologici" abstract="false" is-a="settori_merceologici_ab">
         <sch:param name="settori_merceologici" value="samesvi:settori_merceologici"/>        
     </sch:pattern>
+    
+    <sch:phase id="non_alimentare_ph">
+        <sch:active pattern="non_alimentare"/>
+        <sch:active pattern="sez_dati_anagrafici"/>
+        <sch:active pattern="persona_scheda_anagrafica"/>
+        <sch:active pattern="cittadinanza"/>
+        <sch:active pattern="documento_rilasciato"/>
+        <sch:active pattern="iscrizione_rea_scheda_anagrafica"/>
+        <sch:active pattern="impresa"/>
+        <sch:active pattern="indirizzo_estero"/>
+        <sch:active pattern="indirizzo_italiano_scheda_anagrafica"/>
+        <sch:active pattern="indirizzo_italiano_rif_attivita"/>
+        <sch:active pattern="settori_merceologici"/>
+        <sch:active pattern="requisiti_professionali"/>
+        <sch:active pattern="requisiti_onorabilita"/>
+        <sch:active pattern="persona_requisiti_professionali"/>
+        <sch:active pattern="indirizzo_italiano_luogo_corso"/>
+        <sch:active pattern="iscrizione_rea_requisiti_professionali"/>
+        <sch:active pattern="indirizzo_italiano_sede_impresa"/>
+        <sch:active pattern="iscrizione_rec"/>
+    </sch:phase>
+    
+    <sch:phase id="alimentare_ph">
+        <sch:active pattern="alimentare"/>
+        <sch:active pattern="sez_dati_anagrafici"/>
+        <sch:active pattern="persona_scheda_anagrafica"/>
+        <sch:active pattern="cittadinanza"/>
+        <sch:active pattern="documento_rilasciato"/>
+        <sch:active pattern="iscrizione_rea_scheda_anagrafica"/>
+        <sch:active pattern="impresa"/>
+        <sch:active pattern="indirizzo_estero"/>
+        <sch:active pattern="indirizzo_italiano_scheda_anagrafica"/>
+        <sch:active pattern="indirizzo_italiano_rif_attivita"/>      
+        <sch:active pattern="settori_merceologici"/>
+        <sch:active pattern="requisiti_professionali"/>
+        <sch:active pattern="requisiti_onorabilita"/>
+        <sch:active pattern="persona_requisiti_professionali"/>
+        <sch:active pattern="indirizzo_italiano_luogo_corso"/>
+        <sch:active pattern="iscrizione_rea_requisiti_professionali"/>
+        <sch:active pattern="indirizzo_italiano_sede_impresa"/>
+        <sch:active pattern="iscrizione_rec"/>
+    </sch:phase>
     
 </sch:schema>
