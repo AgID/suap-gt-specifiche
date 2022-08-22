@@ -8,10 +8,10 @@
     
     <sch:pattern id="persona_ab" abstract="true">
         
-        <sch:let name="keysStoricoComuni" value="document('../01_vocabularies/voc_comuni_italiani_storico.xml')//Row"/> 
-        <sch:let name="keysStatiEsteri" value="document('../01_vocabularies/voc_stati.xml')//Row"/> 
-
         <sch:rule context="$persona">
+            
+            <sch:let name="keysStoricoComuni" value="document('../01_vocabularies/voc_comuni_italiani_storico.xml')//Row"/> 
+            <sch:let name="keysStatiEsteri" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
             
             <sch:let name="data_nascita" value="normalize-space(epers:data_nascita)"/>
             <sch:let name="luogo_nascita_italiano" value="normalize-space(epers:luogo_nascita_italiano)"/>
@@ -45,6 +45,6 @@
     </sch:pattern>       
 
     <sch:pattern id="persona" abstract="false" is-a="persona_ab">
-        <sch:param name="persona" value="epers:persona"/>        
+        <sch:param name="persona" value="epers:persona"/>             
     </sch:pattern>
 </sch:schema>

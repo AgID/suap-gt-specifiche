@@ -83,7 +83,7 @@
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
                         <xsd:element name="ruolo" type="vruopro:ruolo_procuratore_voc" minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="deominazione_agenzia_imprese" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="denominazione_agenzia_imprese" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1"/>
                     </xsd:sequence>
                 </xsd:complexType>                
             </xsd:element>            

@@ -21,16 +21,24 @@
     <sch:include href="../02_entities/ent_impresa_v1.0.0.sch#impresa_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     
-    <sch:pattern id="sez_dati_anagrafici_ab" abstract="true">
+    <sch:pattern id="sez_dati_anagrafici_ab" abstract="true">        
         <sch:rule context="$procuratore">
+            <sch:let name="ruolo" value="normalize-space(sscheana:ruolo)"/>
+            
             <sch:assert test="$procuratore='' 
-                or ($procuratore/sscheana:ruolo[.!='Agenzia per le imprese'])
-                or ($procuratore/sscheana:ruolo[.='Agenzia per le imprese'] and boolean($procuratore/sscheana:deominazione_agenzia_imprese))">                
-            </sch:assert>            
+                or ($ruolo!='Agenzia per le imprese')
+                or ($ruolo='Agenzia per le imprese' and normalize-space(sscheana:denominazione_agenzia_imprese)!='')">  
+                
+                Denominazione agenzia per le imprese è necessario
+            </sch:assert>
         </sch:rule>
     </sch:pattern>
     
-    <sch:pattern id="sez_dati_anagrafici_persona" is-a="persona_ab" >
+    <sch:pattern id="sez_dati_anagrafici" is-a="sez_dati_anagrafici_ab" >
+        <sch:param name="procuratore" value="sscheana:procuratore"/>
+    </sch:pattern>
+    
+    <sch:pattern id="persona" is-a="persona_ab" >
         <sch:param name="persona" value="sscheana:persona"/>
     </sch:pattern>
     

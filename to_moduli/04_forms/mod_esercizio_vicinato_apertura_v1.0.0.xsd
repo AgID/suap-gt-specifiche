@@ -21,11 +21,11 @@
     
     <xsd:complexType name="esercizio_vicinato_apertura_type">
         <xsd:sequence>
-            <xsd:element ref="sscheana:scheda_anagrafica"/>
-            <xsd:element ref="srifatt:riferimento_attivita"/>
-            <xsd:element ref="sapesvi:apertura_esercizio_vicinato"/>
-            <xsd:element ref="sreonpr:requisiti_onorabilita_professionali"/>            
-            <xsd:element ref="saltdic:altre_dichiazioni"/>
+            <xsd:element ref="sscheana:scheda_anagrafica" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="srifatt:riferimento_attivita" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="sapesvi:apertura_esercizio_vicinato" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="sreonpr:requisiti_onorabilita_professionali" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>        
     </xsd:complexType>  
     
