@@ -54,8 +54,7 @@
                     </xsd:sequence>
                 </xsd:complexType>                
             </xsd:element>
-            
-            
+                        
             <xsd:element name="impresa" minOccurs="1" maxOccurs="1">
                 <xsd:complexType>
                     <xsd:complexContent>

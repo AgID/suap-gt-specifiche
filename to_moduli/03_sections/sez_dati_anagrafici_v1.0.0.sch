@@ -9,11 +9,17 @@
     <sch:ns uri="http://agid.it/suap/entities/cittadinanza" prefix="ecitt"/>
     <sch:ns uri="http://agid.it/suap/entities/documento_rilasciato" prefix="edocril"/>
     <sch:ns uri="http://agid.it/suap/entities/indirizzo_italiano" prefix="eindita"/>
+    <sch:ns uri="http://agid.it/suap/entities/impresa" prefix="eimpresa"/>
+    <sch:ns uri="http://agid.it/suap/entities/iscrizione_rea" prefix="eiscrea"/>
+    <sch:ns uri="http://agid.it/suap/entities/indirizzo_estero" prefix="eie"/>
     
     <sch:include href="../02_entities/ent_persona_v1.0.0.sch#persona_ab"/>
     <sch:include href="../02_entities/ent_cittadinanza_v1.0.0.sch#cittadinanza_ab"/>
     <sch:include href="../02_entities/ent_documento_rilasciato_v1.0.0.sch#documento_rilasciato_ab"/>
     <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#indirizzo_italiano_ab"/>
+    <sch:include href="../02_entities/ent_indirizzo_estero_v1.0.0.sch#indirizzo_estero_ab"/>
+    <sch:include href="../02_entities/ent_impresa_v1.0.0.sch#impresa_ab"/>
+    <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     
     <sch:pattern id="sez_dati_anagrafici_ab" abstract="true">
         <sch:rule context="$procuratore">
@@ -36,12 +42,20 @@
         <sch:param name="documento_rilasciato" value="sscheana:documento_rilasciato"/>        
     </sch:pattern>
     
-    <sch:pattern id="sez_dati_anagrafici_residenza_indirizzo_italiano" is-a="indirizzo_italiano_ab" >
-        <sch:param name="indirizzo_italiano" value="sscheana:indirizzo_italiano"/>
+    <sch:pattern id="iscrizione_rea" abstract="false" is-a="iscrizione_rea_ab">
+        <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
     </sch:pattern>
     
-    <sch:pattern id="sez_dati_anagrafici" is-a="sez_dati_anagrafici_ab" >
-        <sch:param name="procuratore" value="sscheana:procuratore"/>
+    <sch:pattern id="impresa" abstract="false" is-a="impresa_ab">
+        <sch:param name="impresa" value="sscheana:impresa"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="indirizzo_estero" abstract="false" is-a="indirizzo_estero_ab">
+        <sch:param name="indirizzo_estero" value="sscheana:indirizzo_estero"/>        
+    </sch:pattern>
+
+    <sch:pattern id="indirizzo_italiano" abstract="false" is-a="indirizzo_italiano_ab">
+        <sch:param name="indirizzo_italiano" value="sscheana:indirizzo_italiano"/>        
     </sch:pattern>
     
 </sch:schema>
