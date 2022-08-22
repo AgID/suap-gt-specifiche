@@ -49,6 +49,7 @@
         <xsd:restriction base="xsd:normalizedString">
             <xsd:maxLength value="100"/>
             <xsd:whiteSpace value="collapse"/>
+            <xsd:minLength value="1"/>
             <xsd:pattern value="([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})?"/>
         </xsd:restriction>
     </xsd:simpleType>       
