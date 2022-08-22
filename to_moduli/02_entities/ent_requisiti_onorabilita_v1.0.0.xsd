@@ -9,8 +9,8 @@
     
     <xsd:complexType name="requisiti_onorabilita_ctype">
         <xsd:sequence>
-            <xsd:element name="possesso_requisiti_onorabilita" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="no_cause_divieto" type="xsd:boolean" default="true" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="possesso_requisiti_onorabilita" type="xsd:boolean" fixed="true" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="no_cause_divieto" type="xsd:boolean" fixed="true" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
     
