@@ -3,8 +3,7 @@
     @version: 1.0.0 
 -->
 
-<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
-    xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
+<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
     <sch:ns uri="http://agid.it/suap/sections/ampliamento_esercizio_vicinato" prefix="samesvi"/>
     <sch:ns uri="http://agid.it/suap/entities/settori_merceologici" prefix="esetmer"/>
