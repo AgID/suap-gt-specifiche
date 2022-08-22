@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
        
-    xmlns:stresvi="http://agid.it/suap/sections/trasferimento_esercizio_vicinato"
+    xmlns:samesvi="http://agid.it/suap/sections/ampliamento_esercizio_vicinato"
     
     xmlns:ecencom="http://agid.it/suap/entities/centro_commerciale"
     xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
     xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
     xmlns:econt="http://agid.it/suap/entities/contatti"
     xmlns:eproto="http://agid.it/suap/entities/protocollo"
+    xmlns:vtipamp="http://agid.it/suap/vocabularies/tipo_ampliamento"
         
-    targetNamespace="http://agid.it/suap/sections/trasferimento_esercizio_vicinato"
+    targetNamespace="http://agid.it/suap/sections/ampliamento_esercizio_vicinato"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
 
@@ -18,30 +19,29 @@
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/protocollo" schemaLocation="../02_entities/ent_protocollo_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/vocabularies/tipo_ampliamento" schemaLocation="../01_vocabularies/voc_tipo_ampliamento_v1.0.0.xsd"/>
     
-    <xsd:element name="trasferimento_esercizio_vicinato" type="stresvi:trasferimento_esercizio_vicinato_type"/>
+    <xsd:element name="ampliamento_esercizio_vicinato" type="samesvi:ampliamento_esercizio_vicinato_type"/>
     
-    <xsd:complexType name="trasferimento_esercizio_vicinato_type">
+    <xsd:complexType name="ampliamento_esercizio_vicinato_type">
         <xsd:sequence>
-            <xsd:element name="protocollo_avvio" type="eproto:protocollo_ctype" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element name="protocollo_avvio" type="eproto:protocollo_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="vendita_tabelle_speciali" type="vtipamp:tipo_ampliamento_voc"/>
             <xsd:element name="da">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="indirizzo" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="in_centro_commerciale" type="ecencom:centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>        
+                        <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>        
                     </xsd:sequence>
                 </xsd:complexType>                
             </xsd:element>            
             <xsd:element name="a">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="indirizzo" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="in_centro_commerciale" type="ecencom:centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>        
+                        <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>        
                     </xsd:sequence>
                 </xsd:complexType>    
             </xsd:element>           
-            <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
+                        
         </xsd:sequence>        
     </xsd:complexType>    
 </xsd:schema>
