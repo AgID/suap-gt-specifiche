@@ -18,7 +18,7 @@
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     
     <sch:pattern id="segnalazione_avvio" abstract="false" is-a="segnalazione_avvio_ab">
-        <sch:param name="segnalazione_avvio" value="//sapesvi:requisiti_professionali"/>        
+        <sch:param name="segnalazione_avvio" value="//sapesvi:segnalazione_avvio"/>        
     </sch:pattern>
     
     <sch:pattern id="modalita_vendita" abstract="false" is-a="modalita_vendita_ab">
