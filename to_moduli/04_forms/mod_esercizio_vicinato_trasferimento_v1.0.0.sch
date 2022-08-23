@@ -34,7 +34,7 @@
     <sch:include href="../02_entities/ent_impresa_v1.0.0.sch#impresa_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
-    <sch:include href="../02_entities/ent_requisiti_onorabilita_v1.0.0.sch#requisiti_onorabilita_ab"/>
+    <sch:include href="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.sch#requisiti_onorabilita_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>

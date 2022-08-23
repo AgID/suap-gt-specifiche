@@ -37,12 +37,12 @@
     <sch:include href="../02_entities/ent_indirizzo_estero_v1.0.0.sch#indirizzo_estero_ab"/>
     <sch:include href="../02_entities/ent_impresa_v1.0.0.sch#impresa_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
-    <sch:include href="../02_entities/ent_segnalazione_avvio_v1.0.0.sch#segnalazione_avvio_ab"/>
+    <sch:include href="../03_sections/sez_esercizio_vicinato_apertura_v1.0.0.sch#segnalazione_avvio_ab"/>
     <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#modalita_vendita_ab"/>
-    <sch:include href="../02_entities/ent_carattere_esercizio_v1.0.0.sch#carattere_esercizio_ab"/>
+    <sch:include href="../03_sections/sez_esercizio_vicinato_apertura_v1.0.0.sch#carattere_esercizio_ab"/>
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
-    <sch:include href="../02_entities/ent_requisiti_onorabilita_v1.0.0.sch#requisiti_onorabilita_ab"/>
+    <sch:include href="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.sch#requisiti_onorabilita_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
 
