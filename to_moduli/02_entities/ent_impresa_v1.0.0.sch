@@ -19,7 +19,7 @@
                         
             <sch:assert test="
                 count($keysFormeGiuridiche[
-                normalize-space(Value[@ColumnRef='description' ]/SimpleValue) = $forma_giuridica
+                normalize-space(Value[@ColumnRef='code' ]/SimpleValue) = $forma_giuridica
                                   ]) = 1">
                 
                 Forma giuridica non esiste (<sch:value-of select="$forma_giuridica"/>) 

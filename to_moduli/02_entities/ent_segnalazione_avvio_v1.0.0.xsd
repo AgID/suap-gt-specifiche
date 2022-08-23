@@ -9,10 +9,13 @@
     
     <xsd:complexType name="segnalazione_avvio_ctype">
         <xsd:sequence>
-            <xsd:element name="esercizio_vicinato" type="xsd:boolean" fixed="true" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="esercizio_vicinato" type="xsd:boolean" fixed="true" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="media_struttura" type="xsd:boolean" fixed="true" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="grande_struttura" type="xsd:boolean" fixed="true" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="esclusiva_apparecchi_automatici" type="xsd:boolean" fixed="true" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
     
     <xsd:element name="segnalazione_avvio" type="esegavv:segnalazione_avvio_ctype"/>
 </xsd:schema>
+

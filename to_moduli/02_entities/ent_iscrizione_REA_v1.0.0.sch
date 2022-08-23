@@ -16,7 +16,7 @@
             <sch:let name="CCIAA" value="normalize-space(eiscrea:CCIAA)"/>
             
             <sch:assert test="count($keysCCIAA[
-                normalize-space(Value[@ColumnRef='denominazione']/SimpleValue) = $CCIAA
+                normalize-space(Value[@ColumnRef='id']/SimpleValue) = $CCIAA
                 ]) = 1">
                 CCIAA non esiste (<sch:value-of select="$CCIAA"/>) 
             </sch:assert>

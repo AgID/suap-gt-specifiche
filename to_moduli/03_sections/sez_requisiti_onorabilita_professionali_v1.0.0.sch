@@ -13,20 +13,29 @@
     <sch:ns uri="http://agid.it/suap/entities/iscrizione_rea" prefix="eiscrea"/>
     <sch:ns uri="http://agid.it/suap/entities/iscrizione_rec" prefix="eisrec"/>
     
-    <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
-    <sch:include href="../02_entities/ent_requisiti_onorabilita_v1.0.0.sch#requisiti_onorabilita_ab"/>
+    <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>    
     <sch:include href="../02_entities/ent_persona_v1.0.0.sch#persona_ab"/>
     <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#indirizzo_italiano_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     
+    
+    <sch:pattern id="requisiti_onorabilita_ab" abstract="true">
+        
+        <sch:rule context="$requisiti_onorabilita">
+            <sch:assert test="ereqono:possesso_requisiti_onorabilita!='' and ereqono:no_cause_divieto!=''"> 
+                Le dichiarazioni di possessop requisiti onorabilita e no cause divieto sono obbligatorie 
+            </sch:assert>
+        </sch:rule>
+        
+    </sch:pattern>       
+    
+    <sch:pattern id="requisiti_onorabilita" abstract="false" is-a="requisiti_onorabilita_ab">
+        <sch:param name="requisiti_onorabilita" value="ereqono:requisiti_onorabilita"/>        
+    </sch:pattern>
         
     <sch:pattern id="requisiti_professionali" abstract="false" is-a="requisiti_professionali_ab">
         <sch:param name="requisiti_professionali" value="sreonpr:requisiti_professionali"/>        
-    </sch:pattern>
-    
-    <sch:pattern id="requisiti_onorabilita" abstract="false" is-a="requisiti_onorabilita_ab">
-        <sch:param name="requisiti_onorabilita" value="sreonpr:requisiti_onorabilita"/>        
     </sch:pattern>
     
     <sch:pattern id="persona" abstract="false" is-a="persona_ab">
@@ -48,5 +57,7 @@
     <sch:pattern id="iscrizione_rec" abstract="false" is-a="iscrizione_rec_ab">
         <sch:param name="iscrizione_rec" value="ereqpro:iscrizione_REC"/>        
     </sch:pattern>
+    
+    
 </sch:schema>
 
