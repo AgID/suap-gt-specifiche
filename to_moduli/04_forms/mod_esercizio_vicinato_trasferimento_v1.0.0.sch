@@ -21,6 +21,9 @@
     <sch:ns uri="http://agid.it/suap/entities/requisiti_professionali" prefix="ereqpro"/>
     <sch:ns uri="http://agid.it/suap/entities/iscrizione_rec" prefix="eisrec"/>  
     <sch:ns uri="http://agid.it/suap/entities/settori_merceologici" prefix="esetmer"/>
+    <sch:ns uri="http://agid.it/suap/entities/allegati" prefix="eallegati"/>
+    <sch:ns uri="http://agid.it/suap/sections/allegati" prefix="sallegati"/>
+    <sch:ns uri="http://agid.it/suap/entities/file" prefix="efile"/> 
             
     <sch:include href="../03_sections/sez_dati_anagrafici_v1.0.0.sch#sez_dati_anagrafici_ab"/>
     <sch:include href="../02_entities/ent_persona_v1.0.0.sch#persona_ab"/>
@@ -34,9 +37,23 @@
     <sch:include href="../02_entities/ent_requisiti_onorabilita_v1.0.0.sch#requisiti_onorabilita_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
+    <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
+    
+    <sch:pattern id="procuratore_ab" abstract="true">       
+        <sch:rule context="$esercizio_vicinato_apertura">                     
+            <sch:assert test="normalize-space(//sscheana:procuratore)!='' 
+                and normalize-space(//eallegati:procura_delega)!=''"> 
+                In caso di procuratore l'allegato procura/delega è obbligatorio
+            </sch:assert>
+        </sch:rule>       
+    </sch:pattern>  
+    
+    <sch:pattern id="procuratore" abstract="false" is-a="procuratore_ab">
+        <sch:param name="esercizio_vicinato_apertura" value="mesvitr:esercizio_vicinato_trasferimento"/>        
+    </sch:pattern>
     
     <sch:pattern id="alimentare_ab" abstract="true">       
-        <sch:rule context="$esercizio_vicinato_apertura">
+        <sch:rule context="$esercizio_vicinato_apertura">            
             <sch:assert test="normalize-space(//esetmer:alimentare)!='' 
                 and normalize-space(//sreonpr:requisiti_professionali)!=''"> 
                 In caso di vendita alimentari è obbligatori almeno un titolo professionale deve essere indicato oppure deve essere indicato il preposto con titolo professionale 
@@ -45,7 +62,7 @@
     </sch:pattern>       
     
     <sch:pattern id="alimentare" abstract="false" is-a="alimentare_ab">
-        <sch:param name="esercizio_vicinato_apertura" value="mesvitr:esercizio_vicinato_apertura"/>        
+        <sch:param name="esercizio_vicinato_apertura" value="mesvitr:esercizio_vicinato_trasferimento"/>        
     </sch:pattern>
     
     <sch:pattern id="non_alimentare_ab" abstract="true">       
@@ -57,7 +74,7 @@
     </sch:pattern>       
     
     <sch:pattern id="non_alimentare" abstract="false" is-a="non_alimentare_ab">
-        <sch:param name="esercizio_vicinato_apertura" value="mesvitr:esercizio_vicinato_apertura"/>        
+        <sch:param name="esercizio_vicinato_apertura" value="mesvitr:esercizio_vicinato_trasferimento"/>        
     </sch:pattern>
     
     
@@ -133,8 +150,22 @@
         <sch:param name="indirizzo_italiano" value="stresvi:indirizzo"/>        
     </sch:pattern>
     
+    <sch:pattern id="files_procura_delega" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="eallegati:procura_delega"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="files_dichiarazione_requisiti_preposto" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="eallegati:dichiarazione_requisiti_preposto"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="files_dichiarazione_requisiti_soci" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="eallegati:dichiarazione_requisiti_soci"/>        
+    </sch:pattern>
+    
+    
     <sch:phase id="non_alimentare_ph">
         <sch:active pattern="non_alimentare"/>
+        <sch:active pattern="procuratore"/>
         <sch:active pattern="sez_dati_anagrafici"/>
         <sch:active pattern="persona_scheda_anagrafica"/>
         <sch:active pattern="cittadinanza"/>
@@ -153,10 +184,14 @@
         <sch:active pattern="indirizzo_italiano_sede_impresa"/>
         <sch:active pattern="iscrizione_rec"/>
         <sch:active pattern="indirizzo_italiano"/>
+        <sch:active pattern="files_procura_delega"/>
+        <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
+        <sch:active pattern="files_dichiarazione_requisiti_soci"/>
     </sch:phase>
     
     <sch:phase id="alimentare_ph">
         <sch:active pattern="alimentare"/>
+        <sch:active pattern="procuratore"/>
         <sch:active pattern="sez_dati_anagrafici"/>
         <sch:active pattern="persona_scheda_anagrafica"/>
         <sch:active pattern="cittadinanza"/>
@@ -175,6 +210,9 @@
         <sch:active pattern="indirizzo_italiano_sede_impresa"/>
         <sch:active pattern="iscrizione_rec"/>
         <sch:active pattern="indirizzo_italiano"/>
+        <sch:active pattern="files_procura_delega"/>
+        <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
+        <sch:active pattern="files_dichiarazione_requisiti_soci"/>
     </sch:phase>
    
 </sch:schema>

@@ -28,5 +28,5 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="altre_dichiarazioni" type="ealtdic:altre_dichiarazioni_ctype"/>    
+    <xsd:element name="altre_dichiarazioni_e" type="ealtdic:altre_dichiarazioni_ctype"/>    
 </xsd:schema>

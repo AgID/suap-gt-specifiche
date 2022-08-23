@@ -21,8 +21,7 @@
                 <xsd:annotation>
                     <xsd:appinfo>                        
                         <canncl:codeListReference>
-                            <canncl:ShortName>IT:SUAP:CL:TipiDocumentoIdentita</canncl:ShortName>
-                            <canncl:Version>1</canncl:Version>
+                            <canncl:ShortName>IT:SUAP:CL:TipiDocumentoIdentita</canncl:ShortName>                            
                         </canncl:codeListReference>                        
                     </xsd:appinfo>
                 </xsd:annotation> 

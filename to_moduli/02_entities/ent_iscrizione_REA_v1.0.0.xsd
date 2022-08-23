@@ -24,7 +24,6 @@
                     <xs:appinfo>                        
                         <canncl:codeListReference>
                             <canncl:ShortName>IT:SUAP:CL:CCIAA</canncl:ShortName>
-                            <canncl:Version>1</canncl:Version>
                         </canncl:codeListReference>                        
                     </xs:appinfo>                    
                 </xs:annotation>                 
