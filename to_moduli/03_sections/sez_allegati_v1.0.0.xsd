@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    xmlns:sallegati="http://agid.it/suap/sections/allegati"
+    
+    xmlns:eallegati="http://agid.it/suap/entities/allegati"
+    
+    targetNamespace="http://agid.it/suap/sections/allegati"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/allegati" schemaLocation="../02_entities/ent_allegati_v1.0.0.xsd"/>
+   
+    <xsd:element name="allegati" type="eallegati:allegati_ctype"/>
+    
+</xsd:schema>

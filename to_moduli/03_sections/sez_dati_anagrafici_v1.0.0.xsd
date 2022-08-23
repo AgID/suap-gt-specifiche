@@ -75,8 +75,8 @@
                             <xsd:complexType>
                                 <xsd:sequence>                             
                                     <xsd:choice>
-                                        <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="0" maxOccurs="1"/>
-                                        <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="0" maxOccurs="1"/>
+                                        <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                                        <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
                                     </xsd:choice>  
                                 </xsd:sequence>
                             </xsd:complexType>
