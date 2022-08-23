@@ -16,14 +16,7 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:element>
-                
-                <xsd:element name="Version" type="xsd:normalizedString">
-                    <xsd:annotation>
-                        <xsd:documentation> 
-                            Identificativo della versione di una code list associata ad un certo elemento 
-                        </xsd:documentation>
-                    </xsd:annotation>
-                </xsd:element>                               
+                                          
             </xsd:sequence> 
         </xsd:complexType>
     </xsd:element>

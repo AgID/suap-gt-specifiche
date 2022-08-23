@@ -8,6 +8,7 @@
     xmlns:stresvi="http://agid.it/suap/sections/trasferimento_esercizio_vicinato"
     xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
     xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
+    xmlns:sallegati="http://agid.it/suap/sections/allegati"
     
     targetNamespace="http://agid.it/suap/forms/esercizio_vicinato_trasferimento"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
@@ -18,6 +19,7 @@
     <xsd:import namespace="http://agid.it/suap/sections/trasferimento_esercizio_vicinato" schemaLocation="../03_sections/sez_esercizio_vicinato_trasferimento_v1.0.0.xsd"/>    
     <xsd:import namespace="http://agid.it/suap/sections/requisiti_onorabilita_professionali" schemaLocation="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/altre_dichiarazioni" schemaLocation="../03_sections/sez_altre_dichiarazioni_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/sections/allegati" schemaLocation="../03_sections/sez_allegati_v1.0.0.xsd"/>
     
     <xsd:complexType name="esercizio_vicinato_trasferimento_type">
         <xsd:sequence>
@@ -26,6 +28,7 @@
             <xsd:element ref="stresvi:trasferimento_esercizio_vicinato" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="sreonpr:requisiti_onorabilita_professionali" minOccurs="1" maxOccurs="1"/>            
             <xsd:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="sallegati:allegati" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>        
     </xsd:complexType>  
     
