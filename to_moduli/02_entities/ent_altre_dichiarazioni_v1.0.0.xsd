@@ -20,8 +20,7 @@
     <xsd:complexType name="altre_dichiarazioni_ctype_italia">
         <xsd:complexContent>
             <xsd:extension base="ealtdic:altre_dichiarazioni_ctype">
-                <xsd:sequence>
-                    <xsd:element name="altro" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:sequence>                    
                     <xsd:element name="impegno_comunicazioni" type="xsd:boolean" fixed="true" minOccurs="1" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:extension>

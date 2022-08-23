@@ -42,7 +42,7 @@
     
     
     <sch:pattern id="procuratore_ab" abstract="true">       
-        <sch:rule context="$esercizio_vicinato_apertura">                     
+        <sch:rule context="$esercizio_vicinato_ampliamento">                     
             <sch:assert test="normalize-space(//sscheana:procuratore)!='' 
                 and normalize-space(//eallegati:procura_delega)!=''"> 
                 In caso di procuratore l'allegato procura/delega è obbligatorio
@@ -51,11 +51,11 @@
     </sch:pattern>  
     
     <sch:pattern id="procuratore" abstract="false" is-a="procuratore_ab">
-        <sch:param name="esercizio_vicinato_apertura" value="mesviamp:esercizio_vicinato_ampliamento"/>        
+        <sch:param name="esercizio_vicinato_ampliamento" value="mesviamp:esercizio_vicinato_ampliamento"/>        
     </sch:pattern>
     
     <sch:pattern id="alimentare_ab" abstract="true">       
-        <sch:rule context="$esercizio_vicinato_apertura">                     
+        <sch:rule context="$esercizio_vicinato_ampliamento">                     
             <sch:assert test="normalize-space(//samesvi:da/samesvi:settori_merceologici/esetmer:alimentare)!=''"> 
                 Alimentare deve essere presente nella sezione "da"
             </sch:assert>
@@ -72,11 +72,11 @@
     </sch:pattern>       
     
     <sch:pattern id="alimentare" abstract="false" is-a="alimentare_ab">
-        <sch:param name="esercizio_vicinato_apertura" value="mesviamp:esercizio_vicinato_ampliamento"/>        
+        <sch:param name="esercizio_vicinato_ampliamento" value="mesviamp:esercizio_vicinato_ampliamento"/>        
     </sch:pattern>
     
     <sch:pattern id="non_alimentare_ab" abstract="true">       
-        <sch:rule context="$esercizio_vicinato_apertura">
+        <sch:rule context="$esercizio_vicinato_ampliamento">
             <sch:assert test="normalize-space(//samesvi:da/samesvi:settori_merceologici/esetmer:alimentare)=''"> 
                 Non deve essere valorizzato vendita alimentare nella sezione "da"
             </sch:assert>
@@ -88,7 +88,7 @@
     </sch:pattern>       
     
     <sch:pattern id="non_alimentare" abstract="false" is-a="non_alimentare_ab">
-        <sch:param name="esercizio_vicinato_apertura" value="mesviamp:esercizio_vicinato_ampliamento"/>        
+        <sch:param name="esercizio_vicinato_ampliamento" value="mesviamp:esercizio_vicinato_ampliamento"/>        
     </sch:pattern>
     
     <sch:pattern id="sez_dati_anagrafici" is-a="sez_dati_anagrafici_ab" >
