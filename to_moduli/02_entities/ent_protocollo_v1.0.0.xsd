@@ -23,13 +23,15 @@
     
     <xsd:simpleType name="codice_registro_stype">
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="[A-Za-z0-9_\.\-]{1,16}"/>            
+            <xsd:pattern value="[A-Za-z0-9_\.\-]{1,16}"/>
+            <xsd:minLength value="1"/>            
         </xsd:restriction>
     </xsd:simpleType>
     
     <xsd:simpleType name="numero_registrazione_stype">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="[0-9]{7,}"/>
+            <xsd:minLength value="1"/>
         </xsd:restriction>
     </xsd:simpleType>
         
