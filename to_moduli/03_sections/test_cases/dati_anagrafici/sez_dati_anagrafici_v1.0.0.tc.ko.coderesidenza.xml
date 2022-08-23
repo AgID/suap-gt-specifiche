@@ -73,12 +73,12 @@
     </sa:rappresentante>
     <sa:impresa>
         <efg:denominazione>denominazione0</efg:denominazione>
-        <efg:forma_giuridica>IMPRENDITORE INDIVIDUALE NON AGRICOLO</efg:forma_giuridica>
+        <efg:forma_giuridica>1.1.40</efg:forma_giuridica>
         <efg:partita_iva>00000000000</efg:partita_iva>
         <efg:iscrizione_registro_cc>
             <efg:necessita_di_iscrizione>false</efg:necessita_di_iscrizione>
             <efg:iscrizione_registro>
-                <eiscrea:CCIAA>TRIESTE</eiscrea:CCIAA>
+                <eiscrea:CCIAA>9</eiscrea:CCIAA>
                 <eiscrea:numero_REA>numero_REA0</eiscrea:numero_REA>
             </efg:iscrizione_registro>
         </efg:iscrizione_registro_cc>
