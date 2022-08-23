@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_indirizzo_estero_v1.0.0.sch">
+    <x:scenario label="Test sullo stato estero dell'indirizzo">
+
+        <x:scenario label="Codice dello stato estero corretto">
+            <x:context href="ent_indirizzo_estero_v1.0.0.tc.ok.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_stato_cl_check" location="/*:indirizzo_estero[namespace-uri()='http://agid.it/suap/entities/indirizzo_estero'][1]"/>
+        </x:scenario>
+
+        <x:scenario label="Codice dello stato estero non esistente">
+            <x:context href="ent_indirizzo_estero_v1.0.0.tc.ko.check_cl.xml"/>
+            
+            <x:expect-assert count="1" label=""
+                id="ass_stato_cl_check" location="/*:indirizzo_estero[namespace-uri()='http://agid.it/suap/entities/indirizzo_estero'][1]"/>
+        </x:scenario>
+    </x:scenario>
+   
+</x:description>

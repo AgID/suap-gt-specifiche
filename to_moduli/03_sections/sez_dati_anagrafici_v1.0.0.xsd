@@ -12,6 +12,8 @@
     xmlns:eimpresa="http://agid.it/suap/entities/impresa"
     xmlns:vruoric="http://agid.it/suap/vocabularies/ruolo_richiedente"
     xmlns:vruopro="http://agid.it/suap/vocabularies/ruolo_procuratore"
+    xmlns:erapp="http://agid.it/suap/entities/rappresentanza" 
+    xmlns:eimp="http://agid.it/suap/entities/impresa" 
     xmlns:ctipi="http://agid.it/suap/commons/tipi" 
     
     
@@ -26,51 +28,79 @@
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.0.xsd" />
+    <xsd:import namespace="http://agid.it/suap/entities/rappresentanza" schemaLocation="../02_entities/ent_rappresentanza_v1.0.0.xsd" />
     <xsd:import namespace="http://agid.it/suap/vocabularies/ruolo_richiedente" schemaLocation="../01_vocabularies/voc_ruolo_richiedente_v1.0.0.xsd"/>    
     <xsd:import namespace="http://agid.it/suap/vocabularies/ruolo_procuratore" schemaLocation="../01_vocabularies/voc_ruolo_procuratore_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>
-
+    
+    <xsd:annotation>
+        <xsd:documentation>
+            Nota su impostazione Agid/FVG, in attesa di validazione da Funzione pubblica.
+            
+            Espresso in glossario condiviso Agid/fvg: il Richiedente, ovvero chi trasmette l'istanza è una persona fisica, che può essere il  
+            rappresentante dell' impresa (titolare o rappresentante legale) o esterno all' impresa (ex. delegato con procura). 
+            Il soggetto istante è l'impresa.
+            
+            Quindi nel modulo scheda anagrafica proponiamo che:
+            -  il cosiddetto dichiarante diventi il "rappresentante" dell'impresa (titolare o rapp.legale).
+            -  il cosiddetto procuratore diventa l'intermediario visto che il termine procura si usa anche per le procure interne ad un impresa
+            e non rappresenta bene il concetto di soggetto esterno.
+            
+            N.B: l'attuale blocco dichiarante (rinominato in rappresentante nella proposta) viene compilato sempre anche in caso di intermediazione
+            (ex. procura) in quanto serve ad indicare la persona fisica referente per l'impresa (persona giuridica).
+            
+        </xsd:documentation>
+    </xsd:annotation>
+    
     <xsd:complexType name="scheda_anagrafica_type">
         <xsd:sequence>
-
-            <xsd:element name="dichiarante" minOccurs="1" maxOccurs="1">
+            
+            <!-- diversamentre dal sus non è chi presenta la domanda ma il beneficiario dell'autorizzazione ? -->    
+            <xsd:element name="rappresentante" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        abbiamo proposto rinomina del dichiarante in rappresentante                           
+                    </xsd:documentation>
+                </xsd:annotation>   
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
                         <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
-                        <xsd:element name="documento_rilasciato" type="edocril:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="permesso_soggiorno" type="edocril:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
                         <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xsd:complexType>
                                 <xsd:sequence>                             
                                     <xsd:choice>
-                                       <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-                                       <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
+                                        <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                                        <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
                                     </xsd:choice>  
                                 </xsd:sequence>
                             </xsd:complexType>
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="ruolo" type="vruoric:ruolo_richiedente_voc" minOccurs="1" maxOccurs="1"/>
+                        <!-- spostato da opera con -->
+                        <xsd:element name="rappresentanza" type="erapp:rappresentanza_ctype"  minOccurs="1" maxOccurs="1"/>
                     </xsd:sequence>
                 </xsd:complexType>                
             </xsd:element>
-                        
-            <xsd:element name="impresa" minOccurs="1" maxOccurs="1">
-                <xsd:complexType>
-                    <xsd:complexContent>
-                        <xsd:extension base="eimpresa:impresa_ctype">
-                            <xsd:sequence>
-                                <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-                            </xsd:sequence>
-                        </xsd:extension>
-                    </xsd:complexContent>
-                </xsd:complexType>                                       
-            </xsd:element>    
             
-            <xsd:element name="procuratore" minOccurs="0" maxOccurs="1">
+            <!-- TODO esportare definizione di impresa in entità riusabile -> esempio per collegare il fatto che una persona è stata dipendente di una certa impresa -->
+            <xsd:element name="impresa" minOccurs="1" maxOccurs="1" type="eimp:impresa_ctype"/>
+            
+            <xsd:element name="intermediario" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        è persona sempre esterna all'impresa da cui la proposta di termine intermediario (le procure si usano anche per nomine
+                        interne ad una organizzazione).                         
+                    </xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>                        
+                        <xsd:element name="datiPersona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <!--
+                            FIXME: pro futuro: nel caso SGD come funzione? Anche senza cittadinanza italiana?
+                        <xsd:element name="cittadinanza" type="eci:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
+                        -->
                         <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xsd:complexType>
                                 <xsd:sequence>                             
@@ -82,14 +112,12 @@
                             </xsd:complexType>
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="ruolo" type="vruopro:ruolo_procuratore_voc" minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="denominazione_agenzia_imprese" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1"/>
                     </xsd:sequence>
+                    <!-- TODO: valutare se il caso agenzia per le imprese e' da prevedere o meno
+                        -->
                 </xsd:complexType>                
             </xsd:element>            
         </xsd:sequence>   
-    </xsd:complexType> 
-    
-    
+    </xsd:complexType>     
     <xsd:element name="scheda_anagrafica" type="sscheana:scheda_anagrafica_type"/>        
 </xsd:schema>
