@@ -18,6 +18,11 @@
             <sch:let name="stato_estero" value="normalize-space(epers:stato_estero)"/>
             
             
+            <sch:assert test="$luogo_nascita_italiano='' or $data_nascita!=''">
+                
+                Per persone nati in itali il comune di nascita è obbligatorio                 
+            </sch:assert>
+            
             <sch:assert test="
                 $luogo_nascita_italiano='' or count(
                                                         $keysStoricoComuni[
