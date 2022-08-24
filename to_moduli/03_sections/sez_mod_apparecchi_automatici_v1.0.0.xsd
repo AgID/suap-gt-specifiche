@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+       
+       xmlns:smodappaut="http://agid.it/suap/sections/mod_apparecchi_automatici"
+       xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+        
+    targetNamespace="http://agid.it/suap/sections/mod_apparecchi_automatici"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xsd:import namespace="http://agid.it/suap/entities/settori_merceologici" schemaLocation="../02_entities/ent_settori_merceologici_v1.0.0.xsd"/>
+    
+    <xsd:element name="mod_apparecchi_automatici" type="smodappaut:mod_apparecchi_automatici_type"/>
+    
+    <xsd:complexType name="mod_apparecchi_automatici_type">
+        <xsd:sequence>
+            <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
+        </xsd:sequence>        
+    </xsd:complexType>    
+</xsd:schema>

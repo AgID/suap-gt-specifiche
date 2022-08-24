@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_persona_v1.0.0.sch">
+    <x:scenario label="Test sulla persona fisica">
+
+        <x:scenario label="Luogo di nascita italiano CORRETTO">
+            <x:context href="ent_persona_v1.0.0.tc.ok.italiano.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_comune_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+        </x:scenario>
+
+       <x:scenario label="Luogo di nascita stato estero CORRETTO">
+           <x:context href="ent_persona_v1.0.0.tc.ok.estero.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_stato_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+        </x:scenario>  
+
+        <x:scenario label="Luogo di nascita italiano NON CORRETTO">
+            <x:context href="ent_persona_v1.0.0.tc.ko.italiano.check_cl.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_comune_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+        </x:scenario>
+        
+        <x:scenario label="Luogo di nascita stato estero NON CORRETTO">
+            <x:context href="ent_persona_v1.0.0.tc.ko.estero.check_cl.xml"/>
+            
+            <x:expect-not-assert label=""
+                id="ass_stato_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+        </x:scenario>
+    </x:scenario>
+   
+</x:description>
