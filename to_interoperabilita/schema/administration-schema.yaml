@@ -1,0 +1,25 @@
+definitions: {}
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": "#root/administration"
+title: amministrazione censita nel Catalogo SSU
+type: object
+required:
+  - ipacode
+  - code
+  - version
+properties:
+  ipacode:
+    "$id": "#root/ipacode"
+    title: codice IPA dell'amministrazione
+    type: string
+    minLength: 1
+  code:
+    "$id": "#root/code"
+    title: codice dell'ufficio dell'amministrazione nel Catalogo SSU
+    type: string
+    minLength: 1
+  version:
+    "$id": "#root/version"
+    title: versione dell'ufficio dell'amministrazione nel Catalogo SSU
+    type: string
+    minLength: 1

@@ -66,7 +66,7 @@ properties:
         code:
           "$id": "#root/proceedings/code"
           title: codice della fattispecie presente nel Catalogo
-          type: string
+          type: stringS
           minLength: 1
         version:
           "$id": "#root/proceedings/version"
@@ -75,27 +75,8 @@ properties:
           minLength: 1
         competent_administration:
           "$id": "#root/proceedings/competent_administration"
-          title: amministrazione compoetente del procedimento
-          type: object
-          required:
-          - administration
-          - endpoint
-          properties:
-            ipa:
-              "$id": "#root/proceedings/competent_administration/cod_IPA"
-              title: codice IPA dell'amministrazione
-              type: string
-              minLength: 1
-            code:
-              "$id": "#root/proceedings/competent_administration/code"
-              title: codice dell'ufficio dell'amministrazione
-              type: string
-              minLength: 1
-            version:
-              "$id": "#root/proceedings/competent_administration/version"
-              title: versione dell'ufficio dell'amministrazione
-              type: string
-              minLength: 1
+          title: amministrazione competente del procedimento
+          $ref: "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
         form:
           "$id": "#root/proceedings/form"
           title: riferimeo agli oggetti per la validazione
