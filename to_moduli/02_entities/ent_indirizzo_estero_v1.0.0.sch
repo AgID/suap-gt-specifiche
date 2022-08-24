@@ -15,7 +15,7 @@
             
             <sch:let name="stato" value="normalize-space(eie:stato_estero)"/>
             
-            <sch:assert id="ass_stato_cl_check" test="count($keysStati[
+            <sch:assert id="indirizzo_estero_ab_ass_stato_cl_check" test="count($keysStati[
                 normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato
                 ]) = 1">
                 Stato estero non esiste (<sch:value-of select="$stato"/>) 

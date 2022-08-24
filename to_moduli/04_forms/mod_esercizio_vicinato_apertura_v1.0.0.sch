@@ -46,6 +46,8 @@
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     
+    <!-- TODO: aggiungere controllo altre dichiarazioni -->
+    
     <sch:pattern id="allegati_ab" abstract="true">       
         <sch:rule context="$allegati">                     
             <sch:assert test="normalize-space(eallegati:planimetria_locali)=''"> 
@@ -188,6 +190,14 @@
         <sch:param name="file" value="eallegati:dichiarazione_requisiti_soci"/>        
     </sch:pattern>
     
+    <sch:pattern id="files_attestazione_versamenti" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:attestazione_versamenti"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="files_attestazione_imposta_bollo" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:attestazione_imposta_bollo"/>        
+    </sch:pattern>
+    
     
     <sch:phase id="non_alimentare_ph">
         <sch:active pattern="non_alimentare"/>
@@ -215,6 +225,8 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="files_attestazione_versamenti"/>
+        <sch:active pattern="files_attestazione_imposta_bollo"/>
         <sch:active pattern="allegati"/>
     </sch:phase>
     
@@ -244,6 +256,8 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="files_attestazione_versamenti"/>
+        <sch:active pattern="files_attestazione_imposta_bollo"/>
         <sch:active pattern="allegati"/>
     </sch:phase>
    
