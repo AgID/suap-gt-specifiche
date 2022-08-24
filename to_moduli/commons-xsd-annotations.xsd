@@ -15,8 +15,7 @@
                             Identificativo di una code list associata ad un certo elemento 
                         </xsd:documentation>
                     </xsd:annotation>
-                </xsd:element>
-                                          
+                </xsd:element>                                          
             </xsd:sequence> 
         </xsd:complexType>
     </xsd:element>
