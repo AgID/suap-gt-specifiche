@@ -3,14 +3,32 @@
     
     xmlns:sallegati="http://agid.it/suap/sections/allegati"
     
-    xmlns:eallegati="http://agid.it/suap/entities/allegati"
+    xmlns:efile="http://agid.it/suap/entities/file"
     
     targetNamespace="http://agid.it/suap/sections/allegati"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xsd:import namespace="http://agid.it/suap/entities/allegati" schemaLocation="../02_entities/ent_allegati_v1.0.0.xsd"/>
-   
-    <xsd:element name="allegati" type="eallegati:allegati_ctype"/>
+    <xsd:import namespace="http://agid.it/suap/entities/file" schemaLocation="../02_entities/ent_files_v1.0.0.xsd"/>
+    
+    <xsd:complexType name="allegati_ctype" abstract="true">
+        <xsd:sequence>
+            <xsd:element name="procura_delega" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="dichiarazione_requisiti_soci" type="efile:file_ctype" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="dichiarazione_requisiti_preposto" type="efile:file_ctype" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="planimetria_locali" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="attestazione_versamenti" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="attestazione_imposta_bollo" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>            
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="allegati_ctype_italia">
+        <xsd:complexContent>
+            <xsd:extension base="sallegati:allegati_ctype">               
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="allegati" type="sallegati:allegati_ctype"/>
     
 </xsd:schema>

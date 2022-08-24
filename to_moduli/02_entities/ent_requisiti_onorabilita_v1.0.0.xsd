@@ -2,15 +2,19 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     
     xmlns:ereqono="http://agid.it/suap/entities/requisiti_onorabilita"
+    
+    xmlns:cdichiara="http://agid.it/suap/commons/dichiarazioni"
         
     targetNamespace="http://agid.it/suap/entities/requisiti_onorabilita"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
+    <xsd:import namespace="http://agid.it/suap/commons/dichiarazioni" schemaLocation="../commons-dichiarazioni.xsd"/>
+    
     <xsd:complexType name="requisiti_onorabilita_ctype">
         <xsd:sequence>
-            <xsd:element name="possesso_requisiti_onorabilita" type="xsd:boolean" fixed="true" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="no_cause_divieto" type="xsd:boolean" fixed="true" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="possesso_requisiti_onorabilita" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="no_cause_divieto" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
     
