@@ -23,33 +23,26 @@
             <xsd:element name="nome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="cognome" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="sesso" type="vpergen:sesso_voc" minOccurs="0" maxOccurs="1"/>            
-            
-            <xsd:choice minOccurs="1" maxOccurs="1">
-                <xsd:sequence>
-                    <xsd:element name="data_nascita_italia" type="xsd:date" minOccurs="1" maxOccurs="1"/>
-                    <xsd:element name="luogo_nascita_italiano" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
-                        <xsd:annotation>
-                            <xsd:appinfo>                        
-                                <canncl:codeListReference>
-                                    <canncl:ShortName>IT:SUAP:CL:ComuniItalianiStorico</canncl:ShortName>
-                                </canncl:codeListReference>                        
-                            </xsd:appinfo>                    
-                        </xsd:annotation>                    
-                    </xsd:element>                    
-                </xsd:sequence>                
-                <xsd:sequence>
-                    <xsd:element name="data_nascita_estero" type="xsd:date" minOccurs="0" maxOccurs="1"/>
-                    <xsd:element name="luogo_nascita_estero" type="ctipi:stringa_standard_stype" minOccurs="1" maxOccurs="1" />
-                    <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
-                        <xsd:annotation>
-                            <xsd:appinfo>                        
-                                <canncl:codeListReference>
-                                    <canncl:ShortName>IT:SUAP:CL:Stati</canncl:ShortName>
-                                </canncl:codeListReference>                        
-                            </xsd:appinfo>                    
-                        </xsd:annotation>
-                    </xsd:element>                    
-                </xsd:sequence>
+            <xsd:element name="data_nascita" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+            <xsd:choice minOccurs="0" maxOccurs="1">
+                <xsd:element name="luogo_nascita_italiano" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
+                    <xsd:annotation>
+                        <xsd:appinfo>                        
+                            <canncl:codeListReference>
+                                <canncl:ShortName>IT:SUAP:CL:ComuniItalianiStorico</canncl:ShortName>
+                            </canncl:codeListReference>                        
+                        </xsd:appinfo>                    
+                    </xsd:annotation>                    
+                </xsd:element>                                   
+                <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
+                    <xsd:annotation>
+                        <xsd:appinfo>                        
+                            <canncl:codeListReference>
+                                <canncl:ShortName>IT:SUAP:CL:Stati</canncl:ShortName>
+                            </canncl:codeListReference>                        
+                        </xsd:appinfo>                    
+                    </xsd:annotation>
+                </xsd:element>                    
             </xsd:choice>
        </xsd:sequence>        
     </xsd:complexType>          

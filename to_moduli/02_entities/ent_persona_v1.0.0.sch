@@ -17,9 +17,13 @@
             <sch:let name="luogo_nascita_italiano" value="normalize-space(epers:luogo_nascita_italiano)"/>
             <sch:let name="stato_estero" value="normalize-space(epers:stato_estero)"/>
             
+          
+            <sch:assert test="$luogo_nascita_italiano='' or $data_nascita!=''">
+                
+                Per persone nate in italia la data di nascita è obbligatorio                 
+            </sch:assert>
             
-            <sch:assert id="ass_comune_nascita_cl_check" test="
-                $luogo_nascita_italiano='' or count(
+            <sch:assert id="ass_comune_nascita_cl_check" test="$luogo_nascita_italiano='' or count(
                                                         $keysStoricoComuni[
                                                             normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $luogo_nascita_italiano
                                                             and xs:date(Value[@ColumnRef = 'data_istituzione']/SimpleValue) &lt;= xs:date($data_nascita)
