@@ -17,6 +17,14 @@
     <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/> 
     <xsd:import namespace="http://agid.it/suap/vocabularies/persona_genere" schemaLocation="../01_vocabularies/voc_persona_genere_v1.0.0.xsd"/>
     
+    <xsd:simpleType name="localita_estero_stype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="100"/>
+            <xsd:minLength value="1"/>
+            <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
     <xsd:complexType name="persona_ctype">
         <xsd:sequence>
             <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
@@ -33,16 +41,19 @@
                             </canncl:codeListReference>                        
                         </xsd:appinfo>                    
                     </xsd:annotation>                    
-                </xsd:element>                                   
-                <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
-                    <xsd:annotation>
-                        <xsd:appinfo>                        
-                            <canncl:codeListReference>
-                                <canncl:ShortName>IT:SUAP:CL:Stati</canncl:ShortName>
-                            </canncl:codeListReference>                        
-                        </xsd:appinfo>                    
-                    </xsd:annotation>
-                </xsd:element>                    
+                </xsd:element> 
+                <xsd:sequence>
+                    <xsd:element name="localita_estero" type="epers:localita_estero_stype" minOccurs="0" maxOccurs="1"/> 
+                    <xsd:element name="stato_estero" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1" >
+                        <xsd:annotation>
+                            <xsd:appinfo>                        
+                                <canncl:codeListReference>
+                                    <canncl:ShortName>IT:SUAP:CL:Stati</canncl:ShortName>
+                                </canncl:codeListReference>                        
+                            </xsd:appinfo>                    
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>                                   
             </xsd:choice>
        </xsd:sequence>        
     </xsd:complexType>          
