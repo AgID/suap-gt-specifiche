@@ -3,11 +3,10 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_indirizzo_italiano_v1.0.0.sch">
     <x:scenario label="Test sul comune">
 
-        <x:scenario label="Codice del comune corretto">
+        <x:scenario label="Indirizzo italiano corretto">
             <x:context href="ent_indirizzo_italiano_v1.0.0.tc.ok.xml"/>
             
-            <x:expect-not-assert label=""
-                id="ass_comune_cl_check" location="/*:indirizzo_italiano[namespace-uri()='http://agid.it/suap/entities/indirizzo_italiano'][1]"/>
+            <x:expect-not-assert label="" />
         </x:scenario>
 
         <x:scenario label="Codice del comune non esistente">

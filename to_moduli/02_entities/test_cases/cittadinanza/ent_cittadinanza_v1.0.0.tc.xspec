@@ -3,11 +3,9 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_cittadinanza_v1.0.0.sch">
     <x:scenario label="Test sulla cittadinanza">
 
-        <x:scenario label="Codice stato cittadinanza corretto">
+        <x:scenario label="Cittadinanza corretta">
             <x:context href="ent_cittadinanza_v1.0.0.tc.ok.xml"/>
-            
-            <x:expect-not-assert label=""
-                id="ass_stato_cl_check" location="/*:cittadinanza[namespace-uri()='http://agid.it/suap/entities/cittadinanza'][1]"/>
+            <x:expect-not-assert label="" />
         </x:scenario>
 
         <x:scenario label="Codice stato cittadinanza non esistente">
