@@ -1,0 +1,119 @@
+openapi: 3.0.3
+
+info:
+    title: Ente Terzo to BackOffice SUAP
+
+    version: 1.0.0
+
+    description: |- 
+      API rese disponibili da  Ente Terzo a FrontOffice SUAP'
+
+    contact:
+        name: AgID - Agenzia per l'Italia Digitale
+        url:  https://www.agid.gov.it/
+
+    license:
+        name: CC BY-NC-SA 4.0
+        url:  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+servers:
+    -
+        url: xxxxxxxx
+        description: Generated server url
+        
+paths:
+    
+    
+    
+    /send_instance:
+        post:
+            requestBody:
+                content:
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/SendInstanceRequest'
+                required: true
+            responses:
+                "200": 
+                    description: 'OK'
+                    
+      
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []                
+    
+    /notify:
+        post:
+          requestBody:
+                content:
+                    application/json: 
+                      schema:
+                        $ref: '#/components/schemas/NotifyMessage'
+                required: true
+          responses:
+                "200": 
+                    description: 'ack'
+
+          security:
+            - bearerAuth: []
+              Agid-JWS-Signature: []                  
+
+
+components:
+  schemas:    
+        SendInstanceRequest:
+            type: object
+            properties:
+                cui:
+                    $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                instance_index:
+                    $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml'
+        NotifyMessage:
+            type: object
+            required:
+                - cui
+                - message
+                
+            properties:
+                cui:
+                    $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
+
+                message:
+                    type: string
+                    enum:
+                        - end_by_time_expired
+                        - end_by_suspend_required
+                        - end_by_conformation_required
+                        - end_by_positive_outcome
+                        - integration_time_expired
+                        - integration_request_time_expired
+                        - cdss_convened
+             
+
+  headers:
+      Agid-JWS-Signature:
+          schema:
+              format: JWS
+              maxLength: 4096
+              type: string
+              example: eyJzd.fafa.fafafa
+          description: |-
+              L'header Agid-JWS-Signature è un JWS (JSON Web Signature) che contiene una firma digitale
+              associata al messaggio scambiato.
+              Vedi il pattern di sicurezza [INTEGRITY_REST_01] del MoDI
+              
+  securitySchemes:
+      bearerAuth:
+          scheme: bearer
+          bearerFormat: JWT
+          type: http
+          description: Implementazione conforme ad RFC8725
+          
+      Agid-JWS-Signature:
+          type: apiKey
+          description: |-
+              Header della firma di JWS.
+              Il valore di questo header è una firma JWS.
+              Vedere Modi  [integrity_rest_01] Integrità del payload del messaggio REST
+          name: Agid-JWS-Signature
+          in: header
