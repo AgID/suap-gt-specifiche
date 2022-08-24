@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"        
+    
+    xmlns:cdichiara="http://agid.it/suap/commons/dichiarazioni"
+    
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    targetNamespace="http://agid.it/suap/commons/dichiarazioni"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xs:simpleType name="dichiarazione_mandatory_choice_type">
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="true"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="dichiarazione_freetext_type">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="dichiarazione_boolean_type">
+        <xs:restriction base="xs:boolean">
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xsd:schema>

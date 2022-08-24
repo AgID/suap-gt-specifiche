@@ -5,20 +5,23 @@
     
     xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
     xmlns:edaca="http://agid.it/suap/entities/dati_catastali"
+    xmlns:econt="http://agid.it/suap/entities/contatti"
        
-       targetNamespace="http://agid.it/suap/sections/riferimento_attivita"
+    targetNamespace="http://agid.it/suap/sections/riferimento_attivita"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
     <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/dati_catastali" schemaLocation="../02_entities/ent_dati_catastali_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/contatti" schemaLocation="../02_entities/ent_contatti_v1.0.0.xsd"/>
     
     <xsd:element name="riferimento_attivita" type="srifatt:riferimento_attivita_type"/>
     
     <xsd:complexType name="riferimento_attivita_type">
         <xsd:sequence>
-            <xsd:element name="indirizzo" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="data_castalli" type="edaca:dati_catastali_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="indirizzo" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/> 
+            <xsd:element name="contatti" type="econt:contatti_ctype"/>            
+            <xsd:element name="dati_catastali" type="edaca:dati_catastali_ctype" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>        
     </xsd:complexType>
     

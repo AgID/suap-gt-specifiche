@@ -35,11 +35,7 @@
         <sch:rule context="$segnalazione_avvio">
             <sch:assert test="normalize-space(esercizio_vicinato)!='' or normalize-space(esclusiva_apparecchi_automatici)!=''"> 
                 Almeno uno tra "Vicinato" o "Vendita esclusivamente mediante apparecchi automatici" deve essere selezionato
-            </sch:assert>
-            
-            <sch:assert test="normalize-space(media_struttura)='' and normalize-space(grande_struttura)=''">
-                Non deve essere presente "Media struttura di vendita" e "Grande struttura di vendita"
-            </sch:assert>
+            </sch:assert>           
         </sch:rule>
         
     </sch:pattern>       

@@ -14,7 +14,7 @@
             
             <sch:let name="stato" value="normalize-space(ecitt:stato_cittadinanza)"/>
             
-            <sch:assert id="ass_stato_cl_check" test="
+            <sch:assert id="cittadinanza_ab_ass_stato_cl_check" test="
                 count($keysStati[
                                     normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato
                                 ]) = 1">
