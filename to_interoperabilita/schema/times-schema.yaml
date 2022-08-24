@@ -1,0 +1,49 @@
+definitions: {}
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": "#root/time"
+title: tempi amministrativi dell'istanza
+type: object
+required:
+- start
+- end
+properties:
+  start:
+    "$id": "#root/time/start"
+    title: data avvio dell'istanza
+    type: string
+    format: date
+  end:
+    "$id": "#root/time/end"
+    title: data avvio dell'istanza
+    type: string
+    format: date
+  max_admissibility:
+    "$id": "#root/time/t_max_admissibility"
+    title: data limite verifica ammissibilità
+    type: string
+    format: date
+  max_integration_request:
+    "$id": "#root/time/max_integration_request"
+    title: data limite verifica ammissibilità
+    type: string
+    format: date
+  max_integration_response:
+    "$id": "#root/time/max_integration_response"
+    title: data limite verifica ammissibilità
+    type: string
+    format: date
+  max_conclusions_sending:
+    "$id": "#root/time/max_conclusions_sending"
+    title: data limite verifica ammissibilità
+    type: string
+    format: date
+  date_cdss:
+    "$id": "#root/time/date_cdss"
+    title: data limite verifica ammissibilità
+    type: string
+    format: date
+  max_cdss_request:
+    "$id": "#root/time/max_cdss_request"
+    title: data limite verifica ammissibilità
+    type: string
+    format: date

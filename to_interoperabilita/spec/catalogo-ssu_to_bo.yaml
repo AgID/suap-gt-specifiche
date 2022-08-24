@@ -1,0 +1,155 @@
+openapi: 3.0.3
+
+info:
+    title: SUAP_CatalogoSSU to BackOffice SUAP
+
+    version: 1.0.0
+
+    description: |- 
+      API rese disponibili da Catalogo SSU alle componenti BackOffice SUAP'
+
+    contact:
+        name: AgID - Agenzia per l'Italia Digitale
+        url:  https://www.agid.gov.it/
+
+    license:
+        name: CC BY-NC-SA 4.0
+        url:  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+servers:
+    -
+        url: xxxxxxxx
+        description: Generated server url
+        
+paths:
+    /instance_descriptor:
+        post:
+            requestBody:
+                content:
+                    application/json:
+                      schema:
+                         $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                required: true
+            responses:
+                "200": 
+                    description: 'Instance Descriptor'
+                    content:
+                        application/json: 
+                          schema: 
+                            $ref: '#/components/schemas/InstanceDescriptor'
+                          
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []                
+    
+    /update_times:
+        post:
+            requestBody:
+                content:
+                    application/json:
+                      schema:
+                         $ref: '#/components/schemas/UpdateTimesRequest'
+                required: true
+            responses:
+                "200": 
+                    description: 'Instance Descriptor'
+                    content:
+                        application/json: 
+                          schema: 
+                            $ref: '#/components/schemas/InstanceDescriptor'
+                          
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []   
+    
+    /audit:
+        post:
+          requestBody:
+                content:
+                    application/json: 
+                      schema:
+                        $ref: '#/components/schemas/AuditMessage'
+                required: true
+          responses:
+                "200": 
+                    description: 'ack'
+
+          security:
+            - bearerAuth: []
+              Agid-JWS-Signature: []                  
+
+components:
+  schemas:  
+      UpdateTimesRequest:
+          type: object
+          required:
+            - cui
+            - message
+             
+          properties:
+            cui:
+              $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
+          
+            times:
+              $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml'   
+            
+      AuditMessage:
+          type: object
+          
+          required:
+            - cui
+            - message
+            
+          properties:
+            cui:
+              $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
+          
+            message:
+              type: string
+              pattern: >- 
+                    ^instance_retrived|
+                    correction_request|
+                    corrected_instance_retrived|
+                    instance_refused|
+                    instance_to_[0-9]{5}_sended|
+                    request_integration_time_ended|
+                    integration_requested|
+                    integration_time_ended|
+                    instance_integrated_retrived|
+                    instance_integrated_to_[0-9]{5}_sended|
+                    proceeding_time_ended|
+                    suspend_required|
+                    conformation_required|
+                    cdss_convened|
+                    proceeding_positive_concluded$
+               
+      InstanceDescriptor:
+          $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml'
+
+  headers:
+      Agid-JWS-Signature:
+          schema:
+              format: JWS
+              maxLength: 4096
+              type: string
+              example: eyJzd.fafa.fafafa
+          description: |-
+              L'header Agid-JWS-Signature è un JWS (JSON Web Signature) che contiene una firma digitale
+              associata al messaggio scambiato.
+              Vedi il pattern di sicurezza [INTEGRITY_REST_01] del MoDI
+              
+  securitySchemes:
+      bearerAuth:
+          scheme: bearer
+          bearerFormat: JWT
+          type: http
+          description: Implementazione conforme ad RFC8725
+          
+      Agid-JWS-Signature:
+          type: apiKey
+          description: |-
+              Header della firma di JWS.
+              Il valore di questo header è una firma JWS.
+              Vedere Modi  [integrity_rest_01] Integrità del payload del messaggio REST
+          name: Agid-JWS-Signature
+          in: header
