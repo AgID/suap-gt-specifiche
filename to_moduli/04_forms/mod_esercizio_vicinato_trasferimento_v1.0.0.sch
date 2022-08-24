@@ -39,10 +39,22 @@
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     
+    <sch:pattern id="allegati_ab" abstract="true">       
+        <sch:rule context="$allegati">                     
+            <sch:assert test="normalize-space(eallegati:planimetria_locali)=''"> 
+                Planimetria allegati non prevista
+            </sch:assert>
+        </sch:rule>       
+    </sch:pattern>  
+    
+    <sch:pattern id="allegati" abstract="false" is-a="allegati_ab">
+        <sch:param name="allegati" value="sallegati:allegati"/>        
+    </sch:pattern>
+    
     <sch:pattern id="procuratore_ab" abstract="true">       
         <sch:rule context="$esercizio_vicinato_trasferimento">                     
-            <sch:assert test="normalize-space(//sscheana:procuratore)!='' 
-                and normalize-space(//eallegati:procura_delega)!=''"> 
+            <sch:assert test="normalize-space(//sscheana:procuratore)='' or (normalize-space(//sscheana:procuratore)!='' 
+                and normalize-space(//eallegati:procura_delega)!='')"> 
                 In caso di procuratore l'allegato procura/delega è obbligatorio
             </sch:assert>
         </sch:rule>       
@@ -187,6 +199,7 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="allegati"/>
     </sch:phase>
     
     <sch:phase id="alimentare_ph">
@@ -213,6 +226,7 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="allegati"/>
     </sch:phase>
    
 </sch:schema>

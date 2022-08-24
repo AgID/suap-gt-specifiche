@@ -2,7 +2,6 @@
     @data_creazione: 17 agosto 2022    
     @version: 1.0.0 
 -->
-
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
     <sch:ns uri="http://agid.it/suap/forms/esercizio_vicinato_ampliamento" prefix="mesviamp"/>
@@ -41,10 +40,22 @@
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     
     
+    <sch:pattern id="allegati_ab" abstract="true">       
+        <sch:rule context="$allegati">                     
+            <sch:assert test="normalize-space(eallegati:planimetria_locali)=''"> 
+                Planimetria allegati non prevista
+            </sch:assert>
+        </sch:rule>       
+    </sch:pattern>  
+    
+    <sch:pattern id="allegati" abstract="false" is-a="allegati_ab">
+        <sch:param name="allegati" value="sallegati:allegati"/>        
+    </sch:pattern>
+    
     <sch:pattern id="procuratore_ab" abstract="true">       
         <sch:rule context="$esercizio_vicinato_ampliamento">                     
-            <sch:assert test="normalize-space(//sscheana:procuratore)!='' 
-                and normalize-space(//eallegati:procura_delega)!=''"> 
+            <sch:assert test="normalize-space(//sscheana:procuratore)='' or (normalize-space(//sscheana:procuratore)!='' 
+                and normalize-space(//eallegati:procura_delega)!='')"> 
                 In caso di procuratore l'allegato procura/delega è obbligatorio
             </sch:assert>
         </sch:rule>       
@@ -132,13 +143,13 @@
     </sch:pattern>
     
     <sch:pattern id="requisiti_onorabilita" abstract="false" is-a="requisiti_onorabilita_ab">
-        <sch:param name="requisiti_onorabilita" value="sreonpr:requisiti_onorabilita"/>        
+        <sch:param name="requisiti_onorabilita" value="sreonpr:requisiti_onorabilita"/>
     </sch:pattern>
     
     <sch:pattern id="persona_requisiti_professionali" abstract="false" is-a="persona_ab">
         <sch:param name="persona" value="ereqpro:requisiti_professionali_preposto"/>         
     </sch:pattern>
-    
+       
     <sch:pattern id="indirizzo_italiano_luogo_corso" abstract="false" is-a="indirizzo_italiano_ab">
         <sch:param name="indirizzo_italiano" value="ereqpro:luogo_corso"/>        
     </sch:pattern>
@@ -195,6 +206,7 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="allegati"/>
     </sch:phase>
     
     <sch:phase id="alimentare_ph">
@@ -220,5 +232,6 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="allegati"/>
     </sch:phase>
 </sch:schema>

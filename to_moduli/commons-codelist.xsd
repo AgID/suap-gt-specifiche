@@ -9,8 +9,7 @@
            
     <xsd:simpleType name="CodeType">
         <xsd:annotation>
-            <xsd:documentation xml:lang="en"> Tipo riusabile per utilizzare il codice di un termine
-                da una code list </xsd:documentation>
+            <xsd:documentation xml:lang="en"> Tipo riusabile per utilizzare il codice di un termine da una code list </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:minLength value="1"/>
