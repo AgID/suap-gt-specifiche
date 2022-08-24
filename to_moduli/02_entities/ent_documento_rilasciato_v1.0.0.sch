@@ -12,7 +12,7 @@
             <sch:let name="dataRilascio" value="xs:date(edocril:data_rilascio)"/>
             <sch:let name="dataScadenza" value="xs:date(edocril:data_scadenza)"/>
             
-            <sch:assert test="($dataScadenza &gt;= $dataRilascio)">                
+            <sch:assert id="ass_dr_check_date" test="($dataScadenza &gt;= $dataRilascio)">
                 Data Scadenza (<sch:value-of select="$dataScadenza"/>) deve essere successiva a data di rilascio (<sch:value-of select="$dataRilascio"/>)
             </sch:assert>
             

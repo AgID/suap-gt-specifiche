@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ep:persona xmlns:vpg="http://agid.it/suap/vocabularies/persona_genere"
+ xmlns:ep="http://agid.it/suap/entities/persona"
+ xmlns:cl="http://agid.it/suap/commons/codelist"
+ xmlns:ca="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ct="http://agid.it/suap/commons/tipi"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/persona ../../ent_persona_v1.0.0.xsd">
+    <ep:codice_fiscale>AAAAAA00A00A000A</ep:codice_fiscale>
+    <ep:nome>nome0</ep:nome>
+    <ep:cognome>cognome0</ep:cognome>
+    <ep:sesso>maschio</ep:sesso>
+    <ep:data_nascita>2006-05-04</ep:data_nascita>
+    <ep:luogo_nascita_italiano>codice_errato</ep:luogo_nascita_italiano>
+</ep:persona>

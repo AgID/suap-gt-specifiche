@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ec:cittadinanza xmlns:ec="http://agid.it/suap/entities/cittadinanza"
+  xmlns:cl="http://agid.it/suap/commons/codelist"
+  xmlns:ca="http://agid.it/suap/commons/xsdAnnotations"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://agid.it/suap/entities/cittadinanza ../../ent_cittadinanza_v1.0.0.xsd">
+  <ec:stato_cittadinanza>codice_errato</ec:stato_cittadinanza>
+</ec:cittadinanza>

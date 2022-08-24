@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edr:documento_rilasciato xmlns:edr="http://agid.it/suap/entities/documento_rilasciato"
+    xmlns:cl="http://agid.it/suap/commons/codelist"
+    xmlns:ct="http://agid.it/suap/commons/tipi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://agid.it/suap/entities/documento_rilasciato ../../ent_documento_rilasciato_v1.0.0.xsd">
+    <edr:tipo>tipo0</edr:tipo>
+    <edr:numero>numero0</edr:numero>
+    <edr:ente_rilascio>ente_rilascio0</edr:ente_rilascio>
+    <edr:data_rilascio>2006-05-04</edr:data_rilascio>
+    <edr:data_scadenza>2010-05-04</edr:data_scadenza>
+</edr:documento_rilasciato>
