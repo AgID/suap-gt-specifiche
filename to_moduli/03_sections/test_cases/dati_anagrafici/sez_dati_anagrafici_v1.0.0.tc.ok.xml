@@ -27,7 +27,7 @@
             <epf:sesso>maschio</epf:sesso>
             <epf:data_nascita>2006-05-04</epf:data_nascita>
             <!--            <epf:luogo_nascita_italiano>luogo_nascita_italiano0</epf:luogo_nascita_italiano>-->
-            <epf:luogo_nascita_estero>luogo_nascita_estero0</epf:luogo_nascita_estero>
+            <epf:localita_estero>luogo_nascita_estero0</epf:localita_estero>
             <epf:stato_estero>454</epf:stato_estero>
         </sa:persona>
         <sa:cittadinanza>
@@ -108,7 +108,7 @@
             <epf:sesso>maschio</epf:sesso>
             <epf:data_nascita>2006-05-04</epf:data_nascita>
             <!--            <epf:luogo_nascita_italiano>luogo_nascita_italiano1</epf:luogo_nascita_italiano>-->
-            <epf:luogo_nascita_estero>luogo_nascita_estero1</epf:luogo_nascita_estero>
+            <epf:localita_estero>luogo_nascita_estero1</epf:localita_estero>
             <epf:stato_estero>stato_estero1</epf:stato_estero>
         </sa:datiPersona>
         <sa:residenza>
