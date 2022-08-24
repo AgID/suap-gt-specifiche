@@ -18,8 +18,9 @@ proceedings:
 - code: VICINATO_ALIMENTARE
   version: '1'
   competent_administration:
-    administration: COM_063049
-    endpoint: www.comune.napoli.it/REST/ufficio_tecnico_SUAP
+    ipacode: c_f839
+    code: COM_063049
+    version: 1
   form:
     xsd:
       code: mod_esercizio_vicinato
@@ -36,8 +37,9 @@ proceedings:
 - code: PIN
   version: '1'
   competent_administration:
-    administration: VVF_nazionale
-    endpoint: www.vigilfuoco.it/REST/PIN_SUAP
+    ipacode: m_it
+    code: VVF_nazionale
+    version: 1
   form:
     xsd:
       code: mod_pin

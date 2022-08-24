@@ -44,7 +44,7 @@ paths:
                 content:
                     application/json:
                       schema:
-                         $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                         $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
                 required: true
             responses:
                 "200": 
@@ -110,10 +110,28 @@ components:
           type: object
           properties:
             cui:
-              $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
             integration_list:
-              $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/integration-list-schema.yaml'
-       
+                type: array
+                items:
+                    type: object
+                    required:
+                    - code
+                    - ref
+                    - integration_request
+                    properties:
+                        code:
+                            title: codice della fattispecie presente nel Catalogo
+                            type: string
+                            minLength: 1
+                        ref:
+                            title: riferimento all'elemento dell'istanza relativo al procedimento
+                            type: string
+                            minLength: 1
+                        integration_request:       
+                            title: testo integrazione richiesta
+                            type: string
+
         SendConclusionRequests:
             type: object
             oneOf:

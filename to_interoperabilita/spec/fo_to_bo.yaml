@@ -111,7 +111,7 @@ components:
           properties:
             cui:
                 $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-            integration_list:
+            correction_list:
                 type: array
                 items:
                     type: object
@@ -128,8 +128,8 @@ components:
                             title: riferimento all'elemento dell'istanza relativo al procedimento
                             type: string
                             minLength: 1
-                        integration_request:       
-                            title: testo integrazione richiesta
+                        correction_request:       
+                            title: testo correzzione richiesta
                             type: string
                          
 
