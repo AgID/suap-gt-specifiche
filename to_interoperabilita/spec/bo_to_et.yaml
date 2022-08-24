@@ -44,7 +44,7 @@ paths:
                 content:
                     application/json:
                       schema:
-                         $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                         $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 required: true
             responses:
                 "200": 
@@ -110,9 +110,9 @@ components:
           type: object
           properties:
             cui:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+              $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
             integration_list:
-              $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/integration-list-schema.yaml'
+              $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/integration-list-schema.yaml'
        
         SendConclusionRequests:
             type: object
@@ -128,7 +128,7 @@ components:
               - suspend_motivation
             properties:
                 cui:
-                    $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                    $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 suspend_motivation:
                     type: string
                     minLength: 1
@@ -141,7 +141,7 @@ components:
                 - conformation_requested
             properties:
                 cui:
-                    $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                    $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 date: 
                     type: string
                     format: date
@@ -155,7 +155,7 @@ components:
               - outcome
             properties:
                 cui:
-                    $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
+                    $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 outcome:
                     type: string
                     minLength: 1

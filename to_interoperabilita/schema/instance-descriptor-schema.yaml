@@ -14,7 +14,7 @@ properties:
     type: integer
   cui:
     "$id": "#root/cui"
-    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+    "$ref": "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
   municipality:
     "$id": "#root/municipality"
     title: codice istat 6 cifre del comune in cui l'istanza è stata presentata
@@ -50,7 +50,7 @@ properties:
           format: date-time
   times:
     "$id": "#root/time"
-    "$ref": "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml"  
+    "$ref": "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml"  
     
   proceedings:
     "$id": "#root/proceedings"
@@ -76,7 +76,7 @@ properties:
         competent_administration:
           "$id": "#root/proceedings/competent_administration"
           title: amministrazione competente del procedimento
-          $ref: "https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
+          $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
         form:
           "$id": "#root/proceedings/form"
           title: riferimeo agli oggetti per la validazione

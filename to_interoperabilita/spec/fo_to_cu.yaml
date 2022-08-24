@@ -80,7 +80,7 @@ components:
                 - message 
             properties:
                 cui:
-                    $ref: 'https://raw.githubusercontent.com/jackom83/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
+                    $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
                 message:
                     type: string
                     enum:
