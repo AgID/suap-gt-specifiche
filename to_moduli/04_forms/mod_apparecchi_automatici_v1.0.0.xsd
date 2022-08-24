@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:sreat="http://agid.it/suap/sections/riferimento_attivita"
+    xmlns:sdaca="http://agid.it/suap/sections/dati_catastali"
+    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+    xmlns:saldi="http://agid.it/suap/sections/altre_dichiarazioni"
+    xmlns:sscheana="http://agid.it/suap/sections/scheda_anagrafica"
+    xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
+    xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
+    xmlns:sallegati="http://agid.it/suap/sections/allegati"
+    xmlns:mesvi="http://agid.it/suap/forms/apparecchi_automatici"
+    xmlns:smodappaut="http://agid.it/suap/sections/mod_apparecchi_automatici"
+    targetNamespace="http://agid.it/suap/forms/apparecchi_automatici"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+
+    <xs:import namespace="http://agid.it/suap/sections/scheda_anagrafica" schemaLocation="../03_sections/sez_dati_anagrafici_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/riferimento_attivita" schemaLocation="../03_sections/sez_riferimento_attivita_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/requisiti_onorabilita_professionali" schemaLocation="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/altre_dichiarazioni" schemaLocation="../03_sections/sez_altre_dichiarazioni_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/allegati" schemaLocation="../03_sections/sez_allegati_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/mod_apparecchi_automatici" schemaLocation="../03_sections/sez_mod_apparecchi_automatici_v1.0.0.xsd"/>
+    
+    <xs:element name="apparecchi_automatici_mod" type="mesvi:apparecchi_automatici_type"/>
+    
+    <xs:complexType name="apparecchi_automatici_type">
+        <xs:sequence>
+            <xs:element ref="sscheana:scheda_anagrafica" minOccurs="1" maxOccurs="1"/>
+            <!-- questo modulo non prevede di indicare la "localizzazione della attivita ma piuttosto il magazzino -->
+            <xs:element name="magazzino" type="srifatt:riferimento_attivita_type" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="smodappaut:mod_apparecchi_automatici" minOccurs="1" maxOccurs="1"/>            
+            <xs:element ref="sreonpr:requisiti_onorabilita_professionali" minOccurs="1" maxOccurs="1"/>            
+            <xs:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="sallegati:allegati" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>        
+    </xs:complexType>    
+</xs:schema>
