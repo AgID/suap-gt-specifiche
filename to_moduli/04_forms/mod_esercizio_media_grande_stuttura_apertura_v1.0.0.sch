@@ -4,8 +4,7 @@
 -->
 
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
-
-    
+   
     <sch:ns uri="http://agid.it/suap/forms/esercizio_media_grande_apertura" prefix="mesmegrap"/>    
     <sch:ns uri="http://agid.it/suap/sections/scheda_anagrafica" prefix="sscheana"/>
     <sch:ns uri="http://agid.it/suap/entities/persona" prefix="epers"/>
@@ -78,6 +77,10 @@
         <sch:rule context="$allegati">                                 
             <sch:assert id="allegati_ab-planimetria" test="normalize-space(eallegati:planimetria_locali)!=''"> 
                 Planimetria allegati è obbligatoria
+            </sch:assert>
+            
+            <sch:assert id="allegati_ab-assolvemento_imposta_bolloi" test="normalize-space(eallegati:assolvemento_imposta_bollo)!=''"> 
+                Assolvemento imposta bollo è obbligatoria
             </sch:assert>
         </sch:rule>       
     </sch:pattern>  
