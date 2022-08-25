@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
        
-    xmlns:sapesmegr="http://agid.it/suap/sections/apertura_esercizio_medio_grande"
+    xmlns:sapesmegr="http://agid.it/suap/sections/apertura_esercizio_media_grande"
     
     xmlns:ecarese="http://agid.it/suap/entities/carattere_esercizio"
     xmlns:ecencom="http://agid.it/suap/entities/centro_commerciale"
     xmlns:emodven="http://agid.it/suap/entities/modalita_vendita"    
     xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
         
-    targetNamespace="http://agid.it/suap/sections/apertura_esercizio_medio_grande"
+        targetNamespace="http://agid.it/suap/sections/apertura_esercizio_media_grande"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
 
@@ -17,9 +17,7 @@
     <xsd:import namespace="http://agid.it/suap/entities/modalita_vendita" schemaLocation="../02_entities/ent_modalita_vendita_v1.0.0.xsd"/>    
     <xsd:import namespace="http://agid.it/suap/entities/settori_merceologici" schemaLocation="../02_entities/ent_settori_merceologici_v1.0.0.xsd"/>
     
-    <xsd:element name="apertura_medio_grande_esercizio" type="sapesmegr:apertura_medio_grande_esercizio_type"/>
-    
-    <xsd:complexType name="apertura_medio_grande_esercizio_type">
+    <xsd:complexType name="apertura_media_grande_esercizio_type">
         <xsd:sequence>
             <xsd:element name="segnalazione_avvio" minOccurs="1" maxOccurs="1">
                 <xsd:complexType>
@@ -35,5 +33,7 @@
             <xsd:element name="in_centro_commerciale" type="ecencom:centro_commerciale_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
         </xsd:sequence>        
-    </xsd:complexType>    
+    </xsd:complexType>
+
+    <xsd:element name="apertura_media_grande_esercizio" type="sapesmegr:apertura_media_grande_esercizio_type"/>
 </xsd:schema>
