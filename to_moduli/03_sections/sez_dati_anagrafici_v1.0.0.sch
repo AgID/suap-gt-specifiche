@@ -25,7 +25,7 @@
         <sch:rule context="$procuratore">
             <sch:let name="ruolo" value="normalize-space(sscheana:ruolo)"/>
             
-            <sch:assert test="$procuratore='' 
+            <sch:assert id="sez_dati_anagrafici_ab-procuratore" test="$procuratore='' 
                 or ($ruolo!='Agenzia per le imprese')
                 or ($ruolo='Agenzia per le imprese' and normalize-space(sscheana:denominazione_agenzia_imprese)!='')">  
                 

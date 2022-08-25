@@ -20,6 +20,8 @@
             <xsd:element name="rispetto_regolamenti_igiene" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="rispetto_normativa_occupazione_suolo_pubblico" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="impegno_comunicazioni_apparecchi_automatici" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="rispetto_normativa_prevenzioni_incendi" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="rispetto_normativa_movimentazione_merci" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
     

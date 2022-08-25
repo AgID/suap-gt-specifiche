@@ -24,6 +24,7 @@
     <sch:ns uri="http://agid.it/suap/entities/allegati" prefix="eallegati"/>
     <sch:ns uri="http://agid.it/suap/sections/allegati" prefix="sallegati"/>
     <sch:ns uri="http://agid.it/suap/entities/file" prefix="efile"/> 
+    <sch:ns uri="http://agid.it/suapsections/altre_dichiarazioni" prefix="saltdic"/>
             
     <sch:include href="../03_sections/sez_dati_anagrafici_v1.0.0.sch#sez_dati_anagrafici_ab"/>
     <sch:include href="../02_entities/ent_persona_v1.0.0.sch#persona_ab"/>
@@ -34,16 +35,32 @@
     <sch:include href="../02_entities/ent_impresa_v1.0.0.sch#impresa_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
-    <sch:include href="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.sch#requisiti_onorabilita_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
+    <sch:include href="../commons-pattern.sch#alimentare_ab"/>
+    <sch:include href="../commons-pattern.sch#non_alimentare_ab"/>
+    <sch:include href="../commons-pattern.sch#procuratore_ab"/>
     
-    <!-- TODO: aggiungere controllo altre dichiarazioni -->
+    <sch:pattern id="altre_dichiarazioni_ab" abstract="true">       
+        <sch:rule context="$altre_dichiarazioni"> 
+            <sch:assert id="allegati_ab-rispetto_regolamenti_locali" test="normalize-space(saltdic:rispetto_regolamenti_locali)!=''"> 
+                Dichiarazione rispetto regolamenti locali è obbligatoria
+            </sch:assert>
+            
+            <sch:assert id="allegati_ab-impegno_comunicazioni" test="normalize-space(saltdic:impegno_comunicazioni)!=''"> 
+                Dichiarazione impegno comunicazioni variazioni è obbligatoria
+            </sch:assert>            
+        </sch:rule>       
+    </sch:pattern>  
+    
+    <sch:pattern id="altre_dichiarazioni" abstract="false" is-a="altre_dichiarazioni_ab">
+        <sch:param name="altre_dichiarazioni" value="saltdic:altre_dichiazioni"/>        
+    </sch:pattern>
     
     <sch:pattern id="allegati_ab" abstract="true">       
         <sch:rule context="$allegati">                     
-            <sch:assert test="normalize-space(eallegati:planimetria_locali)=''"> 
+            <sch:assert id="allegati_ab-non_planimetria" test="normalize-space(eallegati:planimetria_locali)=''"> 
                 Planimetria allegati non prevista
             </sch:assert>
         </sch:rule>       
@@ -53,45 +70,18 @@
         <sch:param name="allegati" value="sallegati:allegati"/>        
     </sch:pattern>
     
-    <sch:pattern id="procuratore_ab" abstract="true">       
-        <sch:rule context="$esercizio_vicinato_trasferimento">                     
-            <sch:assert test="normalize-space(//sscheana:procuratore)='' or (normalize-space(//sscheana:procuratore)!='' 
-                and normalize-space(//eallegati:procura_delega)!='')"> 
-                In caso di procuratore l'allegato procura/delega è obbligatorio
-            </sch:assert>
-        </sch:rule>       
-    </sch:pattern>  
-    
     <sch:pattern id="procuratore" abstract="false" is-a="procuratore_ab">
-        <sch:param name="esercizio_vicinato_trasferimento" value="mesvitr:esercizio_vicinato_trasferimento"/>        
+        <sch:param name="modulo" value="mesvitr:esercizio_vicinato_trasferimento"/>        
     </sch:pattern>
-    
-    <sch:pattern id="alimentare_ab" abstract="true">       
-        <sch:rule context="$esercizio_vicinato_trasferimento">            
-            <sch:assert test="normalize-space(//esetmer:alimentare)!='' 
-                and normalize-space(//sreonpr:requisiti_professionali)!=''"> 
-                In caso di vendita alimentari è obbligatori almeno un titolo professionale deve essere indicato oppure deve essere indicato il preposto con titolo professionale 
-            </sch:assert>
-        </sch:rule>       
-    </sch:pattern>       
     
     <sch:pattern id="alimentare" abstract="false" is-a="alimentare_ab">
-        <sch:param name="esercizio_vicinato_trasferimento" value="mesvitr:esercizio_vicinato_trasferimento"/>        
+        <sch:param name="modulo" value="mesvitr:esercizio_vicinato_trasferimento"/>        
     </sch:pattern>
-    
-    <sch:pattern id="non_alimentare_ab" abstract="true">       
-        <sch:rule context="$esercizio_vicinato_trasferimento">
-            <sch:assert test="normalize-space(//esetmer:alimentare)=''"> 
-                Non deve essere valorizzato vendita alimentare 
-            </sch:assert>
-        </sch:rule>       
-    </sch:pattern>       
     
     <sch:pattern id="non_alimentare" abstract="false" is-a="non_alimentare_ab">
-        <sch:param name="esercizio_vicinato_trasferimento" value="mesvitr:esercizio_vicinato_trasferimento"/>        
+        <sch:param name="modulo" value="mesvitr:esercizio_vicinato_trasferimento"/>        
     </sch:pattern>
-    
-    
+        
     <sch:pattern id="sez_dati_anagrafici" is-a="sez_dati_anagrafici_ab" >
         <sch:param name="procuratore" value="sscheana:procuratore"/>
     </sch:pattern>
@@ -130,10 +120,6 @@
   
     <sch:pattern id="requisiti_professionali" abstract="false" is-a="requisiti_professionali_ab">
         <sch:param name="requisiti_professionali" value="sreonpr:requisiti_professionali"/>        
-    </sch:pattern>
-    
-    <sch:pattern id="requisiti_onorabilita" abstract="false" is-a="requisiti_onorabilita_ab">
-        <sch:param name="requisiti_onorabilita" value="sreonpr:requisiti_onorabilita"/>        
     </sch:pattern>
     
     <sch:pattern id="persona_requisiti_professionali" abstract="false" is-a="persona_ab">
@@ -199,7 +185,6 @@
         <sch:active pattern="indirizzo_italiano_rif_attivita"/>
         <sch:active pattern="settori_merceologici"/>
         <sch:active pattern="requisiti_professionali"/>
-        <sch:active pattern="requisiti_onorabilita"/>
         <sch:active pattern="persona_requisiti_professionali"/>
         <sch:active pattern="indirizzo_italiano_luogo_corso"/>
         <sch:active pattern="iscrizione_rea_requisiti_professionali"/>
@@ -211,6 +196,7 @@
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
         <sch:active pattern="files_attestazione_versamenti"/>
         <sch:active pattern="files_attestazione_imposta_bollo"/>
+        <sch:active pattern="altre_dichiarazioni"/>
         <sch:active pattern="allegati"/>
     </sch:phase>
     
@@ -228,7 +214,6 @@
         <sch:active pattern="indirizzo_italiano_rif_attivita"/>      
         <sch:active pattern="settori_merceologici"/>
         <sch:active pattern="requisiti_professionali"/>
-        <sch:active pattern="requisiti_onorabilita"/>
         <sch:active pattern="persona_requisiti_professionali"/>
         <sch:active pattern="indirizzo_italiano_luogo_corso"/>
         <sch:active pattern="iscrizione_rea_requisiti_professionali"/>
@@ -240,6 +225,7 @@
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
         <sch:active pattern="files_attestazione_versamenti"/>
         <sch:active pattern="files_attestazione_imposta_bollo"/>
+        <sch:active pattern="altre_dichiarazioni"/>
         <sch:active pattern="allegati"/>
     </sch:phase>
    

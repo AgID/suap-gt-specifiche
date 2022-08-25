@@ -15,7 +15,7 @@
             
             <sch:let name="content_type" value="normalize-space(efile:content_type)"/>
             
-            <sch:assert test="count($keysMime[
+            <sch:assert id="files_ab-mime_type" test="count($keysMime[
                 normalize-space(Value[@ColumnRef='description']/SimpleValue) = $content_type
                 ]) = 1">
                 Mime Type non esiste (<sch:value-of select="$content_type"/>) 
