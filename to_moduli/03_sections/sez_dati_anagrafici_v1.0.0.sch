@@ -21,11 +21,14 @@
     <sch:include href="../02_entities/ent_impresa_v1.0.0.sch#impresa_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     
+    <!--
+        
+    TODO: verificare se accettabile omettere il vocabolario 
     <sch:pattern id="sez_dati_anagrafici_ab" abstract="true">        
-        <sch:rule context="$procuratore">
+        <sch:rule context="$intermediario">
             <sch:let name="ruolo" value="normalize-space(sscheana:ruolo)"/>
             
-            <sch:assert id="sez_dati_anagrafici_ab-procuratore" test="$procuratore='' 
+            <sch:assert id="sez_dati_anagrafici_ab-intermediario" test="$intermediario='' 
                 or ($ruolo!='Agenzia per le imprese')
                 or ($ruolo='Agenzia per le imprese' and normalize-space(sscheana:denominazione_agenzia_imprese)!='')">  
                 
@@ -35,21 +38,65 @@
     </sch:pattern>
     
     <sch:pattern id="sez_dati_anagrafici" is-a="sez_dati_anagrafici_ab" >
-        <sch:param name="procuratore" value="sscheana:procuratore"/>
+        <sch:param name="intermediario" value="sscheana:intermediario"/>
+    </sch:pattern>
+    -->
+    
+    <!-- ***************** Rappresentante/Persona ********************* -->
+
+    <sch:pattern id="rappresentante_persona" is-a="persona_ab" >
+        <sch:param name="persona" value="sscheana:rappresentante/sscheana:persona"/>
     </sch:pattern>
     
-    <sch:pattern id="persona" is-a="persona_ab" >
-        <sch:param name="persona" value="sscheana:persona"/>
+    <sch:pattern id="rappresentante_persona_obbligatorieta">
+        <sch:rule context="sscheana:rappresentante/sscheana:persona">
+            <sch:let name="sesso" value="normalize-space(epers:sesso)"/>
+            <sch:let name="luogo_nascita_italiano" value="normalize-space(epers:luogo_nascita_italiano)"/>
+            <sch:let name="stato_estero" value="normalize-space(epers:stato_estero)"/>
+        
+            <sch:assert id="rappresentante_persona_obbligatorieta_ass_obbligatori" test="$sesso = ''  or ($luogo_nascita_italiano = '' and $stato_estero = '')"> 
+                Per il rappresentante vanno specificati obbligatoriamente sesso e luogo di nascita
+            </sch:assert>
+        </sch:rule>
     </sch:pattern>
     
+    <!-- ***************** Rappresentante/Cittadinanza ********************* -->
+    
+    <!-- 
+        FIXME: il vocabolario degli stati contiene "apolide" che è accettabile solo per un vocabolario
+        di cittadinanza (apolide e' una proprieta della persona)
+    -->
     <sch:pattern id="cittadinanza" abstract="false" is-a="cittadinanza_ab">
-        <sch:param name="cittadinanza" value="sscheana:cittadinanza"/>        
+        <sch:param name="cittadinanza" value="sscheana:rappresentante/sscheana:cittadinanza"/>        
     </sch:pattern>
     
+    <!-- ***************** Rappresentante/Documento rilasciato ********************* -->
+    
+    <!-- 
+        TODO: verificare che il permesso soggiorno presente solo nel caso di cittadino non EU
+        A livello di vocabolario controllato si potrebbe fare ma valutare se oneroso.
+    -->
     <sch:pattern id="documento_rilasciato" abstract="false" is-a="documento_rilasciato_ab">
-        <sch:param name="documento_rilasciato" value="sscheana:documento_rilasciato"/>        
+        <sch:param name="documento_rilasciato" value="sscheana:rappresentante/sscheana:permesso_soggiorno"/>        
     </sch:pattern>
     
+    <!-- ***************** Rappresentante/residenza ********************* -->
+    
+    <sch:pattern id="indirizzo_estero" abstract="false" is-a="indirizzo_estero_ab">
+        <sch:param name="indirizzo_estero" value="sscheana:indirizzo_estero"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="indirizzo_italiano" abstract="false" is-a="indirizzo_italiano_ab">
+        <sch:param name="indirizzo_italiano" value="sscheana:indirizzo_italiano"/>        
+    </sch:pattern>
+    
+    <!-- ***************** Rappresentante/contatti ********************* -->
+    
+    <!-- TODO verificare se a livello modulo è obblgiatorio specificare almeno un contatto -->
+    <!-- vietare l'utilizzo diversi dai 3 indicati nel modulo -->
+    
+    
+    <!--
     <sch:pattern id="iscrizione_rea" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
     </sch:pattern>
@@ -58,12 +105,5 @@
         <sch:param name="impresa" value="sscheana:impresa"/>        
     </sch:pattern>
     
-    <sch:pattern id="indirizzo_estero" abstract="false" is-a="indirizzo_estero_ab">
-        <sch:param name="indirizzo_estero" value="sscheana:indirizzo_estero"/>        
-    </sch:pattern>
-
-    <sch:pattern id="indirizzo_italiano" abstract="false" is-a="indirizzo_italiano_ab">
-        <sch:param name="indirizzo_italiano" value="sscheana:indirizzo_italiano"/>        
-    </sch:pattern>
-    
+    -->
 </sch:schema>

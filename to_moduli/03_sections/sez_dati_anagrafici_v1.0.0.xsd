@@ -65,7 +65,7 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1"/>
                         <xsd:element name="permesso_soggiorno" type="edocril:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
                         <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xsd:complexType>
@@ -112,9 +112,14 @@
                             </xsd:complexType>
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="denominazione_agenzia_imprese" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    Si applica solo nel caso in cui l'intermediario è appunto una agenzia per le imprese
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>                        
                     </xsd:sequence>
-                    <!-- TODO: valutare se il caso agenzia per le imprese e' da prevedere o meno
-                        -->
                 </xsd:complexType>                
             </xsd:element>            
         </xsd:sequence>   
