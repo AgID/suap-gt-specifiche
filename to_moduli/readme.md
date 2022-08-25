@@ -3,7 +3,7 @@
 ## Stato implementazione moduli unificati e standardizzati
 
 - [x]   000_modulo_scheda-anagrafica                                                                                                - *FVG_inWork*
-- [x]   010_modulo_vicinato <Apertura, Trasferimento, Ampliemento>                                                                  - *AgID_completedProposal*
+- [x]   010_modulo_vicinato <Apertura, Trasferimento, Ampliemento>                                                                  - *AgID_inWork*
 - [x]   011_modulo_media-e-grande-struttura-di-vendita <Apertura, Trasferimento, Ampliamento>                                       - *AgID_inWork*
 - [x]   012_modulo_apparecchi-automatici <Avvio>                                                                                    - *FVG_inWork*
 - []    013_modulo_vendita-al-domicilio-dei-consumatori <Avvio>
