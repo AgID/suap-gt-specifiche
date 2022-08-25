@@ -15,18 +15,21 @@
            <x:expect-not-assert label="" />
        </x:scenario>  
 
-        <x:scenario label="Luogo di nascita italiano NON CORRETTO">
-            <x:context href="ent_persona_v1.0.0.tc.ko.italiano.check_cl.xml"/>
+        <x:scenario label="Luogo di nascita italiano NON CORRETTO o data nascita assente">
+            <x:context href="ent_persona_v1.0.0.tc.ko.italiano.xml"/>
             
-            <x:expect-not-assert label=""
-                id="ass_comune_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+            <x:expect-assert label=""
+                id="persona_ab-ass_comune_nascita_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+            <x:expect-assert label=""
+                id="persona_ab-ass_comune_nascita_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+            
         </x:scenario>
         
         <x:scenario label="Luogo di nascita stato estero NON CORRETTO">
             <x:context href="ent_persona_v1.0.0.tc.ko.estero.check_cl.xml"/>
             
-            <x:expect-not-assert label=""
-                id="ass_stato_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+            <x:expect-assert label=""
+                id="persona_ab-ass_stato_nasciata_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
         </x:scenario>
     </x:scenario>
    

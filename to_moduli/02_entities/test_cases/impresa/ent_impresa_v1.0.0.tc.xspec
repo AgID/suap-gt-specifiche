@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_impresa_v1.0.0.sch">
+    <x:scenario label="Test sull'impresa">
+
+        <x:scenario label="Impresa corretta">
+            <x:context href="ent_impresa_v1.0.0.tc.ok.xml"/>
+            <x:expect-not-assert label="" />
+        </x:scenario>
+
+        <x:scenario label="Forma giuridica non esistente o impresa non corretta (indirizzo sedi)">
+            <x:context href="ent_impresa_v1.0.0.tc.ko.xml"/>
+            
+            <x:expect-assert count="1" label=""
+                id="impresa_ab-forma_giuridica" location="/*:impresa[namespace-uri()='http://agid.it/suap/entities/impresa'][1]"/>
+        </x:scenario>
+    </x:scenario>
+   
+</x:description>

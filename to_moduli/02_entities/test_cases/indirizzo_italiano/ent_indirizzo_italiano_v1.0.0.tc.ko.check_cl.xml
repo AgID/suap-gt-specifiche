@@ -6,7 +6,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://agid.it/suap/entities/indirizzo_italiano ../../ent_indirizzo_italiano_v1.0.0.xsd">
   
-  <eii:dug>VIA</eii:dug>
+  <eii:dug>dug_errato</eii:dug>
   <eii:toponimo>toponimo0</eii:toponimo>
   <eii:numero_civico>100</eii:numero_civico>
   <eii:cap>34100</eii:cap>
