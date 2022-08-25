@@ -17,6 +17,8 @@
     
     <xsd:element name="riferimento_attivita" type="srifatt:riferimento_attivita_type"/>
     
+    <xsd:element name="riferimento_magazzino" type="srifatt:riferimento_attivita_type"/>
+    
     <xsd:complexType name="riferimento_attivita_type">
         <xsd:sequence>
             <xsd:element name="indirizzo" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/> 
