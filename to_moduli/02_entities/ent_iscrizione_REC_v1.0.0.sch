@@ -15,7 +15,7 @@
             
             <sch:let name="CCIAA" value="normalize-space(eisrec:CCIAA)"/>
             
-            <sch:assert test="count($keysCCIAA[
+            <sch:assert id="iscrizione_rec_ab-cciaa" test="count($keysCCIAA[
                 normalize-space(Value[@ColumnRef='id']/SimpleValue) = $CCIAA
                 ]) = 1">
                 CCIAA non esiste (<sch:value-of select="$CCIAA"/>) 
