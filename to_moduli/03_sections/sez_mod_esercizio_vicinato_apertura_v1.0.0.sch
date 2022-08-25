@@ -18,7 +18,7 @@
     <sch:pattern id="carattere_esercizio_ab" abstract="true">
         
         <sch:rule context="$carattere_esercizio">
-            <sch:assert test="normalize-space(permanente)!='' or normalize-space(stagionale)!='' or normalize-space(temporaneo)!=''"> 
+            <sch:assert id="carattere_esercizio_ab-carattere_esercizio" test="normalize-space(permanente)!='' or normalize-space(stagionale)!='' or normalize-space(temporaneo)!=''"> 
                 Almeno uno tra "Permanente", "Stagionale" o "Temporaneo" deve essere selezionato
             </sch:assert>
         </sch:rule>
@@ -33,7 +33,7 @@
     <sch:pattern id="segnalazione_avvio_ab" abstract="true">
        
         <sch:rule context="$segnalazione_avvio">
-            <sch:assert test="normalize-space(esercizio_vicinato)!='' or normalize-space(esclusiva_apparecchi_automatici)!=''"> 
+            <sch:assert id="segnalazione_avvio_ab-segnalazione_avvio" test="normalize-space(esercizio_vicinato)!='' or normalize-space(esclusiva_apparecchi_automatici)!=''"> 
                 Almeno uno tra "Vicinato" o "Vendita esclusivamente mediante apparecchi automatici" deve essere selezionato
             </sch:assert>           
         </sch:rule>

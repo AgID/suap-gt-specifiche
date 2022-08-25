@@ -17,7 +17,7 @@
                        
             <sch:let name="forma_giuridica" value="normalize-space(eimpresa:forma_giuridica)"/>
                         
-            <sch:assert test="
+            <sch:assert id="impresa_ab-forma_giuridica" test="
                 count($keysFormeGiuridiche[
                 normalize-space(Value[@ColumnRef='code' ]/SimpleValue) = $forma_giuridica
                                   ]) = 1">

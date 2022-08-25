@@ -18,11 +18,11 @@
     <sch:pattern id="requisiti_professionali_ab" abstract="true">
         
         <sch:rule context="$requisiti_professionali">
-            <sch:assert test="count(child::*) &gt; 0"> 
+            <sch:assert id="requisiti_professionali_ab-almeno_un_titolo" test="count(child::*) &gt; 0"> 
                 Almeno un titolo professionale deve essere indicato oppure deve essere indicato il preposto con titolo professionale           
             </sch:assert>
             
-            <sch:assert test="count(ereqpro:pratica_professionale)=0 or count(ereqpro:pratica_professionale/child::*) &gt; 0">
+            <sch:assert id="requisiti_professionali_ab-almeno_una_pratica" test="count(ereqpro:pratica_professionale)=0 or count(ereqpro:pratica_professionale/child::*) &gt; 0">
                 Almeno una pratica professionale deve essere indicata
             </sch:assert>
         </sch:rule>
