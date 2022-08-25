@@ -74,7 +74,10 @@
     <sa:impresa>
         <efg:denominazione>denominazione0</efg:denominazione>
         <efg:forma_giuridica>1.1.40</efg:forma_giuridica>
-        <efg:partita_iva>00000000000</efg:partita_iva>
+        <efg:identificativo_societa>
+            <efg:codice_fiscale_pg>12345678900</efg:codice_fiscale_pg>
+            <efg:partita_iva>12345678900</efg:partita_iva>
+        </efg:identificativo_societa>
         <efg:iscrizione_registro_cc>
             <efg:necessita_di_iscrizione>false</efg:necessita_di_iscrizione>
             <efg:iscrizione_registro>

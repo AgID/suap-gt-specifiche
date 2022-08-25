@@ -72,9 +72,12 @@
         </sa:rappresentanza>
     </sa:rappresentante>
     <sa:impresa>
-        <efg:denominazione>denominazione0</efg:denominazione>
+        <efg:denominazione>tatuatore individuale</efg:denominazione>
         <efg:forma_giuridica>1.1.40</efg:forma_giuridica>
-        <efg:partita_iva>00000000000</efg:partita_iva>
+        <efg:identificativo_impresa_inviduale>
+            <efg:codice_fiscale_pf>AAAAAA00A00A000A</efg:codice_fiscale_pf>
+            <efg:partita_iva>00000000000</efg:partita_iva>
+        </efg:identificativo_impresa_inviduale>
         <efg:iscrizione_registro_cc>
             <efg:necessita_di_iscrizione>false</efg:necessita_di_iscrizione>
             <efg:iscrizione_registro>
