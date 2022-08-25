@@ -9,14 +9,22 @@
             <x:expect-not-assert label=""/>
         </x:scenario>
         
-        <x:scenario label="Sezione NON corretta">
-            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ko.coderesidenza.xml"/>
-            
-            <x:expect-assert count="1" label=""
-                id="ass_comune_cl_check" />
-            <x:expect-assert count="1" label=""
-                id="ass_dug_cl_check" />
+        <x:scenario label="Sezione NON corretta" >
+
+            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ko.xml" />
+
+            <!-- ######### RAPPRESENTANTE ########### -->
+            <x:expect-assert count="1" label="" id="cittadinanza_ab-ass_stato_cl_check" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:cittadinanza[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="documento_rilasciato_ab-tipo_documento" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:permesso_soggiorno[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="indirizzo_italiano_ab-ass_comune_cl_check" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:residenza[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:indirizzo_italiano[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="indirizzo_italiano_ab-ass_dug_cl_check" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:residenza[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:indirizzo_italiano[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="rappresentante_persona_obbligatorieta_ass_sesso" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:persona[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="rappresentante_persona_obbligatorieta_ass_luogo_nascita" />
         </x:scenario>
-        
     </x:scenario>
 </x:description>
