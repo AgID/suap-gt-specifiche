@@ -57,15 +57,7 @@
             
             <sch:assert id="allegati_ab-impegno_comunicazioni" test="normalize-space(saltdic:impegno_comunicazioni)!=''"> 
                 Dichiarazione impegno comunicazioni variazioni è obbligatoria
-            </sch:assert>
-            
-            <sch:assert id="allegati_ab-non_presenti" test="count(*[
-                name(.)!='saltdic:rispetto_regolamenti_locali'
-                and name(.)!='saltdic:impegno_comunicazioni'                
-                ])=0"> 
-                Solo Dichiarazione rispetto regolamenti locali, Dichiarazione rispetto normativa prevenzioni incendi, Dichiarazione rispetto normativa movimentazione merci e Dichiarazione impegno comunicazioni variazioni è obbligatoria                
-                "/>)
-            </sch:assert>             
+            </sch:assert>            
         </sch:rule>       
     </sch:pattern>  
     

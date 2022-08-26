@@ -13,6 +13,8 @@
             
             <x:expect-assert count="1" label=""
                 id="cittadinanza_ab-ass_stato_cl_check" location="/*:cittadinanza[namespace-uri()='http://agid.it/suap/entities/cittadinanza'][1]"/>
+            
+            <x:expect-not-assert/>
         </x:scenario>
     </x:scenario>
    

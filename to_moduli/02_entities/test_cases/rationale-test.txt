@@ -1,0 +1,41 @@
+Razionale per i test case:
+
+Quando definisco i file xml di test per uno schematron vanno distinti aspetti diversi da testare: 
+
+1) la logica schematron specifica definita nello schematron corrente 
+2) le direttive di import dei pattern astratti presenti in altri schematron importati con direttiva include
+3) la logica di validazione presente negli schematron importati
+
+Principi guida:
+
+a) nel test case corrente non devo andare a replicare i test relativi al punto 3 (già verificati nella suite di test dedicata sul componente importato)
+b) devo sollecitare con il test le logiche implementate al punto 1
+c) devo sollecitare con il test anche il fatto che le direttive di import al punto 2 siano corrette: ad esempio l'xpath che definisce il path di un elemento
+da passare come parametro ad un pattern astratto.
+
+Aggiungiamo che in generale per i test tentiamo di tenere anche questa posizione:
+
+a) creare un caso di test (file xml) con un esempio di istanza dell'xsd che sia corretta. Nel caso in cui l'xsd prevede anche scenari alternativi
+(ex. choice) potrebbe essere necessario creare più file xml per i vari casi
+
+b) creare un caso di test peggiore entro però il seguente limite:
+
+- imposto valori errati per tutti gli elementi validati nelle logiche al punto 1. Nello scenario di test case vado a dichiarare la lista di asserzioni 
+che mi aspetto siano lanciate
+
+- per ogni blocco importato definisco UN SOLO elemento errato solo per verificare che l'import sia stato ingaggiato correttamente. 
+
+Esempi:
+
+- modulo che importa sezione: i controlli schematron specifici del modulo vanno sollecitati nel test case e un solo dato errato per sezione
+- sezione che importa entità:  i controlli schematron specifici del modulo vanno sollecitati nel test case e un solo dato errato per entita importata 
+
+
+ 
+
+
+
+
+
+
+

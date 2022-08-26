@@ -27,12 +27,12 @@
                                   ]) = 1">
                 
                 Forma giuridica non esiste (<sch:value-of select="$forma_giuridica"/>) 
-            </sch:assert>
+            </sch:assert>            
         </sch:rule>
     </sch:pattern>
     
     <sch:pattern id="iscrizione_rea" abstract="false" is-a="iscrizione_rea_ab">
-        <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
+        <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro_cc/eimpresa:iscrizione_registro"/>        
     </sch:pattern>
     
     <sch:pattern id="indirizzo_italiano_sede" abstract="false" is-a="indirizzo_italiano_ab">

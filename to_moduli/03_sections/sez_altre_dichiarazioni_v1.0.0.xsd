@@ -22,6 +22,18 @@
             <xsd:element name="impegno_comunicazioni_apparecchi_automatici" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="rispetto_normativa_prevenzioni_incendi" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="rispetto_normativa_movimentazione_merci" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="non_vendita_pubblico" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="vendita_effetuata_a" minOccurs="0" maxOccurs="1">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="dipendenti" type="cdichiara:dichiarazione_boolean_type" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="militari" type="cdichiara:dichiarazione_boolean_type" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="soci" type="cdichiara:dichiarazione_boolean_type" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="interno_scuola" type="cdichiara:dichiarazione_boolean_type" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="interno_ospedale" type="cdichiara:dichiarazione_boolean_type" minOccurs="0" maxOccurs="1"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     

@@ -9,14 +9,48 @@
             <x:expect-not-assert label=""/>
         </x:scenario>
         
-        <x:scenario label="Sezione NON corretta">
-            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ko.coderesidenza.xml"/>
+        <!-- N.B Impostazione: 
+            creo un xml di test con un dato invalido almeno per ogni blocco pattern schematron incluso in modo da essere sicuro che venga attivato.
+            Non ha senso invece inserire piu dati invalidi per lo stesso bloccoin quanto i test case dello schematron importato includono già tutti i controlli
+            per i vari casi e sarebbe un controllo ridondante.
+            Chiaramente invece regole di validazione implementate nello schematron della sezione corrente vanno sollecitate nell'xml 
+            di test.
             
-            <x:expect-assert count="1" label=""
-                id="ass_comune_cl_check" />
-            <x:expect-assert count="1" label=""
-                id="ass_dug_cl_check" />
+            Per dettagli vedi file to_moduli/02_entities/test_cases/rationale-test.txt
+       -->     
+           
+
+        <x:scenario label="Sezione NON corretta" >
+
+            <x:context href="sez_dati_anagrafici_v1.0.0.tc.ko.xml" />
+
+
+            <!-- ######### RAPPRESENTANTE ########### -->
+            <x:expect-assert count="1" label="" id="rappresentante_persona_obbligatorieta_ass_luogo_nascita" />
+            <x:expect-assert count="1" label="" id="cittadinanza_ab-ass_stato_cl_check" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:cittadinanza[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="documento_rilasciato_ab-tipo_documento" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:permesso_soggiorno[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="indirizzo_italiano_ab-ass_dug_cl_check" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:residenza[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:indirizzo_italiano[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="rappresentante_persona_obbligatorieta_ass_sesso" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:persona[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]" />
+            <x:expect-assert count="1" label="" id="rappresentanza_ab-ass_dr_check_date"
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentante[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:rappresentanza[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]"
+            />
+
+            <!-- ######### IMPRESA ########### -->
+            <!-- FIXME: al momento per qualche motivo lo schematron importato dell'impresa non valida anche l'iscrizione al registro -->
+            <x:expect-assert count="1" label="" id="iscrizione_rea_ab-cciaa"
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:impresa[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]"
+            />
+
+            <!-- ######### INTERMEDIARIO ########### -->
+            <x:expect-assert count="1" id="intermediario_persona_obbligatorieta_ass_sesso" location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:intermediario[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:persona[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]"/>
+            <x:expect-assert count="1" label="" id="intermediario_persona_obbligatorieta_ass_luogo_nascita" />
+            <x:expect-assert count="1" label="" id="intermediario_contatti_ass_fax" 
+                location="/*:scheda_anagrafica[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:intermediario[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]/*:contatti[namespace-uri()='http://agid.it/suap/sections/scheda_anagrafica'][1]"
+            />
         </x:scenario>
-        
     </x:scenario>
 </x:description>

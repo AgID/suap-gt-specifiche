@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:aallega="http://agid.it/suap/attachments/allegato_a"
+    
+    xmlns:sreqono="http://agid.it/suap/sections/requisiti_onorabilita"
+    xmlns:sdichia="http://agid.it/suap/sections/dichiarante"
+    xmlns:simpresa="http://agid.it/suap/sections/impresa"
+    
+    targetNamespace="http://agid.it/suap/attachments/allegato_a"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xs:import namespace="http://agid.it/suap/sections/requisiti_onorabilita" schemaLocation="../03_sections/sez_requisiti_onorabilita_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/dichiarante" schemaLocation="../03_sections/sez_att_dichiarante_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/impresa" schemaLocation="../03_sections/sez_att_impresa_v1.0.0.xsd"/>
+    
+    <xs:complexType name="allegato_a_type">
+        <xs:sequence>
+            <xs:element ref="sdichia:dichiarante"/>      
+            <xs:element ref="simpresa:impresa"/>
+            <xs:element ref="sreqono:requisiti_onorabilita"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="allegato_a" type="aallega:allegato_a_type"/>
+    
+</xs:schema>

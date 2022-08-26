@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:sreqono="http://agid.it/suap/sections/requisiti_onorabilita"
+    
+    xmlns:ereqono="http://agid.it/suap/entities/requisiti_onorabilita"    
+    
+    targetNamespace="http://agid.it/suap/sections/requisiti_onorabilita"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/requisiti_onorabilita" schemaLocation="../02_entities/ent_requisiti_onorabilita_v1.0.0.xsd"/>
+    
+    <xsd:element name="requisiti_onorabilita" type="ereqono:requisiti_onorabilita_ctype"/>    
+</xsd:schema>
