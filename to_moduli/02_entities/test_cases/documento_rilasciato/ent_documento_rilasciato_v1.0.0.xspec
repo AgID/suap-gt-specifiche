@@ -3,19 +3,20 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_documento_rilasciato_v1.0.0.sch">
     <x:scenario label="Test documento rilasciato">
 
-        <x:scenario label="Documento con date di rilascio e scadenza coerenti">
+        <x:scenario label="Documento corretto">
             <x:context href="ent_documento_rilasciato_v1.0.0.tc.ok.xml"/>
-            
-            <x:expect-not-assert label=""
-                id="ass_comune_cl_check" location="/*:documento_rilasciato[namespace-uri()='http://agid.it/suap/entities/documento_rilasciato'][1]"/>
+            <x:expect-not-assert label="" />
         </x:scenario>
 
-        <x:scenario label="Documento con date di rilascio e scadenza NON coerenti">
-            <x:context href="ent_documento_rilasciato_v1.0.0.tc.ko.both_dates.xml"/>
+        <x:scenario label="Documento con date di rilascio e scadenza NON coerenti e con tipo documento non presente in code list">
+            <x:context href="ent_documento_rilasciato_v1.0.0.tc.ko.xml"/>
             
             <x:expect-assert label=""
-                id="ass_dr_check_date" location="/*:documento_rilasciato[namespace-uri()='http://agid.it/suap/entities/documento_rilasciato'][1]"/>
-            
+                id="documento_rilasciato_ab-ass_dr_check_date" location="/*:documento_rilasciato[namespace-uri()='http://agid.it/suap/entities/documento_rilasciato'][1]"/>
+
+            <x:expect-assert label=""
+                id="documento_rilasciato_ab-tipo_documento" location="/*:documento_rilasciato[namespace-uri()='http://agid.it/suap/entities/documento_rilasciato'][1]"/>
+
             <!-- location="/*:indirizzo_italiano[namespace-uri()='http://agid.it/suap/entities/indirizzo_italiano'][1]" -->
         </x:scenario>
         

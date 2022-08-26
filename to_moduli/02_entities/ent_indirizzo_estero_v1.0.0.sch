@@ -5,7 +5,7 @@
 -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
-    <sch:ns uri="http://agid.it/suap/entities/indirizzo_estero" prefix="eie"/>
+    <sch:ns uri="http://agid.it/suap/entities/indirizzo_estero" prefix="eindest"/>
    
     <sch:pattern id="indirizzo_estero_ab" abstract="true">
         
@@ -13,7 +13,7 @@
             
             <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
             
-            <sch:let name="stato" value="normalize-space(eie:stato_estero)"/>
+            <sch:let name="stato" value="normalize-space(eindest:stato_estero)"/>
             
             <sch:assert id="indirizzo_estero_ab-ass_stato_cl_check" test="count($keysStati[
                 normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato
@@ -25,6 +25,6 @@
     </sch:pattern>
     
     <sch:pattern id="indirizzo_estero" abstract="false" is-a="indirizzo_estero_ab">
-        <sch:param name="indirizzo_estero" value="eie:indirizzo_estero"/>        
+        <sch:param name="indirizzo_estero" value="eindest:indirizzo_estero"/>        
     </sch:pattern>
 </sch:schema>

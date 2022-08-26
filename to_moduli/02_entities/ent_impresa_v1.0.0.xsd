@@ -34,8 +34,32 @@
                 </xsd:annotation>
             </xsd:element>
             <xsd:choice>
-                <xsd:element name="codice_fiscale" type="ctipi:codice_fiscale_persona_giuridica_stype" minOccurs="1" maxOccurs="1"/>
-                <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="1" maxOccurs="1"/>
+                <xsd:element name="identificativo_impresa_inviduale">
+                    <xsd:complexType>
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Impresa individuale prevede cf della persona fisica e partita iva
+                            </xsd:documentation>
+                        </xsd:annotation>    
+                        <xsd:sequence>
+                            <xsd:element name="codice_fiscale_pf" type="ctipi:codice_fiscale_stype" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="1" maxOccurs="1"/>
+                        </xsd:sequence>   
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="identificativo_societa">
+                    <xsd:complexType>
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Nel caso di persona giuridica CF e partita iva coincidono (FIXME salvo rare eccezioni?)
+                            </xsd:documentation>
+                        </xsd:annotation>    
+                        <xsd:sequence>
+                            <xsd:element name="codice_fiscale_pg" type="ctipi:codice_fiscale_persona_giuridica_stype" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="partita_iva" type="ctipi:partita_iva_stype" minOccurs="0" maxOccurs="1"/>
+                        </xsd:sequence>   
+                    </xsd:complexType>
+                </xsd:element>
             </xsd:choice>            
             <xsd:element name="iscrizione_registro_cc" minOccurs="1" maxOccurs="1">
                 <xsd:complexType>

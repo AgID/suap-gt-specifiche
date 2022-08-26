@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<er:rappresentanza xmlns:er="http://agid.it/suap/entities/rappresentanza"
+ xmlns:ca="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ct="http://agid.it/suap/commons/tipi"
+ xmlns:cf="http://agid.it/suap/commons/files"
+ xmlns:vrr="http://agid.it/suap/vocabularies/ruolo_richiedente"
+ xmlns:efile="http://agid.it/suap/entities/file"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:vhashalg="http://agid.it/suap/vocabularies/files_hashalg"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/rappresentanza ../../ent_rappresentanza_v1.0.0.xsd">
+    <!-- data fine precede data inizio -->
+    <er:data_inizio>2006-05-04</er:data_inizio>
+    <er:data_fine>2001-05-04</er:data_fine>
+    <er:estremi_atto>GEN-2022-12</er:estremi_atto>
+    <er:ruolo>Legale rappresentante di Organizzazione</er:ruolo>
+</er:rappresentanza>

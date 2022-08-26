@@ -19,22 +19,28 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
     xsi:schemaLocation="http://agid.it/suap/sections/scheda_anagrafica ../../sez_dati_anagrafici_v1.0.0.xsd">
+    
+    <!-- 
+        ADOTTIAMO come pattern quello di creare un unico xml che include tutte le casistiche di errore possibile a parte chiaramente
+        quando qualche xs:choice impone delle situazioni parallele da gestire.
+        Eventuali situazioni non coperte verranno verificare in fase di segnalazione di bug con definizione di test di non regressione.
+    -->
     <sa:rappresentante>
         <sa:persona>
             <epf:codice_fiscale>AAAAAA00A00A000A</epf:codice_fiscale>
             <epf:nome>nome0</epf:nome>
             <epf:cognome>cognome0</epf:cognome>
-            <epf:sesso>maschio</epf:sesso>
             <epf:data_nascita>2006-05-04</epf:data_nascita>
-            <!--            <epf:luogo_nascita_italiano>luogo_nascita_italiano0</epf:luogo_nascita_italiano>-->
-            <epf:luogo_nascita_estero>luogo_nascita_estero0</epf:luogo_nascita_estero>
+            <!--
+                MANCANTE
             <epf:stato_estero>454</epf:stato_estero>
+            -->
         </sa:persona>
         <sa:cittadinanza>
-            <eci:stato_cittadinanza>454</eci:stato_cittadinanza>
+            <eci:stato_cittadinanza>NON_ESISTE</eci:stato_cittadinanza>
         </sa:cittadinanza>
         <sa:permesso_soggiorno>
-            <edr:tipo>tipo0</edr:tipo>
+            <edr:tipo>NON_ESISTE</edr:tipo>
             <edr:numero>numero0</edr:numero>
             <edr:ente_rilascio>ente_rilascio0</edr:ente_rilascio>
             <edr:data_rilascio>2006-05-04</edr:data_rilascio>
@@ -48,7 +54,7 @@
                 <eindita:barrato>barrato0</eindita:barrato>
                 <eindita:cap></eindita:cap>
                 <eindita:localita>localita0</eindita:localita>
-                <eindita:comune>NON ESISTE</eindita:comune>
+                <eindita:comune>032006</eindita:comune>
             </sa:indirizzo_italiano>
             <!--            <sa:indirizzo_estero>
                 <indest:descrizione>descrizione0</indest:descrizione>
@@ -60,13 +66,14 @@
         <sa:contatti>
             <eco:telefono_fisso>telefono_fisso0</eco:telefono_fisso>
             <eco:cellulare>cellulare0</eco:cellulare>
+            <!-- FAX NON AMMESSO -->
             <eco:fax>fax0</eco:fax>
             <eco:domicilio_digitale>a@a.it</eco:domicilio_digitale>
             <eco:email>a@a.it</eco:email>
         </sa:contatti>
         <sa:rappresentanza>
             <era:data_inizio>2006-05-04</era:data_inizio>
-            <era:data_fine>2006-05-04</era:data_fine>
+            <era:data_fine>2001-05-04</era:data_fine>
             <era:estremi_atto>estremi_atto0</era:estremi_atto>
             <era:ruolo>Legale rappresentante di Organizzazione</era:ruolo>
         </sa:rappresentanza>
@@ -74,11 +81,14 @@
     <sa:impresa>
         <efg:denominazione>denominazione0</efg:denominazione>
         <efg:forma_giuridica>1.1.40</efg:forma_giuridica>
-        <efg:partita_iva>00000000000</efg:partita_iva>
+        <efg:identificativo_societa>
+            <efg:codice_fiscale_pg>12345678900</efg:codice_fiscale_pg>
+            <efg:partita_iva>12345678900</efg:partita_iva>
+        </efg:identificativo_societa>
         <efg:iscrizione_registro_cc>
             <efg:necessita_di_iscrizione>false</efg:necessita_di_iscrizione>
             <efg:iscrizione_registro>
-                <eiscrea:CCIAA>9</eiscrea:CCIAA>
+                <eiscrea:CCIAA>CCIAA_NON_ESISTE</eiscrea:CCIAA>
                 <eiscrea:numero_REA>numero_REA0</eiscrea:numero_REA>
             </efg:iscrizione_registro>
         </efg:iscrizione_registro_cc>
@@ -101,16 +111,17 @@
         </efg:sede_legale>
     </sa:impresa>
     <sa:intermediario>
-        <sa:datiPersona>
+        <sa:persona>
             <epf:codice_fiscale>AAAAAA00A00A000A</epf:codice_fiscale>
             <epf:nome>nome1</epf:nome>
             <epf:cognome>cognome1</epf:cognome>
             <epf:sesso>maschio</epf:sesso>
             <epf:data_nascita>2006-05-04</epf:data_nascita>
-            <!--            <epf:luogo_nascita_italiano>luogo_nascita_italiano1</epf:luogo_nascita_italiano>-->
-            <epf:luogo_nascita_estero>luogo_nascita_estero1</epf:luogo_nascita_estero>
+            <!--
+                MANCANTE
             <epf:stato_estero>stato_estero1</epf:stato_estero>
-        </sa:datiPersona>
+            -->
+        </sa:persona>
         <sa:residenza>
             <!--            <sa:indirizzo_italiano>
                 <eindita:dug>dug2</eindita:dug>
@@ -131,6 +142,7 @@
         <sa:contatti>
             <eco:telefono_fisso>telefono_fisso0</eco:telefono_fisso>
             <eco:cellulare>cellulare0</eco:cellulare>
+            <!-- FAX NON AMMESSO -->
             <eco:fax>fax0</eco:fax>
             <eco:domicilio_digitale>a@a.it</eco:domicilio_digitale>
             <eco:email>a@a.it</eco:email>

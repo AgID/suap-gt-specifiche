@@ -6,6 +6,6 @@
   xsi:schemaLocation="http://agid.it/suap/entities/indirizzo_estero ../../ent_indirizzo_estero_v1.0.0.xsd">
   <eie:descrizione>descrizione0</eie:descrizione>
   <eie:codice_postale>codice_postale0</eie:codice_postale>
-  <eie:comune_estero>comune_estero0</eie:comune_estero>
+  <eie:localita_estero>comune_estero0</eie:localita_estero>
   <eie:stato_estero>codice_errato</eie:stato_estero>
 </eie:indirizzo_estero>

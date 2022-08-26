@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eimpresa:impresa xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
+  xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+  xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+  xmlns:ctipi="http://agid.it/suap/commons/tipi"
+  xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+  xmlns:eimpresa="http://agid.it/suap/entities/impresa"
+  xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://agid.it/suap/entities/impresa ../../ent_impresa_v1.0.0.xsd">
+  <eimpresa:denominazione>denominazione0</eimpresa:denominazione>
+  <eimpresa:forma_giuridica>xxx</eimpresa:forma_giuridica>
+  <eimpresa:identificativo_impresa_inviduale>
+    <eimpresa:codice_fiscale_pf>AAAAAA00A00A000A</eimpresa:codice_fiscale_pf>
+    <eimpresa:partita_iva>00000000000</eimpresa:partita_iva>
+  </eimpresa:identificativo_impresa_inviduale>
+  <!--    <eimpresa:identificativo_societa>
+        <eimpresa:codice_fiscale_pg>00000000000</eimpresa:codice_fiscale_pg>
+        <eimpresa:partita_iva>00000000000</eimpresa:partita_iva>
+    </eimpresa:identificativo_societa>-->
+  <eimpresa:iscrizione_registro_cc>
+    <eimpresa:necessita_di_iscrizione>false</eimpresa:necessita_di_iscrizione>
+    <eimpresa:iscrizione_registro>
+      <eiscrea:CCIAA>xx</eiscrea:CCIAA>
+      <eiscrea:numero_REA>numero_REA0</eiscrea:numero_REA>
+    </eimpresa:iscrizione_registro>
+  </eimpresa:iscrizione_registro_cc>
+  <eimpresa:sede_legale>
+    <eimpresa:indirizzo_italiano>
+      <eindita:dug>xxx</eindita:dug>
+      <eindita:toponimo>toponimo0</eindita:toponimo>
+      <eindita:numero_civico>numero_civico0</eindita:numero_civico>
+      <eindita:barrato>barrato0</eindita:barrato>
+      <eindita:cap></eindita:cap>
+      <eindita:localita>localita0</eindita:localita>
+      <eindita:comune>032006</eindita:comune> 
+    </eimpresa:indirizzo_italiano>
+    <!--<eimpresa:indirizzo_estero>
+            <eindest:descrizione>descrizione0</eindest:descrizione>
+            <eindest:codice_postale>codice_postale0</eindest:codice_postale>
+            <eindest:localita_estero>localita_estero0</eindest:localita_estero>
+            <eindest:stato_estero>454</eindest:stato_estero>
+        </eimpresa:indirizzo_estero>-->
+  </eimpresa:sede_legale>
+</eimpresa:impresa>

@@ -27,14 +27,14 @@
             <epf:sesso>maschio</epf:sesso>
             <epf:data_nascita>2006-05-04</epf:data_nascita>
             <!--            <epf:luogo_nascita_italiano>luogo_nascita_italiano0</epf:luogo_nascita_italiano>-->
-            <epf:luogo_nascita_estero>luogo_nascita_estero0</epf:luogo_nascita_estero>
+            <epf:localita_estero>luogo_nascita_estero0</epf:localita_estero>
             <epf:stato_estero>454</epf:stato_estero>
         </sa:persona>
         <sa:cittadinanza>
             <eci:stato_cittadinanza>454</eci:stato_cittadinanza>
         </sa:cittadinanza>
         <sa:permesso_soggiorno>
-            <edr:tipo>tipo0</edr:tipo>
+            <edr:tipo>PS</edr:tipo>
             <edr:numero>numero0</edr:numero>
             <edr:ente_rilascio>ente_rilascio0</edr:ente_rilascio>
             <edr:data_rilascio>2006-05-04</edr:data_rilascio>
@@ -60,7 +60,6 @@
         <sa:contatti>
             <eco:telefono_fisso>telefono_fisso0</eco:telefono_fisso>
             <eco:cellulare>cellulare0</eco:cellulare>
-            <eco:fax>fax0</eco:fax>
             <eco:domicilio_digitale>a@a.it</eco:domicilio_digitale>
             <eco:email>a@a.it</eco:email>
         </sa:contatti>
@@ -72,9 +71,12 @@
         </sa:rappresentanza>
     </sa:rappresentante>
     <sa:impresa>
-        <efg:denominazione>denominazione0</efg:denominazione>
+        <efg:denominazione>tatuatore individuale</efg:denominazione>
         <efg:forma_giuridica>1.1.40</efg:forma_giuridica>
-        <efg:partita_iva>00000000000</efg:partita_iva>
+        <efg:identificativo_impresa_inviduale>
+            <efg:codice_fiscale_pf>AAAAAA00A00A000A</efg:codice_fiscale_pf>
+            <efg:partita_iva>00000000000</efg:partita_iva>
+        </efg:identificativo_impresa_inviduale>
         <efg:iscrizione_registro_cc>
             <efg:necessita_di_iscrizione>false</efg:necessita_di_iscrizione>
             <efg:iscrizione_registro>
@@ -101,16 +103,15 @@
         </efg:sede_legale>
     </sa:impresa>
     <sa:intermediario>
-        <sa:datiPersona>
+        <sa:persona>
             <epf:codice_fiscale>AAAAAA00A00A000A</epf:codice_fiscale>
             <epf:nome>nome1</epf:nome>
             <epf:cognome>cognome1</epf:cognome>
-            <epf:sesso>maschio</epf:sesso>
             <epf:data_nascita>2006-05-04</epf:data_nascita>
             <!--            <epf:luogo_nascita_italiano>luogo_nascita_italiano1</epf:luogo_nascita_italiano>-->
-            <epf:luogo_nascita_estero>luogo_nascita_estero1</epf:luogo_nascita_estero>
-            <epf:stato_estero>stato_estero1</epf:stato_estero>
-        </sa:datiPersona>
+            <epf:localita_estero>luogo_nascita_estero1</epf:localita_estero>
+            <epf:stato_estero>455</epf:stato_estero>
+        </sa:persona>
         <sa:residenza>
             <!--            <sa:indirizzo_italiano>
                 <eindita:dug>dug2</eindita:dug>
@@ -131,7 +132,6 @@
         <sa:contatti>
             <eco:telefono_fisso>telefono_fisso0</eco:telefono_fisso>
             <eco:cellulare>cellulare0</eco:cellulare>
-            <eco:fax>fax0</eco:fax>
             <eco:domicilio_digitale>a@a.it</eco:domicilio_digitale>
             <eco:email>a@a.it</eco:email>
         </sa:contatti>
