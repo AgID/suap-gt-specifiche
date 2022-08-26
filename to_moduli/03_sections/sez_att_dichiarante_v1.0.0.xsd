@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:sdichia="http://agid.it/suap/sections/dichiarante"
+    
+    xmlns:epers="http://agid.it/suap/entities/persona"
+    xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+    xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+    
+    targetNamespace="http://agid.it/suap/sections/dichiarante"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/persona" schemaLocation="../02_entities/ent_persona_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/indirizzo_italiano" schemaLocation="../02_entities/ent_indirizzo_italiano_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/indirizzo_estero" schemaLocation="../02_entities/ent_indirizzo_estero_v1.0.0.xsd"/>
+    
+    <xsd:complexType name="dichiarante_type">
+        <xsd:sequence>
+            <xsd:element name="persona" type="epers:persona_ctype" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
+                <xsd:complexType>
+                    <xsd:sequence>                             
+                        <xsd:choice>
+                            <xsd:element name="indirizzo_italiano" type="eindita:indirizzo_italiano_ctype" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="indirizzo_estero" type="eindest:indirizzo_estero_ctype" minOccurs="1" maxOccurs="1"/>
+                        </xsd:choice>  
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>            
+        </xsd:sequence>
+    </xsd:complexType>   
+    
+    <xsd:element name="dichiarante" type="sdichia:dichiarante_type"/>
+</xsd:schema>

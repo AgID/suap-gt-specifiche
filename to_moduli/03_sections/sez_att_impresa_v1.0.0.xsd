@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:simpresa="http://agid.it/suap/sections/impresa"
+    
+    xmlns:eimpresa="http://agid.it/suap/entities/impresa"
+        
+    targetNamespace="http://agid.it/suap/sections/impresa"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.0.xsd"/>
+    
+    <xsd:element name="impresa" type="eimpresa:impresa_ctype"/>
+</xsd:schema>
