@@ -54,7 +54,7 @@
                 <eindita:barrato>barrato0</eindita:barrato>
                 <eindita:cap></eindita:cap>
                 <eindita:localita>localita0</eindita:localita>
-                <eindita:comune>NON ESISTE</eindita:comune>
+                <eindita:comune>032006</eindita:comune>
             </sa:indirizzo_italiano>
             <!--            <sa:indirizzo_estero>
                 <indest:descrizione>descrizione0</indest:descrizione>
@@ -73,7 +73,7 @@
         </sa:contatti>
         <sa:rappresentanza>
             <era:data_inizio>2006-05-04</era:data_inizio>
-            <era:data_fine>2006-05-04</era:data_fine>
+            <era:data_fine>2001-05-04</era:data_fine>
             <era:estremi_atto>estremi_atto0</era:estremi_atto>
             <era:ruolo>Legale rappresentante di Organizzazione</era:ruolo>
         </sa:rappresentanza>
@@ -88,7 +88,7 @@
         <efg:iscrizione_registro_cc>
             <efg:necessita_di_iscrizione>false</efg:necessita_di_iscrizione>
             <efg:iscrizione_registro>
-                <eiscrea:CCIAA>9</eiscrea:CCIAA>
+                <eiscrea:CCIAA>CCIAA_NON_ESISTE</eiscrea:CCIAA>
                 <eiscrea:numero_REA>numero_REA0</eiscrea:numero_REA>
             </efg:iscrizione_registro>
         </efg:iscrizione_registro_cc>
@@ -117,9 +117,10 @@
             <epf:cognome>cognome1</epf:cognome>
             <epf:sesso>maschio</epf:sesso>
             <epf:data_nascita>2006-05-04</epf:data_nascita>
-            <!--            <epf:luogo_nascita_italiano>luogo_nascita_italiano1</epf:luogo_nascita_italiano>-->
-            <epf:localita_estero>luogo_nascita_estero1</epf:localita_estero>
+            <!--
+                MANCANTE
             <epf:stato_estero>stato_estero1</epf:stato_estero>
+            -->
         </sa:persona>
         <sa:residenza>
             <!--            <sa:indirizzo_italiano>

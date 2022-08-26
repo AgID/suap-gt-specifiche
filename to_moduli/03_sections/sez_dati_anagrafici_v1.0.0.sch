@@ -13,6 +13,7 @@
     <sch:ns uri="http://agid.it/suap/entities/iscrizione_rea" prefix="eiscrea"/>
     <sch:ns uri="http://agid.it/suap/entities/indirizzo_estero" prefix="eindest"/>   
     <sch:ns uri="http://agid.it/suap/entities/contatti" prefix="econt"/>    
+    <sch:ns uri="http://agid.it/suap/entities/rappresentanza" prefix="erapp"/>
     
     <sch:include href="../02_entities/ent_persona_v1.0.0.sch#persona_ab"/>
     <sch:include href="../02_entities/ent_cittadinanza_v1.0.0.sch#cittadinanza_ab"/>
@@ -21,6 +22,7 @@
     <sch:include href="../02_entities/ent_indirizzo_estero_v1.0.0.sch#indirizzo_estero_ab"/>
     <sch:include href="../02_entities/ent_impresa_v1.0.0.sch#impresa_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
+    <sch:include href="../02_entities/ent_rappresentanza_v1.0.0.sch#rappresentanza_ab"/>
     
     <!-- ############################################### RAPPRESENTANTE ############################################### -->
     
@@ -95,6 +97,16 @@
                 Rappresentante: Non ammesso specificare un fax tra i contatti
             </sch:assert>
         </sch:rule>
+    </sch:pattern>
+    
+    <!-- ***************** Rappresentante/rappresentanza ********************* -->
+    
+    <!-- 
+        FIXME:nella definizione di rappresentanza data inizio e fine non sono obbligatori.
+        Valutare se farli diventare obbligatori in generale oppure forzare su schematron qui controllo
+    -->
+    <sch:pattern id="rappresentante_rappresentanza" abstract="false" is-a="rappresentanza_ab">
+        <sch:param name="rappresentanza" value="sscheana:rappresentante/sscheana:rappresentanza"/>        
     </sch:pattern>
     
     <!-- ############################################### IMPRESA ############################################### -->
@@ -187,7 +199,5 @@
         <sch:param name="intermediario" value="sscheana:intermediario"/>
     </sch:pattern>
     -->
-    
-    
     
 </sch:schema>

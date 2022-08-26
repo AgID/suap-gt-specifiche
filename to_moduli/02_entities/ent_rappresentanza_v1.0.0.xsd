@@ -28,7 +28,7 @@
                 per richiedere servizi, presentare istanze, ecc. alla PA                
 
                 Nel caso di titolare di impresa semplice il "ruolo" e' l'unico dato valorizzato. 
-                Negli altri casi (ex. legale rappresentante o altre procure interne ad organizzazione) ci saranno se di interesse
+                Negli altri casi (ex. legale rappresentante o altre procure interne ad organizzazione) ci saranno, se di interesse,
                 anche i dati dell'atto di nomina e il periodo di validità.
             </xs:documentation>
         </xs:annotation>
@@ -36,11 +36,7 @@
             <xs:element name="data_inizio" type="xs:date" minOccurs="0" maxOccurs="1"/>
             <xs:element name="data_fine" type="xs:date" minOccurs="0" maxOccurs="1"/>            
             <xs:element name="estremi_atto" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <!-- FIXME decidere se inglobare riferimento all'allegato o meno
-                <xs:element name="atto_assegnazione_accettazione" type="cf:file_ctype" minOccurs="0" maxOccurs="1"/>
-            -->
             <xs:element name="ruolo" type="er:ruolo_rappresentanza_stype" minOccurs="1" maxOccurs="1"/>
-            
         </xs:sequence>        
     </xs:complexType>      
     
