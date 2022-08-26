@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../../ent_rappresentanza_v1.0.0.sch">
+    <x:scenario label="Test documento rilasciato">
+
+        <x:scenario label="Rappresentanza corretta">
+            <x:context href="ent_rappresentanza_v1.0.0.tc.ok.xml"/>
+            <x:expect-not-assert label="" />
+        </x:scenario>
+
+        <x:scenario label="Rappresentanza con date di rilascio e scadenza NON coerenti">
+            <x:context href="ent_rappresentanza_v1.0.0.tc.ko.xml"/>
+            
+            <x:expect-assert label=""
+                id="rappresentanza_ab-ass_dr_check_date" location="/*:rappresentanza[namespace-uri()='http://agid.it/suap/entities/rappresentanza'][1]"/>
+        </x:scenario>
+        
+    </x:scenario>
+</x:description>

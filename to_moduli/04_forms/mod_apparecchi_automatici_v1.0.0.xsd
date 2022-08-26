@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-    xmlns:sreat="http://agid.it/suap/sections/riferimento_attivita"
-    xmlns:sdaca="http://agid.it/suap/sections/dati_catastali"
+    xmlns:smodappaut="http://agid.it/suap/sections/mod_apparecchi_automatici"
     xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
     xmlns:saldi="http://agid.it/suap/sections/altre_dichiarazioni"
     xmlns:sscheana="http://agid.it/suap/sections/scheda_anagrafica"
     xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
     xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
     xmlns:sallegati="http://agid.it/suap/sections/allegati"
-    xmlns:mesvi="http://agid.it/suap/forms/apparecchi_automatici"
-    xmlns:smodappaut="http://agid.it/suap/sections/mod_apparecchi_automatici"
+    xmlns:mappaut="http://agid.it/suap/forms/apparecchi_automatici"
     targetNamespace="http://agid.it/suap/forms/apparecchi_automatici"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
@@ -21,7 +19,7 @@
     <xsd:import namespace="http://agid.it/suap/sections/allegati" schemaLocation="../03_sections/sez_allegati_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/mod_apparecchi_automatici" schemaLocation="../03_sections/sez_mod_apparecchi_automatici_v1.0.0.xsd"/>
     
-    <xsd:element name="apparecchi_automatici_mod" type="mesvi:apparecchi_automatici_type"/>
+    <xsd:element name="apparecchi_automatici_mod" type="mappaut:apparecchi_automatici_type"/>
     
     <xsd:complexType name="apparecchi_automatici_type">
         <xsd:sequence>

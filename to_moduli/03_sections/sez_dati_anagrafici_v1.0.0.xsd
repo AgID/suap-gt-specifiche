@@ -55,7 +55,6 @@
     <xsd:complexType name="scheda_anagrafica_type">
         <xsd:sequence>
             
-            <!-- diversamentre dal sus non è chi presenta la domanda ma il beneficiario dell'autorizzazione ? -->    
             <xsd:element name="rappresentante" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -65,7 +64,7 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
-                        <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="cittadinanza" type="ecitt:cittadinanza_ctype" minOccurs="1" maxOccurs="1"/>
                         <xsd:element name="permesso_soggiorno" type="edocril:documento_rilasciato_ctype" minOccurs="0" maxOccurs="1"/>
                         <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xsd:complexType>
@@ -78,13 +77,11 @@
                             </xsd:complexType>
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
-                        <!-- spostato da opera con -->
                         <xsd:element name="rappresentanza" type="erapp:rappresentanza_ctype"  minOccurs="1" maxOccurs="1"/>
                     </xsd:sequence>
                 </xsd:complexType>                
             </xsd:element>
             
-            <!-- TODO esportare definizione di impresa in entità riusabile -> esempio per collegare il fatto che una persona è stata dipendente di una certa impresa -->
             <xsd:element name="impresa" minOccurs="1" maxOccurs="1" type="eimp:impresa_ctype"/>
             
             <xsd:element name="intermediario" minOccurs="0" maxOccurs="1">
@@ -96,10 +93,10 @@
                 </xsd:annotation>
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="datiPersona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="persona" type="epers:persona_ctype"  minOccurs="1" maxOccurs="1"/>
                         <!--
-                            FIXME: pro futuro: nel caso SGD come funzione? Anche senza cittadinanza italiana?
-                        <xsd:element name="cittadinanza" type="eci:cittadinanza_ctype" minOccurs="0" maxOccurs="1"/>
+                            TODO Business: approfondire nel caso SGD futuro sarà necessario consentire intermediario con cittadinanza
+                            non italiana? Al momento ci atteniamo a definizione attuale della scheda anagrafica
                         -->
                         <xsd:element name="residenza" minOccurs="1" maxOccurs="1">
                             <xsd:complexType>
@@ -112,9 +109,14 @@
                             </xsd:complexType>
                         </xsd:element>
                         <xsd:element name="contatti" type="econt:contatti_ctype" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="denominazione_agenzia_imprese" type="ctipi:stringa_standard_stype" minOccurs="0" maxOccurs="1">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    Si applica solo nel caso in cui l'intermediario è appunto una agenzia per le imprese
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>                        
                     </xsd:sequence>
-                    <!-- TODO: valutare se il caso agenzia per le imprese e' da prevedere o meno
-                        -->
                 </xsd:complexType>                
             </xsd:element>            
         </xsd:sequence>   

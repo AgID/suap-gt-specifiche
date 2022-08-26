@@ -1,1 +1,0 @@
-# Tavolo operativo catalogo
