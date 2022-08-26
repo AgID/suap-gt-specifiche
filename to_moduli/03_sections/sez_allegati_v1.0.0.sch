@@ -26,12 +26,8 @@
         <sch:param name="file" value="sallegati:planimetria_locali"/>        
     </sch:pattern>
     
-    <sch:pattern id="files_attestazione_versamenti" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="sallegati:attestazione_versamenti"/>        
-    </sch:pattern>
-    
-    <sch:pattern id="files_attestazione_imposta_bollo" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="sallegati:attestazione_imposta_bollo"/>        
+    <sch:pattern id="files_assolvemento_imposta_bollo" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:assolvemento_imposta_bollo"/>        
     </sch:pattern>
     
 </sch:schema>

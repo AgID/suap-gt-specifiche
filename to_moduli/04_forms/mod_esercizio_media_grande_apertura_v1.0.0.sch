@@ -27,7 +27,7 @@
     <sch:ns uri="http://agid.it/suap/entities/allegati" prefix="eallegati"/>
     <sch:ns uri="http://agid.it/suap/sections/allegati" prefix="sallegati"/>
     <sch:ns uri="http://agid.it/suap/entities/file" prefix="efile"/> 
-    <sch:ns uri="http://agid.it/suapsections/altre_dichiarazioni" prefix="saltdic"/>
+    <sch:ns uri="http://agid.it/suap/sections/altre_dichiarazioni" prefix="saltdic"/>
     
     <sch:include href="../03_sections/sez_dati_anagrafici_v1.0.0.sch#sez_dati_anagrafici_ab"/>
     <sch:include href="../02_entities/ent_persona_v1.0.0.sch#persona_ab"/>
@@ -64,7 +64,17 @@
             
             <sch:assert id="allegati_ab-impegno_comunicazioni" test="normalize-space(saltdic:impegno_comunicazioni)!=''"> 
                 Dichiarazione impegno comunicazioni variazioni è obbligatoria
-            </sch:assert>            
+            </sch:assert>
+
+            <sch:assert id="allegati_ab-non_presenti" test="count(*[
+                    name(.)!='saltdic:rispetto_regolamenti_locali'
+                    and name(.)!='saltdic:rispetto_normativa_prevenzioni_incendi'
+                    and name(.)!='saltdic:rispetto_normativa_movimentazione_merci'
+                    and name(.)!='saltdic:impegno_comunicazioni'
+                   ])=0"> 
+                Solo Dichiarazione rispetto regolamenti locali, Dichiarazione rispetto normativa prevenzioni incendi, Dichiarazione rispetto normativa movimentazione merci e Dichiarazione impegno comunicazioni variazioni è obbligatoria                
+                "/>)
+            </sch:assert>  
         </sch:rule>       
     </sch:pattern>  
     
@@ -74,11 +84,11 @@
     
     <sch:pattern id="allegati_ab" abstract="true">       
         <sch:rule context="$allegati">                                 
-            <sch:assert id="allegati_ab-planimetria" test="normalize-space(eallegati:planimetria_locali)!=''"> 
+            <sch:assert id="allegati_ab-planimetria" test="normalize-space(sallegati:planimetria_locali)!=''"> 
                 Planimetria allegati è obbligatoria
             </sch:assert>
             
-            <sch:assert id="allegati_ab-assolvemento_imposta_bolloi" test="normalize-space(eallegati:assolvemento_imposta_bollo)!=''"> 
+            <sch:assert id="allegati_ab-assolvemento_imposta_bolloi" test="normalize-space(sallegati:assolvemento_imposta_bollo)!=''"> 
                 Assolvemento imposta bollo è obbligatoria
             </sch:assert>
         </sch:rule>       
@@ -89,15 +99,15 @@
     </sch:pattern>
     
     <sch:pattern id="procuratore" abstract="false" is-a="procuratore_ab">
-        <sch:param name="modulo" value="mesmegrap:media_grande_apertura"/>        
+        <sch:param name="modulo" value="mesmegrap:esercizio_media_grande_apertura"/>        
     </sch:pattern>
     
     <sch:pattern id="alimentare" abstract="false" is-a="alimentare_ab">
-        <sch:param name="modulo" value="mesmegrap:media_grande_apertura"/>        
+        <sch:param name="modulo" value="mesmegrap:esercizio_media_grande_apertura"/>        
     </sch:pattern>
     
     <sch:pattern id="non_alimentare" abstract="false" is-a="non_alimentare_ab">
-        <sch:param name="modulo" value="mesmegrap:media_grande_apertura"/>        
+        <sch:param name="modulo" value="mesmegrap:esercizio_media_grande_apertura"/>        
     </sch:pattern>
     
     <sch:pattern id="sez_dati_anagrafici" is-a="sez_dati_anagrafici_ab" >
@@ -177,27 +187,28 @@
     </sch:pattern>
     
     <sch:pattern id="files_procura_delega" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="eallegati:procura_delega"/>        
+        <sch:param name="file" value="sallegati:procura_delega"/>        
     </sch:pattern>
     
     <sch:pattern id="files_dichiarazione_requisiti_preposto" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="eallegati:dichiarazione_requisiti_preposto"/>        
+        <sch:param name="file" value="sallegati:dichiarazione_requisiti_preposto"/>        
     </sch:pattern>
     
     <sch:pattern id="files_dichiarazione_requisiti_soci" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="eallegati:dichiarazione_requisiti_soci"/>        
+        <sch:param name="file" value="sallegati:dichiarazione_requisiti_soci"/>        
     </sch:pattern>
     
-    <sch:pattern id="files_attestazione_versamenti" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="sallegati:attestazione_versamenti"/>        
+    <sch:pattern id="files_planimetria_locali" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:planimetria_locali"/>        
     </sch:pattern>
     
-    <sch:pattern id="files_attestazione_imposta_bollo" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="sallegati:attestazione_imposta_bollo"/>        
+    <sch:pattern id="files_assolvemento_imposta_bollo" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:assolvemento_imposta_bollo"/>        
     </sch:pattern>
     
     <sch:phase id="non_alimentare_ph">
         <sch:active pattern="non_alimentare"/>
+        <sch:active pattern="altre_dichiarazioni"/>
         <sch:active pattern="procuratore"/>
         <sch:active pattern="sez_dati_anagrafici"/>
         <sch:active pattern="persona_scheda_anagrafica"/>
@@ -221,14 +232,14 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
-        <sch:active pattern="files_attestazione_versamenti"/>
-        <sch:active pattern="files_attestazione_imposta_bollo"/>
-        <sch:active pattern="altre_dichiarazioni"/>
+        <sch:active pattern="files_planimetria_locali"/>        
+        <sch:active pattern="files_assolvemento_imposta_bollo"/>              
         <sch:active pattern="allegati"/>
     </sch:phase>
     
     <sch:phase id="alimentare_ph">
         <sch:active pattern="alimentare"/>
+        <sch:active pattern="altre_dichiarazioni"/>
         <sch:active pattern="procuratore"/>
         <sch:active pattern="sez_dati_anagrafici"/>
         <sch:active pattern="persona_scheda_anagrafica"/>
@@ -252,9 +263,8 @@
         <sch:active pattern="files_procura_delega"/>
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
-        <sch:active pattern="files_attestazione_versamenti"/>
-        <sch:active pattern="files_attestazione_imposta_bollo"/>
-        <sch:active pattern="altre_dichiarazioni"/>
+        <sch:active pattern="files_planimetria_locali"/>        
+        <sch:active pattern="files_assolvemento_imposta_bollo"/>              
         <sch:active pattern="allegati"/>
     </sch:phase>
    
