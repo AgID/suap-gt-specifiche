@@ -2,7 +2,6 @@
     @data_creazione: 17 agosto 2022    
     @version: 1.0.0 
 -->
-
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
     <sch:ns uri="http://agid.it/suap/sections/requisiti_onorabilita_professionali" prefix="sreonpr"/>    
@@ -41,7 +40,6 @@
     <sch:pattern id="iscrizione_rec" abstract="false" is-a="iscrizione_rec_ab">
         <sch:param name="iscrizione_rec" value="ereqpro:iscrizione_REC"/>        
     </sch:pattern>
-    
-    
+        
 </sch:schema>
 

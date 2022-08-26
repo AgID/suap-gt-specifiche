@@ -5,7 +5,7 @@
     
     xmlns:sscheana="http://agid.it/suap/sections/scheda_anagrafica"
     xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
-    
+    xmlns:sapspaint="http://agid.it/suap/sections/apertura_spacci_interni"
     xmlns:sreqono="http://agid.it/suap/sections/requisiti_onorabilita"
     xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
     xmlns:sallegati="http://agid.it/suap/sections/allegati"
@@ -14,11 +14,11 @@
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <!--xmlns:sapesspaint="http://agid.it/suap/sections/apertura_spacci_interni"-->
+    
     
     <xsd:import namespace="http://agid.it/suap/sections/scheda_anagrafica" schemaLocation="../03_sections/sez_dati_anagrafici_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/riferimento_attivita" schemaLocation="../03_sections/sez_riferimento_attivita_v1.0.0.xsd"/>
-    <!--<xsd:import namespace="http://agid.it/suap/sections/apertura_spacci_interni" schemaLocation="../03_sections/sez_mod_spacci_interni_apertura_v1.0.0.xsd"/>-->    
+    <xsd:import namespace="http://agid.it/suap/sections/apertura_spacci_interni" schemaLocation="../03_sections/sez_mod_spacci_interni_apertura_v1.0.0.xsd"/>    
     <xsd:import namespace="http://agid.it/suap/sections/requisiti_onorabilita" schemaLocation="../03_sections/sez_requisiti_onorabilita_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/altre_dichiarazioni" schemaLocation="../03_sections/sez_altre_dichiarazioni_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/allegati" schemaLocation="../03_sections/sez_allegati_v1.0.0.xsd"/>
@@ -27,7 +27,7 @@
         <xsd:sequence>
             <xsd:element ref="sscheana:scheda_anagrafica" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="srifatt:riferimento_attivita" minOccurs="1" maxOccurs="1"/>
-            <!--<xsd:element ref="sapesvi:apertura_spacci_interni" minOccurs="1" maxOccurs="1"/>-->
+            <xsd:element ref="sapspaint:apertura_spacci_interni" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="sreqono:requisiti_onorabilita" minOccurs="1" maxOccurs="1"/>            
             <xsd:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="sallegati:allegati" minOccurs="1" maxOccurs="1"/>

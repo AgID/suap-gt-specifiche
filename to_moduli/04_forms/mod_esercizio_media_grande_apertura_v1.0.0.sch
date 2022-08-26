@@ -89,7 +89,7 @@
             </sch:assert>
             
             <sch:assert id="allegati_ab-assolvemento_imposta_bolloi" test="normalize-space(sallegati:assolvemento_imposta_bollo)!=''"> 
-                Assolvemento imposta bollo è obbligatoria
+                Assolvimento imposta bollo è obbligatoria
             </sch:assert>
         </sch:rule>       
     </sch:pattern>  

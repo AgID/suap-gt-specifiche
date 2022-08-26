@@ -84,8 +84,8 @@
                 Planimetria allegati è obbligatoria
             </sch:assert>
             
-            <sch:assert id="allegati_ab-assolvemento_imposta_bolloi" test="normalize-space(eallegati:assolvemento_imposta_bollo)!=''"> 
-                Assolvemento imposta bollo è obbligatoria
+            <sch:assert id="allegati_ab-assolvimento_imposta_bolloi" test="normalize-space(eallegati:assolvimento_imposta_bollo)!=''"> 
+                Assolvimento imposta bollo è obbligatoria
             </sch:assert>
         </sch:rule>       
     </sch:pattern>  
@@ -186,8 +186,8 @@
         <sch:param name="file" value="sallegati:planimetria_locali"/>        
     </sch:pattern>
     
-    <sch:pattern id="files_assolvemento_imposta_bollo" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="sallegati:assolvemento_imposta_bollo"/>        
+    <sch:pattern id="files_assolvimento_imposta_bollo" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:assolvimento_imposta_bollo"/>        
     </sch:pattern>
     
     <sch:phase id="non_alimentare_ph">
@@ -213,7 +213,7 @@
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
         <sch:active pattern="files_planimetria_locali"/>        
-        <sch:active pattern="files_assolvemento_imposta_bollo"/>
+        <sch:active pattern="files_assolvimento_imposta_bollo"/>
         <sch:active pattern="altre_dichiarazioni"/>
         <sch:active pattern="allegati"/>
     </sch:phase>
@@ -241,7 +241,7 @@
         <sch:active pattern="files_dichiarazione_requisiti_preposto"/>
         <sch:active pattern="files_dichiarazione_requisiti_soci"/>
         <sch:active pattern="files_planimetria_locali"/>        
-        <sch:active pattern="files_assolvemento_imposta_bollo"/>
+        <sch:active pattern="files_assolvimento_imposta_bollo"/>
         <sch:active pattern="altre_dichiarazioni"/>
         <sch:active pattern="allegati"/>
     </sch:phase>    

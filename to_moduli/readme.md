@@ -8,9 +8,9 @@
 - [x]   012_modulo_apparecchi-automatici <Avvio>                                                                                    - *FVG_inWork*
 - []    013_modulo_vendita-al-domicilio-dei-consumatori <Avvio>                                                                     
 - []    014_modulo_vendita-per-corrispondenza <Avvio>
-- []    015_modulo_spacci-interni <Apertura, Trasferimento, Ampliamento>                                                            - *AgID_toStart*
-- []    016_modulo_somministrazione-zone-non-tutelate <Apertura, Trasferimento, Ampliamento>                                        - *AgID_toStart*
-- []    017_modulo_somministrazione-zone-tutelate <Apertura, Trasferimento, Ampliamento>                                            - *AgID_toStart*
+- []    015_modulo_spacci-interni <Apertura, Trasferimento, Ampliamento>                                                            - *AgID_inWork*
+- []    016_modulo_somministrazione-zone-non-tutelate <Apertura, Trasferimento, Ampliamento>                                        - *AgID_inWork*
+- []    017_modulo_somministrazione-zone-tutelate <Apertura, Trasferimento, Ampliamento>                                            - *AgID_inWork*
 - []    018_modulo_somministrazione-temporanea <Avvio>
 - []    019_modulo_acconciatori-ed-estetisti <Apertura, Trasferimento>                                                              - *AgID_toStart*
 - []    020_modulo-agenzie-di-affari <Avvio, Trasferimento, Cessazione>                                                             - *AgID_toStart*
