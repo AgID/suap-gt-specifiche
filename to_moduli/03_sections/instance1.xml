@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sscheana:scheda_anagrafica xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:epers="http://agid.it/suap/entities/persona"
+ xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
+ xmlns:vruopro="http://agid.it/suap/vocabularies/ruolo_procuratore"
+ xmlns:ecitt="http://agid.it/suap/entities/cittadinanza"
+ xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+ xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
+ xmlns:vhashalg="http://agid.it/suap/vocabularies/files_hashalg"
+ xmlns:efile="http://agid.it/suap/entities/file"
+ xmlns:econt="http://agid.it/suap/entities/contatti"
+ xmlns:eimpresa="http://agid.it/suap/entities/impresa"
+ xmlns:sscheana="http://agid.it/suap/sections/scheda_anagrafica"
+ xmlns:edocril="http://agid.it/suap/entities/documento_rilasciato"
+ xmlns:vruoric="http://agid.it/suap/vocabularies/ruolo_richiedente"
+ xmlns:erapp="http://agid.it/suap/entities/rappresentanza"
+ xmlns:cf="http://agid.it/suap/commons/files"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/scheda_anagrafica file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_dati_anagrafici_v1.0.0.xsd">
+    <sscheana:rappresentante>
+        <sscheana:persona>
+            <epers:codice_fiscale>AAAAAA00A00A000A</epers:codice_fiscale>
+            <epers:nome>nome0</epers:nome>
+            <epers:cognome>cognome0</epers:cognome>
+        </sscheana:persona>
+        <sscheana:residenza>
+            <sscheana:indirizzo_estero>
+                <eindest:localita_estero>localita_estero0</eindest:localita_estero>
+                <eindest:stato_estero>713</eindest:stato_estero>
+            </sscheana:indirizzo_estero>
+        </sscheana:residenza>
+        <sscheana:contatti>
+        </sscheana:contatti>
+        <sscheana:rappresentanza>
+            <erapp:ruolo>Legale rappresentante di Organizzazione</erapp:ruolo>            
+        </sscheana:rappresentanza>
+    </sscheana:rappresentante>
+    <sscheana:impresa>
+        <eimpresa:denominazione>denominazione0</eimpresa:denominazione>
+        <eimpresa:forma_giuridica>1.1.10XXX</eimpresa:forma_giuridica>
+        <eimpresa:partita_iva>00000000000</eimpresa:partita_iva>
+        <eimpresa:iscrizione_registro_cc>
+            <eimpresa:necessita_di_iscrizione>true</eimpresa:necessita_di_iscrizione>
+            <eimpresa:iscrizione_registro>
+                <eiscrea:CCIAA>NOCCIAA</eiscrea:CCIAA>
+                <eiscrea:numero_REA>10</eiscrea:numero_REA>
+            </eimpresa:iscrizione_registro>
+        </eimpresa:iscrizione_registro_cc>
+    </sscheana:impresa>
+</sscheana:scheda_anagrafica>

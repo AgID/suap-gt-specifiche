@@ -24,7 +24,7 @@
                 Comune non esiste (<sch:value-of select="$comune"/>) 
             </sch:assert>
             
-            <sch:assert id="indirizzo_italiano_ab-ass_dug_cl_check" test="
+            <sch:assert id="indirizzo_italiano_ab-ass_dug_cl_check" test="$dug='' or
                 count($keysDUG[
                                 normalize-space(Value[@ColumnRef='denominazione' ]/SimpleValue) = $dug
                                ]) = 1">

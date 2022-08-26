@@ -23,7 +23,7 @@
             </sch:assert>
             
             <sch:assert id="carattere_esercizio_ab-no_stagionale" test="normalize-space(ecarese:temporaneo)=''"> 
-                "Stagionale" non può essere presente
+                "Temporaneo" non può essere presente
             </sch:assert>
         </sch:rule>
         
