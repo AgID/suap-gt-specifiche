@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<srifatt:riferimento_attivita xmlns:econt="http://agid.it/suap/entities/contatti"
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"
+    xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+    xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
+    xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+    xmlns:edaca="http://agid.it/suap/entities/dati_catastali"
+    xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://agid.it/suap/sections/riferimento_attivita file:/D:/Insiel/suap-gt-specifiche-public/to_moduli/03_sections/sez_riferimento_attivita_v1.0.0.xsd">
+    <srifatt:indirizzo>
+        <eindita:dug>VIA</eindita:dug>
+        <eindita:toponimo>toponimo0</eindita:toponimo>
+        <eindita:numero_civico>numero_civico0</eindita:numero_civico>
+        <eindita:barrato>barrato0</eindita:barrato>
+        <eindita:cap></eindita:cap>
+        <eindita:localita>localita0</eindita:localita>
+        <eindita:comune>032006</eindita:comune>
+    </srifatt:indirizzo>
+    <srifatt:contatti>
+        <econt:telefono_fisso>telefono_fisso0</econt:telefono_fisso>
+        <econt:cellulare>cellulare0</econt:cellulare>
+        <econt:fax>fax0</econt:fax>
+        <econt:domicilio_digitale>a.a@pec.it</econt:domicilio_digitale>
+        <econt:email>a.a@a.it</econt:email>
+    </srifatt:contatti>
+    <srifatt:dati_catastali xsi:type="edaca:dati_catastali_ctype_italia">
+        <edaca:sezione>50</edaca:sezione>
+        <edaca:foglio>50</edaca:foglio>
+        <edaca:mappa>50</edaca:mappa>
+        <edaca:subalterno>50</edaca:subalterno>
+        <edaca:fabbricati>false</edaca:fabbricati>
+    </srifatt:dati_catastali>
+</srifatt:riferimento_attivita>
