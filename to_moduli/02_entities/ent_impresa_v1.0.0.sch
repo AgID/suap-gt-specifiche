@@ -27,7 +27,7 @@
                                   ]) = 1">
                 
                 Forma giuridica non esiste (<sch:value-of select="$forma_giuridica"/>) 
-            </sch:assert>
+            </sch:assert>            
         </sch:rule>
     </sch:pattern>
     
