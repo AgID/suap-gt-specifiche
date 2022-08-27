@@ -11,7 +11,7 @@
     
     <sch:pattern id="impresa_ab" abstract="true">
         
-        <sch:rule context="$impresa">
+        <sch:rule id="rule_impresa_ab" abstract="true">
             
             <sch:let name="keysFormeGiuridiche" value="document('../01_vocabularies/voc_forme_giuridiche.xml')//Row"/> 
                        
@@ -32,9 +32,13 @@
             </sch:assert>                       
         </sch:rule> 
         
+        <sch:rule context="$impresa">
+            <sch:extends rule="rule_impresa_ab"/>
+        </sch:rule>
+        
         <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#rule_iscrizione_rea_ab"/>  
         
-        <sch:rule context="eimpresa:iscrizione_registro_cc/eimpresa:iscrizione_registro">
+        <sch:rule context="eimpresa:iscrizione_registro">
             <sch:extends rule="rule_iscrizione_rea_ab"/>
         </sch:rule>
         
