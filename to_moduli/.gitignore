@@ -1,3 +1,6 @@
 ### HTML ###
 *.html
 *.xpr
+
+### xml_example ###
+*xml_example*

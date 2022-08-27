@@ -29,7 +29,7 @@
             <x:context href="ent_persona_v1.0.0.tc.ko.estero.check_cl.xml"/>
             
             <x:expect-assert label=""
-                id="persona_ab-ass_stato_nasciata_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
+                id="persona_ab-ass_stato_nascita_cl_check" location="/*:persona[namespace-uri()='http://agid.it/suap/entities/persona'][1]"/>
         </x:scenario>
     </x:scenario>
    

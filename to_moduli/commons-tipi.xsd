@@ -84,6 +84,7 @@
     <xsd:simpleType name="cap_stype">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="([0-9]{5})?"/>
+            <xsd:length value="5"/>
         </xsd:restriction>
     </xsd:simpleType>
     

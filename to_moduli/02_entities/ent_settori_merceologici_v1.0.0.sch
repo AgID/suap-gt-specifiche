@@ -13,6 +13,10 @@
                 Almeno uno tra "Alimentare" o "Non alimentare" deve essere selezionato
             </sch:assert>
             
+            <!-- 
+                DOUBT: verificare con business la correttazza dei controlli sulle superfici totali            
+            -->
+                        
             <sch:let name="superfice_totale" value="sum(esetmer:alimentare[1]/text())+sum(esetmer:non_alimentare[1]/text())"/>
             
             <sch:assert id="settori_merceologici_ab-generi_monopolio" test="$superfice_totale &gt;= sum(esetmer:di_cui/esetmer:generi_monopolio/text())"> 

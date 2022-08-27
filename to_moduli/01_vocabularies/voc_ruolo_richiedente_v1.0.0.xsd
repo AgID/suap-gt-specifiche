@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     
     xmlns:vruoric="http://agid.it/suap/vocabularies/ruolo_richiedente"
     
     targetNamespace="http://agid.it/suap/vocabularies/ruolo_richiedente" elementFormDefault="qualified"
     attributeFormDefault="qualified" version="1.0.0" xml:lang="it">
 
-    <xs:simpleType name="ruolo_richiedente_voc">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="Legale rappresentante di organizzazione"/>
-            <xs:enumeration value="Titolare di impresa individuale"/>
-            <xs:enumeration value="Altro"/>
-        </xs:restriction>
-    </xs:simpleType>
-</xs:schema>
+    <xsd:simpleType name="ruolo_richiedente_voc">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Legale rappresentante di organizzazione"/>
+            <xsd:enumeration value="Titolare di impresa individuale"/>
+            <xsd:enumeration value="Altro"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
