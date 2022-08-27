@@ -8,7 +8,7 @@
     
     <sch:pattern id="rappresentanza_ab" abstract="true">
         
-        <sch:rule context="$rappresentanza">        
+        <sch:rule id="rule_rappresentanza_ab" abstract="true">        
             <sch:let name="dataInizio" value="xs:date(erapp:data_inizio)"/>
             <sch:let name="dataFine" value="xs:date(erapp:data_fine)"/>
             
@@ -17,8 +17,12 @@
             </sch:assert>
             
         </sch:rule>
+        
+        <sch:rule context="$rappresentanza">
+            <sch:extends rule="rule_rappresentanza_ab"/>
+        </sch:rule>
     </sch:pattern>
-    
+        
     <sch:pattern id="rappresentanza" abstract="false" is-a="rappresentanza_ab">
         <sch:param name="rappresentanza" value="erapp:rappresentanza"/>        
     </sch:pattern>

@@ -9,7 +9,7 @@
    
     <sch:pattern id="iscrizione_rea_ab" abstract="true">
         
-        <sch:rule context="$iscrizione_rea">
+        <sch:rule id="rule_iscrizione_rea_ab" abstract="true">
             
             <sch:let name="keysCCIAA" value="document('../01_vocabularies/voc_cciaa.xml')//Row"/>
             
@@ -21,6 +21,10 @@
                 CCIAA non esiste (<sch:value-of select="$CCIAA"/>) 
             </sch:assert>
             
+        </sch:rule>             
+        
+        <sch:rule context="$iscrizione_rea">
+            <sch:extends rule="rule_iscrizione_rea_ab"/>
         </sch:rule>
     </sch:pattern>
     

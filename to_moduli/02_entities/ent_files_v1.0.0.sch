@@ -9,7 +9,7 @@
    
     <sch:pattern id="files_ab" abstract="true">
         
-        <sch:rule context="$file">
+        <sch:rule id="rule_files_ab" abstract="true">
             
             <sch:let name="keysMime" value="document('../01_vocabularies/voc_mime_types.xml')//Row"/>
             
@@ -21,6 +21,10 @@
                 Mime Type non esiste (<sch:value-of select="$content_type"/>) 
             </sch:assert>
             
+        </sch:rule>
+        
+        <sch:rule context="$file">
+            <sch:extends rule="rule_files_ab"/>
         </sch:rule>
     </sch:pattern>
     
