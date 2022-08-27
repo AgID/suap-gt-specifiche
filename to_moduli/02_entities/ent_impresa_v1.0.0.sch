@@ -28,6 +28,12 @@
                 
                 Forma giuridica non esiste (<sch:value-of select="$forma_giuridica"/>) 
             </sch:assert>            
+        
+            <sch:assert id="impresa_ab-iscrizione_rea" test="normalize-space(eimpresa:iscrizione_registro_cc/eimpresa:iscrizione_registro)='' 
+                or normalize-space(eimpresa:iscrizione_registro_cc/eimpresa:necessita_di_iscrizione)='true'">
+                
+                Se indicata iscrizione REA allora necessità di iscrizione deve essere true
+            </sch:assert>
         </sch:rule>
     </sch:pattern>
     

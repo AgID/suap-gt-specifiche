@@ -29,6 +29,10 @@
         
     </sch:pattern>  
     
+    <sch:pattern id="requisiti_professionali" abstract="false" is-a="requisiti_professionali_ab">
+        <sch:param name="requisiti_professionali" value="ereqpro:requisiti_professionali"/>        
+    </sch:pattern>
+    
     <sch:pattern id="persona" abstract="false" is-a="persona_ab">
         <sch:param name="persona" value="ereqpro:requisiti_professionali_preposto"/>        
     </sch:pattern>
@@ -37,10 +41,6 @@
         <sch:param name="indirizzo_italiano" value="ereqpro:luogo_corso"/>        
     </sch:pattern>
 
-    <sch:pattern id="requisiti_professionali" abstract="false" is-a="requisiti_professionali_ab">
-        <sch:param name="requisiti_professionali" value="ereqpro:requisiti_professionali"/>        
-    </sch:pattern>
-    
     <sch:pattern id="iscrizione_rea" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="ereqpro:iscrizione_registro"/>        
     </sch:pattern>

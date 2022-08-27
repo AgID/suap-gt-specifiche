@@ -2,6 +2,6 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     <!-- TODO 
         - recuperare pattern da sezioni
-        - aggiungere controllo impresa no impresa individuale
+        - aggiungere controllo impresa no impresa individuale       
     -->
 </sch:schema>

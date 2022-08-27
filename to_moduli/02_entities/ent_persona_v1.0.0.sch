@@ -23,7 +23,7 @@
                 Per persone nate in italia la data di nascita è obbligatorio                 
             </sch:assert>
             
-            <sch:assert id="persona_ab-ass_comune_nascita_cl_check" test="$luogo_nascita_italiano='' or count(
+            <sch:assert id="persona_ab-ass_comune_nascita_cl_check" test="$luogo_nascita_italiano='' or $data_nascita='' or count(
                                                         $keysStoricoComuni[
                                                             normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $luogo_nascita_italiano
                                                             and xs:date(Value[@ColumnRef = 'data_istituzione']/SimpleValue) &lt;= xs:date($data_nascita)
@@ -34,7 +34,7 @@
                 Comune non esiste (<sch:value-of select="$luogo_nascita_italiano"/>) alla data (<sch:value-of select="$data_nascita"/>)                 
             </sch:assert>
             
-            <sch:assert id="persona_ab-ass_stato_nasciata_cl_check" test="
+            <sch:assert id="persona_ab-ass_stato_nascita_cl_check" test="
                 $stato_estero='' or count(
                                             $keysStatiEsteri[
                                                                 normalize-space(Value[@ColumnRef='codice_istat']/SimpleValue) = $stato_estero

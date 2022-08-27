@@ -7,7 +7,7 @@
  xmlns:eimpresa="http://agid.it/suap/entities/impresa"
  xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://agid.it/suap/entities/impresa file:/D:/Insiel/suap-gt-specifiche-public/to_moduli/02_entities/ent_impresa_v1.0.0.xsd">
+ xsi:schemaLocation="http://agid.it/suap/entities/impresa ../../ent_impresa_v1.0.0.xsd">
     <eimpresa:denominazione>denominazione0</eimpresa:denominazione>
     <eimpresa:forma_giuridica>1.1</eimpresa:forma_giuridica>
     <eimpresa:identificativo_impresa_inviduale>

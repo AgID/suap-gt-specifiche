@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+       
+    xmlns:sapspaint="http://agid.it/suap/sections/apertura_spacci_interni"
+    
+    xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+    xmlns:eimpresa="http://agid.it/suap/entities/impresa"
+        
+    targetNamespace="http://agid.it/suap/sections/apertura_spacci_interni"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+     
+    <xsd:import namespace="http://agid.it/suap/entities/settori_merceologici" schemaLocation="../02_entities/ent_settori_merceologici_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/entities/impresa" schemaLocation="../02_entities/ent_impresa_v1.0.0.xsd"/>
+    
+    <xsd:element name="apertura_spacci_interni" type="sapspaint:apertura_spacci_interni_type"/>
+    
+    <xsd:complexType name="apertura_spacci_interni_type">
+        <xsd:sequence>
+            <xsd:element name="segnalazione_avvio" minOccurs="1" maxOccurs="1">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="presso" type="eimpresa:impresa_ctype" minOccurs="1" maxOccurs="1"/>                                    
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="settori_merceologici" type="esetmer:settori_merceologici_ctype" minOccurs="1" maxOccurs="1"/>            
+        </xsd:sequence>        
+    </xsd:complexType>    
+</xsd:schema>

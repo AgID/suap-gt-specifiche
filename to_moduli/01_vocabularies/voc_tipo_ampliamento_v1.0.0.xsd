@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     
     xmlns:vtipamp="http://agid.it/suap/vocabularies/tipo_ampliamento"
     
     targetNamespace="http://agid.it/suap/vocabularies/tipo_ampliamento" elementFormDefault="qualified"
     attributeFormDefault="qualified" version="1.0.0" xml:lang="it">
 
-    <xs:simpleType name="tipo_ampliamento_voc">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="AGGIUNTA"/>
-            <xs:enumeration value="ELIMINAZIONE"/>
-            <xs:enumeration value="SOSTITUZIONE"/>
-        </xs:restriction>
-    </xs:simpleType>
-</xs:schema>
+    <xsd:simpleType name="tipo_ampliamento_voc">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AGGIUNTA"/>
+            <xsd:enumeration value="ELIMINAZIONE"/>
+            <xsd:enumeration value="SOSTITUZIONE"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
