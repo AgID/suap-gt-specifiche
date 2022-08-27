@@ -10,7 +10,7 @@
         
         <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/> 
         
-        <sch:rule context="$cittadinanza">
+        <sch:rule id="rule_cittadinanza_ab" abstract="true">
             
             <sch:let name="stato" value="normalize-space(ecitt:stato_cittadinanza)"/>
             
@@ -22,6 +22,10 @@
                 Stato di cittadinanza non esiste (<sch:value-of select="$stato"/>) 
             </sch:assert>
             
+        </sch:rule>
+        
+        <sch:rule context="$cittadinanza">
+            <sch:extends rule="rule_cittadinanza_ab"/>
         </sch:rule>
     </sch:pattern>
     

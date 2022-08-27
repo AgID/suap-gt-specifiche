@@ -8,7 +8,7 @@
     
     <sch:pattern id="documento_rilasciato_ab" abstract="true">
         
-        <sch:rule context="$documento_rilasciato">        
+        <sch:rule id="rule_documento_rilasciato_ab" abstract="true">        
             <sch:let name="dataRilascio" value="xs:date(edocril:data_rilascio)"/>
             <sch:let name="dataScadenza" value="xs:date(edocril:data_scadenza)"/>
             
@@ -28,6 +28,10 @@
                 Tipo di documento non esiste (<sch:value-of select="$tipo_documento"/>) 
             </sch:assert>
             
+        </sch:rule>
+        
+        <sch:rule context="$documento_rilasciato">
+            <sch:extends rule="rule_documento_rilasciato_ab"/>
         </sch:rule>
     </sch:pattern>
     

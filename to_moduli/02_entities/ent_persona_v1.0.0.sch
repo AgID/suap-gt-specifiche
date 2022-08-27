@@ -8,7 +8,7 @@
     
     <sch:pattern id="persona_ab" abstract="true">
         
-        <sch:rule context="$persona">
+        <sch:rule id="rule_persona_ab" abstract="true">
             
             <sch:let name="keysStoricoComuni" value="document('../01_vocabularies/voc_comuni_italiani_storico.xml')//Row"/> 
             <sch:let name="keysStatiEsteri" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
@@ -44,6 +44,10 @@
                 Stato non esiste (<sch:value-of select="$stato_estero"/>)                 
             </sch:assert>
             
+        </sch:rule>
+        
+        <sch:rule context="$persona">
+            <sch:extends rule="rule_persona_ab"/>
         </sch:rule>
         
     </sch:pattern>       

@@ -8,7 +8,7 @@
     
     <sch:pattern id="indirizzo_italiano_ab" abstract="true">
         
-        <sch:rule context="$indirizzo_italiano">
+        <sch:rule id="rule_indirizzo_italiano_ab" abstract="true">
             
             <sch:let name="keysComuni" value="document('../01_vocabularies/voc_comuni_italiani.xml')//Row"/> 
             <sch:let name="keysDUG" value="document('../01_vocabularies/voc_dug.xml')//Row"/>
@@ -33,8 +33,11 @@
             </sch:assert>
             
         </sch:rule>
+        
+        <sch:rule context="$indirizzo_italiano">
+            <sch:extends rule="rule_indirizzo_italiano_ab"/>
+        </sch:rule>
     </sch:pattern>
-    
     
     <sch:pattern id="indirizzo_italiano" abstract="false" is-a="indirizzo_italiano_ab">
         <sch:param name="indirizzo_italiano" value="eindita:indirizzo_italiano"/>        
