@@ -8,9 +8,9 @@
     
     <sch:pattern id="cittadinanza_ab" abstract="true">
         
-        <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/> 
-        
         <sch:rule id="rule_cittadinanza_ab" abstract="true">
+            
+            <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
             
             <sch:let name="stato" value="normalize-space(ecitt:stato_cittadinanza)"/>
             

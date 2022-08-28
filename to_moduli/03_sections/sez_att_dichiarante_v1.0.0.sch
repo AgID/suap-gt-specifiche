@@ -13,19 +13,19 @@
     <sch:pattern id="att_dichiarante_ab" abstract="true">
         <sch:include href="../02_entities/ent_persona_v1.0.0.sch#rule_persona_ab"/>
         
-        <sch:rule context="$nsdichiarazione:persona">
+        <sch:rule id="att_dichiarante_ab_persona" context="$nsdichiarazione:persona">
             <sch:extends rule="rule_persona_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_indirizzo_estero_v1.0.0.sch#rule_indirizzo_estero_ab"/>
         
-        <sch:rule context="$nsdichiarazione:indirizzo_estero">
+        <sch:rule id="att_dichiarante_ab_indirizzo_estero" context="$nsdichiarazione:indirizzo_estero">
             <sch:extends rule="rule_indirizzo_estero_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#rule_indirizzo_italiano_ab"/>
         
-        <sch:rule context="$nsdichiarazione:indirizzo_italiano">
+        <sch:rule id="att_dichiarante_ab_indirizzo_italiano" context="$nsdichiarazione:indirizzo_italiano">
             <sch:extends rule="rule_indirizzo_italiano_ab"/>
         </sch:rule>
     </sch:pattern>

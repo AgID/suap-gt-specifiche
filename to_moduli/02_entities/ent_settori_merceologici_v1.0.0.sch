@@ -14,7 +14,7 @@
             </sch:assert>
             
             <!-- 
-                DOUBT: verificare con business la correttazza dei controlli sulle superfici totali            
+                TODO Business: verificare la correttazza dei controlli sulle superfici totali            
             -->
                         
             <sch:let name="superfice_totale" value="sum(esetmer:alimentare[1]/text())+sum(esetmer:non_alimentare[1]/text())"/>
