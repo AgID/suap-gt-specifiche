@@ -24,7 +24,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$cittadinanza">
+        <sch:rule id="rule_cittadinanza" context="$cittadinanza">
             <sch:extends rule="rule_cittadinanza_ab"/>
         </sch:rule>
     </sch:pattern>

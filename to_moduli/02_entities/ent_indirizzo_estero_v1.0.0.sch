@@ -23,7 +23,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$indirizzo_estero">
+        <sch:rule id="rule_indirizzo_estero" context="$indirizzo_estero">
             <sch:extends rule="rule_indirizzo_estero_ab"/>
         </sch:rule>
     </sch:pattern>

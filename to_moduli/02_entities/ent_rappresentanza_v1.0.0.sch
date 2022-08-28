@@ -18,7 +18,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$rappresentanza">
+        <sch:rule id="rule_rappresentanza" context="$rappresentanza">
             <sch:extends rule="rule_rappresentanza_ab"/>
         </sch:rule>
     </sch:pattern>

@@ -46,7 +46,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$persona">
+        <sch:rule id="rule_persona" context="$persona">
             <sch:extends rule="rule_persona_ab"/>
         </sch:rule>
         

@@ -34,7 +34,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$indirizzo_italiano">
+        <sch:rule id="rule_indirizzo_italiano" context="$indirizzo_italiano">
             <sch:extends rule="rule_indirizzo_italiano_ab"/>
         </sch:rule>
     </sch:pattern>

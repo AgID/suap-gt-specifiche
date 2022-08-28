@@ -30,7 +30,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$documento_rilasciato">
+        <sch:rule id="rule_documento_rilasciato" context="$documento_rilasciato">
             <sch:extends rule="rule_documento_rilasciato_ab"/>
         </sch:rule>
     </sch:pattern>

@@ -14,7 +14,7 @@
             </sch:assert>
         </sch:rule>
         
-        <sch:rule context="$modalita_vendita">
+        <sch:rule id="rule_modalita_vendita" context="$modalita_vendita">
             <sch:extends rule="rule_modalita_vendita_ab"/>
         </sch:rule>
         
