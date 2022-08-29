@@ -9,7 +9,7 @@
    
     <sch:pattern id="files_ab" abstract="true">
         
-        <sch:rule id="rule_files_ab" abstract="true">
+        <sch:rule id="rule_files" context="$file">
             
             <sch:let name="keysMime" value="document('../01_vocabularies/voc_mime_types.xml')//Row"/>
             
@@ -23,9 +23,6 @@
             
         </sch:rule>
         
-        <sch:rule id="rule_files" context="$file">
-            <sch:extends rule="rule_files_ab"/>
-        </sch:rule>
     </sch:pattern>
     
     <sch:pattern id="files" abstract="false" is-a="files_ab">

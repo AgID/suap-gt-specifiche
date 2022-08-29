@@ -8,7 +8,7 @@
     
     <sch:pattern id="persona_ab" abstract="true">
         
-        <sch:rule id="rule_persona_ab" abstract="true">
+        <sch:rule id="rule_persona"  context="$persona">
             
             <sch:let name="keysStoricoComuni" value="document('../01_vocabularies/voc_comuni_italiani_storico.xml')//Row"/> 
             <sch:let name="keysStatiEsteri" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
@@ -45,11 +45,7 @@
             </sch:assert>
             
         </sch:rule>
-        
-        <sch:rule id="rule_persona" context="$persona">
-            <sch:extends rule="rule_persona_ab"/>
-        </sch:rule>
-        
+
     </sch:pattern>       
 
     <sch:pattern id="persona" abstract="false" is-a="persona_ab">

@@ -14,18 +14,21 @@
         <eimpresa:codice_fiscale_pg>00000000000</eimpresa:codice_fiscale_pg>
     </eimpresa:identificativo_societa>
     <eimpresa:iscrizione_registro_cc>
-        <eimpresa:necessita_di_iscrizione>true</eimpresa:necessita_di_iscrizione>
+        <eimpresa:necessita_di_iscrizione>false</eimpresa:necessita_di_iscrizione>
         <eimpresa:iscrizione_registro>
-            <eiscrea:CCIAA>5</eiscrea:CCIAA>
+            <eiscrea:CCIAA>NOCCIAA</eiscrea:CCIAA>
             <eiscrea:numero_REA>numero_rea_0</eiscrea:numero_REA>
         </eimpresa:iscrizione_registro>
     </eimpresa:iscrizione_registro_cc>
     <eimpresa:sede_legale>
-        <eimpresa:indirizzo_italiano>
-            <eindita:toponimo>toponimo</eindita:toponimo>
-            <eindita:numero_civico>numero_civico</eindita:numero_civico>
-            <eindita:cap>00000</eindita:cap>
-            <eindita:comune>NOCOMUNE</eindita:comune>
-        </eimpresa:indirizzo_italiano>        
+        <eimpresa:indirizzo_estero>
+            <eindest:localita_estero>localita_estero</eindest:localita_estero>
+            <eindest:stato_estero>713</eindest:stato_estero>
+        </eimpresa:indirizzo_estero>
     </eimpresa:sede_legale>
 </eimpresa:impresa>
+
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

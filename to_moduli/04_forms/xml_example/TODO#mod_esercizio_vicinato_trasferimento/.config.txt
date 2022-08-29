@@ -1,0 +1,1 @@
+schematronApplied = ../../mod_esercizio_vicinato_trasferimento_v1.0.0.sch

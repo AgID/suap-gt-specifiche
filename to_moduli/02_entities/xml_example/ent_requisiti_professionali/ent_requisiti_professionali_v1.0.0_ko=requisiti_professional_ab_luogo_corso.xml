@@ -10,15 +10,20 @@
  xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://agid.it/suap/entities/requisiti_professionali file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_requisiti_professionali_v1.0.0.xsd">
-    <ereqpro:esercitato_in_proprio>
-      <ereqpro:periodo_esercizio>
-        <ereqpro:tipo_attivita>tipo_attivita</ereqpro:tipo_attivita>
-        <ereqpro:da>2020-10-10</ereqpro:da>
-        <ereqpro:a>2021-10-10</ereqpro:a>
-      </ereqpro:periodo_esercizio>
-      <ereqpro:iscrizione_registro>
-        <eiscrea:CCIAA>NOCCIAA</eiscrea:CCIAA>
-        <eiscrea:numero_REA>numero_REA</eiscrea:numero_REA>
-      </ereqpro:iscrizione_registro>
-    </ereqpro:esercitato_in_proprio>
+    <ereqpro:corso_professionale>
+     <ereqpro:istituto_corso>istituto_corso</ereqpro:istituto_corso>
+     <ereqpro:luogo_corso>
+      <eindita:dug>NODUG</eindita:dug>
+      <eindita:toponimo>toponimo</eindita:toponimo>
+      <eindita:numero_civico>numero_civico</eindita:numero_civico>
+      <eindita:cap>80059</eindita:cap>
+      <eindita:comune>NOCOMUNE</eindita:comune>
+     </ereqpro:luogo_corso>
+     <ereqpro:oggetto_corso>oggetto_corso</ereqpro:oggetto_corso>
+     <ereqpro:anno_corso>2020</ereqpro:anno_corso>
+    </ereqpro:corso_professionale>
 </ereqpro:requisiti_professionali>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

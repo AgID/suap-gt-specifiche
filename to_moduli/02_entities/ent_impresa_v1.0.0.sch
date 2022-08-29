@@ -9,9 +9,28 @@
     <sch:ns uri="http://agid.it/suap/entities/indirizzo_italiano" prefix="eindita"/> 
     <sch:ns uri="http://agid.it/suap/entities/indirizzo_estero" prefix="eindest"/>     
     
+    
+    <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
+    
+    <sch:pattern id="impresa_ab_iscrizione_rea" abstract="false" is-a="iscrizione_rea_ab">
+        <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
+    </sch:pattern>
+    
+    <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#indirizzo_italiano_ab"/>
+    
+    <sch:pattern id="impresa_ab_indirizzo_italiano" abstract="false" is-a="indirizzo_italiano_ab">
+        <sch:param name="indirizzo_italiano" value="eimpresa:indirizzo_italiano"/>        
+    </sch:pattern>
+    
+    <sch:include href="../02_entities/ent_indirizzo_estero_v1.0.0.sch#indirizzo_estero_ab"/>
+    
+    <sch:pattern id="impresa_ab_indirizzo_estero" abstract="false" is-a="indirizzo_estero_ab">
+        <sch:param name="indirizzo_estero" value="eimpresa:indirizzo_estero"/>        
+    </sch:pattern>
+        
     <sch:pattern id="impresa_ab" abstract="true">
         
-        <sch:rule id="rule_impresa_ab" abstract="true">
+        <sch:rule id="rule_impresa" context="$impresa">
             
             <sch:let name="keysFormeGiuridiche" value="document('../01_vocabularies/voc_forme_giuridiche.xml')//Row"/> 
                        
@@ -32,27 +51,6 @@
             </sch:assert>                       
         </sch:rule> 
         
-        <sch:rule id="rule_impresa" context="$impresa">
-            <sch:extends rule="rule_impresa_ab"/>
-        </sch:rule>
-        
-        <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#rule_iscrizione_rea_ab"/> 
-        
-        <sch:rule id="rule_impresa_ab_iscrizione_registro" context="eimpresa:iscrizione_registro">
-            <sch:extends rule="rule_iscrizione_rea_ab"/>
-        </sch:rule>
-        
-        <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#rule_indirizzo_italiano_ab"/>
-        
-        <sch:rule id="rule_impresa_ab_indirizzo_italiano" context="eimpresa:indirizzo_italiano">
-            <sch:extends rule="rule_indirizzo_italiano_ab"/>
-        </sch:rule>
-        
-        <sch:include href="../02_entities/ent_indirizzo_estero_v1.0.0.sch#rule_indirizzo_estero_ab"/> 
-        
-        <sch:rule id="rule_impresa_ab_indirizzo_estero" context="eimpresa:indirizzo_estero">
-            <sch:extends rule="rule_indirizzo_estero_ab"/>
-        </sch:rule>
     </sch:pattern>
        
     <sch:pattern id="impresa" abstract="false" is-a="impresa_ab">

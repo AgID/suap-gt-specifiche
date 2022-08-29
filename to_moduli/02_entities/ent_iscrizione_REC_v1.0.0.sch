@@ -9,7 +9,7 @@
     
     <sch:pattern id="iscrizione_rec_ab" abstract="true">
         
-        <sch:rule id="rule_iscrizione_rec_ab" abstract="true">
+        <sch:rule id="rule_iscrizione_rec" context="$iscrizione_rec">
             
             <sch:let name="keysCCIAA" value="document('../01_vocabularies/voc_cciaa.xml')//Row"/>
             
@@ -22,10 +22,7 @@
             </sch:assert>
             
         </sch:rule>
-        
-        <sch:rule id="rule_iscrizione_rec" context="$iscrizione_rec">
-            <sch:extends rule="rule_iscrizione_rec_ab"/>
-        </sch:rule>
+     
     </sch:pattern>
     
     <sch:pattern id="iscrizione_rec" abstract="false" is-a="iscrizione_rec_ab">

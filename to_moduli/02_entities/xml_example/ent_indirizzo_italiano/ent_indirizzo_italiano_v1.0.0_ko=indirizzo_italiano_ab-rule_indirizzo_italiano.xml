@@ -5,7 +5,7 @@
  xmlns:ctipi="http://agid.it/suap/commons/tipi"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://agid.it/suap/entities/indirizzo_italiano file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_indirizzo_italiano_v1.0.0.xsd">
-    <eindita:dug>VIA</eindita:dug>
+    <eindita:dug>NODUG</eindita:dug>
     <eindita:toponimo>toponimo0</eindita:toponimo>
     <eindita:numero_civico>numero_civico0</eindita:numero_civico>
     <eindita:cap>00000</eindita:cap>
