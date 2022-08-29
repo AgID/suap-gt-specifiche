@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdichia:dichiarante xmlns:sdichia="http://agid.it/suap/sections/dichiarante"
+ xmlns:epers="http://agid.it/suap/entities/persona"
+ xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+ xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+ xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/dichiarante file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_att_dichiarante_v1.0.0.xsd">
+    <sdichia:persona>
+        <epers:codice_fiscale>AAAAAA00A00A000A</epers:codice_fiscale>
+        <epers:nome>nome0</epers:nome>
+        <epers:cognome>cognome0</epers:cognome>
+        <epers:data_nascita>1973-06-02</epers:data_nascita>
+        <epers:luogo_nascita_italiano>063084</epers:luogo_nascita_italiano>
+    </sdichia:persona>
+    <sdichia:residenza>
+        <sdichia:indirizzo_italiano>
+            <eindita:dug>VIA</eindita:dug>
+            <eindita:toponimo>toponimo0</eindita:toponimo>
+            <eindita:numero_civico>numero_civico0</eindita:numero_civico>
+            <eindita:cap>00000</eindita:cap>
+            <eindita:comune>063084</eindita:comune>
+        </sdichia:indirizzo_italiano>
+    </sdichia:residenza>
+</sdichia:dichiarante>

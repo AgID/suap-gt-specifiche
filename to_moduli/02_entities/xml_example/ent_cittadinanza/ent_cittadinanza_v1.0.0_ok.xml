@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecitt:cittadinanza xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:ecitt="http://agid.it/suap/entities/cittadinanza"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/cittadinanza file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_cittadinanza_v1.0.0.xsd">
+    <ecitt:stato_cittadinanza>713</ecitt:stato_cittadinanza>
+</ecitt:cittadinanza>

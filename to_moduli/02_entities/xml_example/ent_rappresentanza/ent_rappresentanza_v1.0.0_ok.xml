@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<erapp:rappresentanza  xmlns:erapp="http://agid.it/suap/entities/rappresentanza"
+    xmlns:vruoric="http://agid.it/suap/vocabularies/ruolo_richiedente"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://agid.it/suap/entities/rappresentanza file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_rappresentanza_v1.0.0.xsd">
+    <erapp:data_inizio>2013-10-12</erapp:data_inizio>
+    <erapp:data_fine>2023-10-12</erapp:data_fine>
+    <erapp:estremi_atto>estremi_atto</erapp:estremi_atto>
+    <erapp:ruolo>Legale rappresentante di Organizzazione</erapp:ruolo>
+</erapp:rappresentanza>

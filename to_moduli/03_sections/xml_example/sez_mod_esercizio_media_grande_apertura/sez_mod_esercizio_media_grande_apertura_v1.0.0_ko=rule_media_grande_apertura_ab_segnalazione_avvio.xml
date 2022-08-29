@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sapesmegr:apertura_media_grande_esercizio xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:emodven="http://agid.it/suap/entities/modalita_vendita"
+ xmlns:sapesmegr="http://agid.it/suap/sections/apertura_esercizio_media_grande"
+ xmlns:ecarese="http://agid.it/suap/entities/carattere_esercizio"
+ xmlns:ecencom="http://agid.it/suap/entities/centro_commerciale"
+ xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/apertura_esercizio_media_grande file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_mod_esercizio_media_grande_apertura_v1.0.0.xsd">
+    <sapesmegr:segnalazione_avvio>
+        
+    </sapesmegr:segnalazione_avvio>
+    <sapesmegr:modalita_vendita xsi:type="emodven:modalita_vendita_ctype_italia">
+        <emodven:vendita_dettaglio>10</emodven:vendita_dettaglio>
+    </sapesmegr:modalita_vendita>
+    <sapesmegr:carattere_esercizio xsi:type="ecarese:carattere_esercizio_ctype_italia">
+        <ecarese:permanente>true</ecarese:permanente>
+    </sapesmegr:carattere_esercizio>
+    <sapesmegr:settori_merceologici xsi:type="esetmer:settori_merceologici_ctype_italia">
+        <esetmer:alimentare>10</esetmer:alimentare>
+    </sapesmegr:settori_merceologici>
+</sapesmegr:apertura_media_grande_esercizio>
