@@ -1,0 +1,1 @@
+schematronApplied = ../../ent_indirizzo_italiano_v1.0.0.sch

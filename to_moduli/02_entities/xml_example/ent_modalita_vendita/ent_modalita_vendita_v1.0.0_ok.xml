@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modalita_vendita xmlns="http://agid.it/suap/entities/modalita_vendita"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/modalita_vendita file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_modalita_vendita_v1.0.0.xsd" xmlns:emodven="http://agid.it/suap/entities/modalita_vendita" xsi:type="emodven:modalita_vendita_ctype_italia">
+<vendita_dettaglio>10</vendita_dettaglio>
+</modalita_vendita>

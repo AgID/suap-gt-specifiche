@@ -8,13 +8,13 @@
     
     <sch:pattern id="settori_merceologici_ab" abstract="true">
         
-        <sch:rule context="$settori_merceologici">
+        <sch:rule id="rule_settori_merceologici_ab" abstract="true">
             <sch:assert id="settori_merceologici_ab-almeno_uno_alimentare_non_alimentare" test="(count(esetmer:alimentare) + count(esetmer:non_alimentare)) &gt; 0"> 
                 Almeno uno tra "Alimentare" o "Non alimentare" deve essere selezionato
             </sch:assert>
             
             <!-- 
-                DOUBT: verificare con business la correttazza dei controlli sulle superfici totali            
+                TODO Business: verificare la correttazza dei controlli sulle superfici totali            
             -->
                         
             <sch:let name="superfice_totale" value="sum(esetmer:alimentare[1]/text())+sum(esetmer:non_alimentare[1]/text())"/>
@@ -35,6 +35,10 @@
                 Superficie merci ingombranti deve essere non superiore a superficie totale                 
             </sch:assert>
             
+        </sch:rule>
+        
+        <sch:rule id="rule_settori_merceologici" context="$settori_merceologici">
+            <sch:extends rule="rule_settori_merceologici_ab"/>
         </sch:rule>
         
     </sch:pattern>       

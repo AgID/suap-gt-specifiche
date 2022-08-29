@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stresvi:trasferimento_esercizio_vicinato xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:stresvi="http://agid.it/suap/sections/trasferimento_esercizio_vicinato"
+ xmlns:ecencom="http://agid.it/suap/entities/centro_commerciale"
+ xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+ xmlns:econt="http://agid.it/suap/entities/contatti"
+ xmlns:eproto="http://agid.it/suap/entities/protocollo"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/trasferimento_esercizio_vicinato file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_mod_esercizio_vicinato_trasferimento_v1.0.0.xsd">
+    <stresvi:protocollo_avvio>
+        <eproto:codice_amministrazione>codice_amministrazione0</eproto:codice_amministrazione>
+        <eproto:codice_aoo>codice_aoo0</eproto:codice_aoo>
+        <eproto:codice_registro>codice_registro0</eproto:codice_registro>
+        <eproto:numero_registrazione>0000000</eproto:numero_registrazione>
+        <eproto:data_registrazione>2006-05-04</eproto:data_registrazione>
+    </stresvi:protocollo_avvio>
+    <stresvi:da>
+        <stresvi:indirizzo>
+            <eindita:dug>VIA</eindita:dug>
+            <eindita:toponimo>toponimo0</eindita:toponimo>
+            <eindita:numero_civico>numero_civico0</eindita:numero_civico>
+            <eindita:cap>80059</eindita:cap>
+            <eindita:comune>063084</eindita:comune>
+        </stresvi:indirizzo>
+    </stresvi:da>
+    <stresvi:a>
+        <stresvi:indirizzo>
+            <eindita:toponimo>toponimo1</eindita:toponimo>
+            <eindita:numero_civico>numero_civico1</eindita:numero_civico>
+            <eindita:cap>80059</eindita:cap>
+            <eindita:comune>063084</eindita:comune>
+        </stresvi:indirizzo>
+        <stresvi:contatti>
+        </stresvi:contatti>
+        <stresvi:in_centro_commerciale xsi:type="ecencom:centro_commerciale_ctype_italia">
+            <ecencom:partita_iva>12345678901</ecencom:partita_iva>
+            <ecencom:codice_fiscale>12345678901</ecencom:codice_fiscale>
+            <ecencom:denominazione_centro_commerciale>denominazione_centro_commerciale</ecencom:denominazione_centro_commerciale>
+        </stresvi:in_centro_commerciale>
+    </stresvi:a>
+    <stresvi:settori_merceologici xsi:type="esetmer:settori_merceologici_ctype_italia">
+        <esetmer:alimentare>10</esetmer:alimentare>
+    </stresvi:settori_merceologici>
+</stresvi:trasferimento_esercizio_vicinato>

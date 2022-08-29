@@ -19,38 +19,38 @@
             
             <sch:assert id="requisiti_professionali_ab-almeno_una_pratica" test="count(ereqpro:pratica_professionale)=0 or count(ereqpro:pratica_professionale/child::*) &gt; 0">
                 Almeno una pratica professionale deve essere indicata
-            </sch:assert>
+            </sch:assert>            
         </sch:rule>
         
-        <sch:rule context="$requisiti_professionali">
+        <sch:rule id="rule_requisiti_professionali" context="$requisiti_professionali">
             <sch:extends rule="rule_requisiti_professionali_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_persona_v1.0.0.sch#rule_persona_ab"/>
         
-        <sch:rule context="ereqpro:requisiti_professionali_preposto">
+        <sch:rule id="rule_requisiti_professionali_ab_requisiti_professionali_preposto" context="ereqpro:requisiti_professionali_preposto">
             <sch:extends rule="rule_persona_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#rule_indirizzo_italiano_ab"/>
         
-        <sch:rule context="ereqpro:luogo_corso">
+        <sch:rule id="rule_requisiti_professionali_ab_luogo_corso" context="ereqpro:luogo_corso">
             <sch:extends rule="rule_indirizzo_italiano_ab"/>
         </sch:rule>
         
-        <sch:rule context="ereqpro:sede_impresa">
+        <sch:rule id="rule_requisiti_professionali_ab_sede_impresa" context="ereqpro:sede_impresa">
             <sch:extends rule="rule_indirizzo_italiano_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#rule_iscrizione_rea_ab"/>
         
-        <sch:rule context="ereqpro:iscrizione_registro">
+        <sch:rule id="rule_requisiti_professionali_ab_iscrizione_registro" context="ereqpro:iscrizione_registro">
             <sch:extends rule="rule_iscrizione_rea_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#rule_iscrizione_rec_ab"/>
-        
-        <sch:rule context="ereqpro:iscrizione_REC">
+                
+        <sch:rule id="rule_requisiti_professionali_ab_iscirizione_rec" context="ereqpro:iscrizione_REC">
             <sch:extends rule="rule_iscrizione_rec_ab"/>
         </sch:rule>
         

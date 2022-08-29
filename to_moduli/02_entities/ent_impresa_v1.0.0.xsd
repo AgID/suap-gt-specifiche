@@ -82,3 +82,7 @@
 
     <xsd:element name="impresa" type="eimpresa:impresa_ctype"/>
 </xsd:schema>
+
+<!-- 
+    TODO: valutare l'eliminazione della presente entità prevedendo la sola defizione della relativa sezione (sez_att_impresa -> sez_impresa)
+-->

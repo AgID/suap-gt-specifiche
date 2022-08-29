@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ereqpro:requisiti_professionali xmlns:epers="http://agid.it/suap/entities/persona"
+ xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
+ xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
+ xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+ xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/requisiti_professionali file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_requisiti_professionali_v1.0.0.xsd">
+    <ereqpro:prestato_opera>
+        <ereqpro:denominazione_impresa>denominazione_impresa</ereqpro:denominazione_impresa>
+        <ereqpro:sede_impresa>
+            <eindita:toponimo>toponimo</eindita:toponimo>
+            <eindita:numero_civico>numero_civico</eindita:numero_civico>
+            <eindita:cap>00000</eindita:cap>
+            <eindita:comune>NOCOMUNE</eindita:comune>
+        </ereqpro:sede_impresa>
+    </ereqpro:prestato_opera>
+</ereqpro:requisiti_professionali>

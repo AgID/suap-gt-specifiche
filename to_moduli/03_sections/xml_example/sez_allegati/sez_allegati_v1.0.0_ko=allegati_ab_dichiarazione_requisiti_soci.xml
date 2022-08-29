@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sallegati:allegati xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:vhashalg="http://agid.it/suap/vocabularies/files_hashalg"
+ xmlns:efile="http://agid.it/suap/entities/file"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:sallegati="http://agid.it/suap/sections/allegati"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/allegati file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_allegati_v1.0.0.xsd" xsi:type="sallegati:allegati_ctype_italia">
+ <sallegati:procura_delega>
+  <efile:nome_file>nome_file_0</efile:nome_file>
+  <efile:content_type>xml</efile:content_type>
+ </sallegati:procura_delega>
+ <sallegati:dichiarazione_requisiti_soci>
+  <efile:nome_file>nome_file_1</efile:nome_file>
+  <efile:content_type>NOCONTENT</efile:content_type>
+ </sallegati:dichiarazione_requisiti_soci>
+ <sallegati:dichiarazione_requisiti_preposto>
+  <efile:nome_file>nome_file_2</efile:nome_file>
+  <efile:content_type>xml</efile:content_type>
+ </sallegati:dichiarazione_requisiti_preposto>
+ <sallegati:planimetria_locali>
+  <efile:nome_file>nome_file_3</efile:nome_file>
+  <efile:content_type>pdf</efile:content_type>
+ </sallegati:planimetria_locali>
+ <sallegati:attestamento_versamenti>
+  <efile:nome_file>nome_file_4</efile:nome_file>
+  <efile:content_type>xml</efile:content_type>
+ </sallegati:attestamento_versamenti>
+ <sallegati:assolvimento_imposta_bollo>
+  <efile:nome_file>nome_file_5</efile:nome_file>
+  <efile:content_type>xml</efile:content_type>
+ </sallegati:assolvimento_imposta_bollo>
+</sallegati:allegati>

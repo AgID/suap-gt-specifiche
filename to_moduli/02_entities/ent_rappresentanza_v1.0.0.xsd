@@ -2,18 +2,12 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     xmlns:erapp="http://agid.it/suap/entities/rappresentanza"
     
-    xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations" 
-    xmlns:ctipi="http://agid.it/suap/commons/tipi"
-    xmlns:efile="http://agid.it/suap/commons/files"   
     xmlns:vruoric="http://agid.it/suap/vocabularies/ruolo_richiedente"
     
     targetNamespace="http://agid.it/suap/entities/rappresentanza"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
     
-    <xsd:import namespace="http://agid.it/suap/commons/xsdAnnotations" schemaLocation="../commons-xsd-annotations.xsd"/>    
-    <xsd:import namespace="http://agid.it/suap/commons/tipi" schemaLocation="../commons-tipi.xsd"/>  
-    <xsd:import namespace="http://agid.it/suap/entities/file" schemaLocation="../02_entities/ent_files_v1.0.0.xsd"/>   
     <xsd:import namespace="http://agid.it/suap/vocabularies/ruolo_richiedente" schemaLocation="../01_vocabularies/voc_ruolo_rappresentante_v1.0.0.xsd"/>
     
     <xsd:element name="rappresentanza" type="erapp:rappresentanza_ctype"/>
@@ -42,3 +36,7 @@
     </xsd:complexType>      
     
 </xsd:schema>
+
+<!-- 
+    TODO: da valutare l'opportunità di includerlo in sez_dati_anagrafici
+-->

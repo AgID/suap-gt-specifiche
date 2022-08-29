@@ -8,11 +8,11 @@
     
     <sch:pattern id="cittadinanza_ab" abstract="true">
         
-        <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/> 
-        
         <sch:rule id="rule_cittadinanza_ab" abstract="true">
             
-            <sch:let name="stato" value="normalize-space(ecitt:stato_cittadinanza)"/>
+            <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
+            
+            <sch:let name="stato" value="normalize-space($nsecitt:stato_cittadinanza)"/>
             
             <sch:assert id="cittadinanza_ab-ass_stato_cl_check" test="
                 count($keysStati[
@@ -24,12 +24,12 @@
             
         </sch:rule>
         
-        <sch:rule context="$cittadinanza">
-            <sch:extends rule="rule_cittadinanza_ab"/>
+        <sch:rule id="rule_cittadinanza" context="$nsecitt:cittadinanza">
+            <sch:extends rule="rule_cittadinanza_ab"/>            
         </sch:rule>
     </sch:pattern>
     
-    <sch:pattern id="cittadinanza" abstract="false" is-a="cittadinanza_ab">
-        <sch:param name="cittadinanza" value="ecitt:cittadinanza"/>        
+    <sch:pattern id="cittadinanza" abstract="false" is-a="cittadinanza_ab">               
+        <sch:param name="nsecitt" value="ecitt"/>
     </sch:pattern>
 </sch:schema>

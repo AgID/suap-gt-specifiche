@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eimpresa:impresa xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+ xmlns:eimpresa="http://agid.it/suap/entities/impresa"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/impresa file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_impresa_v1.0.0.xsd">
+    <eimpresa:denominazione>denominazione0</eimpresa:denominazione>
+    <eimpresa:forma_giuridica>NOFORMAGIURIDICA</eimpresa:forma_giuridica>
+    <eimpresa:identificativo_societa>
+        <eimpresa:codice_fiscale_pg>00000000000</eimpresa:codice_fiscale_pg>
+    </eimpresa:identificativo_societa>
+    <eimpresa:iscrizione_registro_cc>
+        <eimpresa:necessita_di_iscrizione>true</eimpresa:necessita_di_iscrizione>
+        <eimpresa:iscrizione_registro>
+            <eiscrea:CCIAA>5</eiscrea:CCIAA>
+            <eiscrea:numero_REA>numero_rea_0</eiscrea:numero_REA>
+        </eimpresa:iscrizione_registro>
+    </eimpresa:iscrizione_registro_cc>
+    <eimpresa:sede_legale>
+        <eimpresa:indirizzo_estero>
+            <eindest:localita_estero>localita_estero</eindest:localita_estero>
+            <eindest:stato_estero>713</eindest:stato_estero>
+        </eimpresa:indirizzo_estero>
+    </eimpresa:sede_legale>
+</eimpresa:impresa>

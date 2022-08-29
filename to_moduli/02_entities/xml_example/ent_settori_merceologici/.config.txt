@@ -1,0 +1,1 @@
+schematronApplied = ../../ent_settori_merceologici_v1.0.0.sch

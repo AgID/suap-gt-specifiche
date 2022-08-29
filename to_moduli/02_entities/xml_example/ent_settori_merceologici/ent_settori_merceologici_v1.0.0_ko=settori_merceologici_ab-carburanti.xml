@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esetmer:settori_merceologici xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/settori_merceologici file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_settori_merceologici_v1.0.0.xsd" xsi:type="esetmer:settori_merceologici_ctype_italia">
+ <esetmer:di_cui>
+  <esetmer:carburanti>15</esetmer:carburanti>
+ </esetmer:di_cui> 
+ <esetmer:alimentare>10</esetmer:alimentare>
+</esetmer:settori_merceologici>

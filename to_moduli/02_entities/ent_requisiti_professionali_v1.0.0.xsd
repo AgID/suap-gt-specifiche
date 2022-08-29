@@ -104,7 +104,7 @@
                 <xsd:element name="qualifica_professionale" type="ereqpro:qualifica_professionale_ctype" minOccurs="0" maxOccurs="1"/>
                 <xsd:element name="pratica_professionale" type="ereqpro:pratica_professionale_ctype" minOccurs="0" maxOccurs="1"/>                
             </xsd:sequence>
-            <xsd:element name="requisiti_professionali_preposto" type="epers:persona_ctype" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element name="requisiti_professionali_preposto" type="epers:persona_ctype" minOccurs="0" maxOccurs="1"/>            
         </xsd:choice>                
     </xsd:complexType> 
     

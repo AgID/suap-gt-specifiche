@@ -12,33 +12,34 @@
     <sch:pattern id="allegati_ab" abstract="true">        
         <sch:include href="../02_entities/ent_files_v1.0.0.sch#rule_files_ab"/>
         
-        <sch:rule context="sallegati:procura_delega">
+        <sch:rule id="rule_allegati_ab_procura_delega" context="$nsallegati:procura_delega">
             <sch:extends rule="rule_files_ab"/>
         </sch:rule>
         
-        <sch:rule context="sallegati:dichiarazione_requisiti_preposto">
+        <sch:rule id="allegati_ab_dichiarazione_requisiti_preposto" context="$nsallegati:dichiarazione_requisiti_preposto">
             <sch:extends rule="rule_files_ab"/>
         </sch:rule>
         
-        <sch:rule context="sallegati:dichiarazione_requisiti_soci">
+        <sch:rule id="rule_allegati_ab_dichiarazione_requisiti_soci" context="$nsallegati:dichiarazione_requisiti_soci">
             <sch:extends rule="rule_files_ab"/>
         </sch:rule>
         
-        <sch:rule context="sallegati:planimetria_locali">
+        <sch:rule id="rule_allegati_ab_planimetria_locali" context="$nsallegati:planimetria_locali">
             <sch:extends rule="rule_files_ab"/>
         </sch:rule>
         
-        <sch:rule context="sallegati:assolvimento_imposta_bollo">
+        <sch:rule id="rule_allegati_ab_assolvimento_imposta_bollo" context="$nsallegati:assolvimento_imposta_bollo">
             <sch:extends rule="rule_files_ab"/>
         </sch:rule>
         
-        <sch:rule context="sallegati:attestamento_versamenti">
+        <sch:rule id="rule_allegati_ab_attestamento_versamenti" context="$nsallegati:attestamento_versamenti">
             <sch:extends rule="rule_files_ab"/>
         </sch:rule>
         
     </sch:pattern>
     
-    <sch:pattern id="allegati" abstract="false" is-a="allegati_ab">               
+    <sch:pattern id="allegati" abstract="false" is-a="allegati_ab"> 
+        <sch:param name="nsallegati" value="sallegati"/>
     </sch:pattern>
   
 </sch:schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<efile:file xmlns:efile="http://agid.it/suap/entities/file"
+ xmlns:vhashalg="http://agid.it/suap/vocabularies/files_hashalg"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/file file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_files_v1.0.0.xsd">
+    <efile:nome_file>nome_file0</efile:nome_file>
+    <efile:content_type>NOCONTENT</efile:content_type>
+</efile:file>

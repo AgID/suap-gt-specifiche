@@ -1,0 +1,1 @@
+schematronApplied = ../../sez_mod_esercizio_media_grande_trasferimento_v1.0.0.sch

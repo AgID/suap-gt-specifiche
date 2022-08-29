@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samesvi:ampliamento_esercizio_vicinato xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:eproto="http://agid.it/suap/entities/protocollo"
+ xmlns:vtipamp="http://agid.it/suap/vocabularies/tipo_ampliamento"
+ xmlns:ecencom="http://agid.it/suap/entities/centro_commerciale"
+ xmlns:samesvi="http://agid.it/suap/sections/ampliamento_esercizio_vicinato"
+ xmlns:esetmer="http://agid.it/suap/entities/settori_merceologici"
+ xmlns:econt="http://agid.it/suap/entities/contatti"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/ampliamento_esercizio_vicinato file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_mod_esercizio_vicinato_ampliamento_v1.0.0.xsd">
+    <samesvi:protocollo_avvio>
+        <eproto:codice_amministrazione>codice_amministrazione0</eproto:codice_amministrazione>
+        <eproto:codice_aoo>codice_aoo0</eproto:codice_aoo>
+        <eproto:codice_registro>codice_registro0</eproto:codice_registro>
+        <eproto:numero_registrazione>0000000</eproto:numero_registrazione>
+        <eproto:data_registrazione>2006-05-04</eproto:data_registrazione>
+    </samesvi:protocollo_avvio>
+    <samesvi:vendita_tabelle_speciali>AGGIUNTA</samesvi:vendita_tabelle_speciali>
+    <samesvi:da>
+        <samesvi:settori_merceologici xsi:type="esetmer:settori_merceologici_ctype_italia">
+            <esetmer:alimentare>10</esetmer:alimentare>
+        </samesvi:settori_merceologici>
+    </samesvi:da>
+    <samesvi:a>
+        <samesvi:settori_merceologici xsi:type="esetmer:settori_merceologici_ctype_italia">
+            <esetmer:alimentare>12</esetmer:alimentare>
+        </samesvi:settori_merceologici>
+    </samesvi:a>
+</samesvi:ampliamento_esercizio_vicinato>

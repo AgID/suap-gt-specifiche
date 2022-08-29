@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eindest:indirizzo_estero xmlns:eindest="http://agid.it/suap/entities/indirizzo_estero"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/indirizzo_estero file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_indirizzo_estero_v1.0.0.xsd">
+    <eindest:localita_estero>localita_estero0</eindest:localita_estero>
+    <eindest:stato_estero>713</eindest:stato_estero>
+</eindest:indirizzo_estero>

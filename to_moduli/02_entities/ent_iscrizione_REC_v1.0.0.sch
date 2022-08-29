@@ -23,7 +23,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$iscrizione_rec">
+        <sch:rule id="rule_iscrizione_rec" context="$iscrizione_rec">
             <sch:extends rule="rule_iscrizione_rec_ab"/>
         </sch:rule>
     </sch:pattern>

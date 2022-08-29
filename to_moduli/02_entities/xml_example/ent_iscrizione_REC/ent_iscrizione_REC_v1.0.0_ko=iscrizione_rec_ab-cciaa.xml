@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eisrec:iscrizione_rec xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/entities/iscrizione_rec file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_iscrizione_REC_v1.0.0.xsd">
+    <eisrec:CCIAA>NOCCIAA</eisrec:CCIAA>
+    <eisrec:anno>2010</eisrec:anno>
+</eisrec:iscrizione_rec>

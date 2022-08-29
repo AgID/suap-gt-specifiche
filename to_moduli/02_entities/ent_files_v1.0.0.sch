@@ -23,7 +23,7 @@
             
         </sch:rule>
         
-        <sch:rule context="$file">
+        <sch:rule id="rule_files" context="$file">
             <sch:extends rule="rule_files_ab"/>
         </sch:rule>
     </sch:pattern>

@@ -12,10 +12,8 @@
     xmlns:eimpresa="http://agid.it/suap/entities/impresa"
     xmlns:vruoric="http://agid.it/suap/vocabularies/ruolo_richiedente"
     xmlns:vruopro="http://agid.it/suap/vocabularies/ruolo_procuratore"
-    xmlns:erapp="http://agid.it/suap/entities/rappresentanza" 
-    xmlns:eimp="http://agid.it/suap/entities/impresa" 
-    xmlns:ctipi="http://agid.it/suap/commons/tipi" 
-    
+    xmlns:erapp="http://agid.it/suap/entities/rappresentanza"    
+    xmlns:ctipi="http://agid.it/suap/commons/tipi"  
     
     targetNamespace="http://agid.it/suap/sections/scheda_anagrafica"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
@@ -82,7 +80,7 @@
                 </xsd:complexType>                
             </xsd:element>
             
-            <xsd:element name="impresa" minOccurs="1" maxOccurs="1" type="eimp:impresa_ctype"/>
+            <xsd:element name="impresa" minOccurs="1" maxOccurs="1" type="eimpresa:impresa_ctype"/>
             
             <xsd:element name="intermediario" minOccurs="0" maxOccurs="1">
                 <xsd:annotation>
@@ -120,6 +118,7 @@
                 </xsd:complexType>                
             </xsd:element>            
         </xsd:sequence>   
-    </xsd:complexType>     
+    </xsd:complexType> 
+    
     <xsd:element name="scheda_anagrafica" type="sscheana:scheda_anagrafica_type"/>        
 </xsd:schema>

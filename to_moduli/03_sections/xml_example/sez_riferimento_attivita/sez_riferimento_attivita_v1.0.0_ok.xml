@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<srifatt:riferimento_attivita xmlns:edaca="http://agid.it/suap/entities/dati_catastali"
+ xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
+ xmlns:ccodelist="http://agid.it/suap/commons/codelist"
+ xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
+ xmlns:econt="http://agid.it/suap/entities/contatti"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/riferimento_attivita file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_riferimento_attivita_v1.0.0.xsd">
+    <srifatt:indirizzo>
+        <eindita:toponimo>toponimo0</eindita:toponimo>
+        <eindita:numero_civico>numero_civico0</eindita:numero_civico>
+        <eindita:cap>00000</eindita:cap>
+        <eindita:comune>063084</eindita:comune>
+    </srifatt:indirizzo>
+    <srifatt:contatti>
+    </srifatt:contatti>
+    <srifatt:dati_catastali xsi:type="edaca:dati_catastali_ctype_italia">
+        <edaca:foglio>50</edaca:foglio>
+        <edaca:mappa>50</edaca:mappa>
+        <edaca:subalterno>50</edaca:subalterno>
+        <edaca:fabbricati>false</edaca:fabbricati>
+    </srifatt:dati_catastali>
+</srifatt:riferimento_attivita>
