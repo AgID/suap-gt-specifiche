@@ -27,3 +27,7 @@
         </eimpresa:indirizzo_estero>
     </eimpresa:sede_legale>
 </eimpresa:impresa>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

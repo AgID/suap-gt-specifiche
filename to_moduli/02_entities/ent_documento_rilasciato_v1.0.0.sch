@@ -8,7 +8,7 @@
     
     <sch:pattern id="documento_rilasciato_ab" abstract="true">
         
-        <sch:rule id="rule_documento_rilasciato_ab" abstract="true">        
+        <sch:rule id="rule_documento_rilasciato" context="$documento_rilasciato">        
             <sch:let name="dataRilascio" value="xs:date(edocril:data_rilascio)"/>
             <sch:let name="dataScadenza" value="xs:date(edocril:data_scadenza)"/>
             
@@ -29,10 +29,7 @@
             </sch:assert>
             
         </sch:rule>
-        
-        <sch:rule id="rule_documento_rilasciato" context="$documento_rilasciato">
-            <sch:extends rule="rule_documento_rilasciato_ab"/>
-        </sch:rule>
+                
     </sch:pattern>
     
     <sch:pattern id="documento_rilasciato" abstract="false" is-a="documento_rilasciato_ab">

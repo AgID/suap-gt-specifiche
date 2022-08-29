@@ -23,9 +23,15 @@
         </eimpresa:iscrizione_registro>
     </eimpresa:iscrizione_registro_cc>
     <eimpresa:sede_legale>
-        <eimpresa:indirizzo_estero>
-            <eindest:localita_estero>localita_estero</eindest:localita_estero>
-            <eindest:stato_estero>713</eindest:stato_estero>
-        </eimpresa:indirizzo_estero>
+        <eimpresa:indirizzo_italiano>
+            <eindita:toponimo>toponimo</eindita:toponimo>
+            <eindita:numero_civico>numero_civico</eindita:numero_civico>
+            <eindita:cap>00000</eindita:cap>
+            <eindita:comune>063084</eindita:comune>
+        </eimpresa:indirizzo_italiano>
     </eimpresa:sede_legale>
 </simpresa:impresa>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

@@ -8,7 +8,7 @@
     
     <sch:pattern id="cittadinanza_ab" abstract="true">
         
-        <sch:rule id="rule_cittadinanza_ab" abstract="true">
+        <sch:rule id="rule_cittadinanza" context="$nsecitt:cittadinanza">
             
             <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
             
@@ -24,9 +24,6 @@
             
         </sch:rule>
         
-        <sch:rule id="rule_cittadinanza" context="$nsecitt:cittadinanza">
-            <sch:extends rule="rule_cittadinanza_ab"/>            
-        </sch:rule>
     </sch:pattern>
     
     <sch:pattern id="cittadinanza" abstract="false" is-a="cittadinanza_ab">               

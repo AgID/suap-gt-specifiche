@@ -9,14 +9,14 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://agid.it/suap/entities/impresa file:/D:/Git/suap-gt-specifiche/to_moduli/02_entities/ent_impresa_v1.0.0.xsd">
     <eimpresa:denominazione>denominazione0</eimpresa:denominazione>
-    <eimpresa:forma_giuridica>1.1.10</eimpresa:forma_giuridica>
+    <eimpresa:forma_giuridica>NOFORMAGIURIDICA</eimpresa:forma_giuridica>
     <eimpresa:identificativo_societa>
         <eimpresa:codice_fiscale_pg>00000000000</eimpresa:codice_fiscale_pg>
     </eimpresa:identificativo_societa>
     <eimpresa:iscrizione_registro_cc>
-        <eimpresa:necessita_di_iscrizione>true</eimpresa:necessita_di_iscrizione>
+        <eimpresa:necessita_di_iscrizione>false</eimpresa:necessita_di_iscrizione>
         <eimpresa:iscrizione_registro>
-            <eiscrea:CCIAA>NOCCIAA</eiscrea:CCIAA>
+            <eiscrea:CCIAA>5</eiscrea:CCIAA>
             <eiscrea:numero_REA>numero_rea_0</eiscrea:numero_REA>
         </eimpresa:iscrizione_registro>
     </eimpresa:iscrizione_registro_cc>

@@ -9,7 +9,7 @@
    
     <sch:pattern id="indirizzo_estero_ab" abstract="true">
         
-        <sch:rule id="rule_indirizzo_estero_ab" abstract="true">
+        <sch:rule id="rule_indirizzo_estero" context="$indirizzo_estero">
             
             <sch:let name="keysStati" value="document('../01_vocabularies/voc_stati.xml')//Row"/>
             
@@ -22,10 +22,7 @@
             </sch:assert>
             
         </sch:rule>
-        
-        <sch:rule id="rule_indirizzo_estero" context="$indirizzo_estero">
-            <sch:extends rule="rule_indirizzo_estero_ab"/>
-        </sch:rule>
+       
     </sch:pattern>
     
     <sch:pattern id="indirizzo_estero" abstract="false" is-a="indirizzo_estero_ab">

@@ -8,16 +8,12 @@
     
     <sch:pattern id="modalita_vendita_ab" abstract="true">
         
-        <sch:rule id="rule_modalita_vendita_ab" abstract="true">
+        <sch:rule id="rule_modalita_vendita" context="$modalita_vendita">
             <sch:assert id="modalita_vendita_ab-obbligatorieta" test="count(child::*) &gt; 0"> 
                 Almeno uno tra "Vendita al dettaglio" o "Vendita congiunta al dettaglio e all’ingrosso" deve essere selezionato
             </sch:assert>
         </sch:rule>
-        
-        <sch:rule id="rule_modalita_vendita" context="$modalita_vendita">
-            <sch:extends rule="rule_modalita_vendita_ab"/>
-        </sch:rule>
-        
+                
     </sch:pattern>       
 
     <sch:pattern id="modalita_vendita" abstract="false" is-a="modalita_vendita_ab">
