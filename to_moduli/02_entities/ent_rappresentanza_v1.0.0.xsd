@@ -36,3 +36,7 @@
     </xsd:complexType>      
     
 </xsd:schema>
+
+<!-- 
+    TODO: da valutare l'opportunità di includerlo in sez_dati_anagrafici
+-->

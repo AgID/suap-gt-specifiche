@@ -38,32 +38,20 @@
         
         <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#rule_iscrizione_rea_ab"/> 
         
-        <sch:rule id="rule_impresa_ab_iscrizione_registro_ab" abstract="true">
-            <sch:extends rule="rule_iscrizione_rea_ab"/>
-        </sch:rule>
-        
         <sch:rule id="rule_impresa_ab_iscrizione_registro" context="eimpresa:iscrizione_registro">
-            <sch:extends rule="rule_impresa_ab_iscrizione_registro_ab"/>
+            <sch:extends rule="rule_iscrizione_rea_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#rule_indirizzo_italiano_ab"/>
         
-        <sch:rule id="rule_impresa_ab_indirizzo_italiano_ab" abstract="true">
-            <sch:extends rule="rule_iscrizione_rea_ab"/>
-        </sch:rule>
-        
         <sch:rule id="rule_impresa_ab_indirizzo_italiano" context="eimpresa:indirizzo_italiano">
-            <sch:extends rule="rule_impresa_ab_indirizzo_italiano_ab"/>
+            <sch:extends rule="rule_indirizzo_italiano_ab"/>
         </sch:rule>
         
         <sch:include href="../02_entities/ent_indirizzo_estero_v1.0.0.sch#rule_indirizzo_estero_ab"/> 
         
-        <sch:rule id="rule_impresa_ab_indirizzo_estero_ab" abstract="true">
-            <sch:extends rule="rule_indirizzo_estero_ab"/>
-        </sch:rule>
-        
         <sch:rule id="rule_impresa_ab_indirizzo_estero" context="eimpresa:indirizzo_estero">
-            <sch:extends rule="rule_impresa_ab_indirizzo_estero_ab"/>
+            <sch:extends rule="rule_indirizzo_estero_ab"/>
         </sch:rule>
     </sch:pattern>
        

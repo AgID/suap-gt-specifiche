@@ -13,7 +13,7 @@
     <xsd:import namespace="http://agid.it/suap/entities/requisiti_onorabilita" schemaLocation="../02_entities/ent_requisiti_onorabilita_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/entities/requisiti_professionali" schemaLocation="../02_entities/ent_requisiti_professionali_v1.0.0.xsd"/>
     
-    <!-- TODO disacoppiare requisiti onorabilita da requisiti professionali -->
+    <!-- TODO disacoppiare requisiti onorabilita da requisiti professionali e valutare soppressione entità requisiti professionali -->
     
     <xsd:complexType name="requisiti_onorabilita_professionali_type">
         <xsd:sequence>
