@@ -1,28 +1,21 @@
-<!--    
-    @data_creazione: 27 Luglio 2022    
+<!-- 
+    @data_creazione: 17 agosto 2022    
     @version: 1.0.0 
 -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
+    <sch:ns uri="http://agid.it/suap/sections/requisiti_onorabilita_professionali" prefix="sreonpr"/>    
     <sch:ns uri="http://agid.it/suap/entities/requisiti_professionali" prefix="ereqpro"/>
     <sch:ns uri="http://agid.it/suap/entities/persona" prefix="epers"/>
     <sch:ns uri="http://agid.it/suap/entities/indirizzo_italiano" prefix="eindita"/>
     <sch:ns uri="http://agid.it/suap/entities/iscrizione_rea" prefix="eiscrea"/>
     <sch:ns uri="http://agid.it/suap/entities/iscrizione_rec" prefix="eisrec"/>
-    
+                  
     <sch:pattern id="requisiti_professionali_ab" abstract="true">
         
-        <sch:rule id="rule_requisiti_professionali_ab" abstract="true">
-            <sch:assert id="requisiti_professionali_ab-almeno_un_titolo" test="count(child::*) &gt; 0"> 
-                Almeno un titolo professionale deve essere indicato oppure deve essere indicato il preposto con titolo professionale           
-            </sch:assert>
-            
-            <sch:assert id="requisiti_professionali_ab-almeno_una_pratica" test="count(ereqpro:pratica_professionale)=0 or count(ereqpro:pratica_professionale/child::*) &gt; 0">
-                Almeno una pratica professionale deve essere indicata
-            </sch:assert>            
-        </sch:rule>
+        <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#rule_requisiti_professionali_ab"/>
         
-        <sch:rule id="rule_requisiti_professionali" context="$requisiti_professionali">
+        <sch:rule id="rule_requisiti_professionali_ab_requisiti_professionali" context="$nsreonpr:requisiti_professionali">
             <sch:extends rule="rule_requisiti_professionali_ab"/>
         </sch:rule>
         
@@ -49,15 +42,16 @@
         </sch:rule>
         
         <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#rule_iscrizione_rec_ab"/>
-                
+        
         <sch:rule id="rule_requisiti_professionali_ab_iscirizione_rec" context="ereqpro:iscrizione_REC">
             <sch:extends rule="rule_iscrizione_rec_ab"/>
         </sch:rule>
         
     </sch:pattern>  
     
-    <sch:pattern id="requisiti_professionali" abstract="false" is-a="requisiti_professionali_ab">
-        <sch:param name="requisiti_professionali" value="ereqpro:requisiti_professionali"/>        
+    <sch:pattern id="requisiti_professionali_sez" abstract="false" is-a="requisiti_professionali_ab">
+        <sch:param name="nsreonpr" value="sreonpr"/>        
     </sch:pattern>
-       
+        
 </sch:schema>
+

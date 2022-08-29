@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    
+    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+
+    xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
+    
+    targetNamespace="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+    elementFormDefault="qualified" attributeFormDefault="qualified"    
+    version="1.0.0" xml:lang="it">
+    
+    <xsd:import namespace="http://agid.it/suap/entities/requisiti_professionali" schemaLocation="../02_entities/ent_requisiti_professionali_v1.0.0.xsd"/>
+    
+    <xsd:element name="requisiti_professionali" type="ereqpro:requisiti_professionali_ctype"/>    
+</xsd:schema>

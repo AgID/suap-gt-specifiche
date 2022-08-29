@@ -1,0 +1,1 @@
+schematronApplied = ../../sez_requisiti_professionali_v1.0.0.sch
