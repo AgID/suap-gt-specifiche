@@ -122,7 +122,10 @@
             </sapspaint:presso>
         </sapspaint:segnalazione_avvio>
         <sapspaint:settori_merceologici xsi:type="esetmer:settori_merceologici_ctype_italia">
-            <esetmer:alimentare>10</esetmer:alimentare>
+            <esetmer:di_cui>
+                
+            </esetmer:di_cui>
+            <esetmer:alimentare>10</esetmer:alimentare>            
         </sapspaint:settori_merceologici>
     </sapspaint:apertura_spacci_interni>
     <sreqono:requisiti_onorabilita>
@@ -145,3 +148,7 @@
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

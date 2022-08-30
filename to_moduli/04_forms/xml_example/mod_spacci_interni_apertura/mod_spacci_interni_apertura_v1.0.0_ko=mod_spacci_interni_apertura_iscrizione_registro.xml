@@ -68,6 +68,10 @@
             </eimpresa:identificativo_impresa_inviduale>
             <eimpresa:iscrizione_registro_cc>
                 <eimpresa:necessita_di_iscrizione>false</eimpresa:necessita_di_iscrizione>
+                <eimpresa:iscrizione_registro>
+                    <eiscrea:CCIAA>NOCCIAA</eiscrea:CCIAA>
+                    <eiscrea:numero_REA>numero_REA</eiscrea:numero_REA>
+                </eimpresa:iscrizione_registro>
             </eimpresa:iscrizione_registro_cc>
         </sscheana:impresa>
         <sscheana:intermediario>
@@ -141,7 +145,10 @@
         <sallegati:procura_delega>
             <efile:nome_file>nome_file</efile:nome_file>
             <efile:content_type>xml</efile:content_type>
-        </sallegati:procura_delega>
-        
+        </sallegati:procura_delega>        
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

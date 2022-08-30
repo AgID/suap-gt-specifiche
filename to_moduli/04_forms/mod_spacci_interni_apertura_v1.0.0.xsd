@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
     
-    xmlns:mspaintap="http://agid.it/suap/forms/spacci_interni_apertura"
-    
+    xmlns:mspaintap="http://agid.it/suap/forms/spacci_interni_apertura"    
     xmlns:sscheana="http://agid.it/suap/sections/scheda_anagrafica"
     xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
     xmlns:sapspaint="http://agid.it/suap/sections/apertura_spacci_interni"
@@ -13,8 +12,6 @@
     targetNamespace="http://agid.it/suap/forms/spacci_interni_apertura"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
     version="1.0.0" xml:lang="it">
-    
-    
     
     <xsd:import namespace="http://agid.it/suap/sections/scheda_anagrafica" schemaLocation="../03_sections/sez_dati_anagrafici_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/riferimento_attivita" schemaLocation="../03_sections/sez_riferimento_attivita_v1.0.0.xsd"/>

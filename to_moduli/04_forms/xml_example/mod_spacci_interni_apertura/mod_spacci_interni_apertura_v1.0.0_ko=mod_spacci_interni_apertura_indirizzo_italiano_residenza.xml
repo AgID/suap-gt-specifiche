@@ -44,10 +44,11 @@
             </sscheana:cittadinanza>
             <sscheana:residenza>
                 <sscheana:indirizzo_italiano>
+                    <eindita:dug>NODUG1</eindita:dug>
                     <eindita:toponimo>toponimo0</eindita:toponimo>
                     <eindita:numero_civico>numero_civico0</eindita:numero_civico>
                     <eindita:cap>00000</eindita:cap>
-                    <eindita:comune>063084</eindita:comune>
+                    <eindita:comune>NOCOMUNE1</eindita:comune>
                 </sscheana:indirizzo_italiano>
             </sscheana:residenza>
             <sscheana:contatti>
@@ -67,8 +68,21 @@
                 <eimpresa:partita_iva>00000000000</eimpresa:partita_iva>
             </eimpresa:identificativo_impresa_inviduale>
             <eimpresa:iscrizione_registro_cc>
-                <eimpresa:necessita_di_iscrizione>false</eimpresa:necessita_di_iscrizione>
+                <eimpresa:necessita_di_iscrizione>true</eimpresa:necessita_di_iscrizione>
+                <eimpresa:iscrizione_registro>
+                    <eiscrea:CCIAA>5</eiscrea:CCIAA>
+                    <eiscrea:numero_REA>numero_REA</eiscrea:numero_REA>
+                </eimpresa:iscrizione_registro>
             </eimpresa:iscrizione_registro_cc>
+            <eimpresa:sede_legale>
+                <eimpresa:indirizzo_italiano>
+                    <eindita:dug>VIA</eindita:dug>
+                    <eindita:toponimo>toponimo</eindita:toponimo>
+                    <eindita:numero_civico>numero_civico</eindita:numero_civico>
+                    <eindita:cap>00000</eindita:cap>
+                    <eindita:comune>063084</eindita:comune>
+                </eimpresa:indirizzo_italiano>
+            </eimpresa:sede_legale>
         </sscheana:impresa>
         <sscheana:intermediario>
             <sscheana:persona>
@@ -81,10 +95,11 @@
             </sscheana:persona>
             <sscheana:residenza>
                 <sscheana:indirizzo_italiano>
+                    <eindita:dug>NODUG2</eindita:dug>
                     <eindita:toponimo>toponimo0</eindita:toponimo>
                     <eindita:numero_civico>numero_civico0</eindita:numero_civico>
                     <eindita:cap>00000</eindita:cap>
-                    <eindita:comune>063084</eindita:comune>
+                    <eindita:comune>NOCOMUNE2</eindita:comune>
                 </sscheana:indirizzo_italiano>
             </sscheana:residenza>
             <sscheana:contatti>
@@ -141,7 +156,10 @@
         <sallegati:procura_delega>
             <efile:nome_file>nome_file</efile:nome_file>
             <efile:content_type>xml</efile:content_type>
-        </sallegati:procura_delega>
-        
+        </sallegati:procura_delega>        
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

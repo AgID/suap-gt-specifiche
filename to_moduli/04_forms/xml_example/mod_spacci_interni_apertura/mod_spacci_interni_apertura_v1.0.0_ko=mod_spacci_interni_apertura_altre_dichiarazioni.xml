@@ -133,7 +133,7 @@
         <saltdic:rispetto_regolamenti_locali>true</saltdic:rispetto_regolamenti_locali>
         <saltdic:non_vendita_pubblico>true</saltdic:non_vendita_pubblico>
         <saltdic:vendita_effetuata_a>
-            <saltdic:dipendenti>true</saltdic:dipendenti>
+            
         </saltdic:vendita_effetuata_a>
         <saltdic:impegno_comunicazioni_variazioni>true</saltdic:impegno_comunicazioni_variazioni>
     </saltdic:altre_dichiazioni>

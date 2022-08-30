@@ -40,7 +40,7 @@
                 <epers:luogo_nascita_italiano>063084</epers:luogo_nascita_italiano>
             </sscheana:persona>
             <sscheana:cittadinanza>
-                <ecitt:stato_cittadinanza>713</ecitt:stato_cittadinanza>
+                <ecitt:stato_cittadinanza>NOSTATO</ecitt:stato_cittadinanza>
             </sscheana:cittadinanza>
             <sscheana:residenza>
                 <sscheana:indirizzo_italiano>
@@ -145,3 +145,7 @@
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

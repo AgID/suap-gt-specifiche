@@ -41,7 +41,7 @@
         <xsd:complexContent>
             <xsd:extension base="saltdic:altre_dichiarazioni_ctype">
                 <xsd:sequence>                    
-                    <xsd:element name="impegno_comunicazioni" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="impegno_comunicazioni_variazioni" type="cdichiara:dichiarazione_mandatory_choice_type" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>

@@ -55,7 +55,7 @@
             </sscheana:contatti>
             <sscheana:rappresentanza>
                 <erapp:data_inizio>2015-10-12</erapp:data_inizio>
-                <erapp:data_fine>2025-10-12</erapp:data_fine>
+                <erapp:data_fine>2005-10-12</erapp:data_fine>
                 <erapp:ruolo>Legale rappresentante di Organizzazione</erapp:ruolo>
             </sscheana:rappresentanza>
         </sscheana:rappresentante>
@@ -145,3 +145,7 @@
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

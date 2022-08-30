@@ -138,10 +138,14 @@
         <saltdic:impegno_comunicazioni_variazioni>true</saltdic:impegno_comunicazioni_variazioni>
     </saltdic:altre_dichiazioni>
     <sallegati:allegati xsi:type="sallegati:allegati_ctype_italia">
-        <sallegati:procura_delega>
+        <sallegati:assolvimento_imposta_bollo>
             <efile:nome_file>nome_file</efile:nome_file>
-            <efile:content_type>xml</efile:content_type>
-        </sallegati:procura_delega>
+            <efile:content_type>NOTYPE</efile:content_type>
+        </sallegati:assolvimento_imposta_bollo>
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

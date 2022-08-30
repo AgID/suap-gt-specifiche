@@ -112,7 +112,7 @@
         <sapspaint:segnalazione_avvio>
             <sapspaint:presso>
                 <eimpresa:denominazione>denominazione1</eimpresa:denominazione>
-                <eimpresa:forma_giuridica>1.1.10</eimpresa:forma_giuridica>
+                <eimpresa:forma_giuridica>NOFORMAGIURIDICA</eimpresa:forma_giuridica>
                 <eimpresa:identificativo_societa>
                     <eimpresa:codice_fiscale_pg>00000000000</eimpresa:codice_fiscale_pg>
                 </eimpresa:identificativo_societa>
@@ -145,3 +145,7 @@
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

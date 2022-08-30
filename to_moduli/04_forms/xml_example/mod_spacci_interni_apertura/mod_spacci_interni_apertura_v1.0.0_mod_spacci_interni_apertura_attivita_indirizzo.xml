@@ -97,7 +97,7 @@
             <eindita:toponimo>toponimo1</eindita:toponimo>
             <eindita:numero_civico>numero_civico1</eindita:numero_civico>
             <eindita:cap>00000</eindita:cap>
-            <eindita:comune>063084</eindita:comune>
+            <eindita:comune>NOCOMUNE</eindita:comune>
         </srifatt:indirizzo>
         <srifatt:contatti>
         </srifatt:contatti>
@@ -145,3 +145,7 @@
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

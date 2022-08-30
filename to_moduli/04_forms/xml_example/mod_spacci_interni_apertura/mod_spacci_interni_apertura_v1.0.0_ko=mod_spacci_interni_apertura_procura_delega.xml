@@ -140,8 +140,12 @@
     <sallegati:allegati xsi:type="sallegati:allegati_ctype_italia">
         <sallegati:procura_delega>
             <efile:nome_file>nome_file</efile:nome_file>
-            <efile:content_type>xml</efile:content_type>
+            <efile:content_type>NOTYPE</efile:content_type>
         </sallegati:procura_delega>
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

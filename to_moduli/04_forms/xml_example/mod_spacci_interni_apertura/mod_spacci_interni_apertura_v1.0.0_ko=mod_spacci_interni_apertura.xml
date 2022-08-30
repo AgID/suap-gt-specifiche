@@ -130,18 +130,17 @@
         <ereqono:no_cause_divieto>true</ereqono:no_cause_divieto>
     </sreqono:requisiti_onorabilita>
     <saltdic:altre_dichiazioni xsi:type="saltdic:altre_dichiarazioni_ctype_italia">
-        <saltdic:rispetto_regolamenti_locali>true</saltdic:rispetto_regolamenti_locali>
+        <saltdic:impegno_comunicazioni_apparecchi_automatici>true</saltdic:impegno_comunicazioni_apparecchi_automatici>
         <saltdic:non_vendita_pubblico>true</saltdic:non_vendita_pubblico>
         <saltdic:vendita_effetuata_a>
             <saltdic:dipendenti>true</saltdic:dipendenti>
         </saltdic:vendita_effetuata_a>
         <saltdic:impegno_comunicazioni_variazioni>true</saltdic:impegno_comunicazioni_variazioni>
     </saltdic:altre_dichiazioni>
-    <sallegati:allegati xsi:type="sallegati:allegati_ctype_italia">
-        <sallegati:procura_delega>
+    <sallegati:allegati xsi:type="sallegati:allegati_ctype_italia">       
+        <sallegati:planimetria_locali>
             <efile:nome_file>nome_file</efile:nome_file>
             <efile:content_type>xml</efile:content_type>
-        </sallegati:procura_delega>
-        
+        </sallegati:planimetria_locali>        
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>

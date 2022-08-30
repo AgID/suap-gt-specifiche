@@ -38,10 +38,17 @@
                 <epers:sesso>maschio</epers:sesso>
                 <epers:data_nascita>1973-06-02</epers:data_nascita>
                 <epers:luogo_nascita_italiano>063084</epers:luogo_nascita_italiano>
-            </sscheana:persona>
+            </sscheana:persona>            
             <sscheana:cittadinanza>
                 <ecitt:stato_cittadinanza>713</ecitt:stato_cittadinanza>
             </sscheana:cittadinanza>
+            <sscheana:permesso_soggiorno>
+                <edocril:tipo>CIE</edocril:tipo>
+                <edocril:numero>numero</edocril:numero>
+                <edocril:ente_rilascio>ente_rilascio</edocril:ente_rilascio>
+                <edocril:data_rilascio>2010-02-01</edocril:data_rilascio>
+                <edocril:data_scadenza>2000-02-01</edocril:data_scadenza>
+            </sscheana:permesso_soggiorno>
             <sscheana:residenza>
                 <sscheana:indirizzo_italiano>
                     <eindita:toponimo>toponimo0</eindita:toponimo>
@@ -145,3 +152,7 @@
         
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

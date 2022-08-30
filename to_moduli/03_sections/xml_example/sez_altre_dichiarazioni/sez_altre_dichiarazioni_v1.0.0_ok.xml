@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saltdic:altre_dichiazioni xmlns:cdichiara="http://agid.it/suap/commons/dichiarazioni"
+ xmlns:cl="http://agid.it/suap/commons/codelist"
+ xmlns:ctipi="http://agid.it/suap/commons/tipi"
+ xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://agid.it/suap/sections/altre_dichiarazioni file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_altre_dichiarazioni_v1.0.0.xsd" xsi:type="saltdic:altre_dichiarazioni_ctype_italia">
+  <saltdic:non_vendita_pubblico>true</saltdic:non_vendita_pubblico>
+</saltdic:altre_dichiazioni>

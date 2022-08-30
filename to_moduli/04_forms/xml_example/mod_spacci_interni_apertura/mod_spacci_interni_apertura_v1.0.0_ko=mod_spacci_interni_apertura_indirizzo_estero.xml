@@ -67,8 +67,18 @@
                 <eimpresa:partita_iva>00000000000</eimpresa:partita_iva>
             </eimpresa:identificativo_impresa_inviduale>
             <eimpresa:iscrizione_registro_cc>
-                <eimpresa:necessita_di_iscrizione>false</eimpresa:necessita_di_iscrizione>
+                <eimpresa:necessita_di_iscrizione>true</eimpresa:necessita_di_iscrizione>
+                <eimpresa:iscrizione_registro>
+                    <eiscrea:CCIAA>5</eiscrea:CCIAA>
+                    <eiscrea:numero_REA>numero_REA</eiscrea:numero_REA>
+                </eimpresa:iscrizione_registro>
             </eimpresa:iscrizione_registro_cc>
+            <eimpresa:sede_legale>
+                <eimpresa:indirizzo_estero>
+                    <eindest:localita_estero>localita_estero</eindest:localita_estero>
+                    <eindest:stato_estero>NOSTATO</eindest:stato_estero>
+                </eimpresa:indirizzo_estero>                    
+            </eimpresa:sede_legale>
         </sscheana:impresa>
         <sscheana:intermediario>
             <sscheana:persona>
@@ -141,7 +151,10 @@
         <sallegati:procura_delega>
             <efile:nome_file>nome_file</efile:nome_file>
             <efile:content_type>xml</efile:content_type>
-        </sallegati:procura_delega>
-        
+        </sallegati:procura_delega>        
     </sallegati:allegati>
 </mspaintap:spacci_interni_apertura>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->
