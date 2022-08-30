@@ -137,7 +137,11 @@
         </saltdic:vendita_effetuata_a>
         <saltdic:impegno_comunicazioni_variazioni>true</saltdic:impegno_comunicazioni_variazioni>
     </saltdic:altre_dichiazioni>
-    <sallegati:allegati xsi:type="sallegati:allegati_ctype_italia">       
+    <sallegati:allegati xsi:type="sallegati:allegati_ctype_italia"> 
+        <sallegati:procura_delega>
+            <efile:nome_file>nome_file</efile:nome_file>
+            <efile:content_type>xml</efile:content_type>
+        </sallegati:procura_delega>
         <sallegati:planimetria_locali>
             <efile:nome_file>nome_file</efile:nome_file>
             <efile:content_type>xml</efile:content_type>

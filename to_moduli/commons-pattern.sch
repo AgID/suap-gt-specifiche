@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
     
-    <sch:pattern id="procuratore_ab" abstract="true">       
+    <sch:pattern id="controllo_intermediario_ab" abstract="true">       
         <sch:rule context="$modulo">                     
-            <sch:assert id="procuratore_ab-obbligo_delega" test="normalize-space(//sscheana:procuratore)='' or (normalize-space(//sscheana:procuratore)!='' 
-                and normalize-space(//eallegati:procura_delega)!='')"> 
-                In caso di procuratore l'allegato procura/delega è obbligatorio
+            <sch:assert id="check_allegato_procura" test="not(boolean(//sscheana:intermediario))
+                or boolean(//sallegati:procura_delega)">
+                
+                Se presentato da intermediario allora deve essere presente allegato procura/delega                
             </sch:assert>
         </sch:rule>       
     </sch:pattern>  

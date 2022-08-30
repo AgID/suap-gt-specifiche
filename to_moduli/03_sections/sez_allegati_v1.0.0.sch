@@ -31,8 +31,8 @@
         <sch:param name="file" value="sallegati:assolvimento_imposta_bollo"/>        
     </sch:pattern>
     
-    <sch:pattern id="sez_allegati_attestamento_versamenti" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="sallegati:attestamento_versamenti"/>        
+    <sch:pattern id="sez_allegati_attestazione_versamenti" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:attestazione_versamenti"/>        
     </sch:pattern>
       
 </sch:schema>

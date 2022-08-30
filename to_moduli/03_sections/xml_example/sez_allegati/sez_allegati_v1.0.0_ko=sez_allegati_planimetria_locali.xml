@@ -23,10 +23,10 @@
   <efile:nome_file>nome_file_3</efile:nome_file>
   <efile:content_type>NOCONTENT</efile:content_type>
  </sallegati:planimetria_locali>
- <sallegati:attestamento_versamenti>
+ <sallegati:attestazione_versamenti>
   <efile:nome_file>nome_file_4</efile:nome_file>
   <efile:content_type>xml</efile:content_type>
- </sallegati:attestamento_versamenti>
+ </sallegati:attestazione_versamenti>
  <sallegati:assolvimento_imposta_bollo>
   <efile:nome_file>nome_file_5</efile:nome_file>
   <efile:content_type>xml</efile:content_type>

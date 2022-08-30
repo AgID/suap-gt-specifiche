@@ -27,7 +27,7 @@
             <xsd:element ref="sapspaint:apertura_spacci_interni" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="sreqono:requisiti_onorabilita" minOccurs="1" maxOccurs="1"/>            
             <xsd:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>
-            <xsd:element ref="sallegati:allegati" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="sallegati:allegati" minOccurs="1" maxOccurs="1"/>                       
         </xsd:sequence>        
     </xsd:complexType>  
     

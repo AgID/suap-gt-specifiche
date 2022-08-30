@@ -35,6 +35,7 @@
     <sch:include href="../03_sections/sez_mod_spacci_interni_apertura_v1.0.0.sch#sez_spacci_interni_apertura_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     <sch:include href="../03_sections/sez_altre_dichiarazioni_v1.0.0.sch#sez_altre_dichiarazini_ab"/>
+    <sch:include href="../commons-pattern.sch#controllo_intermediario_ab"/>
     
     <sch:pattern id="mod_spacci_interni_apertura_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
@@ -108,12 +109,16 @@
         <sch:param name="file" value="sallegati:assolvimento_imposta_bollo"/>        
     </sch:pattern>
     
-    <sch:pattern id="mod_spacci_interni_apertura_attestamento_versamenti" abstract="false" is-a="files_ab">
-        <sch:param name="file" value="sallegati:attestamento_versamenti"/>        
+    <sch:pattern id="mod_spacci_interni_apertura_attestazione_versamenti" abstract="false" is-a="files_ab">
+        <sch:param name="file" value="sallegati:attestazione_versamenti"/>        
     </sch:pattern>
     
     <sch:pattern id="mod_spacci_interni_apertura_altre_dichiarazioni" abstract="false" is-a="sez_altre_dichiarazini_ab">
         <sch:param name="nsaltdic" value="saltdic"/>
+    </sch:pattern>
+    
+    <sch:pattern id="mod_spacci_interni_apertura_controllo_intermediario" abstract="false" is-a="controllo_intermediario_ab">
+        <sch:param name="modulo" value="mspaintap:spacci_interni_apertura"/>
     </sch:pattern>
     
     <sch:pattern id="mod_spacci_interni_apertura">
@@ -121,7 +126,7 @@
             <sch:assert id="check_allegati" test="count(sallegati:allegati/*[
                 name(.)='sallegati:procura_delega'
                 or name(.)='sallegati:dichiarazione_requisiti_soci'
-                or name(.)='sallegati:attestamento_versamenti'
+                or name(.)='sallegati:attestazione_versamenti'
                 or name(.)='sallegati:assolvimento_imposta_bollo'
                 ])=count(sallegati:allegati/*)">
                 
@@ -137,12 +142,6 @@
                 
                 Le altre dichiarazioni sono obbligatorie non vendita pubblico, vendita effettua a, rispetto regolamenti locali e impegno comunicazioni variazioni sono obbligatorie e sono le uniche amesse
             </sch:assert>
-            
-            <sch:assert id="check_allegato_procura" test="not(boolean(sscheana:scheda_anagrafica/sscheana:intermediario))
-                or boolean(sallegati:allegati/sallegati:procura_delega)">
-                
-                Se presentato da intermediario allora deve essere presente allegato procura/delega                
-            </sch:assert>            
         </sch:rule>
     </sch:pattern>    
    

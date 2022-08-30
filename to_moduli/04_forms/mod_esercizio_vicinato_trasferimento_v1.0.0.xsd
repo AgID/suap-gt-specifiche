@@ -27,7 +27,7 @@
         <xsd:sequence>
             <xsd:element ref="sscheana:scheda_anagrafica" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="srifatt:riferimento_attivita" minOccurs="1" maxOccurs="1"/>
-            <xsd:element ref="stresvi:trasferimento_esercizio_vicinato" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="stresvi:trasferimento_esercizio_vicinato" minOccurs="1" maxOccurs="1"/>            
             <xsd:element ref="sreqono:requisiti_onorabilita" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="srepro:requisiti_professionali" minOccurs="0" maxOccurs="1"/>            
             <xsd:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>

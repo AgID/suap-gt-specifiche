@@ -5,7 +5,7 @@
         
     xmlns:sdichia="http://agid.it/suap/sections/dichiarante"
     xmlns:simpresa="http://agid.it/suap/sections/impresa"
-    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_professionali"
     
     targetNamespace="http://agid.it/suap/attachments/allegato_b"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
@@ -13,13 +13,13 @@
     
     <xs:import namespace="http://agid.it/suap/sections/dichiarante" schemaLocation="../03_sections/sez_att_dichiarante_v1.0.0.xsd"/>
     <xs:import namespace="http://agid.it/suap/sections/impresa" schemaLocation="../03_sections/sez_att_impresa_v1.0.0.xsd"/>
-    <xs:import namespace="http://agid.it/suap/sections/requisiti_onorabilita_professionali" schemaLocation="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.xsd"/>
+    <xs:import namespace="http://agid.it/suap/sections/requisiti_professionali" schemaLocation="../03_sections/sez_requisiti_professionali_v1.0.0.xsd"/>
     
     <xs:complexType name="allegato_b_type">
         <xs:sequence>
             <xs:element ref="sdichia:dichiarante"/>      
             <xs:element ref="simpresa:impresa"/>
-            <xs:element ref="sreonpr:requisiti_onorabilita_professionali"/>
+            <xs:element ref="sreonpr:requisiti_professionali"/>
         </xs:sequence>
     </xs:complexType>
     
