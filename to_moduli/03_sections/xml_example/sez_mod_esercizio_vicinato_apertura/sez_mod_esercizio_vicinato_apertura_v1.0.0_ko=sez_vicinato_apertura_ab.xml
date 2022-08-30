@@ -14,7 +14,7 @@
         <emodven:vendita_dettaglio>10</emodven:vendita_dettaglio>
     </sapesvi:modalita_vendita>
     <sapesvi:carattere_esercizio xsi:type="ecarese:carattere_esercizio_ctype_italia">
-        <ecarese:permanente>true</ecarese:permanente>
+        
     </sapesvi:carattere_esercizio>
     <sapesvi:in_centro_commerciale xsi:type="ecencom:centro_commerciale_ctype_italia">
         <ecencom:partita_iva>12345678901</ecencom:partita_iva>

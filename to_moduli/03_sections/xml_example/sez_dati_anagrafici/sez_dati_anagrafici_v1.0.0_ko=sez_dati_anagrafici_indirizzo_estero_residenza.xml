@@ -37,15 +37,13 @@
             <edocril:data_scadenza>2030-10-12</edocril:data_scadenza>
         </sscheana:permesso_soggiorno>
         <sscheana:residenza>
-            <sscheana:indirizzo_italiano>
-                <eindita:toponimo>toponimo0</eindita:toponimo>
-                <eindita:numero_civico>numero_civico0</eindita:numero_civico>
-                <eindita:cap>00000</eindita:cap>
-                <eindita:comune>063084</eindita:comune>
-            </sscheana:indirizzo_italiano>
+            <sscheana:indirizzo_estero>
+                <eindest:localita_estero>localita_estero0</eindest:localita_estero>
+                <eindest:stato_estero>NOSTATO1</eindest:stato_estero>
+            </sscheana:indirizzo_estero>
         </sscheana:residenza>
         <sscheana:contatti>
-                        
+            <econt:domicilio_digitale>pec@pec.it</econt:domicilio_digitale>            
         </sscheana:contatti>
         <sscheana:rappresentanza>
             <erapp:data_inizio>2020-10-12</erapp:data_inizio>
@@ -74,16 +72,18 @@
             <epers:stato_estero>713</epers:stato_estero>
         </sscheana:persona>        
         <sscheana:residenza>
-            <sscheana:indirizzo_italiano>
-                <eindita:toponimo>toponimo0</eindita:toponimo>
-                <eindita:numero_civico>numero_civico0</eindita:numero_civico>
-                <eindita:cap>00000</eindita:cap>
-                <eindita:comune>063084</eindita:comune>
-            </sscheana:indirizzo_italiano>
+            <sscheana:indirizzo_estero>
+                <eindest:localita_estero>localita_estero</eindest:localita_estero>
+                <eindest:stato_estero>NOSTATO2</eindest:stato_estero>
+            </sscheana:indirizzo_estero>
         </sscheana:residenza>
         <sscheana:contatti>
-            <econt:fax>0818819534</econt:fax>            
+            <econt:domicilio_digitale>pec@pec.it</econt:domicilio_digitale>            
         </sscheana:contatti>
         <sscheana:denominazione_agenzia_imprese>denominazione_agenzia_imprese</sscheana:denominazione_agenzia_imprese>
     </sscheana:intermediario>
 </sscheana:scheda_anagrafica>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

@@ -10,9 +10,19 @@
     <sch:ns uri="http://agid.it/suap/entities/carattere_esercizio" prefix="ecarese"/>
     <sch:ns uri="http://agid.it/suap/entities/settori_merceologici" prefix="esetmer"/>
    
-        
+    <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#modalita_vendita_ab"/>
     
-    <sch:pattern id="vicinato_apertura_ab" abstract="true">
+    <sch:pattern id="sez_vicinato_apertura_modalita_vendita" abstract="false" is-a="modalita_vendita_ab">
+        <sch:param name="modalita_vendita" value="sapesvi:modalita_vendita"/>        
+    </sch:pattern>
+    
+    <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
+    
+    <sch:pattern id="sez_vicinato_apertura_settori_merceologici" abstract="false" is-a="settori_merceologici_ab">
+        <sch:param name="settori_merceologici" value="sapesvi:settori_merceologici"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="sez_vicinato_apertura_ab" abstract="true">
         
         <sch:rule id="rule_media_grande_ampliamento_ab_segnalazione_avvio_ab" context="$nsapesvi:segnalazione_avvio">
             <sch:assert id="segnalazione_avvio_ab-segnalazione_avvio" test="normalize-space($nsapesvi:esercizio_vicinato)!=''                                 
@@ -29,21 +39,9 @@
             </sch:assert>
         </sch:rule>
         
-        <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#rule_modalita_vendita_ab"/>
-        
-        <sch:rule id="rule_vicinato_apertura_ab_modalita_vendita" context="$nsapesvi:modalita_vendita">
-            <sch:extends rule="rule_modalita_vendita_ab"/>
-        </sch:rule>
-        
-        <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#rule_settori_merceologici_ab"/>
-        
-        <sch:rule id="rule_vicinato_apertura_ab_settori_merceologici" context="$nsapesvi:settori_merceologici">
-            <sch:extends rule="rule_settori_merceologici_ab"/>
-        </sch:rule>
-        
     </sch:pattern>       
     
-    <sch:pattern id="vicinato_apertura" abstract="false" is-a="vicinato_apertura_ab">
+    <sch:pattern id="sez_vicinato_apertura" abstract="false" is-a="sez_vicinato_apertura_ab">
         <sch:param name="nsapesvi" value="sapesvi"/>        
     </sch:pattern>
     
