@@ -11,10 +11,10 @@
         <sapesvi:esercizio_vicinato>true</sapesvi:esercizio_vicinato>
     </sapesvi:segnalazione_avvio>
     <sapesvi:modalita_vendita xsi:type="emodven:modalita_vendita_ctype_italia">
-        <emodven:vendita_dettaglio>10</emodven:vendita_dettaglio>
+        
     </sapesvi:modalita_vendita>
     <sapesvi:carattere_esercizio xsi:type="ecarese:carattere_esercizio_ctype_italia">
-        
+        <ecarese:permanente>true</ecarese:permanente>
     </sapesvi:carattere_esercizio>
     <sapesvi:in_centro_commerciale xsi:type="ecencom:centro_commerciale_ctype_italia">
         <ecencom:partita_iva>12345678901</ecencom:partita_iva>
@@ -25,3 +25,7 @@
         <esetmer:alimentare>10</esetmer:alimentare>
     </sapesvi:settori_merceologici>
 </sapesvi:apertura_esercizio_vicinato>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

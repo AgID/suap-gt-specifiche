@@ -11,27 +11,27 @@
     
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     
-    <sch:pattern id="allegati_ab_procura_delega" abstract="false" is-a="files_ab">
+    <sch:pattern id="sez_allegati_procura_delega" abstract="false" is-a="files_ab">
         <sch:param name="file" value="sallegati:procura_delega"/>        
     </sch:pattern>
     
-    <sch:pattern id="allegati_ab_dichiarazione_requisiti_preposto" abstract="false" is-a="files_ab">
+    <sch:pattern id="sez_allegati_dichiarazione_requisiti_preposto" abstract="false" is-a="files_ab">
         <sch:param name="file" value="sallegati:dichiarazione_requisiti_preposto"/>        
     </sch:pattern>
     
-    <sch:pattern id="allegati_ab_dichiarazione_requisiti_soci" abstract="false" is-a="files_ab">
+    <sch:pattern id="sez_allegati_dichiarazione_requisiti_soci" abstract="false" is-a="files_ab">
         <sch:param name="file" value="sallegati:dichiarazione_requisiti_soci"/>        
     </sch:pattern>
    
-    <sch:pattern id="allegati_ab_planimetria_locali" abstract="false" is-a="files_ab">
+    <sch:pattern id="sez_allegati_planimetria_locali" abstract="false" is-a="files_ab">
         <sch:param name="file" value="sallegati:planimetria_locali"/>        
     </sch:pattern>
     
-    <sch:pattern id="allegati_ab_assolvimento_imposta_bollo" abstract="false" is-a="files_ab">
+    <sch:pattern id="sez_allegati_assolvimento_imposta_bollo" abstract="false" is-a="files_ab">
         <sch:param name="file" value="sallegati:assolvimento_imposta_bollo"/>        
     </sch:pattern>
     
-    <sch:pattern id="allegati_ab_attestamento_versamenti" abstract="false" is-a="files_ab">
+    <sch:pattern id="sez_allegati_attestamento_versamenti" abstract="false" is-a="files_ab">
         <sch:param name="file" value="sallegati:attestamento_versamenti"/>        
     </sch:pattern>
       

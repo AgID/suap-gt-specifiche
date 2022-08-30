@@ -13,7 +13,7 @@
     
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     
-    <sch:pattern id="sez_impresa_iscrizione_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
+    <sch:pattern id="sez_impresa_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
     </sch:pattern>
     

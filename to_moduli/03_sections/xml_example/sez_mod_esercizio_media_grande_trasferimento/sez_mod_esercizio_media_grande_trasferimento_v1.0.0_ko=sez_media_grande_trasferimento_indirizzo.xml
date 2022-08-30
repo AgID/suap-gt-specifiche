@@ -43,3 +43,7 @@
         <esetmer:alimentare>10</esetmer:alimentare>
     </stresmegr:settori_merceologici>
 </stresmegr:trasferimento_esercizio_media_grande>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

@@ -19,7 +19,7 @@
     </stresvi:protocollo_avvio>
     <stresvi:da>
         <stresvi:indirizzo>
-            <eindita:dug>NODUG</eindita:dug>
+            <eindita:dug>NODUG1</eindita:dug>
             <eindita:toponimo>toponimo0</eindita:toponimo>
             <eindita:numero_civico>numero_civico0</eindita:numero_civico>
             <eindita:cap>80059</eindita:cap>
@@ -28,10 +28,11 @@
     </stresvi:da>
     <stresvi:a>
         <stresvi:indirizzo>
+            <eindita:dug>NODUG2</eindita:dug>
             <eindita:toponimo>toponimo1</eindita:toponimo>
             <eindita:numero_civico>numero_civico1</eindita:numero_civico>
             <eindita:cap>80059</eindita:cap>
-            <eindita:comune>NOCOMUNE1</eindita:comune>
+            <eindita:comune>NOCOMUNE2</eindita:comune>
         </stresvi:indirizzo>
         <stresvi:contatti>
         </stresvi:contatti>
@@ -45,3 +46,7 @@
         <esetmer:alimentare>10</esetmer:alimentare>
     </stresvi:settori_merceologici>
 </stresvi:trasferimento_esercizio_vicinato>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

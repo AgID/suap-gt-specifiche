@@ -30,19 +30,18 @@
             <ecitt:stato_cittadinanza>713</ecitt:stato_cittadinanza>
         </sscheana:cittadinanza>
         <sscheana:permesso_soggiorno>
-            <edocril:tipo>PS</edocril:tipo>
+            <edocril:tipo>NOTIPO</edocril:tipo>
             <edocril:numero>numero</edocril:numero>
             <edocril:ente_rilascio>ente_rilascio</edocril:ente_rilascio>
             <edocril:data_rilascio>2020-10-12</edocril:data_rilascio>
-            <edocril:data_scadenza>2030-10-12</edocril:data_scadenza>
+            <edocril:data_scadenza>2010-10-12</edocril:data_scadenza>
         </sscheana:permesso_soggiorno>
         <sscheana:residenza>
             <sscheana:indirizzo_italiano>
-                <eindita:dug>NODUG</eindita:dug>
                 <eindita:toponimo>toponimo0</eindita:toponimo>
                 <eindita:numero_civico>numero_civico0</eindita:numero_civico>
                 <eindita:cap>00000</eindita:cap>
-                <eindita:comune>NOCOMUNE1</eindita:comune>
+                <eindita:comune>063084</eindita:comune>
             </sscheana:indirizzo_italiano>
         </sscheana:residenza>
         <sscheana:contatti>
@@ -79,7 +78,7 @@
                 <eindita:toponimo>toponimo0</eindita:toponimo>
                 <eindita:numero_civico>numero_civico0</eindita:numero_civico>
                 <eindita:cap>00000</eindita:cap>
-                <eindita:comune>NOCOMUNE2</eindita:comune>
+                <eindita:comune>063084</eindita:comune>
             </sscheana:indirizzo_italiano>
         </sscheana:residenza>
         <sscheana:contatti>
@@ -88,3 +87,7 @@
         <sscheana:denominazione_agenzia_imprese>denominazione_agenzia_imprese</sscheana:denominazione_agenzia_imprese>
     </sscheana:intermediario>
 </sscheana:scheda_anagrafica>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->

@@ -27,7 +27,7 @@
             <epers:stato_estero>713</epers:stato_estero>
         </sscheana:persona>        
         <sscheana:cittadinanza>
-            <ecitt:stato_cittadinanza>713</ecitt:stato_cittadinanza>
+            <ecitt:stato_cittadinanza>NOSTATO</ecitt:stato_cittadinanza>
         </sscheana:cittadinanza>
         <sscheana:permesso_soggiorno>
             <edocril:tipo>PS</edocril:tipo>
@@ -37,10 +37,12 @@
             <edocril:data_scadenza>2030-10-12</edocril:data_scadenza>
         </sscheana:permesso_soggiorno>
         <sscheana:residenza>
-            <sscheana:indirizzo_estero>
-                <eindest:localita_estero>localita_estero0</eindest:localita_estero>
-                <eindest:stato_estero>NOSTATO</eindest:stato_estero>
-            </sscheana:indirizzo_estero>
+            <sscheana:indirizzo_italiano>
+                <eindita:toponimo>toponimo0</eindita:toponimo>
+                <eindita:numero_civico>numero_civico0</eindita:numero_civico>
+                <eindita:cap>00000</eindita:cap>
+                <eindita:comune>063084</eindita:comune>
+            </sscheana:indirizzo_italiano>
         </sscheana:residenza>
         <sscheana:contatti>
             <econt:domicilio_digitale>pec@pec.it</econt:domicilio_digitale>            
@@ -85,3 +87,7 @@
         <sscheana:denominazione_agenzia_imprese>denominazione_agenzia_imprese</sscheana:denominazione_agenzia_imprese>
     </sscheana:intermediario>
 </sscheana:scheda_anagrafica>
+
+<!--
+    IMPORTANT: only pattern application tested
+-->
