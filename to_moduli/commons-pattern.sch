@@ -14,8 +14,8 @@
     <sch:pattern id="alimentare_ab" abstract="true">       
         <sch:rule context="$modulo">           
             <sch:assert id="procuratore_ab-vendita_alimentare" test="normalize-space(//esetmer:alimentare)!='' 
-                and normalize-space(//sreonpr:requisiti_professionali)!=''"> 
-                In caso di vendita alimentari è obbligatori almeno un titolo professionale deve essere indicato oppure deve essere indicato il preposto con titolo professionale 
+                and normalize-space(//sreqpro:requisiti_professionali)!=''"> 
+                In caso di vendita alimentari è obbligatorio almeno un titolo professionale oppure deve essere indicato il preposto con titolo professionale                
             </sch:assert>
         </sch:rule>       
     </sch:pattern> 
@@ -23,7 +23,7 @@
     <sch:pattern id="non_alimentare_ab" abstract="true">       
         <sch:rule context="$modulo">
             <sch:assert id="procuratore_ab-vendita_non_alimentare" test="normalize-space(//esetmer:alimentare)=''"> 
-                Non deve essere valorizzato vendita alimentare 
+                Non deve essere valorizzato vendita alimentare                 
             </sch:assert>
         </sch:rule>       
     </sch:pattern>   

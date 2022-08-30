@@ -15,7 +15,7 @@
  xmlns:ccodelist="http://agid.it/suap/commons/codelist"
  xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
  xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
- xmlns:srepro="http://agid.it/suap/sections/requisiti_professionali"
+ xmlns:sreqpro="http://agid.it/suap/sections/requisiti_professionali"
  xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
  xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
  xmlns:mesvitr="http://agid.it/suap/forms/esercizio_vicinato_trasferimento"
@@ -131,7 +131,7 @@
             </stresvi:contatti>
         </stresvi:a>
         <stresvi:settori_merceologici xsi:type="esetmer:settori_merceologici_ctype_italia">
-            <esetmer:alimentare>10</esetmer:alimentare>
+            <esetmer:non_alimentare>10</esetmer:non_alimentare>
         </stresvi:settori_merceologici>
     </stresvi:trasferimento_esercizio_vicinato>
     <sreqono:requisiti_onorabilita>

@@ -5,7 +5,7 @@
         
     xmlns:sdichia="http://agid.it/suap/sections/dichiarante"
     xmlns:simpresa="http://agid.it/suap/sections/impresa"
-    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_professionali"
+    xmlns:sreqpro="http://agid.it/suap/sections/requisiti_professionali"
     
     targetNamespace="http://agid.it/suap/attachments/allegato_b"
     elementFormDefault="qualified" attributeFormDefault="qualified"    
@@ -19,7 +19,7 @@
         <xs:sequence>
             <xs:element ref="sdichia:dichiarante"/>      
             <xs:element ref="simpresa:impresa"/>
-            <xs:element ref="sreonpr:requisiti_professionali"/>
+            <xs:element ref="sreqpro:requisiti_professionali"/>
         </xs:sequence>
     </xs:complexType>
     

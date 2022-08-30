@@ -7,7 +7,7 @@
     xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"
     xmlns:stresvi="http://agid.it/suap/sections/trasferimento_esercizio_vicinato"
     xmlns:sreqono="http://agid.it/suap/sections/requisiti_onorabilita"
-    xmlns:srepro="http://agid.it/suap/sections/requisiti_professionali"
+    xmlns:sreqpro="http://agid.it/suap/sections/requisiti_professionali"
     xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
     xmlns:sallegati="http://agid.it/suap/sections/allegati"
     
@@ -29,7 +29,7 @@
             <xsd:element ref="srifatt:riferimento_attivita" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="stresvi:trasferimento_esercizio_vicinato" minOccurs="1" maxOccurs="1"/>            
             <xsd:element ref="sreqono:requisiti_onorabilita" minOccurs="1" maxOccurs="1"/>
-            <xsd:element ref="srepro:requisiti_professionali" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element ref="sreqpro:requisiti_professionali" minOccurs="0" maxOccurs="1"/>            
             <xsd:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="sallegati:allegati" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>        

@@ -22,8 +22,9 @@
     <sch:ns uri="http://agid.it/suap/entities/file" prefix="efile"/>
     <sch:ns uri="http://agid.it/suap/sections/altre_dichiarazioni" prefix="saltdic"/>    
     <sch:ns uri="http://agid.it/suap/sections/trasferimento_esercizio_vicinato" prefix="stresvi"/>
-    <sch:ns uri="http://agid.it/suap/sections/requisiti_onorabilita_professionali" prefix="sreonpr"/>    
-    <sch:ns uri="http://agid.it/suap/entities/requisiti_professionali" prefix="ereqpro"/>
+    <sch:ns uri="http://agid.it/suap/sections/requisiti_onorabilita" prefix="sreqono"/>
+    <sch:ns uri="http://agid.it/suap/entities/requisiti_professionali" prefix="ereqpro"/>    
+    <sch:ns uri="http://agid.it/suap/sections/requisiti_professionali" prefix="sreqpro"/>
     <sch:ns uri="http://agid.it/suap/entities/iscrizione_rec" prefix="eisrec"/>
     
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
@@ -35,12 +36,13 @@
     <sch:include href="../02_entities/ent_documento_rilasciato_v1.0.0.sch#documento_rilasciato_ab"/>
     <sch:include href="../02_entities/ent_rappresentanza_v1.0.0.sch#rappresentanza_ab"/>
     <sch:include href="../03_sections/sez_dati_anagrafici_v1.0.0.sch#dati_anagrafici_ab"/>         
-    <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
-    <sch:include href="../03_sections/sez_altre_dichiarazioni_v1.0.0.sch#sez_altre_dichiarazini_ab"/>
+    <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>    
     <sch:include href="../commons-pattern.sch#controllo_intermediario_ab"/>    
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
+    <sch:include href="../commons-pattern.sch#alimentare_ab"/>
+    <sch:include href="../commons-pattern.sch#non_alimentare_ab"/>
     
     <sch:pattern id="mod_esercizio_vicinato_trasferimento_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
@@ -123,7 +125,7 @@
     </sch:pattern>
     
     <sch:pattern id="mod_esercizio_vicinato_trasferimento_requisiti_professionali" abstract="false" is-a="requisiti_professionali_ab">
-        <sch:param name="requisiti_professionali" value="sreonpr:requisiti_professionali"/>        
+        <sch:param name="requisiti_professionali" value="sreqono:requisiti_professionali"/>        
     </sch:pattern>
     
     <sch:pattern id="mod_esercizio_vicinato_trasferimento_requisiti_professionali_preposto" abstract="false" is-a="persona_ab">
@@ -146,6 +148,8 @@
         <sch:param name="iscrizione_rec" value="ereqpro:iscrizione_REC"/>        
     </sch:pattern>
     
+    
+    
     <sch:pattern id="mod_esercizio_vicinato_trasferimento">
         <sch:rule id="rule_mod_esercizio_vicinato_trasferimento" context="mesvitr:esercizio_vicinato_trasferimento">
             <sch:assert id="check_allegati" test="count(sallegati:allegati/*[
@@ -164,8 +168,79 @@
                 or name(.)='saltdic:impegno_comunicazioni_variazioni'
                 ])=count(saltdic:altre_dichiazioni/*) and count(saltdic:altre_dichiazioni/*)=2">
                 
-                Le altre dichiarazioni sono obbligatorie rispetto regolamenti locali e impegno comunicazioni variazioni sono obbligatorie e sono le uniche amesse
+                Le altre dichiarazioni rispetto regolamenti locali e impegno comunicazioni variazioni sono obbligatorie e sono le uniche amesse
             </sch:assert>
         </sch:rule>
-    </sch:pattern>  
+    </sch:pattern> 
+    
+    <sch:pattern id="mod_esercizio_vicinato_trasferimento_alimentare" abstract="false" is-a="alimentare_ab">
+        <sch:param name="modulo" value="mesvitr:esercizio_vicinato_trasferimento"/>        
+    </sch:pattern>
+    
+    <sch:pattern id="mod_esercizio_vicinato_trasferimento_non_alimentare" abstract="false" is-a="non_alimentare_ab">
+        <sch:param name="modulo" value="mesvitr:esercizio_vicinato_trasferimento"/>        
+    </sch:pattern>
+
+    <sch:phase id="non_alimentare_ph">
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_non_alimentare"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_iscrizione_registro"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_italiano"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_italiano_residenza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_estero"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_estero_residenza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_impresa"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_persona"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_cittadinanza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_permesso_soggiorno"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_rappresentanza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_dati_anagrafici"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_attivita_indirizzo"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_procura_delega"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_dichiarazione_requisiti_preposto"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_assolvimento_imposta_bollo"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_attestazione_versamenti"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_controllo_intermediario"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_settori_merceologici"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_requisiti_professionali"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_requisiti_professionali_preposto"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_luogo_corso"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_sede_impresa"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_iscrizione_registro_requisiti_preofessionali"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_iscrizione_rec"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento"/>
+    </sch:phase>
+    
+    <sch:phase id="alimentare_ph">
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_alimentare"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_iscrizione_registro"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_italiano"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_italiano_residenza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_estero"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo_estero_residenza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_impresa"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_persona"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_cittadinanza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_permesso_soggiorno"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_rappresentanza"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_dati_anagrafici"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_attivita_indirizzo"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_procura_delega"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_dichiarazione_requisiti_soci"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_dichiarazione_requisiti_preposto"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_assolvimento_imposta_bollo"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_attestazione_versamenti"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_controllo_intermediario"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_settori_merceologici"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_indirizzo"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_requisiti_professionali"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_requisiti_professionali_preposto"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_luogo_corso"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_sede_impresa"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_iscrizione_registro_requisiti_preofessionali"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento_iscrizione_rec"/>
+        <sch:active pattern="mod_esercizio_vicinato_trasferimento"/>
+    </sch:phase>
+
 </sch:schema>

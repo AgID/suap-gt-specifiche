@@ -1,1 +1,0 @@
-schematronApplied = ../../mod_esercizio_vicinato_apertura_v1.0.0.sch

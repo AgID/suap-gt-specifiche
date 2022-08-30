@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sreonpr:requisiti_professionali xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
+<sreqpro:requisiti_professionali xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
  xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
  xmlns:ccodelist="http://agid.it/suap/commons/codelist"
  xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
  xmlns:ctipi="http://agid.it/suap/commons/tipi"
- xmlns:sreonpr="http://agid.it/suap/sections/requisiti_professionali"
+ xmlns:sreqpro="http://agid.it/suap/sections/requisiti_professionali"
  xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
  xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
  xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
@@ -14,4 +14,4 @@
     
     
     
-</sreonpr:requisiti_professionali>
+</sreqpro:requisiti_professionali>

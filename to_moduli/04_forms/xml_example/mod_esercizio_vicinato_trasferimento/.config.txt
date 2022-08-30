@@ -1,1 +1,3 @@
 schematronApplied = ../../mod_esercizio_vicinato_trasferimento_v1.0.0.sch
+
+where non indicated use phase "non_alimentare"

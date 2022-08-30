@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     
-    xmlns:srepro="http://agid.it/suap/sections/requisiti_professionali"
+    xmlns:sreqpro="http://agid.it/suap/sections/requisiti_professionali"
 
     xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
     

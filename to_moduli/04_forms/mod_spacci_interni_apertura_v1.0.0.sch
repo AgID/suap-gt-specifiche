@@ -140,7 +140,7 @@
                 or name(.)='saltdic:impegno_comunicazioni_variazioni'
                 ])=count(saltdic:altre_dichiazioni/*) and count(saltdic:altre_dichiazioni/*)=4">
                 
-                Le altre dichiarazioni sono obbligatorie non vendita pubblico, vendita effettua a, rispetto regolamenti locali e impegno comunicazioni variazioni sono obbligatorie e sono le uniche amesse
+                Le altre dichiarazioni non vendita pubblico, vendita effettua a, rispetto regolamenti locali e impegno comunicazioni variazioni sono obbligatorie e sono le uniche amesse
             </sch:assert>
         </sch:rule>
     </sch:pattern>    

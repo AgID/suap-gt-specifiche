@@ -24,7 +24,7 @@
                 da tenere presente il descrittore delle istance predisposto per le API https://github.com/AgID/suap-gt-specifiche/blob/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
                 
                 propongo di aggiungere :    
-                 - reference
+                 - reference come attributo obbligatorio da popolare con default in sez_allegati
                 per aganciare a quanto indicato nel descrittore 
                 
                 ed elimianre: 
