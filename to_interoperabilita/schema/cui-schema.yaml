@@ -17,7 +17,8 @@ properties:
     title: data emissione cui
     type: string
     format: date
-  progressive:
-    "$id": "#root/cui/progressive"
-    title: progressivo del cui
-    type: integer
+  uuid:
+    "$id": "#root/cui/uuid"
+    title: UUID chiave del CUI
+    type: string
+    format: 
