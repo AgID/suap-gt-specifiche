@@ -40,7 +40,44 @@ paths:
       
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []                
+                  Agid-JWS-Signature: []   
+
+
+    /instance/{cui_uuid}/document/{resource_id}/{access_token}:
+        get:
+            parameters:
+                -   name: cui_uuid
+                    in: path
+                    description: UUID del CUI
+                    required: true
+                    schema:
+                        type: string
+                -   name: resource_id
+                    in: path
+                    description: id risorsa  conclusioni
+                    required: true
+                    schema:
+                        type: string
+                -   name: access_token
+                    in: path
+                    description: token per l'accesso alla risorsa 
+                    required: true
+                    schema:
+                        type: string
+
+               
+            responses:
+                "200": 
+                    description: 'TODO: return result XML,PDF, or Binary'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                format: byte
+             
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []                 
     
     /notify:
         post:
@@ -72,13 +109,13 @@ components:
             type: object
             required:
                 - cui
-                - message
+                - event
                 
             properties:
                 cui:
                     $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml   
 
-                message:
+                event:
                     type: string
                     enum:
                         - end_by_time_expired
@@ -88,6 +125,7 @@ components:
                         - integration_time_expired
                         - integration_request_time_expired
                         - cdss_convened
+                
              
 
   headers:

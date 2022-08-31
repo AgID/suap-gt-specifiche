@@ -9,7 +9,7 @@ items:
   - code
   - ref
   - resource_id
-  - token
+  - access_token
   - hash
   - alg_hash
   properties:
@@ -25,22 +25,22 @@ items:
         minLength: 1
       resource_id:
         "$id": "#root/resource_id"
-        title: id della risorsa univoco per erogatore 
+        title: id della risorsa, univoco per erogatore e CUI.UUID
         type: string
         minLength: 1
-      token:
-        "$id": "#root/token"
+      access_token:
+        "$id": "#root/access_token"
         title: token per l'accesso alla risorsa
         type: string
         minLength: 1
       hash:
         "$id": "#root/hash"
-        title: hash dell'istanza relativo al procedimento
+        title: hash dell'elemento dell'istanza relativo al procedimento
         type: string
         minLength: 1
       alg_hash:
         "$id": "#root/alg_hash"
-        title: algoritmo hash dell'istanza relativo al procedimento
+        title: algoritmo hash applicato
         type: string
         enum:
         - S256
