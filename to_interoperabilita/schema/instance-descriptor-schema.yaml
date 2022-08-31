@@ -66,7 +66,7 @@ properties:
         code:
           "$id": "#root/proceedings/code"
           title: codice della fattispecie presente nel Catalogo
-          type: stringS
+          type: string
           minLength: 1
         version:
           "$id": "#root/proceedings/version"
@@ -79,7 +79,7 @@ properties:
           $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml
         form:
           "$id": "#root/proceedings/form"
-          title: riferimeo agli oggetti per la validazione
+          title: riferimento agli oggetti per la validazione
           type: object
           required:
           - xsd
@@ -105,7 +105,7 @@ properties:
                   minLength: 1
             schematron:
               "$id": "#root/proceedings/form/xsd"
-              title: xsd per la validazione
+              title: schematron per la validazione
               type: object
               required:
               - code
@@ -130,7 +130,7 @@ properties:
                     type: string
         instance:
           "$id": "#root/proceedings/instance"
-          title: istanza relativo al procedimento
+          title: porzione istanza relativa al procedimento
           type: object
           required:
           - ref
@@ -159,7 +159,7 @@ properties:
               type: string
         attachments:
           "$id": "#root/proceedings/attachments"
-          title: allegati all'istanza relativo al procedimento
+          title: allegati all'istanza relativi al procedimento
           type: array
           items:
             type: object
@@ -176,16 +176,67 @@ properties:
                 minLength: 1
               hash:
                 "$id": "#root/proceedings/attachments/hash"
-                title: hash dell'allegato relativo al procedimento
+                title: hash dell'allegato
                 type: string
                 minLength: 1
               alg_hash:
                 "$id": "#root/proceedings/attachments/alg_hash"
-                title: algoritmo hash dell'allegato relativo al procedimento
+                title: algoritmo hash dell'allegato 
                 type: string
                 enum:
                 - S256
                 - S384
                 - S512
+              form:
+                "$id": "root/proceedings/attachments/form"
+                title: riferimento agli oggetti per la validazione
+                type: object
+                required:
+                - xsd
+                - schematron
+                properties:
+                  xsd:
+                    "$id": "#root/proceedings/form/xsd"
+                    title: xsd per la validazione
+                    type: object
+                    required:
+                    - code
+                    - version
+                    properties:
+                      code:
+                        "$id": "#root/proceedings/form/xsd/code"
+                        title: codice dell'XSD per la validazione
+                        type: string
+                        minLength: 1
+                      version:
+                        "$id": "#root/proceedings/version"
+                        title: versione dell'XSD per la validazione
+                        type: string
+                        minLength: 1
+                  schematron:
+                    "$id": "#root/proceedings/form/xsd"
+                    title: schematron per la validazione
+                    type: object
+                    required:
+                    - code
+                    - version
+                    - phase
+                    properties:
+                      code:
+                        "$id": "#root/proceedings/form/schematron/code"
+                        title: codice dello schematron per la validazione
+                        type: string
+                        minLength: 1
+                      version:
+                        "$id": "#root/proceedings/form/schematron/version"
+                        title: versione dello schematron per la validazione
+                        type: string
+                        minLength: 1
+                      phase:
+                        "$id": "#root/proceedings/form/schematron/phase"
+                        title: fasi dello schematron per la validazione
+                        type: array
+                        items:
+                          type: string
               mime_type:
                 type: string

@@ -23,9 +23,15 @@ servers:
         
 paths:
     
-    /instance_part/{resource_id}/{token}:
+    /instance/{cui_uuid}/document/{resource_id}/{access_token}:
         get:
             parameters:
+                -   name: cui_uuid
+                    in: path
+                    description: UUID del CUI
+                    required: true
+                    schema:
+                        type: string
                 -   name: resource_id
                     in: path
                     description: id risorsa  procedimento
@@ -38,6 +44,7 @@ paths:
                     required: true
                     schema:
                         type: string
+
 
                
             responses:

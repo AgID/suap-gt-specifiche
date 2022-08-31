@@ -55,9 +55,15 @@ paths:
                 - bearerAuth: []
                   Agid-JWS-Signature: [] 
 
-    /instance_part/{resource_id}/{token}:
+    /instance/{cui_uuid}/document/{resource_id}/{access_token}:
         get:
             parameters:
+                -   name: cui_uuid
+                    in: path
+                    description: UUID del CUI
+                    required: true
+                    schema:
+                        type: string
                 -   name: resource_id
                     in: path
                     description: id risorsa  procedimento
@@ -129,8 +135,16 @@ components:
                             type: string
                             minLength: 1
                         correction_request:       
-                            title: testo correzzione richiesta
+                            title: testo correzione richiesta
                             type: string
+            resource_id:
+                title: id della risorsa "documento di richiesta correzioni", univoco per erogatore e CUI.UUID
+                type: string
+                minLength: 1
+            access_token:
+                title: token per l'accesso alla risorsa
+                type: string
+                minLength: 1        
                          
 
         RequestIntegrationRequest:
@@ -167,19 +181,27 @@ components:
                                     requester_administration:
                                         title: amministrazione richiedente
                                         $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
+            resource_id:
+                title: id della risorsa "documento di richiesta integrazioni", univoco per erogatore e CUI.UUID
+                type: string
+                minLength: 1
+            access_token:
+                title: token per l'accesso alla risorsa
+                type: string
+                minLength: 1
 
         
         NotifyMessage:
             type: object
             required:
                 - cui
-                - message
+                - event
                 
             properties:
                 cui:
                     $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'   
 
-                message:
+                event:
                     type: string
                     enum:
                     - end_by_instance_refused
@@ -189,6 +211,15 @@ components:
                     - end_by_positive_outcome
                     - integration_time_expired
                     - cdss_convened
+                
+                resource_id:
+                            title: se presente, id della risorsa documento correlata all'evento notificato (es. nel caso di "end_by_positive_outcome", id risorsa "documento di parere positivo", univoco per erogatore e CUI.UUID
+                            type: string
+                            minLength: 1
+                access_token:
+                    title: token per l'accesso alla risorsa
+                    type: string
+                    minLength: 1
 
 
   headers:

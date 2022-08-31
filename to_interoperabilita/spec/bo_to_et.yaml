@@ -69,16 +69,22 @@ paths:
                   Agid-JWS-Signature: [] 
 
 
-    /instance_part/{resource_id}/{token}:
+    /instance/{cui_uuid}/document/{resource_id}/{access_token}:
         get:
             parameters:
+                -   name: cui_uuid
+                    in: path
+                    description: UUID del CUI
+                    required: true
+                    schema:
+                        type: string
                 -   name: resource_id
                     in: path
                     description: id risorsa  procedimento
                     required: true
                     schema:
                         type: string
-                -   name: token
+                -   name: access_token
                     in: path
                     description: token per l'accesso alla risorsa 
                     required: true
@@ -94,10 +100,7 @@ paths:
                             schema:
                                 type: string
                                 format: byte
-                           
-                      
-                    
-      
+             
             security:
                 - bearerAuth: []
                   Agid-JWS-Signature: []                
@@ -129,8 +132,25 @@ components:
                             type: string
                             minLength: 1
                         integration_request:       
-                            title: testo integrazione richiesta
+                            title: integrazione richiesta
                             type: string
+                        resource_id:
+                            title: id della risorsa "documento di richiesta integrazione", univoco per erogatore e CUI.UUID
+                            type: string
+                            minLength: 1
+                        access_token:
+                            title: token per l'accesso alla risorsa
+                            type: string
+                            minLength: 1
+                                
+            resource_id:
+                title: id della risorsa, univoco per erogatore e CUI.UUID
+                type: string
+                minLength: 1
+            access_token:
+                title: token per l'accesso alla risorsa
+                type: string
+                minLength: 1           
 
         SendConclusionRequests:
             type: object
@@ -150,6 +170,14 @@ components:
                 suspend_motivation:
                     type: string
                     minLength: 1
+                resource_id:
+                    title: id della risorsa "documento di richiesta sospensione", univoco per erogatore e CUI.UUID
+                    type: string
+                    minLength: 1
+                access_token:
+                    title: token per l'accesso alla risorsa
+                    type: string
+                    minLength: 1
 
         ConformationRequired:
             type: object
@@ -166,6 +194,15 @@ components:
                 conformation_requested:
                     type: string
                     minLength: 1
+                resource_id:
+                    title: id della risorsa "documento di richiesta conformazione", univoco per erogatore e CUI.UUID
+                    type: string
+                    minLength: 1
+                access_token:
+                    title: token per l'accesso alla risorsa
+                    type: string
+                    minLength: 1
+                
 
         PositiveOutcome:
             required:
@@ -174,7 +211,15 @@ components:
             properties:
                 cui:
                     $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
-                outcome:
+                positive_outcome:
+                    type: string
+                    minLength: 1
+                resource_id:
+                    title: id della risorsa "documento di parere positivo", univoco per erogatore e CUI.UUID
+                    type: string
+                    minLength: 1
+                access_token:
+                    title: token per l'accesso alla risorsa 
                     type: string
                     minLength: 1
     
