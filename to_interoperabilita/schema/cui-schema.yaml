@@ -17,8 +17,13 @@ properties:
     title: data emissione cui
     type: string
     format: date
+  
+  progressivo:
+    "$id": "#root/cui/progressivo"
+    title: numero progressivo a rotazione annuale
+    type: string
+
   uuid:
     "$id": "#root/cui/uuid"
     title: UUID chiave del CUI
     type: string
-    format: 
