@@ -20,7 +20,8 @@ sequenceDiagram
 
     F ->> B: send_instance(cui,instance_index)
     B -->> F: ack
-    F ->> C: audit(cui,instance_to_bo_sended)
+    F ->> C: audit(cui,instance_integrated_to_<BO>_sended)
+    note right of F: <BO> codice BackOffice
     C -->> F: ack
 
     alt via ComUnica
@@ -71,7 +72,8 @@ sequenceDiagram
             P --) F: instanceCorrect
             F ->> B: send_instance(cui,instance_index)
             B -->> F: ack
-            F ->> C: audit(cui,corrected_instance_to_bo_sended)
+            F ->> C: audit(cui,corrected_instance_to_<BO>_sended)
+            note right of F: <BO> codice BackOffice
             C -->> F: ack
             loop per ogni procedimento parte dell'istanza 
             B ->> F: request_instance_document(cui, resource_id)
