@@ -90,7 +90,7 @@ sequenceDiagram
         B ->> F: notify(CUI, end_by_instance_refused)
         F -->> B: ack
         F -) P: instanceRefused            
-        B ->> C: audit(cui,instance_refused)
+        B ->> C: audit(cui,end_by_instance_refused)
         C -->> B: ack                        
     else admissibility OK
         
