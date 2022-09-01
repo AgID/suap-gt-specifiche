@@ -17,7 +17,7 @@
             <xsd:element name="dichiarazione_requisiti_soci" type="efile:file_ctype" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="dichiarazione_requisiti_preposto" type="efile:file_ctype" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="planimetria_locali" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="attestamento_versamenti" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="attestazione_versamenti" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="assolvimento_imposta_bollo" type="efile:file_ctype" minOccurs="0" maxOccurs="1"/>                       
         </xsd:sequence>
     </xsd:complexType>

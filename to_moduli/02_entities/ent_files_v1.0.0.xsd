@@ -19,7 +19,27 @@
     
     <xsd:complexType name="file_ctype">
         <xsd:sequence>      
+            
+            <!-- TODO with FVG:
+                da tenere presente il descrittore delle istance predisposto per le API https://github.com/AgID/suap-gt-specifiche/blob/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
+                
+                propongo di aggiungere :    
+                 - reference come attributo obbligatorio da popolare con default in sez_allegati
+                per aganciare a quanto indicato nel descrittore 
+                
+                ed elimianre: 
+                 - content_type
+                 - hash
+                 - hash-alg
+                 - descrizione
+                gia presenti sulo stesso descrittore
+                
+                ne consegue la non necessità di gestire il vocabolario mime-type e i relativi controlli
+            -->
+            
             <xsd:element name="nome_file" type="ctipi:nome_file_stype" minOccurs="1" maxOccurs="1"/>
+            
+             
             <xsd:element name="content_type" type="ccodelist:CodeType" minOccurs="1" maxOccurs="1">
                 <xsd:annotation>
                     <xsd:appinfo>                        
@@ -29,9 +49,11 @@
                     </xsd:appinfo>                    
                 </xsd:annotation>
             </xsd:element>
+            
+            
             <xsd:element name="descrizione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="hash" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-            <xsd:element name="hash-alg" type="vhashalg:hash_alg_voc" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="hash-alg" type="vhashalg:hash_alg_voc" minOccurs="0" maxOccurs="1"/>            
         </xsd:sequence>
     </xsd:complexType>
     

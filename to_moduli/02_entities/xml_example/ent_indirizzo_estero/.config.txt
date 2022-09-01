@@ -1,1 +1,1 @@
-schematronApplied = ../../ent_indirizzo_estero_v1.0.0.sch
+../../ent_indirizzo_estero_v1.0.0.sch

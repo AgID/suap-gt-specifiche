@@ -1,1 +1,1 @@
-schematronApplied = ../../ent_files_v1.0.0.sch
+../../ent_files_v1.0.0.sch

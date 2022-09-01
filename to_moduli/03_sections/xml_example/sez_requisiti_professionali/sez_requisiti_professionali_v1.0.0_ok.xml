@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sreonpr:requisiti_professionali xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
+<sreqpro:requisiti_professionali xmlns:vpergen="http://agid.it/suap/vocabularies/persona_genere"
  xmlns:canncl="http://agid.it/suap/commons/xsdAnnotations"
  xmlns:ccodelist="http://agid.it/suap/commons/codelist"
  xmlns:eisrec="http://agid.it/suap/entities/iscrizione_rec"
  xmlns:ctipi="http://agid.it/suap/commons/tipi"
- xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+ xmlns:sreqpro="http://agid.it/suap/sections/requisiti_professionali"
  xmlns:ereqpro="http://agid.it/suap/entities/requisiti_professionali"
  xmlns:eiscrea="http://agid.it/suap/entities/iscrizione_rea"
  xmlns:eindita="http://agid.it/suap/entities/indirizzo_italiano"
  xmlns:epers="http://agid.it/suap/entities/persona"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://agid.it/suap/sections/requisiti_onorabilita_professionali file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_requisiti_professionali_v1.0.0.xsd">
+ xsi:schemaLocation="http://agid.it/suap/sections/requisiti_professionali file:/D:/Git/suap-gt-specifiche/to_moduli/03_sections/sez_requisiti_professionali_v1.0.0.xsd">
 
     <ereqpro:requisiti_professionali_preposto>
         <epers:codice_fiscale>AAAAAA00A00A000A</epers:codice_fiscale>
@@ -18,7 +18,7 @@
         <epers:cognome>cognome0</epers:cognome>
     </ereqpro:requisiti_professionali_preposto>
     
-</sreonpr:requisiti_professionali>
+</sreqpro:requisiti_professionali>
 
 <!--
     IMPORTANT: only pattern application tested

@@ -46,8 +46,8 @@
         
         <sch:rule id="rule_sez_spacci_interni_apertura_ab" context="sapspaint:settori_merceologici">
             
-            <sch:assert id="check_no_dicui" test="count(*[name(.)!='esetmer:di_cui'])=0">                
-                Di cui non deve essere presente
+            <sch:assert id="check_no_dicui" test="count(*[name(.)='esetmer:di_cui'])=0">                
+                Di cui non deve essere presente 
             </sch:assert>            
         </sch:rule>
         

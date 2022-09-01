@@ -48,7 +48,8 @@
             
             <sch:assert id="requisiti_professionali_ab-almeno_una_pratica" test="count(ereqpro:pratica_professionale)=0 or count(ereqpro:pratica_professionale/child::*) &gt; 0">
                 Almeno una pratica professionale deve essere indicata
-            </sch:assert>            
+            </sch:assert>
+
         </sch:rule>
            
     </sch:pattern>  

@@ -20,3 +20,21 @@
 - [x]   930_allegato-a                                                                                                              - *AgID_inWork*
 - [x]   940_allegato-b                                                                                                              - *AgID_inWork*
 
+
+## Da condividere con il GdL Moduli
+
+Per agevolare il manteince degli XML schema e Schematron, si è evidenziato l'opportunità di
+
+- prevedere nei moduli la possibilità di usare anche in costrutto complextype per evitare la generazione di sezioni mono uso (vedi sezioni con prefisso sez_mod) 
+
+- permettere nei moduli l'inclusione di entità in quanto vi sono sezioni che replicano entità senza nessuna aggiunta (vedi sez_att_impresa, sez_requisiti_onorabilita, sez_requisiti_professionali)
+  
+- eliminare il numero della versione dai file XML Schema e Schematron al fine di evitare, in caso di cambiamenti di entità che non impattano sui livelli superiori, l'esigenza di aggiornare le entià di livello superiore semplicemente per rinominare i file importati (xsd:import) o inclusi (sch:include)
+  
+Nella definizione degli Schematron si DEVE:
+
+- valutata l'opportunità di utilizzare i pattern abstract
+
+- definire pattern abstract per i livelli inferiori ai moduli
+
+- per i livelli superiori sono da istanziare tutti i pattern degli oggetti del livello inferiore utilizzati ricordando di replicare anche i namespace utilizzati in questi ultimi 

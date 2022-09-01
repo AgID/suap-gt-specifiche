@@ -1,1 +1,1 @@
-schematronApplied = ../../sez_mod_spacci_interni_apertura_v1.0.0.sch
+../../sez_mod_spacci_interni_apertura_v1.0.0.sch

@@ -9,7 +9,7 @@
     <sch:ns uri="http://agid.it/suap/sections/scheda_anagrafica" prefix="sscheana"/>
     <sch:ns uri="http://agid.it/suap/sections/riferimento_attivita" prefix="srifatt"/>
     <sch:ns uri="http://agid.it/suap/sections/mod_apparecchi_automatici" prefix="smodappaut"/>  
-    <sch:ns uri="http://agid.it/suap/sections/requisiti_onorabilita_professionali" prefix="sreonpr"/>  
+    <sch:ns uri="http://agid.it/suap/sections/requisiti_professionali" prefix="sreqpro"/>  
     <sch:ns uri="http://agid.it/suap/sections/altre_dichiarazioni" prefix="saltdic"/>   
     <sch:ns uri="http://agid.it/suap/sections/allegati" prefix="sallegati"/>  
     

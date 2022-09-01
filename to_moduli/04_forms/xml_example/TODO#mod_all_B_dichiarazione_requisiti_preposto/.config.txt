@@ -1,1 +1,1 @@
-schematronApplied = ../../mod_all_B_dichiarazione_requisiti_preposto_v1.0.0.sch
+../../mod_all_B_dichiarazione_requisiti_preposto_v1.0.0.sch

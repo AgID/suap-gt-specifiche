@@ -1,1 +1,1 @@
-schematronApplied = ../../sez_riferimento_attivita_v1.0.0.sch
+../../sez_riferimento_attivita_v1.0.0.sch
