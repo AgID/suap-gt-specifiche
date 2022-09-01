@@ -3,7 +3,7 @@
     
     <sch:pattern id="controllo_intermediario_ab" abstract="true">       
         <sch:rule context="$modulo">                     
-            <sch:assert id="check_allegato_procura" test="not(boolean(//sscheana:intermediario))
+            <sch:assert id="ass_check_allegato_procura" test="not(boolean(//sscheana:intermediario))
                 or boolean(//sallegati:procura_delega)">
                 
                 Se presentato da intermediario allora deve essere presente allegato procura/delega                
@@ -13,19 +13,38 @@
     
     <sch:pattern id="alimentare_ab" abstract="true">       
         <sch:rule context="$modulo">           
-            <sch:assert id="procuratore_ab-vendita_alimentare" test="normalize-space(//esetmer:alimentare)!='' 
+            <sch:assert id="ass_vendita_alimentare" test="normalize-space(//esetmer:alimentare)!='' 
                 and normalize-space(//sreqpro:requisiti_professionali)!=''"> 
-                In caso di vendita alimentari è obbligatorio almeno un titolo professionale oppure deve essere indicato il preposto con titolo professionale                
+                Deve essere valorizzato vendita aliementare ed è obbligatorio indicare i titoli professionali                
             </sch:assert>
         </sch:rule>       
     </sch:pattern> 
     
+    <sch:pattern id="ampliamento_alimentare_ab" abstract="true">
+        <sch:rule context="$modulo">           
+            <sch:assert id="ass_ampliamento_vendita_alimentare" test="normalize-space(//samesvi:a/samesvi:settori_merceologici/esetmer:alimentare)!='' 
+                and normalize-space(//sreqpro:requisiti_professionali)!=''"> 
+                Deve essere valorizzato vendita aliementare per la sezione a ed è obbligatorio indicare i titoli professionali                
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    
     <sch:pattern id="non_alimentare_ab" abstract="true">       
         <sch:rule context="$modulo">
-            <sch:assert id="procuratore_ab-vendita_non_alimentare" test="normalize-space(//esetmer:alimentare)=''"> 
-                Non deve essere valorizzato vendita alimentare                 
+            <sch:assert id="ass_non_alimentare" test="normalize-space(//esetmer:non_alimentare)!=''
+                and normalize-space(//sreqpro:requisiti_professionali)=''"> 
+                Deve essere valorizzato vendita non alimentare e non deve essere valorizzato requisiti professionali                   
             </sch:assert>
         </sch:rule>       
     </sch:pattern>   
+    
+    <sch:pattern id="ampliamento_non_alimentare_ab" abstract="true">       
+        <sch:rule context="$modulo">
+            <sch:assert id="ass_ampliamento_non_alimentare" test="normalize-space(//samesvi:a/samesvi:settori_merceologici/esetmer:non_alimentare)!=''
+                and normalize-space(//sreqpro:requisiti_professionali)=''"> 
+                Deve essere valorizzato vendita non alimentare per la sezione a e non deve essere valorizzato requisiti professionali                
+            </sch:assert>
+        </sch:rule>       
+    </sch:pattern>
     
 </sch:schema>
