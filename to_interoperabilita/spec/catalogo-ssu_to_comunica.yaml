@@ -22,14 +22,15 @@ servers:
         description: Generated server url
         
 paths:
-    /instance_descriptor:
-        post:
-            requestBody:
-                content:
-                    application/json:
-                      schema:
-                         $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-                required: true
+    /instance_descriptor/{cui_uuid}:
+        get:
+            parameters:
+                -   name: cui_uuid
+                    in: path
+                    description: UUID del CUI
+                    required: true
+                    schema:
+                        type: string            
             responses:
                 "200": 
                     description: 'Instance Descriptor'
