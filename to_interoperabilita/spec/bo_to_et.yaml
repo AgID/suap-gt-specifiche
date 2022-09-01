@@ -134,23 +134,15 @@ components:
                         integration_request:       
                             title: integrazione richiesta
                             type: string
-                        resource_id:
-                            title: id della risorsa "documento di richiesta integrazione", univoco per erogatore e CUI.UUID
-                            type: string
-                            minLength: 1
-                        access_token:
-                            title: token per l'accesso alla risorsa
-                            type: string
-                            minLength: 1
-                                
             resource_id:
-                title: id della risorsa, univoco per erogatore e CUI.UUID
+                title: id della risorsa "documento di richiesta integrazione", univoco per erogatore e CUI.UUID
                 type: string
                 minLength: 1
             access_token:
                 title: token per l'accesso alla risorsa
                 type: string
-                minLength: 1           
+                minLength: 1
+                                   
 
         SendConclusionRequests:
             type: object

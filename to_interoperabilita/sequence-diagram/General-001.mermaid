@@ -11,84 +11,91 @@ sequenceDiagram
     note over P,C: procedimenti individuati
     note over F,C: Metadati procedimenti recuperati
     note over P,F: Istanza complilata e firmata
-
-    F ->> C: request_CUI(instanceDescriptor)
+    
+   
+    F ->> C: request_cui(instanceDescriptor)
+    note right of C: instanceDescriptor senza cui
     C -->> F: instanceDescriptor
+    note right of C: InstanceDescriptor con cui
 
-    F ->> B: send_instance(CUI)
+    F ->> B: send_instance(cui,instance_index)
     B -->> F: ack
-    F ->> C: audit(CUI,instance_to_BO_sended)
+    F ->> C: audit(cui,instance_integrated_to_<BO>_sended)
+    note right of F: <BO> codice BackOffice
     C -->> F: ack
 
     alt via ComUnica
-	    F ->> CU: send_instance(CUI)
+	    F ->> CU: send_instance(cui,instance_index)
 		CU -->> F: ack
-		CU ->> C: request_instance_descriptor(CUI)
+		CU ->> C: request_instance_descriptor(cui)
 		C -->> CU: instanceDescriptor
 		
         loop per ogni procedimento parte dell'istanza
-        CU ->> F:  request_instance_part(CUI, code_proc)
-        F -->> CU:: instancePart
+        CU ->> F:  request_instance_document(cui, resource_id)
+        note right of CU: resource_id da instance_index
+        F -->> CU: instanceDocument
         end
         
         CU -) P: receipt
-        CU ->> F: notify_receipt_sended(CUI)
+        CU ->> F: notify(cui,receipt_sended)
         F -->> CU: ack
-    else not via ComUnica
+    else no via ComUnica
         F -) P: receipt
     end
 
-    F ->> C: audit(CUI,receipt_sended)
+    F ->> C: audit(cui,receipt_sended)
     C -->> F: ack
 
     
-    B ->> C: request_instance_descriptor(CUI)
+    B ->> C: request_instance_descriptor(cui)
     C -->> B: instanceDescriptor
     loop per ogni procedimento parte dell'istanza 
-    B ->> F: request_instance_part(CUI, code_proc)
-    F -->> B: instancePart
+    B ->> F: request_instance_document(cui, resource_id)
+    note left of B: resource_id da instance_index
+    F -->> B: instanceDocument
     end
-    B ->> C: audit(CUI,instance_retrived)
+    B ->> C: audit(cui,instance_retrived)
     C -->> B: ack
     
 
-    O -) B: lookup_instance(CUI)
+    O -) B: lookup_instance(cui)
     B -->> O: instance
         
     opt entro tempo controllo formale
         O -) B: formalControlOK OR formalControlKO
         alt formal control KO
-            B ->> F: request_correction(CUI,correction_list)
+            B ->> F: request_correction(cui,correction_list)
             F -->> B: ack
-            F -) P: request_correction(CUI,correction_list)
-            B ->> C: audit(CUI,correction_requested)
+            F -) P: request_correction(cui,correction_list)
+            B ->> C: audit(cui,correction_requested)
             C -->> B: ack
             P --) F: instanceCorrect
-            F ->> B: send_instance(CUI)
+            F ->> B: send_instance(cui,instance_index)
             B -->> F: ack
-            F ->> C: audit(CUI,corrected_instance_to_BO_sended)
+            F ->> C: audit(cui,corrected_instance_to_<BO>_sended)
+            note right of F: <BO> codice BackOffice
             C -->> F: ack
             loop per ogni procedimento parte dell'istanza 
-            B ->> F: request_instance_part(CUI, code_proc)
-            F -->> B: instancePart
+            B ->> F: request_instance_document(cui, resource_id)
+            F -->> B: instanceDocument
             end
-            B ->> C: audit(CUI,corrected_instance_retrived)
+            B ->> C: audit(cui,corrected_instance_retrived)
             C -->> B: ack           
         end
     end
 
-    O -) B: lookup_instance(CUI)
+    O -) B: lookup_instance(cui)
     B -->> O: instance
     O -) B: admissibilityOK OR admissibilityKO
     
     alt admissibility KO
-        B ->> F: instance_refused(CUI)
+        B ->> F: notify(CUI, end_by_instance_refused)
         F -->> B: ack
         F -) P: instanceRefused            
-        B ->> C: audit(CUI,instance_refused)
+        B ->> C: audit(cui,end_by_instance_refused)
         C -->> B: ack                        
     else admissibility OK
         
-        Note over B,F: istanza procedibile
+    Note over B,F: istanza procedibile
        
 end

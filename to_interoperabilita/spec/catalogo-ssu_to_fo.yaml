@@ -73,12 +73,11 @@ components:
           
             message:
               type: string
-              enum:
-                - instance_to_bo_sended
-                - receipt_sended
-                - corrected_instance_to_bo_sended
-                - integrated_instance_to_bo_sended
-
+              pattern: >- 
+                    ^receipt_sended|
+                    instance_to_[0-9]{5}_sended|
+                    corrected_instance_to_[0-9]{5}_sended|
+                    integrated__instance_to_[0-9]{5}_sended$
       InstanceDescriptor:
           $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 
