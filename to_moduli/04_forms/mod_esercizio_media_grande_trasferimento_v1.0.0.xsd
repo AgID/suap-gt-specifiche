@@ -6,7 +6,8 @@
     
     xmlns:sscheana="http://agid.it/suap/sections/scheda_anagrafica"
     xmlns:srifatt="http://agid.it/suap/sections/riferimento_attivita"    
-    xmlns:sreonpr="http://agid.it/suap/sections/requisiti_onorabilita_professionali"
+    xmlns:sreqono="http://agid.it/suap/sections/requisiti_onorabilita"
+    xmlns:sreqpro="http://agid.it/suap/sections/requisiti_professionali"
     xmlns:saltdic="http://agid.it/suap/sections/altre_dichiarazioni"
     xmlns:sallegati="http://agid.it/suap/sections/allegati"
     xmlns:stresmegr="http://agid.it/suap/sections/trasferimento_esercizio_media_grande"
@@ -17,7 +18,8 @@
       
     <xsd:import namespace="http://agid.it/suap/sections/scheda_anagrafica" schemaLocation="../03_sections/sez_dati_anagrafici_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/riferimento_attivita" schemaLocation="../03_sections/sez_riferimento_attivita_v1.0.0.xsd"/>
-    <xsd:import namespace="http://agid.it/suap/sections/requisiti_onorabilita_professionali" schemaLocation="../03_sections/sez_requisiti_onorabilita_professionali_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/sections/requisiti_onorabilita" schemaLocation="../03_sections/sez_requisiti_onorabilita_v1.0.0.xsd"/>
+    <xsd:import namespace="http://agid.it/suap/sections/requisiti_professionali" schemaLocation="../03_sections/sez_requisiti_professionali_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/altre_dichiarazioni" schemaLocation="../03_sections/sez_altre_dichiarazioni_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/allegati" schemaLocation="../03_sections/sez_allegati_v1.0.0.xsd"/>
     <xsd:import namespace="http://agid.it/suap/sections/trasferimento_esercizio_media_grande" schemaLocation="../03_sections/sez_mod_esercizio_media_grande_trasferimento_v1.0.0.xsd"/>
@@ -27,7 +29,8 @@
             <xsd:element ref="sscheana:scheda_anagrafica" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="srifatt:riferimento_attivita" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="stresmegr:trasferimento_esercizio_media_grande" minOccurs="1" maxOccurs="1"/>
-            <xsd:element ref="sreonpr:requisiti_onorabilita_professionali" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element ref="sreqono:requisiti_onorabilita" minOccurs="1" maxOccurs="1"/>            
+            <xsd:element ref="sreqpro:requisiti_professionali" minOccurs="0" maxOccurs="1"/>
             <xsd:element ref="saltdic:altre_dichiazioni" minOccurs="1" maxOccurs="1"/>
             <xsd:element ref="sallegati:allegati" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>        
@@ -35,3 +38,4 @@
     
     <xsd:element name="esercizio_media_grande_trasferimento" type="mesmegrtr:esercizio_media_grande_trasferimento_type"/>
 </xsd:schema>
+
