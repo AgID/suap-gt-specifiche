@@ -15,7 +15,7 @@
         <sch:rule context="$modulo">           
             <sch:assert id="ass_vendita_alimentare" test="normalize-space(//esetmer:alimentare)!='' 
                 and normalize-space(//sreqpro:requisiti_professionali)!=''"> 
-                Deve essere valorizzato vendita aliementare ed è obbligatorio indicare i titoli professionali                
+                Deve essere valorizzato vendita alimentare ed è obbligatorio indicare i titoli professionali                
             </sch:assert>
         </sch:rule>       
     </sch:pattern> 
@@ -24,7 +24,7 @@
         <sch:rule context="$modulo">           
             <sch:assert id="ass_ampliamento_vendita_alimentare" test="normalize-space(//samesvi:a/samesvi:settori_merceologici/esetmer:alimentare)!='' 
                 and normalize-space(//sreqpro:requisiti_professionali)!=''"> 
-                Deve essere valorizzato vendita aliementare per la sezione a ed è obbligatorio indicare i titoli professionali                
+                Deve essere valorizzato vendita alimentare per la sezione a ed è obbligatorio indicare i titoli professionali                
             </sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -33,7 +33,7 @@
         <sch:rule context="$modulo">
             <sch:assert id="ass_non_alimentare" test="normalize-space(//esetmer:non_alimentare)!=''
                 and normalize-space(//sreqpro:requisiti_professionali)=''"> 
-                Deve essere valorizzato vendita non alimentare e non deve essere valorizzato requisiti professionali                   
+                Deve essere valorizzato vendita non alimentare e non deve essere valorizzato requisiti professionali                                
             </sch:assert>
         </sch:rule>       
     </sch:pattern>   
