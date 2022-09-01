@@ -85,7 +85,7 @@ components:
           type: object
           required:
             - cui
-            - message
+            - times
              
           properties:
             cui:
@@ -115,14 +115,13 @@ components:
                     instance_to_[0-9]{5}_sended|
                     end_by_integration_request_time_expired|
                     integration_requested|
-                    integration_time_ended|
                     instance_integrated_retrived|
                     instance_integrated_to_[0-9]{5}_sended|
                     end_by_proceeding_time_expired|
                     end_by_suspend_required|
                     end_by_conformation_required
                     cdss_convened|
-                    proceeding_positive_concluded$
+                    end_by_positive_outcome$
                
       InstanceDescriptor:
           $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
