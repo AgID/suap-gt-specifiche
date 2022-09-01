@@ -137,14 +137,7 @@ components:
                         correction_request:       
                             title: testo correzione richiesta
                             type: string
-            resource_id:
-                title: id della risorsa "documento di richiesta correzioni", univoco per erogatore e CUI.UUID
-                type: string
-                minLength: 1
-            access_token:
-                title: token per l'accesso alla risorsa
-                type: string
-                minLength: 1        
+                  
                          
 
         RequestIntegrationRequest:
@@ -166,7 +159,7 @@ components:
                             type: string
                             minLength: 1
                         ref:
-                            title: riferimento all'elemento dell'istanza relativo al procedimento
+                            title: riferimento all'elemento dell'istanza relativo al procedimento (procedimento o allegato)
                             type: string
                             minLength: 1
                         integration_request:       
@@ -188,8 +181,8 @@ components:
                     type: object
                     properties:
                         requester_administration:
-                                        title: amministrazione richiedente
-                                        $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
+                            title: amministrazione richiedente
+                            $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
                         resource_id:
                             title: id della risorsa "documento di richiesta integrazioni", univoco per erogatore e CUI.UUID
                             type: string
