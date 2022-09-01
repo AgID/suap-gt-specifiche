@@ -142,6 +142,11 @@ properties:
               title: riferimento all'elemento dell'istanza relativo al procedimento
               type: string
               minLength: 1
+            filename:
+                "$id": "#root/proceedings/attachments/filename"
+                title: filename dell'istanza
+                type: string
+                minLength: 1
             hash:
               "$id": "#root/proceedings/instance/hash"
               title: hash dell'istanza relativo al procedimento
@@ -169,9 +174,15 @@ properties:
             - alg_hash
             - mime_type
             properties:
+
               ref:
                 "$id": "#root/proceedings/attachments/ref"
                 title: riferimento all'allegato dell'istanza relativo al procedimento
+                type: string
+                minLength: 1
+              filename:
+                "$id": "#root/proceedings/attachments/filename"
+                title: filename dell'allegato
                 type: string
                 minLength: 1
               hash:
