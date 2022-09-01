@@ -70,7 +70,7 @@ paths:
                     required: true
                     schema:
                         type: string
-                -   name: token
+                -   name: access_token
                     in: path
                     description: token per l'accesso alla risorsa 
                     required: true
@@ -215,7 +215,7 @@ components:
                     - cdss_convened
                 
                 resource_id:
-                            title: se presente, id della risorsa documento correlata all'evento notificato (es. nel caso di "end_by_positive_outcome", id risorsa "documento di parere positivo", univoco per erogatore e CUI.UUID
+                            title: se presente, id della risorsa documento correlata all'evento notificato (es. nel caso di "end_by_positive_outcome", id risorsa "documento di provvedimento autorizzativo", univoco per erogatore e CUI.UUID
                             type: string
                             minLength: 1
                 access_token:

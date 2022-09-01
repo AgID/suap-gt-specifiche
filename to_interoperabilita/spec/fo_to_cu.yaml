@@ -38,7 +38,7 @@ paths:
                     required: true
                     schema:
                         type: string
-                -   name: token
+                -   name: access_token
                     in: path
                     description: token per l'accesso alla risorsa 
                     required: true

@@ -19,7 +19,7 @@ sequenceDiagram
         C -->> B: ack
         E ->> C: request_instance_descriptor(cui)
         C -->> E: instanceDescriptor
-        loop per ogni procedimento/allegato di interesse parte dell'istanza 
+        loop per ogni procedimento di interesse parte dell'istanza 
         E ->> B: request_instance_document(cui, resource_id)
         note left of E: resource_id da instance_index
         B -->> E: instanceDocument
@@ -97,7 +97,7 @@ sequenceDiagram
                 B ->> C: audit(cui,instance_integrated_to_<ET>_sended)
                 note right of B: <ET> codice ente terzo
                 C -->> B: ack
-                loop per ogni procedimento/allegato di interesse parte dell'istanza 
+                loop per ogni procedimento di interesse parte dell'istanza 
                     E ->> B: request_instance_document(cui, resource_id)
                     note left of E: resource_id da instance_index
                     B -->> E: instanceDocument
