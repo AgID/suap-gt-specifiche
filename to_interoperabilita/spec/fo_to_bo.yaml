@@ -181,14 +181,23 @@ components:
                                     requester_administration:
                                         title: amministrazione richiedente
                                         $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
-            resource_id:
-                title: id della risorsa "documento di richiesta integrazioni", univoco per erogatore e CUI.UUID
-                type: string
-                minLength: 1
-            access_token:
-                title: token per l'accesso alla risorsa
-                type: string
-                minLength: 1
+            
+            integration_document_list:
+                type: array
+                items: 
+                    type: object
+                    properties:
+                        requester_administration:
+                                        title: amministrazione richiedente
+                                        $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
+                        resource_id:
+                            title: id della risorsa "documento di richiesta integrazioni", univoco per erogatore e CUI.UUID
+                            type: string
+                            minLength: 1
+                        access_token:
+                            title: token per l'accesso alla risorsa
+                            type: string
+                            minLength: 1
 
         
         NotifyMessage:
@@ -205,11 +214,11 @@ components:
                     type: string
                     enum:
                     - end_by_instance_refused
-                    - end_by_time_expired
+                    - end_by_proceeding_time_expired
                     - end_by_suspend_required
                     - end_by_conformation_required
                     - end_by_positive_outcome
-                    - integration_time_expired
+                    - end_by_integration_times_expired
                     - cdss_convened
                 
                 resource_id:
