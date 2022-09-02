@@ -35,7 +35,7 @@
     <sch:include href="../03_sections/sez_mod_spacci_interni_apertura_v1.0.0.sch#sez_spacci_interni_apertura_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     <sch:include href="../03_sections/sez_altre_dichiarazioni_v1.0.0.sch#sez_altre_dichiarazini_ab"/>
-    <sch:include href="../commons-pattern.sch#controllo_intermediario_ab"/>
+    <sch:include href="commons-pattern.sch#controllo_intermediario_ab"/>
     
     <sch:pattern id="mod_spacci_interni_apertura_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        

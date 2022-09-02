@@ -39,9 +39,9 @@
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
-    <sch:include href="../commons-pattern.sch#alimentare_ab"/>
-    <sch:include href="../commons-pattern.sch#non_alimentare_ab"/>
-    <sch:include href="../commons-pattern.sch#procuratore_ab"/>
+    <sch:include href="commons-pattern.sch#alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#non_alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#controllo_intermediario_ab"/>
       
     <sch:pattern id="altre_dichiarazioni_ab" abstract="true">       
         <sch:rule context="$altre_dichiarazioni"> 

@@ -41,13 +41,13 @@
     <sch:include href="../03_sections/sez_dati_anagrafici_v1.0.0.sch#dati_anagrafici_ab"/>         
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     <sch:include href="../03_sections/sez_altre_dichiarazioni_v1.0.0.sch#sez_altre_dichiarazini_ab"/>
-    <sch:include href="../commons-pattern.sch#controllo_intermediario_ab"/>    
+    <sch:include href="commons-pattern.sch#controllo_intermediario_ab"/>    
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#modalita_vendita_ab"/>    
-    <sch:include href="../commons-pattern.sch#ampliamento_alimentare_ab"/>
-    <sch:include href="../commons-pattern.sch#ampliamento_non_alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#ampliamento_alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#ampliamento_non_alimentare_ab"/>
     
     
     <sch:pattern id="mod_esercizio_vicinato_ampliamento_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
