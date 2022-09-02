@@ -37,12 +37,12 @@
     <sch:include href="../02_entities/ent_rappresentanza_v1.0.0.sch#rappresentanza_ab"/>
     <sch:include href="../03_sections/sez_dati_anagrafici_v1.0.0.sch#dati_anagrafici_ab"/>         
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>    
-    <sch:include href="../commons-pattern.sch#controllo_intermediario_ab"/>    
+    <sch:include href="commons-pattern.sch#controllo_intermediario_ab"/>    
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
-    <sch:include href="../commons-pattern.sch#alimentare_ab"/>
-    <sch:include href="../commons-pattern.sch#non_alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#non_alimentare_ab"/>
     
     <sch:pattern id="mod_esercizio_vicinato_trasferimento_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
