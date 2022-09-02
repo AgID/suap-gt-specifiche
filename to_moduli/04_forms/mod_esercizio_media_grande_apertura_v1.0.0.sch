@@ -14,8 +14,7 @@
     <sch:ns uri="http://agid.it/suap/entities/persona" prefix="epers"/>
     <sch:ns uri="http://agid.it/suap/entities/cittadinanza" prefix="ecitt"/>
     <sch:ns uri="http://agid.it/suap/entities/documento_rilasciato" prefix="edocril"/>
-    <sch:ns uri="http://agid.it/suap/entities/rappresentanza" prefix="erapp"/>
-    <sch:ns uri="http://agid.it/suap/sections/apertura_spacci_interni" prefix="sapspaint"/>      
+    <sch:ns uri="http://agid.it/suap/entities/rappresentanza" prefix="erapp"/>        
     <sch:ns uri="http://agid.it/suap/entities/settori_merceologici" prefix="esetmer"/>
     <sch:ns uri="http://agid.it/suap/sections/allegati" prefix="sallegati"/>
     <sch:ns uri="http://agid.it/suap/entities/file" prefix="efile"/>
