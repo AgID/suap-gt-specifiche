@@ -141,6 +141,6 @@
         <sallegati:assolvimento_imposta_bollo>
             <efile:nome_file>nome_file</efile:nome_file>
             <efile:content_type>NOCONTENTTYPE</efile:content_type>
-        </sallegati:assolvimento_imposta_bollo>
+        </sallegati:assolvimento_imposta_bollo>        
     </sallegati:allegati>
 </mesmegrtr:esercizio_media_grande_trasferimento>

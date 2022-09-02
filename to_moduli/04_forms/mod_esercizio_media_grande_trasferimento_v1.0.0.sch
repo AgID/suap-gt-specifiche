@@ -40,13 +40,13 @@
     <sch:include href="../03_sections/sez_dati_anagrafici_v1.0.0.sch#dati_anagrafici_ab"/>         
     <sch:include href="../02_entities/ent_files_v1.0.0.sch#files_ab"/>
     <sch:include href="../03_sections/sez_altre_dichiarazioni_v1.0.0.sch#sez_altre_dichiarazini_ab"/>
-    <sch:include href="../commons-pattern.sch#controllo_intermediario_ab"/>    
+    <sch:include href="commons-pattern.sch#controllo_intermediario_ab"/>    
     <sch:include href="../02_entities/ent_settori_merceologici_v1.0.0.sch#settori_merceologici_ab"/>
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#modalita_vendita_ab"/>    
-    <sch:include href="../commons-pattern.sch#alimentare_ab"/>
-    <sch:include href="../commons-pattern.sch#non_alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#non_alimentare_ab"/>
     <sch:include href="../03_sections/sez_mod_esercizio_media_grande_trasferimento_v1.0.0.sch#sez_media_grande_trasferimento_ab"/>
     
     
@@ -153,16 +153,18 @@
     <sch:pattern id="mod_esercizio_media_grande_trasferimento">
         <sch:rule id="rule_mod_esercizio_media_grande_trasferimento" context="mesmegrtr:esercizio_media_grande_trasferimento">
             <sch:assert id="check_allegati" test="count(sallegati:allegati/*[
-                name(.)='sallegati:procura_delega'
-                or name(.)='sallegati:dichiarazione_requisiti_soci'
-                or name(.)='sallegati:dichiarazione_requisiti_preposto'
-                or name(.)='sallegati:planimetria_locali'                
-                or name(.)='sallegati:attestazione_versamenti'
-                or name(.)='sallegati:assolvimento_imposta_bollo'
-                ])=count(sallegati:allegati/*) and boolean(//sallegati:planimetria_locali)">
+                    name(.)='sallegati:procura_delega'
+                    or name(.)='sallegati:dichiarazione_requisiti_soci'
+                    or name(.)='sallegati:dichiarazione_requisiti_preposto'
+                    or name(.)='sallegati:planimetria_locali'                
+                    or name(.)='sallegati:attestazione_versamenti'
+                    or name(.)='sallegati:assolvimento_imposta_bollo'
+                    ])=count(sallegati:allegati/*) 
+                and boolean(//sallegati:planimetria_locali)
+                and boolean(//sallegati:assolvimento_imposta_bollo)">
                 
                 Solo gli allegati procura delega, dichiarazione requisiti soci, dichiarazione requisiti preposto, attestazione versamenti e assolvimento imposta di bollo sono ammessi
-                ed allegato planimetria locali è obbligatorio
+                ed allegato planimetria locali e assolvimento imposta di bollo sono obbligatori
  
             </sch:assert>
             
