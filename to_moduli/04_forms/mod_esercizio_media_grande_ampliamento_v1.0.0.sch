@@ -26,7 +26,8 @@
     <sch:ns uri="http://agid.it/suap/entities/modalita_vendita" prefix="emodven"/>
     <sch:ns uri="http://agid.it/suap/entities/carattere_esercizio" prefix="ecarese"/>          
     <sch:ns uri="http://agid.it/suap/sections/ampliamento_esercizio_media_grande" prefix="samesmegr"/>
-       
+    <sch:ns uri="http://agid.it/suap/sections/ampliamento_esercizio_vicinato" prefix="samesvi"/>
+    
     
     <sch:include href="../02_entities/ent_iscrizione_REA_v1.0.0.sch#iscrizione_rea_ab"/>
     <sch:include href="../02_entities/ent_indirizzo_italiano_v1.0.0.sch#indirizzo_italiano_ab"/>
@@ -44,11 +45,12 @@
     <sch:include href="../02_entities/ent_requisiti_professionali_v1.0.0.sch#requisiti_professionali_ab"/>
     <sch:include href="../02_entities/ent_iscrizione_REC_v1.0.0.sch#iscrizione_rec_ab"/>
     <sch:include href="../02_entities/ent_modalita_vendita_v1.0.0.sch#modalita_vendita_ab"/>    
-    <sch:include href="commons-pattern.sch#alimentare_ab"/>
-    <sch:include href="commons-pattern.sch#non_alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#ampliamento_alimentare_ab"/>
+    <sch:include href="commons-pattern.sch#ampliamento_non_alimentare_ab"/>
     <sch:include href="../03_sections/sez_mod_esercizio_media_grande_ampliamento_v1.0.0.sch#sez_media_grande_ampliamento_ab"/>
         
-    
+        
+        
     <sch:pattern id="mod_esercizio_media_grande_ampliamento_iscrizione_registro" abstract="false" is-a="iscrizione_rea_ab">
         <sch:param name="iscrizione_rea" value="eimpresa:iscrizione_registro"/>        
     </sch:pattern>
@@ -186,13 +188,15 @@
     <sch:pattern id="mod_esercizio_media_grande_ampliamento_sez_media_grande_ampliamento" abstract="false" is-a="sez_media_grande_ampliamento_ab">
         <sch:param name="nsamesmegr" value="samesmegr"/>         
     </sch:pattern>
-        
-    <sch:pattern id="mod_esercizio_media_grande_ampliamento_alimentare" abstract="false" is-a="alimentare_ab">                     
+    
+    <sch:pattern id="mod_esercizio_media_grande_ampliamento_alimentare" abstract="false" is-a="ampliamento_alimentare_ab">                     
         <sch:param name="modulo" value="mesmegramp:esercizio_media_grande_ampliamento"/>
+        <sch:param name="ns" value="samesmegr"/>
     </sch:pattern>
     
-    <sch:pattern id="mod_esercizio_media_grande_ampliamento_non_alimentare" abstract="false" is-a="non_alimentare_ab">
-        <sch:param name="modulo" value="mesmegramp:esercizio_media_grande_ampliamento"/>        
+    <sch:pattern id="mod_esercizio_media_grande_ampliamento_non_alimentare" abstract="false" is-a="ampliamento_non_alimentare_ab">
+        <sch:param name="modulo" value="mesmegramp:esercizio_media_grande_ampliamento"/>
+        <sch:param name="ns" value="samesmegr"/>        
     </sch:pattern>
     
     <sch:phase id="non_alimentare_ph">

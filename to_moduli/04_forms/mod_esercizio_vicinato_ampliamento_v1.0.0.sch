@@ -174,10 +174,12 @@
     
     <sch:pattern id="mod_esercizio_vicinato_ampliamento_alimentare" abstract="false" is-a="ampliamento_alimentare_ab">                     
         <sch:param name="modulo" value="mesviamp:esercizio_vicinato_ampliamento"/>
+        <sch:param name="ns" value="samesvi"/>
     </sch:pattern>
     
     <sch:pattern id="mod_esercizio_vicinato_ampliamento_non_alimentare" abstract="false" is-a="ampliamento_non_alimentare_ab">
-        <sch:param name="modulo" value="mesviamp:esercizio_vicinato_ampliamento"/>        
+        <sch:param name="modulo" value="mesviamp:esercizio_vicinato_ampliamento"/>
+        <sch:param name="ns" value="samesvi"/>        
     </sch:pattern>
     
     <sch:phase id="non_alimentare_ph">
