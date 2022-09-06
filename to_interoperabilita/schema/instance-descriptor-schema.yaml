@@ -52,6 +52,18 @@ properties:
     "$id": "#root/time"
     "$ref": https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml  
     
+  administrative_regime:
+    "$id": "#root/administrative_regime"
+    title: regime amministrativo dell'istanza
+    type: string
+    enum:
+        - Comunicazione
+        - SCIA
+        - SCIA_Unica
+        - SCIA_Condizionata
+        - DomandaAutorizzazione
+    
+    
   proceedings:
     "$id": "#root/proceedings"
     title: procedimenti avviati
