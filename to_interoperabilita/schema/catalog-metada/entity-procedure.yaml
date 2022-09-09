@@ -1,0 +1,68 @@
+definitions: {}
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": "#root/procedure"
+title: procedimento amministrativo
+type: object
+required:
+- id   
+- version
+- typology
+- life_event
+- territorial_scope
+- description
+properties:
+  id:
+    "$id": "#root/procedure/id"
+    title: identificativo univo della procedura
+    type: string
+  version:
+    "$id": "#root/procedure/version"
+    title: version della procedura
+    type: string
+    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+  typology:
+    "$id": "#root/procedure/typology"
+    title: tipologia della procedura
+    type: string
+  life_event:
+    "$id": "#root/procedure/life_event"
+    title: evento della vita dell'impresa afferente alla procedura
+    type: string
+    enum:
+      - opening
+      - transfer
+      - expansion
+      - termination
+      - sub-entry
+  territorial_scope:
+    "$id": "#root/procedure/life_event"
+    title: evento della vita dell'impresa afferente alla procedura
+    type: string
+    enum:
+      - 00
+      - 01
+      - 02
+      - 03
+      - 04
+      - 05
+      - 06
+      - 07
+      - 08
+      - 09
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 021
+      - 022
+    description:
+      "$id": "#root/procedure/description"
+      title: descrizione della procedura
+      type: string
