@@ -1,0 +1,25 @@
+definitions: {}
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": "#root/suap-fo-suap"
+title: relazione suap e sistema front-office suap
+type: object
+required:
+- id_suap   
+- id_fo_suap
+- version_fo_suap
+    
+properties:
+  id_suap:
+    "$id": "#root/suap-fo-suap/id-suap"
+    title: identificativo univo del SUAP
+    type: string  
+  id_fo_suap:
+    "$id": "#root/suap-fo-suap/id-bo-suap"
+    title: identificativo univo del sistema front-office suap 
+    type: string
+  version_fo_suap:
+    "$id": "#root/suap-fo-suap/version-bo-suap"
+    title: version del sistema front-office suap
+    type: string
+    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+ 

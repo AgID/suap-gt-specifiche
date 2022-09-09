@@ -1,0 +1,25 @@
+definitions: {}
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": "#root/suap-bo-suap"
+title: relazione suap e sistema back-office suap
+type: object
+required:
+- id_suap   
+- id_bo_suap
+- version_bo_suap
+    
+properties:
+  id_suap:
+    "$id": "#root/suap-bo-suap/id-procedure"
+    title: identificativo univo del SUAP
+    type: string  
+  id_bo_suap:
+    "$id": "#root/suap-bo-suap/id-form"
+    title: identificativo univo del sistema back-office suap 
+    type: string
+  version_bo_suap:
+    "$id": "#root/suap-bo-suap/version-form"
+    title: version del sistema back-office suap
+    type: string
+    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+ 
