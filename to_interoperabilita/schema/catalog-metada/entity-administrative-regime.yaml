@@ -1,0 +1,23 @@
+definitions: {}
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": "#root/administrative-regime"
+title: regime amministrativo
+type: object
+required:
+- id   
+- version
+- description
+properties:
+  id:
+    "$id": "#root/administrative-regime/id"
+    title: identificativo univo del regime amministrativo
+    type: string
+  version:
+    "$id": "#root/administrative-regime/version"
+    title: version del regime amministrativo
+    type: string
+    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+  description:
+      "$id": "#root/administrative-regime/description"
+      title: descrizione del regime amministrativo
+      type: string 
