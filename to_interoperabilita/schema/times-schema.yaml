@@ -14,7 +14,7 @@ properties:
     format: date
   end:
     "$id": "#root/time/end"
-    title: data avvio dell'istanza
+    title: data entro cui l'istanza deve concludersi
     type: string
     format: date
   max_admissibility:
@@ -24,26 +24,26 @@ properties:
     format: date
   max_integration_request:
     "$id": "#root/time/max_integration_request"
-    title: data limite verifica ammissibilità
+    title: data limite richiesta integrazione degli enti terzi
     type: string
     format: date
   max_integration_response:
     "$id": "#root/time/max_integration_response"
-    title: data limite verifica ammissibilità
+    title: data limite integrazione del soggetto presentatore
     type: string
     format: date
   max_conclusions_sending:
     "$id": "#root/time/max_conclusions_sending"
-    title: data limite verifica ammissibilità
+    title: data limite inoltro conclusioni degli enti terzi
     type: string
     format: date
   date_cdss:
     "$id": "#root/time/date_cdss"
-    title: data limite verifica ammissibilità
+    title: data evetuale conferenza di servizi sincrona
     type: string
     format: date
   max_cdss_request:
     "$id": "#root/time/max_cdss_request"
-    title: data limite verifica ammissibilità
+    title: data entro cui gli enti terzi possono richiedere conferenza di servizi sincrona
     type: string
     format: date
