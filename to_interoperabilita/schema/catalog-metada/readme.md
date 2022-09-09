@@ -16,84 +16,139 @@ e
 per questo ho predisposto json schema solo per le relazione: 
 
 - con attributi (ad esempio relation-suap-bo-suap)
-- per risolvere le cardinalità 1-n (ad esempio relation-procedure-administrative-regime)
+- per risolvere le cardinalità 1-n (ad esempio relation-proceeding-administrative-regime)
 
 assunto il modello di navigazione indicato prima dobbiamo definire le seguenti API
 
 per step 1
-- getProcedure(typology, life_event, municipality)
+- getProceedingTypologyLifeEvent(typology, life_event, list municipality) -> [{typology, life_event, municipality}]
+
+- getProceedings(typology, life_event, municipality)  -> [Proceeding:{id, version,...}]
 
 per step 2
-- getProcedureAttachment(id_procedure, version_procedure)
-- getAttachment(id, version)
-- getAttachmentSchematron(id_attachment, version_attachment)
-- getSchematron(id, version)
-- getAttachmentXMLSchema(id_attachment, version_attachment)
-- getXMLSchema(id, version)
+- getProceedingAttachment(id_proceeding, version_proceeding) -> [Attachment:{id, version,...}]
+- getAttachmentSchematron(id_attachment, version_attachment)  -> Schematron:{id, version,...}
+- getAttachmentXMLSchema(id_attachment, version_attachment) -> XMLSchema:{id, version,...}
+
 
 per step 3
-- getProcedureForm(id_procedure, version_procedure)
-- getForm(id, version)
-- getFormSchematron(id_form, version_form)
-- getSchematron(id, version)
-- getFormXMLSchema(id_form, version_form)
-- getXMLSchema(id, version)
+- getProceedingForm(id_proceeding, version_proceeding) -> Form:{id, version,...}
+- getFormSchematron(id_form, version_form) -> Schematron:{id, version,...}
+- getFormXMLSchema(id_form, version_form)  -> XMLSchema:{id, version,...}
+
 
 per step 4
-- getProcedureAdministrativeRegime(id_procedure, version_procedure)
-- getProcedureAdministrativeRegime(id, version)
+- getProceedingAdministrativeRegime(id_proceeding, version_proceeding) -> AdministrativeRegime:{id, version,times,...)}
+
 
 per step 5
-- getProcedureUseCase(id_procedure, version_procedure)
-- getUseCase(id, version)
+- getProceedingUseCase(id_proceeding, version_proceeding) -> [UseCaseProceeding:{id, version,...}]
+
 
 per step 5
-- getUseCaseEndoprocedures(id_use_case, version_use_case)
-- getProcedure(id, version)
+- getUseCaseProceedingEndoproceedings(id_use_case, version_use_case)  -> [Proceeding:{id, version,mandatary,...}]
+
 
 per step 6
-- getUseCasePhasae(id_use_case, version_use_case)
+- getUseCaseProceedingSchematronPhase(id_use_case, version_use_case) -> String
 
 per step 7
-- getProcedureCompetentAdministration(id_procedure, version_procedure, municipality)
-- getCompetentAdministration(id, version)
-- getCompetentAdministrationThirdPartySystem(id_competent_administration, version_competent_administration)
-- getThirdPartySystem(id, version)
+- getProceedingCompetentAdministration(id_proceeding, version_proceeding, municipality) -> CompetentAdministration:{id,version,...}
+- getCompetentAdministrationThirdPartySystem(id_competent_administration, 
+    version_competent_administration) -> ThirdPartySystem:{id,version,...}
+
 
 per step 8
-- getSUAP(municipality)
-- getSUAP(id, version)
-- getSUAPBOSUAP(id_suap,version_suap)
-- getBOSUAP(id, version)
-- getSUAPFOSUAP(id_suap,version_suap)
-- getFOSUAP(id, version)
+- getSUAP(municipality) -> SUAP:{id,version,...}
+
+- getSUAPBOSUAP(id_suap,version_suap) -> BOSUAP:{id,version,...}
+
+- getSUAPFOSUAP(id_suap,version_suap) -> FOSUAP:{id,version,...}
+
+
+
+
 
 per local cache
 
-- getUseCaseProcedure(id_use_case,version_use_case)
 
-- getProcedure(list municipality)
-- getAttachment(list municipality)
-- getAdministrativeRegime(list municipality)
-- getUseCase(list municipality)
-- getForm(list municipality)
-- getSchematron(list municipality)
-- getXMLSchema(list municipality)
-- getCompetentAdministration(list municipality)
-- getThirdPartySystem(list municipality)
-- getSUAP(list municipality)
-- getBOSUAP(list municipality)
-- getFOSUAP(list municipality)
+#Recupero per Municipality
 
-- getAttachment(list id)
-- getAdministrativeRegime(list id)
-- getUseCase(list id)
-- getForm(list id)
-- getSchematron(list id)
-- getXMLSchema(list id)
-- getCompetentAdministration(list id)
-- getThirdPartySystem(list id)
+- getProceeding(list municipality) -> [Proceeding:{id, version,...}]
+- getProceedingAttachment(list municipality) - [{Proceeding:{id, version},Attachment{id, version}}]
+- getAttachment(list municipality) -> [Attachment:{id, version,...}]
+
+- getAdministrativeRegime(list municipality) -> [AdministrativeRegime:{id, version,...}]
+- getProceedingAdministrativeRegime(list municipality) - [{Proceeding:{id, version},AdministrativeRegime{id, version},times}]
 
 
-- getProcedureTypologyLifeEvent(typology, life_event)
+- getUseCaseProceeding(list municipality)  -> [UseCaseProceeding:{id, version,...}]
+- getProceedingUseCaseProceeding(list municipality) - [{Proceeding:{id, version},UseCaseProceeding{id, version}}]
+- getUseCaseProceedingUseCaseProceeding(list municipality) - [{UseCaseProceeding:{id, version},UseCaseProceeding{id, version},mandatary}]
+
+- getUseCaseProceedingSchematron(list municipality) - [{UseCaseProceeding:{id, version},Schematron{id, version},phase}]
+
+- getForm(list municipality)  -> [Form:{id, version,...}]
+- getProceedingForm(list municipality) - [{Proceeding:{id, version},Form{id, version}}]
+
+- getSchematron(list municipality)  -> [Schematron:{id, version,...}]
+- getFormSchematron(list municipality) - [{Form:{id, version},Schematron{id, version}}]
+- getXMLSchema(list municipality)  -> [XMLSchema:{id, version,...}]
+- getFormXMLSchema(list municipality) - [{Form:{id, version},XMLSchema{id, version}}]
+
+- getCompetentAdministration(list municipality)  -> [CompetentAdministration:{id, version,...}]
+- getProceedingCompetentAdministration(list municipality) - [{Proceeding:{id, version},CompetentAdministration{id, version},municipality}]
+
+- getThirdPartySystem(list municipality)  -> [ThirdPartySystem:{id, version,...}]
+- getCompetentAdministrationThirdPartySystem(list municipality) - [{CompetentAdministration:{id, version},ThirdPartySystem{id, version}}]
+
+- getSUAP(list municipality)  -> [SUAP:{id, version,...}]
+- getBOSUAP(list municipality)  -> [BOSUAP:{id, version,...}]
+- getSUAPBOSUAP(list municipality) - [{SUAP:{id, version},BOSUAP{id, version}}]
+
+- getFOSUAP(list municipality)  -> [FOSUAP:{id, version,...}]
+- getSUAPFOSUAP(list municipality) - [{SUAP:{id, version},FOSUAP{id, version}}]
+
+
+#Recupero Per Lista ID
+
+- getProceeding(list id_proceeding) -> [Proceeding:{id, version,...}]
+- getProceedingAttachment(list id_proceeding) - [{Proceeding:{id, version},Attachment{id, version}}]
+- getAttachment(list id_proceeding) -> [Attachment:{id, version,...}]
+
+- getAdministrativeRegime(list id_proceeding) -> [AdministrativeRegime:{id, version,...}]
+- getProceedingAdministrativeRegime(list id_proceeding) - [{Proceeding:{id, version},AdministrativeRegime{id, version},times}]
+
+
+- getUseCaseProceeding(list id_usecase_proceeding)  -> [UseCaseProceeding:{id, version,...}]
+- getProceedingUseCaseProceeding(list id_proceeding) - [{Proceeding:{id, version},UseCaseProceeding{id, version}}]
+- getUseCaseProceedingUseCaseProceeding(list id_usecase_proceeding) - [{UseCaseProceeding:{id, version},UseCaseProceeding{id, version},mandatary}]
+
+- getUseCaseProceedingSchematron(list id_usecase_proceeding) - [{UseCaseProceeding:{id, version},Schematron{id, version},phase}]
+
+- getForm(list id_form)  -> [Form:{id, version,...}]
+- getProceedingForm(list id_proceeding) - [{Proceeding:{id, version},Form{id, version}}]
+
+- getSchematron(list id_schematron)  -> [Schematron:{id, version,...}]
+- getFormSchematron(list id_form) - [{Form:{id, version},Schematron{id, version}}]
+- getXMLSchema(list id_xmlschema)  -> [XMLSchema:{id, version,...}]
+- getFormXMLSchema(list id_form) - [{Form:{id, version},XMLSchema{id, version}}]
+
+- getCompetentAdministration(list id_competent_administrator)  -> [CompetentAdministration:{id, version,...}]
+- getProceedingCompetentAdministration(list id_proceeding) - [{Proceeding:{id, version},CompetentAdministration{id, version},municipality}]
+
+- getThirdPartySystem(list id_third_party_system)  -> [ThirdPartySystem:{id, version,...}]
+- getCompetentAdministrationThirdPartySystem(list id_competent_administrator) - [{CompetentAdministration:{id, version},ThirdPartySystem{id, version}}]
+
+- getSUAP(list id_suap)  -> [SUAP:{id, version,...}]
+- getBOSUAP(list id_bosuap)  -> [BOSUAP:{id, version,...}]
+- getSUAPBOSUAP(list id_suap) - [{SUAP:{id, version},BOSUAP{id, version}}]
+
+- getFOSUAP(list id_fosuap)  -> [FOSUAP:{id, version,...}]
+- getSUAPFOSUAP(list id_suap) - [{SUAP:{id, version},FOSUAP{id, version}}]
+
+
+
+
+
 
