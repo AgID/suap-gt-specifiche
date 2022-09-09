@@ -11,11 +11,11 @@ required:
 - phases
     
 properties:
-  id_procedure:
+  id_use_case:
     "$id": "#root/use-case-schematron/id-use-case"
     title: identificativo univo della fattispecie
     type: string
-  version_procedure:
+  version_use_case:
     "$id": "#root/use-case-schematron/version-use-case"
     title: version della fattispecie
     type: string

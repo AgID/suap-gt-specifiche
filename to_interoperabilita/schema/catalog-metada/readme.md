@@ -70,16 +70,30 @@ per step 8
 
 per local cache
 
-- getProcedure(id)
-- getAttachment(id)
-- getAdministrativeRegime(id)
-- getUseCase(id)
-- getForm(id)
-- getSchematron(id)
-- getXMLSchema(id)
-- getCompetentAdministration(id)
-- getThirdPartySystem(id)
-- getSUAP(id)
-- getBOSUAP(id)
-- getFOSUAP(id)
+- getUseCaseProcedure(id_use_case,version_use_case)
+
+- getProcedure(list municipality)
+- getAttachment(list municipality)
+- getAdministrativeRegime(list municipality)
+- getUseCase(list municipality)
+- getForm(list municipality)
+- getSchematron(list municipality)
+- getXMLSchema(list municipality)
+- getCompetentAdministration(list municipality)
+- getThirdPartySystem(list municipality)
+- getSUAP(list municipality)
+- getBOSUAP(list municipality)
+- getFOSUAP(list municipality)
+
+- getAttachment(list id)
+- getAdministrativeRegime(list id)
+- getUseCase(list id)
+- getForm(list id)
+- getSchematron(list id)
+- getXMLSchema(list id)
+- getCompetentAdministration(list id)
+- getThirdPartySystem(list id)
+
+
+- getProcedureTypologyLifeEvent(typology, life_event)
 

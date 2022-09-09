@@ -20,6 +20,7 @@ properties:
     title: codice istat 6 cifre del comune in cui l'istanza è stata presentata
     type: string
     pattern: "^[0-9]{6}$"
+  
   legal_person:
     "$id": "#root/concerned/legal_person"
     title: codice fiscale persona giuridica
@@ -55,14 +56,20 @@ properties:
   administrative_regime:
     "$id": "#root/administrative_regime"
     title: regime amministrativo dell'istanza
-    type: string
-    enum:
-        - Comunicazione
-        - SCIA
-        - SCIA_Unica
-        - SCIA_Condizionata
-        - DomandaAutorizzazione
-    
+    type: object
+    items:
+      required:
+        - id
+        - version
+      id:
+        "$id": "#root/administrative-regime/id"
+        title: identificativo univo del regime amministrativo
+        type: string
+      version:
+        "$id": "#root/administrative-regime/version"
+        title: version del regime amministrativo
+        type: string
+        patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
     
   proceedings:
     "$id": "#root/proceedings"
