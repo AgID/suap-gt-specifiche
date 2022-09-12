@@ -18,14 +18,14 @@ properties:
     "$id": "#root/procedure-attachment/version-procedure"
     title: version della procura
     type: string
-    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
-  id_form:
+    pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+  id_attachment:
     "$id": "#root/procedure-attachment/id-attachment"
     title: identificativo univo dell'allegato
     type: string
-  version_form:
+  version_attachment:
     "$id": "#root/procedure-attachment/version-attachment"
     title: version dell'allegato
     type: string
-    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+    pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
  
