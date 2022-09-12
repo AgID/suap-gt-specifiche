@@ -19,16 +19,16 @@ properties:
     "$id": "#root/use-case-schematron/version-use-case"
     title: version della fattispecie
     type: string
-    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
-  id_form:
+    pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+  id_schematron:
     "$id": "#root/use-case-schematron/id-schematron"
     title: identificativo univo dello schematron
     type: string
-  version_form:
+  version_schematron:
     "$id": "#root/use-case-schematron/version-schematron"
     title: version dello schematron
     type: string
-    patter: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+    pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
   phases:
     "$id": "#root/use-case-schematron/phase"
     title: fasi dello schematron da applicare
