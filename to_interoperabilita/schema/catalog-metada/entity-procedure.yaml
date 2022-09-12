@@ -35,7 +35,7 @@ properties:
       - termination
       - sub-entry
   territorial_scope:
-    "$id": "#root/procedure/life_event"
+    "$id": "#root/procedure/territorial_scope"
     title: evento della vita dell'impresa afferente alla procedura
     type: string
     enum:
@@ -60,8 +60,8 @@ properties:
       - 18
       - 19
       - 20
-      - 021
-      - 022
+      - 21
+      - 22
     description:
       "$id": "#root/procedure/description"
       title: descrizione della procedura
