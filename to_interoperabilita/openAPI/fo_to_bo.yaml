@@ -35,7 +35,17 @@ paths:
                 required: true
             responses:
                 "200": 
-                    description: 'Ack'                         
+                    $ref: '#/components/responses/OKRequest'
+                "400":
+                    $ref: '#/components/responses/BadRequest'
+                '401':
+                    $ref: '#/components/responses/Unauthorized'
+                '500':
+                    $ref: '#/components/responses/ServerError'
+                '503':
+                    $ref: '#/components/responses/ServiceUnavaliable'
+                
+                                         
             security:
                 - bearerAuth: []
                   Agid-JWS-Signature: [] 
@@ -50,14 +60,27 @@ paths:
                 required: true
             responses:
                 "200": 
-                    description: 'Ack'                         
+                    $ref: '#/components/responses/OKRequest'
+                "400":
+                    $ref: '#/components/responses/BadRequest'
+                '401':
+                    $ref: '#/components/responses/Unauthorized'
+                '500':
+                    $ref: '#/components/responses/ServerError'
+                '503':
+                    $ref: '#/components/responses/ServiceUnavaliable'                       
             security:
                 - bearerAuth: []
                   Agid-JWS-Signature: [] 
 
-    /instance/{cui_uuid}/document/{resource_id}/{access_token}:
+    /instance/{cui_uuid}/document/{resource_id}:
         get:
             parameters:
+                -   in: header
+                    name: If-Match
+                    description: precondizione contenente l'hash della risorsa
+                    schema:
+                        type: string
                 -   name: cui_uuid
                     in: path
                     description: UUID del CUI
@@ -70,23 +93,61 @@ paths:
                     required: true
                     schema:
                         type: string
-                -   name: access_token
-                    in: path
-                    description: token per l'accesso alla risorsa 
-                    required: true
-                    schema:
-                        type: string
+                
 
                
             responses:
                 "200": 
-                    description: Restituisce la parte dell'istanza richiesta, codificata in base64, il mime type relativo è specificato nel descrittore dell'istanza
+                    description: risorsa richiesta, codificata in base64, il mime type relativo è specificato nel descrittore dell'istanza
                     content:
                         text/plain:
                             schema:
                                 type: string
                                 format: byte
-                           
+               
+                "206": 
+                    description: porzione di risorsa richiesta, codificata in base64, il mime type relativo è specificato nel descrittore dell'istanza
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                format: byte               
+                    headers:
+                        Content-Range:
+                            description: espressione del range incluso nell'intera risposta
+                            schema:
+                                type: string
+                                example: bytes 21010-47021/47022
+
+                "400":
+                    $ref: '#/components/responses/BadRequest'
+                '401':
+                    $ref: '#/components/responses/Unauthorized'
+                '404':
+                   description: risorsa non trovata
+                   headers:
+                     Agid-JWS-Signature: 
+                        $ref: '#/components/headers/Agid-JWS-Signature'
+                '412':
+                    description: precondizione fallita, rappresentazione risorsa non correttamente individuata
+                    headers:
+                     Agid-JWS-Signature: 
+                        $ref: '#/components/headers/Agid-JWS-Signature'
+                '416':
+                    description: richiesta di range non soddisfacibile
+                    headers:
+                     Agid-JWS-Signature: 
+                        $ref: '#/components/headers/Agid-JWS-Signature'
+                '428':
+                    description: precondizione richiesta, rappresentazione risorsa non correttamente individuata
+                    headers:
+                     Agid-JWS-Signature: 
+                        $ref: '#/components/headers/Agid-JWS-Signature'
+                '500':
+                    $ref: '#/components/responses/ServerError'
+                '503':
+                    $ref: '#/components/responses/ServiceUnavaliable'
+        
     
       
             security:
@@ -104,93 +165,147 @@ paths:
                 required: true
           responses:
                 "200": 
-                    description: 'ack'
+                    $ref: '#/components/responses/OKRequest'
+                "400":
+                    $ref: '#/components/responses/BadRequest'
+                '401':
+                    $ref: '#/components/responses/Unauthorized'
+                '500':
+                    $ref: '#/components/responses/ServerError'
+                '503':
+                    $ref: '#/components/responses/ServiceUnavaliable'   
 
           security:
             - bearerAuth: []
               Agid-JWS-Signature: []     
 
 components:
-  schemas:   
+  responses:
+        OKRequest:
+            description: richiesta completata con successo
+            headers:
+                Agid-JWS-Signature: 
+                    $ref: '#/components/headers/Agid-JWS-Signature'
+                
+              
+        BadRequest:
+            description: forma della richiesta non conforme alla specifica
+            headers:
+                Agid-JWS-Signature: 
+                    $ref: '#/components/headers/Agid-JWS-Signature'
+        ServiceUnavaliable:
+            description: servizio non disponibile
+            headers:
+                Agid-JWS-Signature: 
+                    $ref: '#/components/headers/Agid-JWS-Signature'
+        Unauthorized:
+            description: richiesta non autorizzata
+            headers:
+                Agid-JWS-Signature: 
+                    $ref: '#/components/headers/Agid-JWS-Signature'
+            
+        ServerError:
+            description: errore processamento richiesta
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Error'
+            headers:
+                Agid-JWS-Signature: 
+                    $ref: '#/components/headers/Agid-JWS-Signature'
+
+
+  schemas:  
+        Error:
+            type: object
+            properties:                 
+                code:
+                    type: string
+                message:
+                    type: string
+            required:
+                - code
+                - message
+
         RequestCorrectionRequest:
-          type: object
-          properties:
-            cui:
-                $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-            correction_list:
-                type: array
-                items:
-                    type: object
-                    required:
-                    - code
-                    - ref
-                    - correction_requested
-                    properties:
-                        code:
-                            title: codice della fattispecie presente nel Catalogo
-                            type: string
-                            minLength: 1
-                        ref:
-                            title: riferimento all'elemento dell'istanza relativo al procedimento
-                            type: string
-                            minLength: 1
-                        correction_request:       
-                            title: testo correzione richiesta
-                            type: string
+            type: object
+            properties:
+                cui:
+                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                correction_list:
+                    type: array
+                    items:
+                        type: object
+                        required:
+                        - code
+                        - ref
+                        - correction_requested
+                        properties:
+                            code:
+                                title: codice della fattispecie presente nel Catalogo
+                                type: string
+                                minLength: 1
+                            ref:
+                                title: riferimento all'elemento dell'istanza relativo al procedimento
+                                type: string
+                                minLength: 1
+                            correction_request:       
+                                title: testo correzione richiesta
+                                type: string
                   
                          
 
         RequestIntegrationRequest:
-          type: object
-          properties:
-            cui:
-                $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-            integration_list:
-                type: array
-                items:
-                    type: object
-                    required:
-                    - code
-                    - ref
-                    - integration_requested
-                    properties:
-                        code:
-                            title: codice della fattispecie presente nel Catalogo
-                            type: string
-                            minLength: 1
-                        ref:
-                            title: riferimento all'elemento dell'istanza relativo al procedimento (procedimento o allegato)
-                            type: string
-                            minLength: 1
-                        integration_request:       
-                            title: elenco integrazioni richieste da uno o più enti terzi
-                            type: array
-                            items:
-                                type: object
-                                properties:
-                                    request:
-                                        title: testo integrazione richiesta
-                                        type: string
-                                    requester_administration:
-                                        title: amministrazione richiedente
-                                        $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
+            type: object
+            properties:
+                cui:
+                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                integration_list:
+                    type: array
+                    items:
+                        type: object
+                        required:
+                        - code
+                        - ref
+                        - integration_requested
+                        properties:
+                            code:
+                                title: codice della fattispecie presente nel Catalogo
+                                type: string
+                                minLength: 1
+                            ref:
+                                title: riferimento all'elemento dell'istanza relativo al procedimento (procedimento o allegato)
+                                type: string
+                                minLength: 1
+                            integration_request:       
+                                title: elenco integrazioni richieste da uno o più enti terzi
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        request:
+                                            title: testo integrazione richiesta
+                                            type: string
+                                        requester_administration:
+                                            title: amministrazione richiedente
+                                            $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
             
-            integration_document_list:
-                type: array
-                items: 
-                    type: object
-                    properties:
-                        requester_administration:
-                            title: amministrazione richiedente
-                            $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
-                        resource_id:
-                            title: id della risorsa "documento di richiesta integrazioni", univoco per erogatore e CUI.UUID
-                            type: string
-                            minLength: 1
-                        access_token:
-                            title: token per l'accesso alla risorsa
-                            type: string
-                            minLength: 1
+                integration_document_list:
+                    type: array
+                    items: 
+                        type: object
+                        properties:
+                            requester_administration:
+                                title: amministrazione richiedente
+                                $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml" 
+                            resource_id:
+                                title: id della risorsa "documento di richiesta integrazioni", univoco per erogatore e CUI.UUID
+                                type: string
+                                minLength: 1
+                            access_token:
+                                title: token per l'accesso alla risorsa
+                                type: string
+                                minLength: 1
 
         
         NotifyMessage:
@@ -225,7 +340,7 @@ components:
 
 
   headers:
-      Agid-JWS-Signature:
+        Agid-JWS-Signature:
           schema:
               format: JWS
               maxLength: 4096
