@@ -150,13 +150,23 @@ components:
               - $ref: '#/components/schemas/SuspendRequired'
               - $ref: '#/components/schemas/ConformationRequired'
               - $ref: '#/components/schemas/PositiveOutcome'
-        
+            discriminator:
+                propertyName: conclusions_type
+                mapping:
+                    suspend_required: '#/components/schemas/SuspendRequired'
+                    conformation_required: '#/components/schemas/ConformationRequired'
+                    positive_outcome: '#/components/schemas/PositiveOutcome'
+
         SuspendRequired: 
             type: object
             required:
               - cui
               - suspend_motivation
+              - conclusions_type
             properties:
+                conclusions_type:
+                    type: string
+                    example: suspend_required
                 cui:
                     $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 suspend_motivation:
@@ -177,7 +187,11 @@ components:
                 - cui
                 - date
                 - conformation_requested
+                - conclusions_type
             properties:
+                conclusions_type:
+                    type: string
+                    example: conformation_required
                 cui:
                     $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 date: 
@@ -200,7 +214,11 @@ components:
             required:
               - cui
               - outcome
+              - conclusions_type
             properties:
+                conclusions_type:
+                    type: string
+                    example: positive_outcome
                 cui:
                     $ref: 'https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml'
                 positive_outcome:
