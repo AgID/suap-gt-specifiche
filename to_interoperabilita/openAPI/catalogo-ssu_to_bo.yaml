@@ -1,155 +1,237 @@
 openapi: 3.0.3
 
 info:
-    title: SUAP_CatalogoSSU to BackOffice SUAP
+  title: SUAP_CatalogoSSU to BackOffice SUAP
 
-    version: 1.0.0
+  version: 1.0.0
 
-    description: |- 
-      API rese disponibili da Catalogo SSU alle componenti BackOffice SUAP'
+  description: |-
+    API rese disponibili da Catalogo SSU alle componenti BackOffice SUAP
 
-    contact:
-        name: AgID - Agenzia per l'Italia Digitale
-        url:  https://www.agid.gov.it/
+  contact:
+    name: AgID - Agenzia per l'Italia Digitale
+    url: https://www.agid.gov.it/
 
-    license:
-        name: CC BY-NC-SA 4.0
-        url:  https://creativecommons.org/licenses/by-nc-sa/4.0/
+  license:
+    name: CC BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 servers:
-    -
-        url: xxxxxxxx
-        description: Generated server url
-        
-paths:
-    /instance_descriptor/{cui_uuid}:
-        get:
-            parameters:
-                -   name: cui_uuid
-                    in: path
-                    description: UUID del CUI
-                    required: true
-                    schema:
-                        type: string            
-            responses:
-                "200": 
-                    description: 'Instance Descriptor'
-                    content:
-                        application/json: 
-                          schema: 
-                            $ref: '#/components/schemas/InstanceDescriptor'
-                          
-            security:
-                - bearerAuth: []
-                  Agid-JWS-Signature: []               
-    
-    /update_times:
-        post:
-            requestBody:
-                content:
-                    application/json:
-                      schema:
-                         $ref: '#/components/schemas/UpdateTimesRequest'
-                required: true
-            responses:
-                "200": 
-                    description: 'Instance Descriptor'
-                    content:
-                        application/json: 
-                          schema: 
-                            $ref: '#/components/schemas/InstanceDescriptor'
-                          
-            security:
-                - bearerAuth: []
-                  Agid-JWS-Signature: []   
-    
-    /audit:
-        post:
-          requestBody:
-                content:
-                    application/json: 
-                      schema:
-                        $ref: '#/components/schemas/AuditMessage'
-                required: true
-          responses:
-                "200": 
-                    description: 'ack'
+  - url: https://<system host+subdomains>.it
+    description: Catalogo SSU to BackOffice SUAP endpoint
 
-          security:
-            - bearerAuth: []
-              Agid-JWS-Signature: []                  
+paths:
+  /instance_descriptor/{cui_uuid}:
+    description: Recupero descrittore istanza
+    get:
+      parameters:
+        - name: cui_uuid
+          in: path
+          description: UUID del CUI
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/OKInstanceDescriptor"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+
+  /update_times:
+    description: Richiesta aggiornamento tempi procedimento
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateTimesRequest"
+        required: true
+      responses:
+        "200":
+          $ref: "#/components/responses/OKInstanceDescriptor"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+
+  /audit:
+    description: Audit azioni realizzate dalla componenti
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuditMessage"
+        required: true
+
+      responses:
+        "200":
+          $ref: "#/components/responses/OKRequest"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
 
 components:
-  schemas:  
-      UpdateTimesRequest:
-          type: object
-          required:
-            - cui
-            - times
-             
-          properties:
-            cui:
-              $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml   
-          
-            times:
-              $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml   
-            
-      AuditMessage:
-          type: object
-          
-          required:
-            - cui
-            - message
-            
-          properties:
-            cui:
-              $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml   
-          
-            message:
-              type: string
-              pattern: >- 
-                    ^instance_retrived|
-                    correction_request|
-                    corrected_instance_retrived|
-                    end_by_instance_refused|
-                    instance_to_[0-9]{5}_sended|
-                    end_by_integration_request_time_expired|
-                    integration_requested|
-                    instance_integrated_retrived|
-                    instance_integrated_to_[0-9]{5}_sended|
-                    end_by_proceeding_time_expired|
-                    end_by_suspend_required|
-                    end_by_conformation_required
-                    cdss_convened|
-                    end_by_positive_outcome$
-               
-      InstanceDescriptor:
-          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
+  responses:
+    OKInstanceDescriptor:
+      description: "Instance Descriptor"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/InstanceDescriptor"
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+    OKRequest:
+      description: Richiesta completata con successo
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+
+    BadRequest:
+      description: Forma della richiesta non conforme alla specifica
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+    ServiceUnavaliable:
+      description: Servizio non disponibile
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+
+    Unauthorized:
+      description: Richiesta non autorizzata
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    ServerError:
+      description: Errore processamento richiesta
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+
+  schemas:
+    Error:
+      type: object
+      description: codice e descrizione condizione di errore
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+    UpdateTimesRequest:
+      type: object
+      required:
+        - cui
+        - times
+
+      properties:
+        cui:
+          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
+        times:
+          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml
+
+    AuditMessage:
+      type: object
+
+      required:
+        - cui
+        - message
+
+      properties:
+        cui:
+          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
+        message:
+          type: string
+          pattern: >-
+            ^instance_retrived|
+            correction_request|
+            corrected_instance_retrived|
+            end_by_instance_refused|
+            instance_to_[0-9]{5}_sended|
+            end_by_integration_request_time_expired|
+            integration_requested|
+            instance_integrated_retrived|
+            instance_integrated_to_[0-9]{5}_sended|
+            end_by_proceeding_time_expired|
+            end_by_suspend_required|
+            end_by_conformation_required
+            cdss_convened|
+            end_by_positive_outcome$
+
+    InstanceDescriptor:
+      $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 
   headers:
-      Agid-JWS-Signature:
-          schema:
-              format: JWS
-              maxLength: 4096
-              type: string
-              example: eyJzd.fafa.fafafa
-          description: |-
-              L'header Agid-JWS-Signature è un JWS (JSON Web Signature) che contiene una firma digitale
-              associata al messaggio scambiato.
-              Vedi il pattern di sicurezza [INTEGRITY_REST_01] del MoDI
-              
+    Agid-JWS-Signature:
+      schema:
+        format: JWS
+        maxLength: 4096
+        type: string
+        example: eyJzd.fafa.fafafa
+      description: |-
+        Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+        Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+
   securitySchemes:
-      bearerAuth:
-          scheme: bearer
-          bearerFormat: JWT
-          type: http
-          description: Implementazione conforme ad RFC8725
-          
-      Agid-JWS-Signature:
-          type: apiKey
-          description: |-
-              Header della firma di JWS.
-              Il valore di questo header è una firma JWS.
-              Vedere Modi  [integrity_rest_01] Integrità del payload del messaggio REST
-          name: Agid-JWS-Signature
-          in: header
+    bearerAuth:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Implementazione conforme ad RFC8725
+
+    Agid-JWS-Signature:
+      type: apiKey
+      description: |-
+        Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+        Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+      name: Agid-JWS-Signature
+      in: header

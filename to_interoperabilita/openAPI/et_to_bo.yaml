@@ -5,99 +5,258 @@ info:
 
     version: 1.0.0
 
-    description: |- 
-      API rese disponibili da  Ente Terzo a FrontOffice SUAP'
+    description: |-
+        API rese disponibili da  Ente Terzo a FrontOffice SUAP
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
-        url:  https://www.agid.gov.it/
+        url: https://www.agid.gov.it/
 
     license:
         name: CC BY-NC-SA 4.0
-        url:  https://creativecommons.org/licenses/by-nc-sa/4.0/
+        url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 servers:
-    -
-        url: xxxxxxxx
-        description: Generated server url
-        
+    - url: https://<system host+subdomains>.it
+      description: BackOffice SUAP to Ente Terzo SUAP endpoint
+
 paths:
-    
-    
-    
+    /retry:
+        post:
+            description: Richiesta di ritrasmissione dati relativi ad una specifica operation a causa di incoerenze riscontrate sui dati ricevuti.
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                cui:
+                                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                                operation:
+                                    description: operation per la quale si richiede la ritrasmissione
+                                    type: string
+                                    enum:
+                                        - send_conclusions
+                                        - request_cdss
+                                        - request_integration
+                                error:
+                                    $ref: "#/components/schemas/Error"
+
+            responses:
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
+
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []
+
     /send_instance:
+        description: Invio riferimenti istanza
         post:
             requestBody:
                 content:
                     application/json:
-                      schema:
-                        $ref: '#/components/schemas/SendInstanceRequest'
+                        schema:
+                            $ref: "#/components/schemas/SendInstanceRequest"
                 required: true
             responses:
-                "200": 
-                    description: 'OK'
-                    
-      
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []   
+                  Agid-JWS-Signature: []
 
-
-    /instance/{cui_uuid}/document/{resource_id}/{access_token}:
+    /instance/{cui_uuid}/document/{resource_id}:
         get:
-            parameters:
-                -   name: cui_uuid
-                    in: path
-                    description: UUID del CUI
-                    required: true
-                    schema:
-                        type: string
-                -   name: resource_id
-                    in: path
-                    description: id risorsa  conclusioni
-                    required: true
-                    schema:
-                        type: string
-                -   name: access_token
-                    in: path
-                    description: token per l'accesso alla risorsa 
-                    required: true
-                    schema:
-                        type: string
+            description: |
+                Recupero risorsa documento per un dato CUI.
+                Le Range Request (RFC9110) sono supportate soltanto in modalità single part.
 
-               
+            parameters:
+                - in: header
+                  name: If-Match
+                  description: precondizione contenente l'hash della risorsa
+                  required: true
+                  schema:
+                      type: string
+                - name: cui_uuid
+                  in: path
+                  description: UUID del CUI
+                  required: true
+                  schema:
+                      type: string
+                - name: resource_id
+                  in: path
+                  description: id risorsa documento
+                  required: true
+                  schema:
+                      type: string
+
             responses:
-                "200": 
-                    description: 'TODO: return result XML,PDF, or Binary'
+                "200":
+                    description: risorsa richiesta, codificata in base64, il mime type relativo è specificato nel descrittore dell'istanza
                     content:
                         text/plain:
                             schema:
                                 type: string
                                 format: byte
-             
+                    headers:
+                        Agid-JWS-Signature:
+                            $ref: "#/components/headers/Agid-JWS-Signature"
+
+                "206":
+                    description: porzione di risorsa richiesta, codificata in base64, il mime type relativo è specificato nel descrittore dell'istanza
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                format: byte
+                    headers:
+                        Content-Range:
+                            description: espressione del range incluso nella risposta
+                            schema:
+                                type: string
+                                example: bytes 21010-47021/47022
+                        Agid-JWS-Signature:
+                            $ref: "#/components/headers/Agid-JWS-Signature"
+
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "404":
+                    description: risorsa non trovata
+                    headers:
+                        Agid-JWS-Signature:
+                            $ref: "#/components/headers/Agid-JWS-Signature"
+                "412":
+                    description: precondizione fallita, rappresentazione risorsa non correttamente individuata
+                    headers:
+                        Agid-JWS-Signature:
+                            $ref: "#/components/headers/Agid-JWS-Signature"
+                "416":
+                    description: richiesta di range non soddisfacibile
+                    headers:
+                        Agid-JWS-Signature:
+                            $ref: "#/components/headers/Agid-JWS-Signature"
+                        Content-Range:
+                            description: espressione del range non soddisfacibile
+                            schema:
+                                type: string
+                                example: bytes 21010-47021/47022
+                "428":
+                    description: precondizione richiesta, rappresentazione risorsa non correttamente individuata
+                    headers:
+                        Agid-JWS-Signature:
+                            $ref: "#/components/headers/Agid-JWS-Signature"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
+
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []                 
-    
+                  Agid-JWS-Signature: []
+
     /notify:
         post:
-          requestBody:
+            description: Notifica eventi di processo
+            requestBody:
                 content:
-                    application/json: 
-                      schema:
-                        $ref: '#/components/schemas/NotifyMessage'
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/NotifyMessage"
                 required: true
-          responses:
-                "200": 
-                    description: 'ack'
+            responses:
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
 
-          security:
-            - bearerAuth: []
-              Agid-JWS-Signature: []                  
-
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []
 
 components:
-  schemas:    
+    responses:
+        OKRequest:
+            description: Richiesta completata con successo
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+
+        BadRequest:
+            description: Forma della richiesta non conforme alla specifica
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+        ServiceUnavaliable:
+            description: Servizio non disponibile
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+
+        Unauthorized:
+            description: Richiesta non autorizzata
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+        ServerError:
+            description: Errore processamento richiesta
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+
+    schemas:
+        Error:
+            type: object
+            description: codice e descrizione condizione di errore
+            properties:
+                code:
+                    type: string
+                message:
+                    type: string
+            required:
+                - code
+                - message
         SendInstanceRequest:
             type: object
             properties:
@@ -110,10 +269,10 @@ components:
             required:
                 - cui
                 - event
-                
+
             properties:
                 cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml   
+                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
 
                 event:
                     type: string
@@ -125,33 +284,29 @@ components:
                         - end_by_integration_times_expired
                         - integration_request_time_expired
                         - cdss_convened
-                
-             
 
-  headers:
-      Agid-JWS-Signature:
-          schema:
-              format: JWS
-              maxLength: 4096
-              type: string
-              example: eyJzd.fafa.fafafa
-          description: |-
-              L'header Agid-JWS-Signature è un JWS (JSON Web Signature) che contiene una firma digitale
-              associata al messaggio scambiato.
-              Vedi il pattern di sicurezza [INTEGRITY_REST_01] del MoDI
-              
-  securitySchemes:
-      bearerAuth:
-          scheme: bearer
-          bearerFormat: JWT
-          type: http
-          description: Implementazione conforme ad RFC8725
-          
-      Agid-JWS-Signature:
-          type: apiKey
-          description: |-
-              Header della firma di JWS.
-              Il valore di questo header è una firma JWS.
-              Vedere Modi  [integrity_rest_01] Integrità del payload del messaggio REST
-          name: Agid-JWS-Signature
-          in: header
+    headers:
+        Agid-JWS-Signature:
+            schema:
+                format: JWS
+                maxLength: 4096
+                type: string
+                example: eyJzd.fafa.fafafa
+            description: |-
+                Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+                Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+
+    securitySchemes:
+        bearerAuth:
+            scheme: bearer
+            bearerFormat: JWT
+            type: http
+            description: Implementazione conforme ad RFC8725
+
+        Agid-JWS-Signature:
+            type: apiKey
+            description: |-
+                Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+                Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+            name: Agid-JWS-Signature
+            in: header
