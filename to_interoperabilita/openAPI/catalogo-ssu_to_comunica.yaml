@@ -5,78 +5,136 @@ info:
 
     version: 1.0.0
 
-    description: |- 
-      API rese disponibili da Catalogo SSU alle componenti ComUnica'
+    description: |-
+        API rese disponibili da Catalogo SSU alle componenti ComUnica
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
-        url:  https://www.agid.gov.it/
+        url: https://www.agid.gov.it/
 
     license:
         name: CC BY-NC-SA 4.0
-        url:  https://creativecommons.org/licenses/by-nc-sa/4.0/
+        url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 servers:
-    -
-        url: xxxxxxxx
-        description: Generated server url
-        
+    - url: https://<system host+subdomains>.it
+      description: Catalogo SSU to ComUnica endpoint
+
 paths:
     /instance_descriptor/{cui_uuid}:
         get:
             parameters:
-                -   name: cui_uuid
-                    in: path
-                    description: UUID del CUI
-                    required: true
-                    schema:
-                        type: string            
+                - name: cui_uuid
+                  in: path
+                  description: UUID del CUI
+                  required: true
+                  schema:
+                      type: string
             responses:
-                "200": 
-                    description: 'Instance Descriptor'
+                "200":
+                    description: "Instance Descriptor"
                     content:
-                        application/json: 
-                          schema: 
-                            $ref: '#/components/schemas/InstanceDescriptor'
-                          
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/InstanceDescriptor"
+
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []                
-  
-    
-   
-components:
-  schemas:  
-     
-            
-               
-      InstanceDescriptor:
-          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
+                  Agid-JWS-Signature: []
 
-  headers:
-      Agid-JWS-Signature:
-          schema:
-              format: JWS
-              maxLength: 4096
-              type: string
-              example: eyJzd.fafa.fafafa
-          description: |-
-              L'header Agid-JWS-Signature è un JWS (JSON Web Signature) che contiene una firma digitale
-              associata al messaggio scambiato.
-              Vedi il pattern di sicurezza [INTEGRITY_REST_01] del MoDI
-              
-  securitySchemes:
-      bearerAuth:
-          scheme: bearer
-          bearerFormat: JWT
-          type: http
-          description: Implementazione conforme ad RFC8725
-          
-      Agid-JWS-Signature:
-          type: apiKey
-          description: |-
-              Header della firma di JWS.
-              Il valore di questo header è una firma JWS.
-              Vedere Modi  [integrity_rest_01] Integrità del payload del messaggio REST
-          name: Agid-JWS-Signature
-          in: header
+components:
+    responses:
+        OKInstanceDescriptor:
+            description: "Instance Descriptor"
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/InstanceDescriptor"
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+        OKRequest:
+            description: Richiesta completata con successo
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+
+        BadRequest:
+            description: Forma della richiesta non conforme alla specifica
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+        ServiceUnavaliable:
+            description: Servizio non disponibile
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+
+        Unauthorized:
+            description: Richiesta non autorizzata
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+        ServerError:
+            description: Errore processamento richiesta
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWS-Signature:
+                    $ref: "#/components/headers/Agid-JWS-Signature"
+
+    schemas:
+        Error:
+            type: object
+            description: codice e descrizione condizione di errore
+            properties:
+                code:
+                    type: string
+                message:
+                    type: string
+            required:
+                - code
+                - message
+
+        InstanceDescriptor:
+            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
+
+    headers:
+        Agid-JWS-Signature:
+            schema:
+                format: JWS
+                maxLength: 4096
+                type: string
+                example: eyJzd.fafa.fafafa
+            description: |-
+                Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+                Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+
+    securitySchemes:
+        bearerAuth:
+            scheme: bearer
+            bearerFormat: JWT
+            type: http
+            description: Implementazione conforme ad RFC8725
+
+        Agid-JWS-Signature:
+            type: apiKey
+            description: |-
+                Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+                Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+            name: Agid-JWS-Signature
+            in: header
