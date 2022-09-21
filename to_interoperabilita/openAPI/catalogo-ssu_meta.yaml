@@ -1,0 +1,1048 @@
+openapi: 3.0.3
+
+info:
+  title: Catalogo SSU Metadata
+
+  version: 1.0.0
+
+  description: |-
+    API rese disponibili dal Catalogo SSU alle componenti FrontOffice/BackOffice SUAP e Enti Terzi per la consultazione dei metadati
+
+  contact:
+    name: AgID - Agenzia per l'Italia Digitale
+    url: https://www.agid.gov.it/
+
+  license:
+    name: CC BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+servers:
+  - url: https://<system host+subdomains>.it
+    description: Catalogo SSU Metadata endpoint
+
+paths:
+  /proceedings:
+    get:
+      description: |
+        Recupero elenco procedimenti per tipologia,evento della vita e comune (mapping su ambito territoriale)
+      parameters:
+        - in: query
+          name: typology
+          description: tipologia del procedimento (es. esercizio di vicinato, grande/media struttura di vendita)
+          required: true
+          schema:
+            type: string
+        - name: lifeevent
+          in: query
+          description: Evento della vita realtivo al procedimento (apertura, ampliamento, subingresso,etc.)
+          required: true
+          schema:
+            type: string
+        - name: municipality
+          in: query
+          description: identificativo del comune necessario a determinare l'ambito territoriale del procedimento
+          required: true
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Elenco dei procedimenti richiesti
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Proceeding"
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Proceedings
+
+  /proceeding/{proceeding_id}/{proceeding_version}/usecase-proceedings:
+    get:
+      description: |
+        Recupero elenco fattispecie di uno specifico procedimento
+
+      parameters:
+        - in: path
+          name: proceeding_id
+          description: id del procedimento
+          required: true
+          schema:
+            type: string
+        - name: proceeding_version
+          in: path
+          description: versione del procedimento
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Elenco delle fattispecie relative al procedimento richiesto
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UseCaseProceeding"
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Proceedings
+
+  /proceeding/{proceeding_id}/{proceeding_version}/attachments:
+    get:
+      description: |
+        Recupero elenco allegati di un procedimento
+
+      parameters:
+        - in: path
+          name: proceeding_id
+          description: id del procedimento
+          required: true
+          schema:
+            type: string
+        - name: proceeding_version
+          in: path
+          description: versione del procedimento
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Elenco degli allegati al procedimento richiesto
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DocumentEntity"
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+      
+      tags: 
+        - Proceedings
+
+  /proceeding/{proceeding_id}/{proceeding_version}/competent-administration:
+    get:
+      description: |
+        Recupero amministrazione competente per uno specifico procedimento
+      parameters:
+        - in: path
+          name: proceeding_id
+          description: id del procedimento
+          required: true
+          schema:
+            type: string
+        - name: proceeding_version
+          in: path
+          description: versione del procedimento
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+        - name: municipality
+          in: query
+          description: identificativo del comune necessario a determinare l'amministrazione competente
+          required: true
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Amministrazione competente del procedimento richiesto
+          content:
+            application/json:
+              schema:
+                $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+      tags: 
+        - Proceedings    
+
+  /proceeding/{proceeding_id}/{proceeding_version}/form:
+    get:
+      description: |
+        Recupero modulo digitale di uno specifico procedimento
+
+      parameters:
+        - in: path
+          name: proceeding_id
+          description: id del procedimento
+          required: true
+          schema:
+            type: string
+        - name: proceeding_version
+          in: path
+          description: versione del procedimento
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Modulo digitale di uno specifico procedimento
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentEntity"
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Proceedings
+
+  /usecase-proceedings/{usecase_proceedings_id}/{usecase_proceedings_version}/usecase-proceedings:
+    get:
+      description: |
+        Recupero elenco fattispecie di relazionate ad una data fattispecie
+
+      parameters:
+        - in: path
+          name: usecase_proceedings_id
+          description: id della fattispecie
+          required: true
+          schema:
+            type: string
+        - name: usecase_proceedings_version
+          in: path
+          description: versione della fattispecie
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Elenco delle fattispecie relazionate alla fattispecie richiesta
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  allOf: 
+                    -  $ref: "#/components/schemas/UseCaseProceeding"
+                  required:
+                    - mandatary
+                  properties:
+                    mandatary:
+                      type: boolean
+          
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - UseCases
+
+  /usecase-proceedings/{usecase_proceedings_id}/{usecase_proceedings_version}/phase:
+    get:
+      description: |
+        Recupero fase schematron di una specifica fattispecie
+      parameters:
+        - in: path
+          name: usecase_proceedings_id
+          description: id della fattispecie
+          required: true
+          schema:
+            type: string
+        - name: usecase_proceedings_version
+          in: path
+          description: versione della fattispecie
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: fase schematron della fattispecie richiesta
+          content:
+            application/json:
+              schema:
+                type: string
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - UseCases
+
+  /form/{form_id}/{form_version}/xsd:
+    get:
+      description: |
+        Recupero XML Schema di uno specifico modulo digitale
+
+      parameters:
+        - in: path
+          name: form_id
+          description: id del modulo digitale
+          required: true
+          schema:
+            type: string
+        - name: form_version
+          in: path
+          description: versione del modulo digitale
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: XMLSchema del modulo digitale richiesto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceEntity"
+              example:
+                id: 1
+                version: 1.0.0
+                description: XML Schema Modulo Vicinato
+                resource: "U3dhZ2dlciByb2Nrcw=="
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Forms
+
+  /form/{form_id}/{form_version}/schematron:
+    get:
+      description: |
+        Recupero Schematron riferito ad un specifico modulo digitale
+
+      parameters:
+        - in: path
+          name: form_id
+          description: id del modulo digitale
+          required: true
+          schema:
+            type: string
+        - name: form_version
+          in: path
+          description: versione del modulo digitale
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Schematron associato al modulo digitale
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceEntity"
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Forms
+
+  /attachment/{attachment_id}/{attachment_version}/xsd:
+    get:
+      description: |
+        Recupero XML Schema riferito ad un specifico allegato
+
+      parameters:
+        - in: path
+          name: attachment_id
+          description: id dell'allegato
+          required: true
+          schema:
+            type: string
+        - name: attachment_version
+          in: path
+          description: versione dell'allegato
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: XML Schema associato all'allegato
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceEntity"
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Attachments
+
+  /attachment/{attachment_id}/{attachment_version}/schematron:
+    get:
+      description: |
+        Recupero Schematron riferito ad un specifico allegato
+
+      parameters:
+        - in: path
+          name: attachment_id
+          description: id dell'allegato
+          required: true
+          schema:
+            type: string
+        - name: attachment_version
+          in: path
+          description: versione dell'allegato
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Schematron associato all'allegato
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceEntity"
+
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Attachments
+
+  /competent-administration/{competent_administration_ipacode}/{competent_administration_code}/competent_administration_version}/third-party-system:
+    get:
+      description: |
+        Recupero Sistema Ente Terzo di una specifica amministrazione competente di uno specifico modulo digitale
+
+      parameters:
+        - in: path
+          name: competent_administration_ipacode
+          description: codice ipa dell'amministrazione
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: competent_administration_code
+          description: codice dell'ufficio dell'amministrazione
+          required: true
+          schema:
+            type: string
+        - name: competent_administration_version
+          in: path
+          description: versione dell'ufficio amministrazione
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Sistema Ente Terzo dell'amministrazione richiesta
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SystemEntity"
+          
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Administrations
+
+  /suap/{municipality}:
+    get:
+      description: |
+        Recupero Sportello SUAP per uno specifico comune
+
+      parameters:
+        - in: path
+          name: municipality
+          description: comune dello sportello SUAP
+          required: true
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Sportello SUAP del comunerichiesto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenericEntity"
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Sportello SUAP
+
+
+
+
+  /suap/{suap_id}/{suap_version}/frontoffice-system:
+    get:
+      description: |
+        Recupero Sistema FrontOffice di uno specifico Sportello SUAP
+      parameters:
+        - in: path
+          name: suap_id
+          description: id dello Sportello SUAP
+          required: true
+          schema:
+            type: string
+        - name: suap_version
+          in: path
+          description: versione dello Sportello SUAP
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Sistema FrontOffice dello Sportello SUAP richiesto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SystemEntity"
+          
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Sportello SUAP
+
+  /suap/{suap_id}/{suap_version}/backoffice-system:
+    get:
+      description: |
+        Recupero Sistema BackOffice di uno specifico Sportello SUAP
+      parameters:
+        - in: path
+          name: suap_id
+          description: id dello Sportello SUAP
+          required: true
+          schema:
+            type: string
+        - name: suap_version
+          in: path
+          description: versione dello Sportello SUAP
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+
+      responses:
+        "200":
+          description: Sistema BackOffice dello Sportello SUAP richiesto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SystemEntity"
+          
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: risorsa non trovata
+          headers:
+            Agid-JWS-Signature:
+              $ref: "#/components/headers/Agid-JWS-Signature"
+
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/ServiceUnavaliable"
+
+      security:
+        - bearerAuth: []
+          Agid-JWS-Signature: []
+          
+      tags: 
+        - Sportello SUAP
+
+
+components:
+  responses:
+    OKRequest:
+      description: Richiesta completata con successo
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+
+    BadRequest:
+      description: Forma della richiesta non conforme alla specifica
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+    ServiceUnavaliable:
+      description: Servizio non disponibile
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+
+    Unauthorized:
+      description: Richiesta non autorizzata
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    ServerError:
+      description: Errore processamento richiesta
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+      headers:
+        Agid-JWS-Signature:
+          $ref: "#/components/headers/Agid-JWS-Signature"
+
+  schemas:
+    Error:
+      type: object
+      description: codice e descrizione condizione di errore
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+
+    GenericEntity:
+      description: struttura di risorsa generica con id,versione e descrizione
+      type: object
+      required:
+        - id
+        - version
+        - description
+      properties:
+        id:
+          title: identificativo univoco della risorsa
+          type: string
+        version:
+          title: version della risorsa
+          type: string
+        description:
+          title: descrizione della risorsa
+          type: string
+
+    DocumentEntity:
+      allOf:
+        - $ref: "#/components/schemas/GenericEntity"
+        - type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - structured
+                - unstructured
+    ResourceEntity:
+      allOf:
+        - $ref: "#/components/schemas/GenericEntity"
+        - type: object
+          required:
+            - resource
+          properties:
+            resource:
+              type: string
+              format: byte
+
+    SystemEntity:
+      allOf:
+        - $ref: "#/components/schemas/GenericEntity"
+        - type: object
+          required:
+            - telematic_ref
+          properties:
+            telematic_ref:
+              type: string
+
+
+
+    Proceeding:
+      description: procedimento amministrativo
+      type: object
+      required:
+        - id
+        - version
+        - typology
+        - life_event
+        - territorial_scope
+        - description
+      properties:
+        id:
+          title: identificativo univoco del procedimento
+          type: string
+        version:
+          title: versione del procedimento
+          type: string
+          pattern: "[0-9]{2}.[0-9]{2}.[0-9]{2}"
+        typology:
+          title: tipologia del procedimento
+          type: string
+        life_event:
+          title: evento della vita dell'attività afferente al procedimento
+          type: string
+          enum:
+            - opening
+            - transfer
+            - expansion
+            - termination
+            - sub-entry
+        territorial_scope:
+          title: ambito territoriale del procedimento (codice istat a 8 cifre e 00000000 per Nazionale)
+          type: string
+        description:
+          title: descrizione della procedimento
+          type: string
+    
+    UseCaseProceeding:
+      allOf:
+        - $ref: "#/components/schemas/GenericEntity"
+        - type: object
+          required:
+            - proceeding_id
+            - proceeding_version
+          properties:
+            proceeding_id:
+              type: string
+            proceeding_version:
+              type: string
+              
+
+  headers:
+    Agid-JWS-Signature:
+      schema:
+        format: JWS
+        maxLength: 4096
+        type: string
+        example: eyJzd.fafa.fafafa
+      description: |-
+        Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+        Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+
+  securitySchemes:
+    bearerAuth:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      description: Implementazione conforme ad RFC8725
+
+    Agid-JWS-Signature:
+      type: apiKey
+      description: |-
+        Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+        Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+      name: Agid-JWS-Signature
+      in: header
