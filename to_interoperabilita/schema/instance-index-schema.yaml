@@ -9,7 +9,6 @@ items:
   - code
   - ref
   - resource_id
-  - access_token
   - hash
   - alg_hash
   properties:
@@ -26,11 +25,6 @@ items:
       resource_id:
         "$id": "#root/resource_id"
         title: id della risorsa, univoco per erogatore e CUI.UUID
-        type: string
-        minLength: 1
-      access_token:
-        "$id": "#root/access_token"
-        title: token per l'accesso alla risorsa
         type: string
         minLength: 1
       hash:

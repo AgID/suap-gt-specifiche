@@ -308,10 +308,17 @@ components:
                     title: id della risorsa "documento di richiesta integrazione", univoco per erogatore e CUI.UUID
                     type: string
                     minLength: 1
-                access_token:
-                    title: token per l'accesso alla risorsa
+                hash:
+                    title: hash risorsa
                     type: string
                     minLength: 1
+                alg_hash:
+                    title: algoritmo hash applicato
+                    type: string
+                    enum:
+                    - S256
+                    - S384
+                    - S512
 
         SendConclusionRequests:
             type: object
@@ -345,10 +352,17 @@ components:
                     title: id della risorsa "documento di richiesta sospensione", univoco per erogatore e CUI.UUID
                     type: string
                     minLength: 1
-                access_token:
-                    title: token per l'accesso alla risorsa
+                hash:
+                    title: hash risorsa
                     type: string
                     minLength: 1
+                alg_hash:
+                    title: algoritmo hash applicato
+                    type: string
+                    enum:
+                    - S256
+                    - S384
+                    - S512
 
         ConformationRequired:
             type: object
@@ -373,10 +387,17 @@ components:
                     title: id della risorsa "documento di richiesta conformazione", univoco per erogatore e CUI.UUID
                     type: string
                     minLength: 1
-                access_token:
-                    title: token per l'accesso alla risorsa
+                hash:
+                    title: hash risorsa
                     type: string
                     minLength: 1
+                alg_hash:
+                    title: algoritmo hash applicato
+                    type: string
+                    enum:
+                    - S256
+                    - S384
+                    - S512
 
         PositiveOutcome:
             required:
@@ -396,10 +417,17 @@ components:
                     title: id della risorsa "documento di parere positivo", univoco per erogatore e CUI.UUID
                     type: string
                     minLength: 1
-                access_token:
-                    title: token per l'accesso alla risorsa
+                hash:
+                    title: hash risorsa
                     type: string
                     minLength: 1
+                alg_hash:
+                    title: algoritmo hash applicato
+                    type: string
+                    enum:
+                    - S256
+                    - S384
+                    - S512
 
     headers:
         Agid-JWS-Signature:
