@@ -51,7 +51,7 @@ properties:
           format: date-time
   times:
     "$id": "#root/time"
-    "$ref": https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml  
+    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml  
     
   administrative_regime:
     "$id": "#root/administrative_regime"
