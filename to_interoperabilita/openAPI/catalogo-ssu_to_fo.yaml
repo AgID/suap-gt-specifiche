@@ -21,6 +21,9 @@ servers:
     description: Catalogo SSU to FrontOffice SUAP endpoint
 
 paths:
+
+  
+
   /request_cui:
     post:
       requestBody:
@@ -156,7 +159,11 @@ components:
             instance_to_[0-9]{5}_sended|
             corrected_instance_to_[0-9]{5}_sended|
             integrated__instance_to_[0-9]{5}_sended|
-            submitter_cancel_requested$
+            submitter_cancel_requested|
+            retry_requested_for_send_instance|
+            retry_requested_for_request_correction|
+            retry_requested_for_request_integration|
+            retry_requested_for_notify$
     InstanceDescriptor:
       $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 
