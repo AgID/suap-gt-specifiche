@@ -13,8 +13,9 @@ sequenceDiagram
     P -) F: request_cancel(cui)
     
     F->> B: request_cancel_instance(cui)
+    B -->> F: ack
 
-    F ->> C: audit(cui,submitter_cancel_instance_requested)
+    F ->> C: audit(cui,submitter_cancel_requested)
     C -->> F: ack
 
     B ->> F: notify(CUI, end_by_submitter_cancel_requested)
