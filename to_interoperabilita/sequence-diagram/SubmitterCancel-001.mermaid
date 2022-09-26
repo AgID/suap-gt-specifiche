@@ -1,0 +1,29 @@
+sequenceDiagram
+    autonumber
+    
+    actor P as Presentatore    
+    participant F as FrontOffice SUAP  
+    participant B as BackOffice SUAP   
+    participant C as Catalogo SSU  
+    participant E as Ente Terzo  
+   
+   
+    Note over P,E: istanza presentata e processo in corso
+
+    P -) F: request_cancel(cui)
+    
+    F->> B: request_cancel_instance(cui)
+
+    F ->> C: audit(cui,submitter_cancel_instance_requested)
+    C -->> F: ack
+
+    B ->> F: notify(CUI, end_by_submitter_cancel_requested)
+    F -->> B: ack
+
+    par per ogni ente terzo interessato        
+        B ->> E: notify(CUI, end_by_submitter_cancel_requested)
+        E -->> B: ack
+    end
+
+    B ->> C: audit(cui,end_by_submitter_cancel_requested)
+    C -->> B: ack

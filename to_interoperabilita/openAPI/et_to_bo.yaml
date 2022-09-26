@@ -282,6 +282,7 @@ components:
                         - end_by_conformation_required
                         - end_by_positive_outcome
                         - end_by_integration_times_expired
+                        - end_by_submitter_cancel_requested
                         - integration_request_time_expired
                         - cdss_convened
 
