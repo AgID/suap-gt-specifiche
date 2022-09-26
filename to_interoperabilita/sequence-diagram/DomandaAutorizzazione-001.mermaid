@@ -11,6 +11,10 @@ sequenceDiagram
     Note over F,B: istanza procedibile
 
     alt CdSS da SUAP
+        opt 
+            B ->> C: request_update_times(cui,times)
+            C -->> B: instanceDescriptor
+        end 
         B ->> F: notify(cui,cdss_convened)
         F -->> B: ack    
 
@@ -21,13 +25,9 @@ sequenceDiagram
         
         B ->> C: audit(cui,cdss_convened)
         C -->> B: ack
+
+       
     else No CdSS da SUAP
-
-        opt CdSA da SUAP
-            B ->> C: request_update_times(cui,cdsa_time)
-            C -->> B: instanceDescriptor
-        end
-
 
         par per ogni ente terzo interessato        
             B ->> E: send_instance(cui,instance_index)
@@ -52,6 +52,11 @@ sequenceDiagram
                 B -->> E: ack 
                 E ->> C: audit(cui,cdss_requested)
                 C -->> E: ack           
+            end
+
+            opt 
+                B ->> C: request_update_times(cui,times)
+                C -->> B: instanceDescriptor
             end
 
             B ->> F: notify(cui,cdss_convened)
@@ -173,7 +178,7 @@ sequenceDiagram
                         end
                     else
                         opt parere esplicito, in alternativa al silezio assenso
-                            E ->> B: send_conclusions(cui,positive_outcome)
+                            E ->> B: send_conclusions(cui,positive_outcome,resource_id)
                             B -->> E: ack 
                             E ->> C: audit(cui,positive_outcome_sended)
                             C -->> E: ack
@@ -189,6 +194,11 @@ sequenceDiagram
                 Note over B,E: concluso tempo ricezione pareri, o tutti gli ET hanno inviato  parere
 
                 alt CdSS da SUAP
+                    opt 
+                        B ->> C: request_update_times(cui,times)
+                        C -->> B: instanceDescriptor
+                    end 
+
                     B ->> F: notify(cui,cdss_convened)
                     F -->> B: ack    
 
@@ -201,7 +211,7 @@ sequenceDiagram
                     C -->> B: ack
                 else NO CdSS by SUAP
                 
-                    alt concluso tempo istanza o provvedimento auturizzataivo emesso, senza richieste sospensione/conformazione 
+                    alt concluso tempo istanza o provvedimento autorizzativo emesso, senza richieste sospensione/conformazione 
                         B ->> F: notify(cui,end_by_positive_outcome,resource_id)
                         F -->> B: ack
                         F ->> B: request_instance_document(cui, resource_id)
@@ -226,7 +236,7 @@ sequenceDiagram
                         end
                         B ->> C: audit(cui,end_by_suspend_required)
                         C -->> B: ack
-                    else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, nessuna richiesta sospezione,almeno una richiesta conformazione
+                    else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, nessuna richiesta sospesione,almeno una richiesta conformazione
                         B ->> F: notify(cui,end_by_conformation_required,resource_id)
                         F -->> B: ack  
                         F ->> B: request_instance_document(cui, resource_id)

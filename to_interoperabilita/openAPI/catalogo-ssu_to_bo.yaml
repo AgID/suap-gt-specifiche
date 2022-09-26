@@ -206,7 +206,11 @@ components:
             end_by_conformation_required
             cdss_convened|
             end_by_positive_outcome|
-            end_by_submitter_cancel_requested$
+            end_by_submitter_cancel_requested|
+            retry_requested_for_send_instance|
+            retry_requested_for_send_conclusions|
+            retry_requested_for_request_cdss|
+            retry_requested_for_request_integration$
 
     InstanceDescriptor:
       $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml

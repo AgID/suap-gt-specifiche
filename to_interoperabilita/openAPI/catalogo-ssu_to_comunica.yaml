@@ -22,6 +22,7 @@ servers:
 
 paths:
     /instance_descriptor/{cui_uuid}:
+        description: Recupero descrittore istanza
         get:
             parameters:
                 - name: cui_uuid
@@ -32,15 +33,45 @@ paths:
                       type: string
             responses:
                 "200":
-                    description: "Instance Descriptor"
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/InstanceDescriptor"
+                    $ref: "#/components/responses/OKInstanceDescriptor"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
 
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []
+                - Agid-JWS-Signature: []
+
+    /audit:
+        description: Audit azioni realizzate dalla componenti
+        post:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/AuditMessage"
+                required: true
+
+            responses:
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
+
+            security:
+                - bearerAuth: []
+                - Agid-JWS-Signature: []
 
 components:
     responses:
@@ -109,6 +140,22 @@ components:
             required:
                 - code
                 - message
+
+        AuditMessage:
+            type: object
+
+            required:
+                - cui
+                - message
+
+            properties:
+                cui:
+                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
+                message:
+                    type: string
+                    enum:
+                        - retry_requested_for_notify
 
         InstanceDescriptor:
             $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
