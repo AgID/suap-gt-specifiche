@@ -1,5 +1,3 @@
-%%{wrap}%%
-
 sequenceDiagram
     autonumber
       
@@ -8,7 +6,7 @@ sequenceDiagram
     participant B as Component  
 
    
-    Note over A,B: {Component,Component} = ({FrontOffice,BackOffice} | {BackOffice,FrontOffice} | {BackOffice,Ente Terzo} | {Ente Terzo,BackOffice})
+    Note over A,B: {Component,Component} = (<br/>{FrontOffice,BackOffice} |<br/> {BackOffice,FrontOffice} |<br/> {BackOffice,Ente Terzo} | <br/>{Ente Terzo,BackOffice}<br/>)
 
    
     Note over A,B: istanza presentata e processo in corso
