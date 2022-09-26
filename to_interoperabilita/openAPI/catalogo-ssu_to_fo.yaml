@@ -155,7 +155,8 @@ components:
             ^receipt_sended|
             instance_to_[0-9]{5}_sended|
             corrected_instance_to_[0-9]{5}_sended|
-            integrated__instance_to_[0-9]{5}_sended$
+            integrated__instance_to_[0-9]{5}_sended|
+            submitter_cancel_requested$
     InstanceDescriptor:
       $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 
