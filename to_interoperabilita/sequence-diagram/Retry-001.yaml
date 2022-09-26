@@ -1,0 +1,38 @@
+%%{wrap}%%
+
+sequenceDiagram
+    autonumber
+      
+    participant A as Component 
+    participant C as Catalogo SSU 
+    participant B as Component  
+
+   
+    Note over A,B: {Component,Component} = ({FrontOffice,BackOffice} | {BackOffice,FrontOffice} | {BackOffice,Ente Terzo} | {Ente Terzo,BackOffice})
+
+   
+    Note over A,B: istanza presentata e processo in corso
+
+    A->> B: operation_XXX(cui, ...)
+    B -->> A: ack
+
+    A->> C: audit(cui, operation_XXX)
+    C -->> A: ack
+
+    alt Rilevata incoerenza nei dai ricevuti
+        B->> A: retry(cui, operation, error)
+        A -->> B: ack
+
+        B->> C: audit(cui, retry_requested)
+        C -->> B: ack
+
+        A->>A: check and correction
+        note over A,B: retry operation
+        A->> B: operation_XXX(cui, ...)
+        A -->> B: ack
+
+        A->> C: audit(cui, operation_XXX)
+        C -->> A: ack
+
+    end
+
