@@ -156,7 +156,7 @@ sequenceDiagram
             end
             B ->> C: audit(cui,end_by_suspend_required)
             C -->> B: ack
-        else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, nessuna richiesta sospezione,almeno una richiesta conformazione
+        else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, nessuna richiesta sospesione,almeno una richiesta conformazione
             B ->> F: notify(cui,end_by_conformation_required)
             F -->> B: ack
             F -) P: notification(cui,end_by_conformation_required)               
