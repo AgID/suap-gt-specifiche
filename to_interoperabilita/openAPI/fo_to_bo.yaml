@@ -284,9 +284,15 @@ components:
 
         RequestCorrectionRequest:
             type: object
+            required:
+              - cui
+              - instance_descriptor_version
+              - correction_list
             properties:
                 cui:
                     $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                instance_descriptor_version:
+                    type: string
                 correction_list:
                     type: array
                     items:
@@ -310,9 +316,15 @@ components:
 
         RequestIntegrationRequest:
             type: object
+            required:
+              - cui
+              - instance_descriptor_version
+              - integration_list
             properties:
                 cui:
                     $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                instance_descriptor_version:
+                    type: string
                 integration_list:
                     type: array
                     items:
@@ -371,12 +383,13 @@ components:
             type: object
             required:
                 - cui
+                - instance_descriptor_version
                 - event
-
             properties:
                 cui:
                     $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
-
+                instance_descriptor_version:
+                    type: string
                 event:
                     type: string
                     enum:

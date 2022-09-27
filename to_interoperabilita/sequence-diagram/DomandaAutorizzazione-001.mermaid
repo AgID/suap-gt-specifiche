@@ -15,11 +15,11 @@ sequenceDiagram
             B ->> C: request_update_times(cui,times)
             C -->> B: instanceDescriptor
         end 
-        B ->> F: notify(cui,cdss_convened)
+        B ->> F: notify(cui, instance_descriptor_version,cdss_convened)
         F -->> B: ack    
 
         par per ogni ente terzo interessato
-            B ->> E: notify(cui,cdss_convened)
+            B ->> E: notify(cui, instance_descriptor_version,cdss_convened)
             E -->> B: ack
         end
         
@@ -30,7 +30,7 @@ sequenceDiagram
     else No CdSS da SUAP
 
         par per ogni ente terzo interessato        
-            B ->> E: send_instance(cui,instance_index)
+            B ->> E: send_instance(cui, instance_descriptor_version,instance_index)
             E -->> B: ack
             B ->> C: audit(cui,instance_to_<ET>_sended)
             note right of B: <ET> codice ente terzo 
@@ -48,7 +48,7 @@ sequenceDiagram
 
         alt almeno un ET richiede CdSS entro i tempi
             par almeno un ente terzo
-                E ->> B: cdss_request(cui)
+                E ->> B: cdss_request(cui, instance_descriptor_version)
                 B -->> E: ack 
                 E ->> C: audit(cui,cdss_requested)
                 C -->> E: ack           
@@ -59,11 +59,11 @@ sequenceDiagram
                 C -->> B: instanceDescriptor
             end
 
-            B ->> F: notify(cui,cdss_convened)
+            B ->> F: notify(cui, instance_descriptor_version,cdss_convened)
             F -->> B: ack    
 
             par per ogni ente terzo interessato
-                B ->> E: notify(cui,cdss_convened)
+                B ->> E: notify(cui, instance_descriptor_version,cdss_convened)
                 E -->> B: ack
             end
             
@@ -75,7 +75,7 @@ sequenceDiagram
 
             opt almeno una richiesta integrazione
                 par almeno un ente terzo
-                    E ->> B: request_integration(cui,integration_list,resource_id)
+                    E ->> B: request_integration(cui, instance_descriptor_version,integration_list,resource_id)
                     B -->> E: ack 
                     opt
                         B ->> E: request_instance_document(cui, resource_id)
@@ -88,7 +88,7 @@ sequenceDiagram
 
                 alt concluso il tempo di richiesta integrazione 
                     par per ogni ente terzo
-                        B ->> E: notify(cui, integration_request_time_expired)
+                        B ->> E: notify(cui, instance_descriptor_version, integration_request_time_expired)
                         E -->> B: ack
                     end
                     B ->> C: audit(cui, integration_request_time_expired)
@@ -96,7 +96,7 @@ sequenceDiagram
                 end 
 
                 Note over B: concluso il tempo di richiesta integrazione OR tutti gli enti terzi hanno richiesto integrazione
-                B ->> F: request_integration(cui,list_of_integration_list,integration_document_list)
+                B ->> F: request_integration(cui, instance_descriptor_version,list_of_integration_list,integration_document_list)
                 F -->> B: ack
                 B ->> C: audit(cui,integration_requested)
                 C -->> B: ack
@@ -110,10 +110,10 @@ sequenceDiagram
                 F -) P: notification(cui,integration_requested) 
 
                 alt oltre il tempo di integrazione del presentatore
-                    B ->> F: notify(cui,end_by_integration_times_expired)
+                    B ->> F: notify(cui, instance_descriptor_version,end_by_integration_times_expired)
                     F -->> B: ack
                     par per ogni ente terzo interessato
-                        B ->> E: notify(cui,end_by_integration_times_expired)
+                        B ->> E: notify(cui, instance_descriptor_version,end_by_integration_times_expired)
                         E -->> B: ack
                     end
                     B ->> C: audit(cui,end_by_integration_request_time_expired)
@@ -122,7 +122,7 @@ sequenceDiagram
                     F -) P: notification(cui,end_by_integration_times_expired)
                 else entro il tempo di integrazione del presentatore 
                     P --) F: instanceIntegrated
-                    F ->> B: send_instance(cui,instance_index)
+                    F ->> B: send_instance(cui, instance_descriptor_version,instance_index)
                     B -->> F: ack
                     F ->> C: audit(cui,instance_integrated_to_<BO>_sended)
                     note right of F: <BO> codice BackOffice
@@ -135,7 +135,7 @@ sequenceDiagram
                     B ->> C: audit(cui,instance_integrated_retrived)
                     C -->> B: ack
                     par per ogni ente terzo interessato                
-                        B ->> E: send_instance(cui,instance_index)
+                        B ->> E: send_instance(cui, instance_descriptor_version,instance_index)
                         E -->> B: ack
                         B ->> C: audit(cui,instance_integrated_to_<ET>_sended)
                         note right of B: <ET> codice ente terzo
@@ -157,7 +157,7 @@ sequenceDiagram
 
                 par
                     alt 
-                        E ->> B: send_conclusions(cui,suspend_required,resource_id)
+                        E ->> B: send_conclusions(cui, instance_descriptor_version,suspend_required,resource_id)
                         B -->> E: ack 
                         E ->> C: audit(cui,suspend_required)
                         C -->> E: ack
@@ -167,7 +167,7 @@ sequenceDiagram
                             E -->> B: instanceDocument    
                         end   
                     else
-                        E ->> B: send_conclusions(cui,conformation_required,resource_id)
+                        E ->> B: send_conclusions(cui, instance_descriptor_version,conformation_required,resource_id)
                         B -->> E: ack 
                         E ->> C: audit(cui,conformation_required)
                         C -->> E: ack 
@@ -178,7 +178,7 @@ sequenceDiagram
                         end
                     else
                         opt parere esplicito, in alternativa al silezio assenso
-                            E ->> B: send_conclusions(cui,positive_outcome,resource_id)
+                            E ->> B: send_conclusions(cui, instance_descriptor_version,positive_outcome,resource_id)
                             B -->> E: ack 
                             E ->> C: audit(cui,positive_outcome_sended)
                             C -->> E: ack
@@ -199,11 +199,11 @@ sequenceDiagram
                         C -->> B: instanceDescriptor
                     end 
 
-                    B ->> F: notify(cui,cdss_convened)
+                    B ->> F: notify(cui, instance_descriptor_version,cdss_convened)
                     F -->> B: ack    
 
                     par per ogni ente terzo interessato
-                        B ->> E: notify(cui,cdss_convened)
+                        B ->> E: notify(cui, instance_descriptor_version,cdss_convened)
                         E -->> B: ack
                     end
                     
@@ -212,39 +212,39 @@ sequenceDiagram
                 else NO CdSS by SUAP
                 
                     alt concluso tempo istanza o provvedimento autorizzativo emesso, senza richieste sospensione/conformazione 
-                        B ->> F: notify(cui,end_by_positive_outcome,resource_id)
+                        B ->> F: notify(cui, instance_descriptor_version,end_by_positive_outcome,resource_id)
                         F -->> B: ack
                         F ->> B: request_instance_document(cui, resource_id)
                         note right of F: recupero documento di provvedimento di autorizzazione
                         B -->> F: instanceDocument            
                         par per ogni ente terzo interessato
-                            B ->> E: notify(cui,end_by_positive_outcome)
+                            B ->> E: notify(cui, instance_descriptor_version,end_by_positive_outcome)
                             E -->> B: ack
                         end
                         B ->> C: audit(cui,end_by_positive_outcome)
                         C -->> B: ack
                     else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, almeno una richiesta sospensione
-                        B ->> F: notify(cui,end_by_suspend_required,resource_id)
+                        B ->> F: notify(cui, instance_descriptor_version,end_by_suspend_required,resource_id)
                         F -->> B: ack  
                         F ->> B: request_instance_document(cui, resource_id)
                         note right of F: recupero documento di provvedimento di sospensione motivata
                         B -->> F: instanceDocument            
                         F -) P: notification(cui,end_by_suspend_required)          
                         par per ogni ente terzo interessato
-                            B ->> E: notify(cui,end_by_suspend_required)
+                            B ->> E: notify(cui, instance_descriptor_version,end_by_suspend_required)
                             E -->> B: ack
                         end
                         B ->> C: audit(cui,end_by_suspend_required)
                         C -->> B: ack
                     else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, nessuna richiesta sospesione,almeno una richiesta conformazione
-                        B ->> F: notify(cui,end_by_conformation_required,resource_id)
+                        B ->> F: notify(cui, instance_descriptor_version,end_by_conformation_required,resource_id)
                         F -->> B: ack  
                         F ->> B: request_instance_document(cui, resource_id)
                         note right of F: recupero documento di provvedimento di conformazione richiesta
                         B -->> F: instanceDocument            
                         F -) P: notification(cui,end_by_conformation_required)          
                         par per ogni ente terzo interessato
-                            B ->> E: notify(cui,end_by_conformation_required)
+                            B ->> E: notify(cui, instance_descriptor_version,end_by_conformation_required)
                             E -->> B: ack
                         end
                         B ->> C: audit(cui,end_by_conformation_required)

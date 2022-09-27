@@ -281,9 +281,15 @@ components:
                 - message
         RequestIntegrationRequest:
             type: object
+            required:
+                - cui
+                - instance_descriptor_version
+                - integration_list
             properties:
                 cui:
                     $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                instance_descriptor_version:
+                    type: string
                 integration_list:
                     type: array
                     items:
@@ -337,6 +343,7 @@ components:
             type: object
             required:
                 - cui
+                - instance_descriptor_version
                 - suspend_motivation
                 - conclusions_type
             properties:
@@ -345,6 +352,8 @@ components:
                     example: suspend_required
                 cui:
                     $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                instance_descriptor_version:
+                    type: string
                 suspend_motivation:
                     type: string
                     minLength: 1
@@ -368,6 +377,7 @@ components:
             type: object
             required:
                 - cui
+                - instance_descriptor_version
                 - date
                 - conformation_requested
                 - conclusions_type
@@ -377,6 +387,8 @@ components:
                     example: conformation_required
                 cui:
                     $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                instance_descriptor_version:
+                    type: string
                 date:
                     type: string
                     format: date
@@ -402,6 +414,7 @@ components:
         PositiveOutcome:
             required:
                 - cui
+                - instance_descriptor_version
                 - outcome
                 - conclusions_type
             properties:
@@ -410,6 +423,8 @@ components:
                     example: positive_outcome
                 cui:
                     $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                instance_descriptor_version:
+                    type: string
                 positive_outcome:
                     type: string
                     minLength: 1

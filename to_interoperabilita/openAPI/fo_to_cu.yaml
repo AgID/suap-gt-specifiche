@@ -149,6 +149,30 @@ paths:
                 - bearerAuth: []
                   Agid-JWS-Signature: []
 
+    /cancel_instance:
+        description: richiesta annullamento istanza da parte del presentatore
+        post:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                required: true
+            responses:
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []
+
 
     /notify:
         post:
@@ -236,14 +260,18 @@ components:
             type: object
             required:
                 - cui
+                - instance_descriptor_version
                 - message
             properties:
                 cui:
                     $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                instance_descriptor_version:
+                    type: string
                 message:
                     type: string
                     enum:
                         - receipt_sended
+                    
 
     headers:
         Agid-JWS-Signature:

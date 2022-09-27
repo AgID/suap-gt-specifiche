@@ -202,6 +202,31 @@ paths:
                   Agid-JWS-Signature: []
 
 
+    /notify:
+        post:
+            description: Notifica eventi di processo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/NotifyMessage"
+                required: true
+            responses:
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
+
+            security:
+                - bearerAuth: []
+                  Agid-JWS-Signature: []
+
 components:
     responses:
         OKRequest:
@@ -262,11 +287,34 @@ components:
                 - message
         SendInstanceRequest:
             type: object
+            required:
+                - cui
+                - instance_descriptor_version
+                - instance_index
             properties:
                 cui:
                     $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                instance_descriptor_version:
+                    type: string
                 instance_index:
                     $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml
+
+        NotifyMessage:
+            type: object
+            required:
+                - cui
+                - event
+                - instance_descriptor_version
+            properties:
+                cui:
+                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                instance_descriptor_version:
+                    type: string
+                event:
+                    type: string
+                    enum:
+                        - receipt_sended
+                        
 
     headers:
         Agid-JWS-Signature:

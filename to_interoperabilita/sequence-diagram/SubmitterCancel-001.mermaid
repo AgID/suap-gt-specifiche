@@ -18,11 +18,11 @@ sequenceDiagram
     F ->> C: audit(cui,submitter_cancel_requested)
     C -->> F: ack
 
-    B ->> F: notify(CUI, end_by_submitter_cancel_requested)
+    B ->> F: notify(cui,instance_descriptor_version, end_by_submitter_cancel_requested)
     F -->> B: ack
 
     par per ogni ente terzo interessato        
-        B ->> E: notify(CUI, end_by_submitter_cancel_requested)
+        B ->> E: notify(cui,instance_descriptor_version, end_by_submitter_cancel_requested)
         E -->> B: ack
     end
 
