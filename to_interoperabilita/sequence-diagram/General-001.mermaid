@@ -68,9 +68,9 @@ sequenceDiagram
     opt entro tempo controllo formale
         O -) B: formalControlOK OR formalControlKO
         alt formal control KO
-            B ->> F: request_correction(cui,correction_list)
+            B ->> F: request_correction(cui,instance_descriptor_version,correction_list)
             F -->> B: ack
-            F -) P: request_correction(cui,instance_descriptor_version,correction_list)
+            F -) P: request_correction(cui,correction_list)
             B ->> C: audit(cui,correction_requested)
             C -->> B: ack
             P --) F: instanceCorrect
