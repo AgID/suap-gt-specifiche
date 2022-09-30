@@ -56,7 +56,7 @@ paths:
 
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []
+                  Agid-JWT-Signature: []
 
     /send_instance:
         description: Invio riferimenti istanza
@@ -80,7 +80,7 @@ paths:
                     $ref: "#/components/responses/ServiceUnavaliable"
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []
+                  Agid-JWT-Signature: []
 
     /instance/{cui_uuid}/document/{resource_id}:
         get:
@@ -117,8 +117,8 @@ paths:
                                 type: string
                                 format: byte
                     headers:
-                        Agid-JWS-Signature:
-                            $ref: "#/components/headers/Agid-JWS-Signature"
+                        Agid-JWT-Signature:
+                            $ref: "#/components/headers/Agid-JWT-Signature"
 
                 "206":
                     description: porzione di risorsa richiesta, codificata in base64, il mime type relativo è specificato nel descrittore dell'istanza
@@ -133,8 +133,8 @@ paths:
                             schema:
                                 type: string
                                 example: bytes 21010-47021/47022
-                        Agid-JWS-Signature:
-                            $ref: "#/components/headers/Agid-JWS-Signature"
+                        Agid-JWT-Signature:
+                            $ref: "#/components/headers/Agid-JWT-Signature"
 
                 "400":
                     $ref: "#/components/responses/BadRequest"
@@ -143,18 +143,18 @@ paths:
                 "404":
                     description: risorsa non trovata
                     headers:
-                        Agid-JWS-Signature:
-                            $ref: "#/components/headers/Agid-JWS-Signature"
+                        Agid-JWT-Signature:
+                            $ref: "#/components/headers/Agid-JWT-Signature"
                 "412":
                     description: precondizione fallita, rappresentazione risorsa non correttamente individuata
                     headers:
-                        Agid-JWS-Signature:
-                            $ref: "#/components/headers/Agid-JWS-Signature"
+                        Agid-JWT-Signature:
+                            $ref: "#/components/headers/Agid-JWT-Signature"
                 "416":
                     description: richiesta di range non soddisfacibile
                     headers:
-                        Agid-JWS-Signature:
-                            $ref: "#/components/headers/Agid-JWS-Signature"
+                        Agid-JWT-Signature:
+                            $ref: "#/components/headers/Agid-JWT-Signature"
                         Content-Range:
                             description: espressione del range non soddisfacibile
                             schema:
@@ -163,8 +163,8 @@ paths:
                 "428":
                     description: precondizione richiesta, rappresentazione risorsa non correttamente individuata
                     headers:
-                        Agid-JWS-Signature:
-                            $ref: "#/components/headers/Agid-JWS-Signature"
+                        Agid-JWT-Signature:
+                            $ref: "#/components/headers/Agid-JWT-Signature"
                 "500":
                     $ref: "#/components/responses/ServerError"
                 "503":
@@ -172,7 +172,7 @@ paths:
 
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []
+                  Agid-JWT-Signature: []
 
     /notify:
         post:
@@ -197,15 +197,15 @@ paths:
 
             security:
                 - bearerAuth: []
-                  Agid-JWS-Signature: []
+                  Agid-JWT-Signature: []
 
 components:
     responses:
         OKRequest:
             description: Richiesta completata con successo
             headers:
-                Agid-JWS-Signature:
-                    $ref: "#/components/headers/Agid-JWS-Signature"
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
 
         BadRequest:
             description: Forma della richiesta non conforme alla specifica
@@ -214,8 +214,8 @@ components:
                     schema:
                         $ref: "#/components/schemas/Error"
             headers:
-                Agid-JWS-Signature:
-                    $ref: "#/components/headers/Agid-JWS-Signature"
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
         ServiceUnavaliable:
             description: Servizio non disponibile
             content:
@@ -223,14 +223,14 @@ components:
                     schema:
                         $ref: "#/components/schemas/Error"
             headers:
-                Agid-JWS-Signature:
-                    $ref: "#/components/headers/Agid-JWS-Signature"
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
 
         Unauthorized:
             description: Richiesta non autorizzata
             headers:
-                Agid-JWS-Signature:
-                    $ref: "#/components/headers/Agid-JWS-Signature"
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
             content:
                 application/json:
                     schema:
@@ -242,8 +242,8 @@ components:
                     schema:
                         $ref: "#/components/schemas/Error"
             headers:
-                Agid-JWS-Signature:
-                    $ref: "#/components/headers/Agid-JWS-Signature"
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
 
     schemas:
         Error:
@@ -295,7 +295,7 @@ components:
                         - cdss_convened
 
     headers:
-        Agid-JWS-Signature:
+        Agid-JWT-Signature:
             schema:
                 format: JWS
                 maxLength: 4096
@@ -312,10 +312,10 @@ components:
             type: http
             description: Implementazione conforme ad RFC8725
 
-        Agid-JWS-Signature:
+        Agid-JWT-Signature:
             type: apiKey
             description: |-
                 Il valore di questo header è una token JWT firmato secondo la specifica JWS.
                 Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
-            name: Agid-JWS-Signature
+            name: Agid-JWT-Signature
             in: header

@@ -45,7 +45,7 @@ paths:
 
       security:
         - bearerAuth: []
-          Agid-JWS-Signature: []
+          Agid-JWT-Signature: []
 
   /update_times:
     description: Richiesta aggiornamento tempi procedimento
@@ -70,7 +70,7 @@ paths:
 
       security:
         - bearerAuth: []
-          Agid-JWS-Signature: []
+          Agid-JWT-Signature: []
 
   /audit:
     description: Audit azioni realizzate dalla componenti
@@ -96,7 +96,7 @@ paths:
 
       security:
         - bearerAuth: []
-          Agid-JWS-Signature: []
+          Agid-JWT-Signature: []
 
 components:
   responses:
@@ -107,13 +107,13 @@ components:
           schema:
             $ref: "#/components/schemas/InstanceDescriptor"
       headers:
-        Agid-JWS-Signature:
-          $ref: "#/components/headers/Agid-JWS-Signature"
+        Agid-JWT-Signature:
+          $ref: "#/components/headers/Agid-JWT-Signature"
     OKRequest:
       description: Richiesta completata con successo
       headers:
-        Agid-JWS-Signature:
-          $ref: "#/components/headers/Agid-JWS-Signature"
+        Agid-JWT-Signature:
+          $ref: "#/components/headers/Agid-JWT-Signature"
 
     BadRequest:
       description: Forma della richiesta non conforme alla specifica
@@ -122,8 +122,8 @@ components:
           schema:
             $ref: "#/components/schemas/Error"
       headers:
-        Agid-JWS-Signature:
-          $ref: "#/components/headers/Agid-JWS-Signature"
+        Agid-JWT-Signature:
+          $ref: "#/components/headers/Agid-JWT-Signature"
     ServiceUnavaliable:
       description: Servizio non disponibile
       content:
@@ -131,14 +131,14 @@ components:
           schema:
             $ref: "#/components/schemas/Error"
       headers:
-        Agid-JWS-Signature:
-          $ref: "#/components/headers/Agid-JWS-Signature"
+        Agid-JWT-Signature:
+          $ref: "#/components/headers/Agid-JWT-Signature"
 
     Unauthorized:
       description: Richiesta non autorizzata
       headers:
-        Agid-JWS-Signature:
-          $ref: "#/components/headers/Agid-JWS-Signature"
+        Agid-JWT-Signature:
+          $ref: "#/components/headers/Agid-JWT-Signature"
       content:
         application/json:
           schema:
@@ -150,8 +150,8 @@ components:
           schema:
             $ref: "#/components/schemas/Error"
       headers:
-        Agid-JWS-Signature:
-          $ref: "#/components/headers/Agid-JWS-Signature"
+        Agid-JWT-Signature:
+          $ref: "#/components/headers/Agid-JWT-Signature"
 
   schemas:
     Error:
@@ -216,7 +216,7 @@ components:
       $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 
   headers:
-    Agid-JWS-Signature:
+    Agid-JWT-Signature:
       schema:
         format: JWS
         maxLength: 4096
@@ -233,10 +233,10 @@ components:
       type: http
       description: Implementazione conforme ad RFC8725
 
-    Agid-JWS-Signature:
+    Agid-JWT-Signature:
       type: apiKey
       description: |-
         Il valore di questo header è una token JWT firmato secondo la specifica JWS.
         Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
-      name: Agid-JWS-Signature
+      name: Agid-JWT-Signature
       in: header
