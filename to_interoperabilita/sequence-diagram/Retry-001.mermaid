@@ -1,6 +1,7 @@
 sequenceDiagram
     autonumber
       
+    actor O as Operatore  
     participant A as Component 
     participant C as Catalogo SSU 
     participant B as Component  
@@ -24,7 +25,8 @@ sequenceDiagram
         B->> C: audit(cui,retry_requested_for_<operation_XXX>)
         C -->> B: ack
 
-        A->>A: check and correction
+        A -) O: retry_request_notification
+        O-) A: check and correction
         note over A,B: retry operation
         A->> B: operation_XXX(cui, ...)
         A -->> B: ack

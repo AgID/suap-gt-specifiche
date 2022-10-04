@@ -1,7 +1,8 @@
 sequenceDiagram
     autonumber
     
-    actor P as Presentatore    
+    actor P as Presentatore   
+    participant CU as ComUnica
     participant F as FrontOffice SUAP  
     participant B as BackOffice SUAP   
     participant C as Catalogo SSU  
@@ -10,9 +11,14 @@ sequenceDiagram
    
     Note over P,E: istanza presentata e processo in corso
 
-    P -) F: request_cancel(cui)
-    
-    F->> B: request_cancel_instance(cui)
+    alt via ComUnica
+        P -) CU: request_cancel(cui)
+        CU ->> F: cancel_instance(cui)
+    else no Via ComUnica
+        P -) F: request_cancel(cui)
+    end
+  
+    F ->> B: cancel_instance(cui)
     B -->> F: ack
 
     F ->> C: audit(cui,submitter_cancel_requested)

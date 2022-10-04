@@ -25,7 +25,7 @@ sequenceDiagram
     C -->> F: ack
 
     alt via ComUnica
-	    F ->> CU: send_instance(cui, instance_descriptor_version,instance_index)
+	    F ->> CU: send_instance(cui, instance_descriptor_version,instance_code_comunica,instance_index)
 		CU -->> F: ack
 		CU ->> C: request_instance_descriptor(cui)
 		C -->> CU: instanceDescriptor
