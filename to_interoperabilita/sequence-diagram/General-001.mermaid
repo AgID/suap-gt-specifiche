@@ -46,7 +46,7 @@ sequenceDiagram
     F ->> C: audit(cui,receipt_sended)
     C -->> F: ack
 
-    F ->> B: notify(cui, instance_descriptor_version,receipt_sended)
+    F ->> B: notify_receipt(cui, date)
     F -->> B: ack
     
     note over  B,C: BO imposta tempi procedimento<br/>a partire dalla data della ricevuta
