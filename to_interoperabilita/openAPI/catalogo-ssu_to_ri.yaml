@@ -1,12 +1,12 @@
 openapi: 3.0.3
 
 info:
-    title: ComUnica to FrontOffice SUAP
+    title: SUAP_CatalogoSSU to Registro Imprese
 
     version: 1.0.0
 
     description: |-
-        API rese disponibili da ComUnica a FrontOffice SUAP
+        API rese disponibili da Catalogo SSU al Registro Imprese
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
@@ -18,32 +18,22 @@ info:
 
 servers:
     - url: https://<system host+subdomains>.it
-      description: ComUnica to FrontOffice SUAP endpoint
+      description: Catalogo SSU to Registro Imprese endpoint
 
 paths:
-    /retry:
-        post:
-            description: Richiesta di ritrasmissione dati relativi ad una specifica operation a causa di incoerenze riscontrate sui dati ricevuti.
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            properties:
-                                cui:
-                                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-                                operation:
-                                    description: operation per la quale si richiede la ritrasmissione
-                                    type: string
-                                    enum:
-                                        - send_instance
-                                        - cancel_instance
-                                error:
-                                    $ref: "#/components/schemas/Error"
-
+    /instance_descriptor/{cui_uuid}:
+        description: Recupero descrittore istanza
+        get:
+            parameters:
+                - name: cui_uuid
+                  in: path
+                  description: UUID del CUI
+                  required: true
+                  schema:
+                      type: string
             responses:
                 "200":
-                    $ref: "#/components/responses/OKRequest"
+                    $ref: "#/components/responses/OKInstanceDescriptor"
                 "400":
                     $ref: "#/components/responses/BadRequest"
                 "401":
@@ -55,34 +45,20 @@ paths:
 
             security:
                 - bearerAuth: []
-                  Agid-JWT-Signature: []
+                - Agid-JWT-Signature: []
 
-    /send_instance:
-        description: Invio riferimenti istanza
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/SendInstanceRequest"
-                required: true
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-            security:
-                - bearerAuth: []
-                  Agid-JWT-Signature: []
 
 components:
     responses:
+        OKInstanceDescriptor:
+            description: "Instance Descriptor"
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/InstanceDescriptor"
+            headers:
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
         OKRequest:
             description: Richiesta completata con successo
             headers:
@@ -139,22 +115,11 @@ components:
             required:
                 - code
                 - message
-        SendInstanceRequest:
-            required:
-                - cui
-                - instance_descriptor_version
-                - instance_code_comunica
-                - instance_index
-            type: object
-            properties:
-                cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-                instance_descriptor_version:
-                    type: string
-                instance_code_comunica:
-                    type: string
-                instance_index:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml
+
+    
+
+        InstanceDescriptor:
+            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 
     headers:
         Agid-JWT-Signature:

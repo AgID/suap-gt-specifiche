@@ -1,12 +1,12 @@
 openapi: 3.0.3
 
 info:
-    title: FrontOffice SUAP to ComUnica
+    title: BackOffice SUAP to Registro Imprese
 
     version: 1.0.0
 
     description: |-
-        API rese disponibili da FrontOffice SUAP a ComUnica
+        API rese disponibili da BackOffice SUAP al Registro Imprese
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
@@ -18,7 +18,7 @@ info:
 
 servers:
     - url: https://<system host+subdomains>.it
-      description: FrontOffice SUAP to ComUnica endpoint
+      description: BackOffice SUAP to Registro Imprese endpoint
 
 paths:
 
@@ -38,7 +38,7 @@ paths:
                                     type: string
                                     enum:
                                         - send_instance
-                         
+                                        - notify
                                 error:
                                     $ref: "#/components/schemas/Error"
 
@@ -150,66 +150,7 @@ paths:
                 - bearerAuth: []
                   Agid-JWT-Signature: []
 
-    /cancel_instance:
-        description: richiesta annullamento istanza per annullamento pratica comunica da parte del presentatore
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-                required: true
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-            security:
-                - bearerAuth: []
-                  Agid-JWT-Signature: []
-
-
-    /notify_receipt:
-        description: notifica invio ricevuta al presentatore
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            required:
-                                - cui
-                                - date
-                            properties:
-                                cui:
-                                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
-                                date:
-                                    type: string
-                                    format: date
-                                        
-                               
-                required: true
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-            security:
-                - bearerAuth: []
-                  Agid-JWT-Signature: []
-
+  
 components:
     responses:
         OKRequest:
@@ -267,9 +208,7 @@ components:
             required:
                 - code
                 - message
-      
-                    
-
+       
     headers:
         Agid-JWT-Signature:
             schema:

@@ -37,7 +37,7 @@ sequenceDiagram
         end
         
         CU -) P: receipt
-        CU ->> F: notify(cui, instance_descriptor_version,receipt_sended)
+        CU ->> F: notify_receipt(cui, date)
         F -->> CU: ack
     else no via ComUnica
         F -) P: receipt

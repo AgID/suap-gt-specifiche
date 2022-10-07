@@ -6,7 +6,7 @@ info:
     version: 1.0.0
 
     description: |-
-        API rese disponibili da Catalogo SSU alle componenti ComUnica
+        API rese disponibili da Catalogo SSU al sistema ComUnica
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
@@ -34,32 +34,6 @@ paths:
             responses:
                 "200":
                     $ref: "#/components/responses/OKInstanceDescriptor"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-
-            security:
-                - bearerAuth: []
-                - Agid-JWT-Signature: []
-
-    /audit:
-        description: Audit azioni realizzate dalla componenti
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/AuditMessage"
-                required: true
-
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
                 "400":
                     $ref: "#/components/responses/BadRequest"
                 "401":
@@ -141,21 +115,6 @@ components:
                 - code
                 - message
 
-        AuditMessage:
-            type: object
-
-            required:
-                - cui
-                - message
-
-            properties:
-                cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-
-                message:
-                    type: string
-                    enum:
-                        - retry_requested_for_notify
 
         InstanceDescriptor:
             $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml

@@ -157,8 +157,8 @@ components:
             - instance_retrived
             - integration_requested
             - instance_integrated_retrived
-            - suspend_required
-            - conformation_required
+            - suspension_requested
+            - conformation_requested
             - cdss_requested
             - positive_outcome_sended
             - retry_requested_for_send_instance

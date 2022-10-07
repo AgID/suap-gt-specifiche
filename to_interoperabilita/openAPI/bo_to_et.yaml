@@ -335,8 +335,8 @@ components:
             discriminator:
                 propertyName: conclusions_type
                 mapping:
-                    suspend_required: "#/components/schemas/SuspendRequired"
-                    conformation_required: "#/components/schemas/ConformationRequired"
+                    suspension_requested: "#/components/schemas/SuspendRequired"
+                    conformation_requested: "#/components/schemas/ConformationRequired"
                     positive_outcome: "#/components/schemas/PositiveOutcome"
 
         SuspendRequired:
@@ -349,7 +349,7 @@ components:
             properties:
                 conclusions_type:
                     type: string
-                    example: suspend_required
+                    example: suspension_requested
                 cui:
                     $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
                 instance_descriptor_version:
@@ -384,7 +384,7 @@ components:
             properties:
                 conclusions_type:
                     type: string
-                    example: conformation_required
+                    example: conformation_requested
                 cui:
                     $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
                 instance_descriptor_version:
