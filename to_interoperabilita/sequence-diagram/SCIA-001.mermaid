@@ -113,9 +113,9 @@ sequenceDiagram
 
         par
             alt 
-                E ->> B: send_conclusions(cui, instance_descriptor_version,suspend_required,resource_id)
+                E ->> B: send_conclusions(cui, instance_descriptor_version,suspension_requested,resource_id)
                 B -->> E: ack 
-                E ->> C: audit(cui,suspend_required)
+                E ->> C: audit(cui,suspension_requested)
                 C -->> E: ack
                 opt
                     B ->> E: request_instance_document(cui, resource_id)
@@ -124,9 +124,9 @@ sequenceDiagram
                 end  
                 
             else
-                E ->> B: send_conclusions(cui, instance_descriptor_version,conformation_required,resource_id)
+                E ->> B: send_conclusions(cui, instance_descriptor_version,conformation_requested,resource_id)
                 B -->> E: ack 
-                E ->> C: audit(cui,conformation_required)
+                E ->> C: audit(cui,conformation_requested)
                 C -->> E: ack 
                 opt
                     B ->> E: request_instance_document(cui, resource_id)
@@ -146,24 +146,24 @@ sequenceDiagram
             B ->> C: audit(cui,end_by_proceeding_time_expired)
             C -->> B: ack
         else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, almeno una richiesta sospensione
-            B ->> F: notify(cui, instance_descriptor_version,end_by_suspend_required)
+            B ->> F: notify(cui, instance_descriptor_version,end_by_suspension_requested)
             F -->> B: ack  
-            F -) P: notification(cui,end_by_suspend_required)          
+            F -) P: notification(cui,end_by_suspension_requested)          
             par per ogni ente terzo interessato
-                B ->> E: notify(cui, instance_descriptor_version,end_by_suspend_required)
+                B ->> E: notify(cui, instance_descriptor_version,end_by_suspension_requested)
                 E -->> B: ack
             end
-            B ->> C: audit(cui,end_by_suspend_required)
+            B ->> C: audit(cui,end_by_suspension_requested)
             C -->> B: ack
         else concluso tempo istanza o tutti gli enti terzi hanno inoltrato conclusione, nessuna richiesta sospesione,almeno una richiesta conformazione
-            B ->> F: notify(cui, instance_descriptor_version,end_by_conformation_required)
+            B ->> F: notify(cui, instance_descriptor_version,end_by_conformation_requested)
             F -->> B: ack
-            F -) P: notification(cui,end_by_conformation_required)               
+            F -) P: notification(cui,end_by_conformation_requested)               
             par per ogni ente terzo interessato
-                B ->> E: notify(cui, instance_descriptor_version,end_by_conformation_required)
+                B ->> E: notify(cui, instance_descriptor_version,end_by_conformation_requested)
                 E -->> B: ack
             end
-            B ->> C: audit(cui,end_by_conformation_required)
+            B ->> C: audit(cui,end_by_conformation_requested)
             C -->> B: ack
         end
 

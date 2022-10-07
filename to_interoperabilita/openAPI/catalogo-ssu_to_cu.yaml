@@ -6,7 +6,7 @@ info:
     version: 1.0.0
 
     description: |-
-        API rese disponibili da Catalogo SSU alle componenti ComUnica
+        API rese disponibili da Catalogo SSU al sistema ComUnica
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
@@ -155,7 +155,7 @@ components:
                 message:
                     type: string
                     enum:
-                        - retry_requested_for_notify
+                        - retry_requested_for_send_instance
 
         InstanceDescriptor:
             $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml

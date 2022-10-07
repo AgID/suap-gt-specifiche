@@ -1,12 +1,12 @@
 openapi: 3.0.3
 
 info:
-    title: BackOffice SUAP to FrontOffice SUAP
+    title: BackOffice SUAP to Registro Imprese
 
     version: 1.0.0
 
     description: |-
-        API rese disponibili da BackOffice SUAP a FrontOffice SUAP
+        API rese disponibili da BackOffice SUAP al Registro Imprese
 
     contact:
         name: AgID - Agenzia per l'Italia Digitale
@@ -18,69 +18,10 @@ info:
 
 servers:
     - url: https://<system host+subdomains>.it
-      description: BackOffice SUAP to FrontOffice SUAP endpoint
+      description: BackOffice SUAP to Registro Imprese endpoint
 
 paths:
 
-    /notify_receipt:
-        description: notifica invio ricevuta al presentatore
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            required:
-                                - cui
-                                - date
-                            properties:
-                                cui:
-                                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
-                                date:
-                                    type: string
-                                    format: date
-                                        
-                               
-                required: true
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-            security:
-                - bearerAuth: []
-                  Agid-JWT-Signature: []
-
-    /cancel_instance:
-        description: richiesta annullamento istanza da parte del presentatore
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-                required: true
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-            security:
-                - bearerAuth: []
-                  Agid-JWT-Signature: []
-    
     /retry:
         post:
             description: Richiesta di ritrasmissione dati relativi ad una specifica operation a causa di incoerenze riscontrate sui dati ricevuti.
@@ -96,9 +37,7 @@ paths:
                                     description: operation per la quale si richiede la ritrasmissione
                                     type: string
                                     enum:
-                                        - request_correction
-                                        - request_integration
-                                        - notify
+                                        - send_instance
                                 error:
                                     $ref: "#/components/schemas/Error"
 
@@ -118,38 +57,12 @@ paths:
                 - bearerAuth: []
                   Agid-JWT-Signature: []
 
-
-
-    /send_instance:
-        description: Invio riferimenti istanza
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/SendInstanceRequest"
-                required: true
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-            security:
-                - bearerAuth: []
-                  Agid-JWT-Signature: []
-
-    
     /instance/{cui_uuid}/document/{resource_id}:
         get:
-            description: | 
+            description: |
                 Recupero risorsa documento per un dato CUI.
                 Le Range Request (RFC9110) sono supportate soltanto in modalità single part.
+
             parameters:
                 - in: header
                   name: If-Match
@@ -236,9 +149,7 @@ paths:
                 - bearerAuth: []
                   Agid-JWT-Signature: []
 
-
-    
-
+  
 components:
     responses:
         OKRequest:
@@ -284,7 +195,6 @@ components:
             headers:
                 Agid-JWT-Signature:
                     $ref: "#/components/headers/Agid-JWT-Signature"
-
     schemas:
         Error:
             type: object
@@ -297,21 +207,7 @@ components:
             required:
                 - code
                 - message
-        SendInstanceRequest:
-            type: object
-            required:
-                - cui
-                - instance_descriptor_version
-                - instance_index
-            properties:
-                cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-                instance_descriptor_version:
-                    type: string
-                instance_index:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml
-
-     
+       
     headers:
         Agid-JWT-Signature:
             schema:
