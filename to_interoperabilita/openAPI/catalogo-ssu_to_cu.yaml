@@ -47,32 +47,6 @@ paths:
                 - bearerAuth: []
                 - Agid-JWT-Signature: []
 
-    /audit:
-        description: Audit azioni realizzate dalla componenti
-        post:
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/AuditMessage"
-                required: true
-
-            responses:
-                "200":
-                    $ref: "#/components/responses/OKRequest"
-                "400":
-                    $ref: "#/components/responses/BadRequest"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-                "500":
-                    $ref: "#/components/responses/ServerError"
-                "503":
-                    $ref: "#/components/responses/ServiceUnavaliable"
-
-            security:
-                - bearerAuth: []
-                - Agid-JWT-Signature: []
-
 components:
     responses:
         OKInstanceDescriptor:
@@ -141,21 +115,6 @@ components:
                 - code
                 - message
 
-        AuditMessage:
-            type: object
-
-            required:
-                - cui
-                - message
-
-            properties:
-                cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-
-                message:
-                    type: string
-                    enum:
-                        - retry_requested_for_send_instance
 
         InstanceDescriptor:
             $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml

@@ -1,104 +1,216 @@
-sequenceDiagram
-    autonumber
-    
-    participant B as BackOffice SUAP  
-    participant RI as Registro Imprese   
-    participant C as Catalogo SSU  
+openapi: 3.0.3
 
-   
-   
-    Note over B,C: istanza presentata e ricevuta emessa (dopo step 22 di General-001)
+info:
+    title: RegistroImprese to BackOffice SUAP
+
+    version: 1.0.0
+
+    description: |-
+        API rese disponibili dal Registro Imprese a BackOffice SUAP
+
+    contact:
+        name: AgID - Agenzia per l'Italia Digitale
+        url: https://www.agid.gov.it/
+
+    license:
+        name: CC BY-NC-SA 4.0
+        url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+servers:
+    - url: https://<system host+subdomains>.it
+      description: RegistroImprese to BackOffice SUAP endpoint
+
+paths:
     
 
-    B ->> RI: send_instance(cui, instance_descriptor_version,instance_index)
-    RI -->> B: ack
-    
-    RI ->> C: request_instance_descriptor(cui)
-	C -->> RI: instanceDescriptor
-    
-    loop per ogni procedimento parte dell'istanza
-        RI ->> B:  request_instance_document(cui, resource_id)
-        note right of RI: resource_id da instance_index
-        B -->> RI: instanceDocument
-    end
-    
+    /send_instance:
+        description: Invio riferimenti istanza
+        post:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/SendInstanceRequest"
+                required: true
+            responses:
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
+            security:
+                - bearerAuth: []
+                  Agid-JWT-Signature: []
 
-    alt istanza corretta (dopo step 43 General-001)
 
-        B ->> RI: send_instance(cui, instance_descriptor_version,instance_index)
-        RI -->> B: ack
     
-        RI ->> C: request_instance_descriptor(cui)
-        C -->> RI: instanceDescriptor
+    /notify:
+        post:
+            description: Notifica eventi di processo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/NotifyMessage"
+                required: true
+            responses:
+                "200":
+                    $ref: "#/components/responses/OKRequest"
+                "400":
+                    $ref: "#/components/responses/BadRequest"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavaliable"
+
+            security:
+                - bearerAuth: []
+                  Agid-JWT-Signature: []
+
         
-        loop per ogni procedimento parte dell'istanza
-            RI ->> B:  request_instance_document(cui, resource_id)
-            note right of RI: resource_id da instance_index
-            B -->> RI: instanceDocument
-        end
 
 
+components:
+    responses:
+        OKRequest:
+            description: Richiesta completata con successo
+            headers:
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
 
-    end
+        BadRequest:
+            description: Forma della richiesta non conforme alla specifica
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
+        ServiceUnavaliable:
+            description: Servizio non disponibile
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
 
-    alt richiesta integrazione e scaduti tempi integrazione (dopo step: 29 SCIA-001 o 49 DomandaAutorizzazione-001)
-        B ->> RI: notify(cui, instance_descriptor_version,end_by_integration_times_expired)
-        RI -->> B: ack
-    end
+        Unauthorized:
+            description: Richiesta non autorizzata
+            headers:
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+        ServerError:
+            description: Errore processamento richiesta
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Error"
+            headers:
+                Agid-JWT-Signature:
+                    $ref: "#/components/headers/Agid-JWT-Signature"
 
-    alt istanza integrata (dopo step: 43 SCIA-001 o 63 DomandaAutorizzazione-001)
+    schemas:
+        Error:
+            type: object
+            description: codice e descrizione condizione di errore
+            properties:
+                code:
+                    type: string
+                message:
+                    type: string
+            required:
+                - code
+                - message
+        SendInstanceRequest:
+            required:
+                - cui
+                - instance_descriptor_version
+                - instance_status
+                - instance_index
+            type: object
+            properties:
+                cui:
+                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                instance_descriptor_version:
+                    type: string
+                instance_index:
+                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml
 
-        B ->> RI: send_instance(cui, instance_descriptor_version,instance_index)
-        RI -->> B: ack
-    
-        RI ->> C: request_instance_descriptor(cui)
-        C -->> RI: instanceDescriptor
-        
-        loop per ogni procedimento parte dell'istanza
-            RI ->> B:  request_instance_document(cui, resource_id)
-            note right of RI: resource_id da instance_index
-            B -->> RI: instanceDocument
-        end
+        NotifyMessage:
+            type: object
+            required:
+                - cui
+                - instance_descriptor_version
+                - event
+            properties:
+                cui:
+                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                instance_descriptor_version:
+                    type: string
+                event:
+                    type: string
+                    enum:
+                        - end_by_instance_refused
+                        - end_by_proceeding_time_expired
+                        - end_by_suspend_required
+                        - end_by_conformation_required
+                        - end_by_positive_outcome
+                        - end_by_integration_times_expired
+                        - end_by_submitter_cancel_requested
+
+                resource_id:
+                    title: se presente, id della risorsa documento correlata all'evento notificato
+                    type: string
+                    minLength: 1
+                hash:
+                    title: hash risorsa
+                    type: string
+                    minLength: 1
+                alg_hash:
+                    title: algoritmo hash applicato
+                    type: string
+                    enum:
+                    - S256
+                    - S384
+                    - S512
 
 
-    end
+    headers:
+        Agid-JWT-Signature:
+            schema:
+                format: JWS
+                maxLength: 4096
+                type: string
+                example: eyJzd.fafa.fafafa
+            description: |-
+                Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+                Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
 
+    securitySchemes:
+        bearerAuth:
+            scheme: bearer
+            bearerFormat: JWT
+            type: http
+            description: Implementazione conforme ad RFC8725
 
-    alt concluso tempo istanza, senza richieste sospensione/conformazione (dopo step 65 SCIA-001 )
-        B ->> RI: notify(cui, instance_descriptor_version,end_by_proceeding_time_expired)
-        RI -->> B: ack   
-    end
-
-
-    alt sospesione richiesta (dopo step: 71 SCIA-001, 107 DomandaAutorizzazione-001  )
-        B ->> RI: notify(cui, instance_descriptor_version,end_by_suspension_requested,resource_id)
-        RI -->> B: ack  
-        RI ->> B: request_instance_document(cui, resource_id)
-        note right of RI: recupero documento di provvedimento di sospensione motivata
-        B -->> RI: instanceDocument     
-    end
-
-     alt conformazione richiesta (dopo step: 78 SCIA-001, 116 DomandaAutorizzazione-001  )
-        B ->> RI: notify(cui, instance_descriptor_version,end_by_conformation_requested,resource_id)
-        RI -->> B: ack  
-        RI ->> B: request_instance_document(cui, resource_id)
-        note right of RI: recupero documento di provvedimento di conformazione richiesta
-        B -->> RI: instanceDocument     
-    end
-
-
-    alt provvedimento autorizzativo emesso (dopo step 99 DomandaAutorizzazione-001)
-        B ->> RI: notify(cui, instance_descriptor_version,end_by_positive_outcome,resource_id)
-        RI -->> B: ack
-        RI ->> B: request_instance_document(cui, resource_id)
-        note right of RI: recupero documento di provvedimento di autorizzazione
-        B -->> RI: instanceDocument   
-    end
-
-
-
-      
-
-
-
-
+        Agid-JWT-Signature:
+            type: apiKey
+            description: |-
+                Il valore di questo header è una token JWT firmato secondo la specifica JWS.
+                Vedi Modi  [integrity_rest_01] Integrità del payload del messaggio REST.
+            name: Agid-JWT-Signature
+            in: header

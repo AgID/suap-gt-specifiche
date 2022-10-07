@@ -38,6 +38,7 @@ paths:
                                     type: string
                                     enum:
                                         - send_instance
+                         
                                 error:
                                     $ref: "#/components/schemas/Error"
 
@@ -174,14 +175,25 @@ paths:
                   Agid-JWT-Signature: []
 
 
-    /notify:
+    /notify_receipt:
+        description: notifica invio ricevuta al presentatore
         post:
-            description: Notifica eventi di processo
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: "#/components/schemas/NotifyMessage"
+                            type: object
+                            required:
+                                - cui
+                                - date
+                            properties:
+                                cui:
+                                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                                date:
+                                    type: string
+                                    format: date
+                                        
+                               
                 required: true
             responses:
                 "200":
@@ -194,7 +206,6 @@ paths:
                     $ref: "#/components/responses/ServerError"
                 "503":
                     $ref: "#/components/responses/ServiceUnavaliable"
-
             security:
                 - bearerAuth: []
                   Agid-JWT-Signature: []
@@ -256,21 +267,7 @@ components:
             required:
                 - code
                 - message
-        NotifyMessage:
-            type: object
-            required:
-                - cui
-                - instance_descriptor_version
-                - message
-            properties:
-                cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
-                instance_descriptor_version:
-                    type: string
-                message:
-                    type: string
-                    enum:
-                        - receipt_sended
+      
                     
 
     headers:
