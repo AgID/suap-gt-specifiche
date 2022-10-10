@@ -61,7 +61,7 @@ paths:
 
     /request_correction:
         post:
-            description: Richiesta correzioni
+            description: Richiesta regolarizzazione
             requestBody:
                 content:
                     application/json:
@@ -313,7 +313,7 @@ components:
                                 type: string
                                 minLength: 1
                             correction_request:
-                                title: testo correzione richiesta
+                                title: testo regolarizzazione richiesta
                                 type: string
 
         RequestIntegrationRequest:
