@@ -130,6 +130,9 @@ components:
           $ref: "#/components/headers/Agid-JWT-Signature"
 
   schemas:
+    cui:
+      $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
     Error:
       type: object
       description: codice e descrizione condizione di errore
@@ -150,7 +153,7 @@ components:
 
       properties:
         cui:
-          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+          $ref: "#/components/schemas/cui"
 
         message:
           type: string
@@ -164,6 +167,7 @@ components:
             retry_requested_for_request_correction|
             retry_requested_for_request_integration|
             retry_requested_for_notify$
+    
     InstanceDescriptor:
       $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 

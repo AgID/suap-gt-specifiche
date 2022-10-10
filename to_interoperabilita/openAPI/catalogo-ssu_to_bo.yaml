@@ -154,6 +154,12 @@ components:
           $ref: "#/components/headers/Agid-JWT-Signature"
 
   schemas:
+    cui:
+      $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
+    Times:
+      $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml
+
     Error:
       type: object
       description: codice e descrizione condizione di errore
@@ -173,10 +179,10 @@ components:
 
       properties:
         cui:
-          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+          $ref: "#/components/schemas/cui"
 
         times:
-          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml
+          $ref: "#/components/schemas/Times"
 
     AuditMessage:
       type: object
@@ -187,7 +193,7 @@ components:
 
       properties:
         cui:
-          $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+          $ref: "#/components/schemas/cui"
 
         message:
           type: string

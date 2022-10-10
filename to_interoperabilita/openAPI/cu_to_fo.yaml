@@ -31,7 +31,7 @@ paths:
                             type: object
                             properties:
                                 cui:
-                                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                                    $ref: "#/components/schemas/cui"
                                 operation:
                                     description: operation per la quale si richiede la ritrasmissione
                                     type: string
@@ -128,6 +128,11 @@ components:
                     $ref: "#/components/headers/Agid-JWT-Signature"
 
     schemas:
+        cui:
+            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
+        InstanceIndex:
+                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml
         Error:
             type: object
             description: codice e descrizione condizione di errore
@@ -148,13 +153,13 @@ components:
             type: object
             properties:
                 cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 instance_code_comunica:
                     type: string
                 instance_index:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-index-schema.yaml
+                    $ref: "#/components/schemas/InstanceIndex"
 
     headers:
         Agid-JWT-Signature:

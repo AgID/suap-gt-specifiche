@@ -116,8 +116,6 @@ components:
                 - code
                 - message
 
-    
-
         InstanceDescriptor:
             $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/instance-descriptor-schema.yaml
 

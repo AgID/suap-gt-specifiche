@@ -31,7 +31,7 @@ paths:
                             type: object
                             properties:
                                 cui:
-                                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                                    $ref: "#/components/schemas/cui"
                                 operation:
                                     description: operation per la quale si richiede la ritrasmissione
                                     type: string
@@ -88,7 +88,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                            $ref: "#/components/schemas/cui"
                 required: true
             responses:
                 "200":
@@ -221,7 +221,7 @@ paths:
                 - bearerAuth: []
                   Agid-JWT-Signature: []
 
-components:
+components:    
     responses:
         OKRequest:
             description: Richiesta completata con successo
@@ -268,6 +268,9 @@ components:
                     $ref: "#/components/headers/Agid-JWT-Signature"
 
     schemas:
+        cui:
+            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
         Error:
             type: object
             description: codice e descrizione condizione di errore
@@ -287,7 +290,7 @@ components:
                 - integration_list
             properties:
                 cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 integration_list:
@@ -351,7 +354,7 @@ components:
                     type: string
                     example: suspension_requested
                 cui:
-                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 suspend_motivation:
@@ -386,7 +389,7 @@ components:
                     type: string
                     example: conformation_requested
                 cui:
-                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 date:
@@ -422,7 +425,7 @@ components:
                     type: string
                     example: positive_outcome
                 cui:
-                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 positive_outcome:

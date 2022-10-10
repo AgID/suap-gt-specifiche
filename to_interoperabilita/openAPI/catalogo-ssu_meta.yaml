@@ -299,7 +299,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml
+                $ref: "#/components/schemas/AdministrationSchema"
 
           headers:
             Agid-JWT-Signature:
@@ -1021,7 +1021,7 @@ paths:
                     adminstrative-regime:
                       $ref: "#/components/schemas/GenericEntity"
                     times:
-                      $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml  
+                      $ref: "#/components/schemas/Times"
 
 
 
@@ -1779,6 +1779,12 @@ components:
           $ref: "#/components/headers/Agid-JWT-Signature"
 
   schemas:
+    AdministrationSchema:
+      $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml
+
+    Times:
+      $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/times-schema.yaml
+
     Error:
       type: object
       description: codice e descrizione condizione di errore
