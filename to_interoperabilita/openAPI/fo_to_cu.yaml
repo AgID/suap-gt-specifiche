@@ -32,7 +32,7 @@ paths:
                             type: object
                             properties:
                                 cui:
-                                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                                    $ref: "#/components/schemas/cui"
                                 operation:
                                     description: operation per la quale si richiede la ritrasmissione
                                     type: string
@@ -157,7 +157,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                            $ref: "#/components/schemas/cui"
                 required: true
             responses:
                 "200":
@@ -188,7 +188,7 @@ paths:
                                 - date
                             properties:
                                 cui:
-                                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                                    $ref: "#/components/schemas/cui"
                                 date:
                                     type: string
                                     format: date
@@ -256,6 +256,9 @@ components:
                 Agid-JWT-Signature:
                     $ref: "#/components/headers/Agid-JWT-Signature"
     schemas:
+        cui:
+            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
         Error:
             type: object
             description: codice e descrizione condizione di errore

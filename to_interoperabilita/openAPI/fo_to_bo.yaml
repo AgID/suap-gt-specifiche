@@ -32,7 +32,7 @@ paths:
                             type: object
                             properties:
                                 cui:
-                                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                                    $ref: "#/components/schemas/cui"
                                 operation:
                                     description: operation per la quale si richiede la ritrasmissione
                                     type: string
@@ -272,6 +272,12 @@ components:
                     $ref: "#/components/headers/Agid-JWT-Signature"
 
     schemas:
+        cui:
+            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+
+        AdministrationSchema:
+            $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml
+
         Error:
             type: object
             description: codice e descrizione condizione di errore
@@ -292,7 +298,7 @@ components:
               - correction_list
             properties:
                 cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 correction_list:
@@ -324,7 +330,7 @@ components:
               - integration_list
             properties:
                 cui:
-                    $ref: https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 integration_list:
@@ -355,7 +361,7 @@ components:
                                             type: string
                                         requester_administration:
                                             title: amministrazione richiedente
-                                            $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml"
+                                            $ref: "#/components/schemas/AdministrationSchema"
 
                 integration_document_list:
                     type: array
@@ -364,7 +370,7 @@ components:
                         properties:
                             requester_administration:
                                 title: amministrazione richiedente
-                                $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/administration-schema.yaml"
+                                $ref: "#/components/schemas/AdministrationSchema"
                             resource_id:
                                 title: id della risorsa "documento di richiesta integrazioni", univoco per erogatore e CUI.UUID
                                 type: string
@@ -389,7 +395,7 @@ components:
                 - event
             properties:
                 cui:
-                    $ref: "https://raw.githubusercontent.com/AgID/suap-gt-specifiche/to_interoperabilita-protocols/to_interoperabilita/schema/cui-schema.yaml"
+                    $ref: "#/components/schemas/cui"
                 instance_descriptor_version:
                     type: string
                 event:
