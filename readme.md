@@ -1,3 +1,10 @@
+# Il materiale del presente repository è stato riorganizzato e spostato al seguente repository
+
+https://github.com/AgID/specifiche-tecniche-DPR-160-2010
+
+
+
+
 # Repository artifact Gruppo Tecnico articolo 5 Allegato DRP 160/2010
 
 Repo degli artifact prodotti da:
